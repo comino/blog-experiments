@@ -1,4 +1,4 @@
-# thesis-experiments
+# blog-experiments
 
 Experiment data, scripts, and results for the ClickHouse benchmark series on [sveneliasson.de](https://sveneliasson.de).
 
