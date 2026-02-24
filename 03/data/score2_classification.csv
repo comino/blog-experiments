@@ -1,0 +1,397 @@
+model,question_id,run,failure_type,brief_explanation
+claude-opus-4.6,t3_03,1,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+claude-opus-4.6,t3_03,2,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+claude-opus-4.6,t3_03,3,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+claude-opus-4.6,t3_04,1,column_mismatch,Returns only source value without event_id column
+claude-opus-4.6,t3_04,2,column_mismatch,Returns only source value without event_id column
+claude-opus-4.6,t3_04,3,column_mismatch,Returns only source value without event_id column
+claude-opus-4.6,t3_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+claude-opus-4.6,t3_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+claude-opus-4.6,t3_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+claude-opus-4.6,t3_10,1,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+claude-opus-4.6,t3_10,2,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+claude-opus-4.6,t3_10,3,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+claude-opus-4.6,t4_01,1,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+claude-opus-4.6,t4_01,2,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+claude-opus-4.6,t4_01,3,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+claude-opus-4.6,t4_04,1,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+claude-opus-4.6,t4_04,2,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+claude-opus-4.6,t4_04,3,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+claude-opus-4.6,t4_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+claude-opus-4.6,t4_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+claude-opus-4.6,t4_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+claude-opus-4.6,t4_10,1,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+claude-opus-4.6,t4_10,2,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+claude-opus-4.6,t4_10,3,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+claude-opus-4.6,t5_01,1,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+claude-opus-4.6,t5_01,2,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+claude-opus-4.6,t5_01,3,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+claude-opus-4.6,t5_04,1,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+claude-opus-4.6,t5_04,2,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+claude-opus-4.6,t5_04,3,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+claude-opus-4.6,t5_06,1,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+claude-opus-4.6,t5_06,2,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+claude-opus-4.6,t5_06,3,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+claude-opus-4.6,t5_07,1,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+claude-opus-4.6,t5_07,2,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+claude-opus-4.6,t5_07,3,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+claude-opus-4.6,t5_08,1,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+claude-opus-4.6,t5_08,2,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+claude-opus-4.6,t5_08,3,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+claude-opus-4.6,t5_10,1,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+claude-opus-4.6,t5_10,2,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+claude-opus-4.6,t5_10,3,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+claude-opus-4,t3_03,1,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+claude-opus-4,t3_03,2,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+claude-opus-4,t3_03,3,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+claude-opus-4,t3_04,1,column_mismatch,Returns only source value without event_id column
+claude-opus-4,t3_04,2,column_mismatch,Returns only source value without event_id column
+claude-opus-4,t3_04,3,column_mismatch,Returns only source value without event_id column
+claude-opus-4,t3_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+claude-opus-4,t3_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+claude-opus-4,t3_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+claude-opus-4,t3_10,1,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+claude-opus-4,t3_10,2,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+claude-opus-4,t3_10,3,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+claude-opus-4,t4_01,1,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+claude-opus-4,t4_01,2,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+claude-opus-4,t4_01,3,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+claude-opus-4,t4_04,1,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+claude-opus-4,t4_04,2,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+claude-opus-4,t4_04,3,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+claude-opus-4,t4_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+claude-opus-4,t4_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+claude-opus-4,t4_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+claude-opus-4,t4_10,1,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+claude-opus-4,t4_10,2,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+claude-opus-4,t4_10,3,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+claude-opus-4,t5_01,1,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+claude-opus-4,t5_01,2,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+claude-opus-4,t5_01,3,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+claude-opus-4,t5_04,1,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+claude-opus-4,t5_04,2,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+claude-opus-4,t5_04,3,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+claude-opus-4,t5_06,1,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+claude-opus-4,t5_06,2,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+claude-opus-4,t5_06,3,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+claude-opus-4,t5_07,1,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+claude-opus-4,t5_07,2,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+claude-opus-4,t5_07,3,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+claude-opus-4,t5_08,1,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+claude-opus-4,t5_08,2,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+claude-opus-4,t5_08,3,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+claude-opus-4,t5_10,1,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+claude-opus-4,t5_10,2,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+claude-opus-4,t5_10,3,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+claude-sonnet-4.5,t2_04,1,column_mismatch,Returns only country without the count column; correct filter logic
+claude-sonnet-4.5,t2_04,2,column_mismatch,Returns only country without the count column; correct filter logic
+claude-sonnet-4.5,t2_04,3,column_mismatch,Returns only country without the count column; correct filter logic
+claude-sonnet-4.5,t2_10,1,format_mismatch,Returns two rows via GROUP BY instead of single row with countIf columns
+claude-sonnet-4.5,t2_10,2,format_mismatch,Returns two rows via GROUP BY instead of single row with countIf columns
+claude-sonnet-4.5,t2_10,3,format_mismatch,Returns two rows via GROUP BY instead of single row with countIf columns
+claude-sonnet-4.5,t3_03,1,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+claude-sonnet-4.5,t3_03,2,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+claude-sonnet-4.5,t3_03,3,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+claude-sonnet-4.5,t3_04,1,column_mismatch,Returns only source value without event_id column
+claude-sonnet-4.5,t3_04,2,column_mismatch,Returns only source value without event_id column
+claude-sonnet-4.5,t3_04,3,column_mismatch,Returns only source value without event_id column
+claude-sonnet-4.5,t3_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+claude-sonnet-4.5,t3_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+claude-sonnet-4.5,t3_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+claude-sonnet-4.5,t3_10,1,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+claude-sonnet-4.5,t3_10,2,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+claude-sonnet-4.5,t3_10,3,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+claude-sonnet-4.5,t4_01,1,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+claude-sonnet-4.5,t4_01,2,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+claude-sonnet-4.5,t4_01,3,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+claude-sonnet-4.5,t4_04,1,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+claude-sonnet-4.5,t4_04,2,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+claude-sonnet-4.5,t4_04,3,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+claude-sonnet-4.5,t4_05,1,column_mismatch,"Adds extra columns (email, plan) via JOIN instead of returning just user_id and count"
+claude-sonnet-4.5,t4_05,2,column_mismatch,"Adds extra columns (email, plan) via JOIN instead of returning just user_id and count"
+claude-sonnet-4.5,t4_05,3,column_mismatch,"Adds extra columns (email, plan) via JOIN instead of returning just user_id and count"
+claude-sonnet-4.5,t4_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+claude-sonnet-4.5,t4_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+claude-sonnet-4.5,t4_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+claude-sonnet-4.5,t4_09,1,column_mismatch,Returns only country without the count column
+claude-sonnet-4.5,t4_09,2,column_mismatch,Returns only country without the count column
+claude-sonnet-4.5,t4_09,3,column_mismatch,Returns only country without the count column
+claude-sonnet-4.5,t4_10,1,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+claude-sonnet-4.5,t4_10,2,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+claude-sonnet-4.5,t4_10,3,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+claude-sonnet-4.5,t5_01,1,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+claude-sonnet-4.5,t5_01,2,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+claude-sonnet-4.5,t5_01,3,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+claude-sonnet-4.5,t5_04,1,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+claude-sonnet-4.5,t5_04,2,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+claude-sonnet-4.5,t5_04,3,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+claude-sonnet-4.5,t5_05,1,column_mismatch,Missing max_duration column; returns only event_type and user_id
+claude-sonnet-4.5,t5_05,2,column_mismatch,Missing max_duration column; returns only event_type and user_id
+claude-sonnet-4.5,t5_05,3,column_mismatch,Missing max_duration column; returns only event_type and user_id
+claude-sonnet-4.5,t5_06,1,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+claude-sonnet-4.5,t5_06,2,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+claude-sonnet-4.5,t5_06,3,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+claude-sonnet-4.5,t5_07,1,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+claude-sonnet-4.5,t5_07,2,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+claude-sonnet-4.5,t5_07,3,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+claude-sonnet-4.5,t5_08,1,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+claude-sonnet-4.5,t5_08,2,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+claude-sonnet-4.5,t5_08,3,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+claude-sonnet-4.5,t5_10,1,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+claude-sonnet-4.5,t5_10,2,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+claude-sonnet-4.5,t5_10,3,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+deepseek-v3.2,t2_07,1,format_mismatch,Uses toMonth() returning integer month instead of toStartOfMonth() returning date
+deepseek-v3.2,t2_07,2,format_mismatch,Uses toMonth() returning integer month instead of toStartOfMonth() returning date
+deepseek-v3.2,t2_07,3,format_mismatch,Uses toMonth() returning integer month instead of toStartOfMonth() returning date
+deepseek-v3.2,t2_10,2,format_mismatch,Returns two rows via GROUP BY instead of single row with countIf columns
+deepseek-v3.2,t2_10,3,format_mismatch,Returns two rows via GROUP BY instead of single row with countIf columns
+deepseek-v3.2,t3_03,1,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+deepseek-v3.2,t3_03,2,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+deepseek-v3.2,t3_04,1,column_mismatch,Returns only source value without event_id column
+deepseek-v3.2,t3_04,2,column_mismatch,Returns only source value without event_id column
+deepseek-v3.2,t3_04,3,column_mismatch,Returns only source value without event_id column
+deepseek-v3.2,t3_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+deepseek-v3.2,t3_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+deepseek-v3.2,t3_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+deepseek-v3.2,t3_07,2,format_mismatch,Uses quantileExact (exact) vs quantile (approx); slightly different numeric results
+deepseek-v3.2,t3_10,1,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+deepseek-v3.2,t3_10,2,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+deepseek-v3.2,t3_10,3,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+deepseek-v3.2,t4_01,1,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+deepseek-v3.2,t4_01,2,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+deepseek-v3.2,t4_01,3,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+deepseek-v3.2,t4_04,1,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+deepseek-v3.2,t4_04,2,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+deepseek-v3.2,t4_04,3,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+deepseek-v3.2,t4_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+deepseek-v3.2,t4_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+deepseek-v3.2,t4_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+deepseek-v3.2,t4_08,1,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+deepseek-v3.2,t4_08,2,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+deepseek-v3.2,t4_08,3,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+deepseek-v3.2,t4_10,1,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+deepseek-v3.2,t4_10,2,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+deepseek-v3.2,t4_10,3,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+deepseek-v3.2,t5_01,1,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+deepseek-v3.2,t5_01,2,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+deepseek-v3.2,t5_01,3,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+deepseek-v3.2,t5_04,1,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+deepseek-v3.2,t5_04,2,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+deepseek-v3.2,t5_04,3,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+deepseek-v3.2,t5_05,1,column_mismatch,Missing max_duration column; returns only event_type and user_id
+deepseek-v3.2,t5_05,2,column_mismatch,Missing max_duration column; returns only event_type and user_id
+deepseek-v3.2,t5_05,3,column_mismatch,Missing max_duration column; returns only event_type and user_id
+deepseek-v3.2,t5_06,1,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+deepseek-v3.2,t5_06,2,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+deepseek-v3.2,t5_06,3,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+deepseek-v3.2,t5_07,1,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+deepseek-v3.2,t5_07,2,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+deepseek-v3.2,t5_07,3,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+deepseek-v3.2,t5_08,1,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+deepseek-v3.2,t5_08,2,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+deepseek-v3.2,t5_08,3,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+deepseek-v3.2,t5_09,2,format_mismatch,Uses toHour returning integer 0-23 instead of toStartOfHour returning DateTime
+gemini-3-flash,t2_04,1,column_mismatch,Returns only country without the count column; correct filter logic
+gemini-3-flash,t2_04,2,column_mismatch,Returns only country without the count column; correct filter logic
+gemini-3-flash,t2_04,3,column_mismatch,Returns only country without the count column; correct filter logic
+gemini-3-flash,t3_03,1,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+gemini-3-flash,t3_03,2,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+gemini-3-flash,t3_03,3,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+gemini-3-flash,t3_04,1,column_mismatch,Returns only source value without event_id column
+gemini-3-flash,t3_04,2,column_mismatch,Returns only source value without event_id column
+gemini-3-flash,t3_04,3,column_mismatch,Returns only source value without event_id column
+gemini-3-flash,t3_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+gemini-3-flash,t3_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+gemini-3-flash,t3_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+gemini-3-flash,t3_10,1,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+gemini-3-flash,t3_10,2,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+gemini-3-flash,t3_10,3,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+gemini-3-flash,t4_01,1,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+gemini-3-flash,t4_01,2,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+gemini-3-flash,t4_01,3,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+gemini-3-flash,t4_04,2,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+gemini-3-flash,t4_04,3,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+gemini-3-flash,t4_05,1,column_mismatch,"Adds extra columns (email, plan) via JOIN instead of returning just user_id and count"
+gemini-3-flash,t4_05,2,column_mismatch,"Adds extra columns (email, plan) via JOIN instead of returning just user_id and count"
+gemini-3-flash,t4_05,3,column_mismatch,"Adds extra columns (email, plan) via JOIN instead of returning just user_id and count"
+gemini-3-flash,t4_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+gemini-3-flash,t4_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+gemini-3-flash,t4_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+gemini-3-flash,t4_08,1,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+gemini-3-flash,t4_08,2,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+gemini-3-flash,t4_08,3,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+gemini-3-flash,t4_09,1,column_mismatch,Returns only country without the count column
+gemini-3-flash,t4_09,2,column_mismatch,Returns only country without the count column
+gemini-3-flash,t4_09,3,column_mismatch,Returns only country without the count column
+gemini-3-flash,t4_10,1,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+gemini-3-flash,t4_10,2,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+gemini-3-flash,t4_10,3,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+gemini-3-flash,t5_01,1,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+gemini-3-flash,t5_01,2,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+gemini-3-flash,t5_01,3,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+gemini-3-flash,t5_02,1,format_mismatch,Uses toStartOfDay returning DateTime instead of toDate returning Date
+gemini-3-flash,t5_02,2,format_mismatch,Uses toStartOfDay returning DateTime instead of toDate returning Date
+gemini-3-flash,t5_02,3,format_mismatch,Uses toStartOfDay returning DateTime instead of toDate returning Date
+gemini-3-flash,t5_04,1,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+gemini-3-flash,t5_04,2,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+gemini-3-flash,t5_04,3,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+gemini-3-flash,t5_05,1,column_mismatch,Missing max_duration column; returns only event_type and user_id
+gemini-3-flash,t5_05,2,column_mismatch,Missing max_duration column; returns only event_type and user_id
+gemini-3-flash,t5_05,3,column_mismatch,Missing max_duration column; returns only event_type and user_id
+gemini-3-flash,t5_06,1,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+gemini-3-flash,t5_06,2,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+gemini-3-flash,t5_06,3,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+gemini-3-flash,t5_07,1,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+gemini-3-flash,t5_07,2,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+gemini-3-flash,t5_07,3,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+gemini-3-flash,t5_10,1,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+gemini-3-flash,t5_10,2,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+gemini-3-flash,t5_10,3,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+gpt-5.2,t2_10,1,format_mismatch,Returns two rows via GROUP BY instead of single row with countIf columns
+gpt-5.2,t2_10,3,format_mismatch,Returns two rows via GROUP BY instead of single row with countIf columns
+gpt-5.2,t3_01,1,format_mismatch,Uses exact median function (quantileExact/medianExact) vs approximate quantile; different numeric result
+gpt-5.2,t3_01,2,format_mismatch,Uses exact median function (quantileExact/medianExact) vs approximate quantile; different numeric result
+gpt-5.2,t3_01,3,format_mismatch,Uses exact median function (quantileExact/medianExact) vs approximate quantile; different numeric result
+gpt-5.2,t3_03,1,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+gpt-5.2,t3_03,2,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+gpt-5.2,t3_03,3,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+gpt-5.2,t3_04,1,column_mismatch,Returns only source value without event_id column
+gpt-5.2,t3_04,2,column_mismatch,Returns only source value without event_id column
+gpt-5.2,t3_04,3,column_mismatch,Returns only source value without event_id column
+gpt-5.2,t3_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+gpt-5.2,t3_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+gpt-5.2,t3_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+gpt-5.2,t3_07,1,format_mismatch,Uses quantileExact (exact) vs quantile (approx); slightly different numeric results
+gpt-5.2,t3_07,2,format_mismatch,Uses quantileExact (exact) vs quantile (approx); slightly different numeric results
+gpt-5.2,t3_07,3,format_mismatch,Uses quantileExact (exact) vs quantile (approx); slightly different numeric results
+gpt-5.2,t3_09,1,format_mismatch,Returns mapKeys as array instead of using arrayJoin to explode into individual rows
+gpt-5.2,t3_09,2,format_mismatch,Returns mapKeys as array instead of using arrayJoin to explode into individual rows
+gpt-5.2,t3_10,1,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+gpt-5.2,t3_10,2,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+gpt-5.2,t3_10,3,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+gpt-5.2,t4_01,1,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+gpt-5.2,t4_01,2,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+gpt-5.2,t4_01,3,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+gpt-5.2,t4_04,1,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+gpt-5.2,t4_04,2,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+gpt-5.2,t4_04,3,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+gpt-5.2,t4_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+gpt-5.2,t4_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+gpt-5.2,t4_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+gpt-5.2,t4_08,1,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+gpt-5.2,t4_08,2,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+gpt-5.2,t4_08,3,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+gpt-5.2,t4_10,1,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+gpt-5.2,t4_10,3,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+gpt-5.2,t5_01,1,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+gpt-5.2,t5_01,2,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+gpt-5.2,t5_01,3,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+gpt-5.2,t5_02,3,format_mismatch,Uses toStartOfDay returning DateTime instead of toDate returning Date
+gpt-5.2,t5_04,1,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+gpt-5.2,t5_04,2,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+gpt-5.2,t5_04,3,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+gpt-5.2,t5_07,1,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+gpt-5.2,t5_07,2,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+gpt-5.2,t5_07,3,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+gpt-5.2,t5_08,3,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+gpt-5.2,t5_10,1,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+gpt-5.2,t5_10,2,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+gpt-5.2,t5_10,3,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+kimi-k2.5,t2_07,1,format_mismatch,Uses toMonth() returning integer month instead of toStartOfMonth() returning date
+kimi-k2.5,t2_07,2,format_mismatch,Uses toMonth() returning integer month instead of toStartOfMonth() returning date
+kimi-k2.5,t3_01,1,format_mismatch,Uses exact median function (quantileExact/medianExact) vs approximate quantile; different numeric result
+kimi-k2.5,t3_03,1,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+kimi-k2.5,t3_03,2,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+kimi-k2.5,t3_03,3,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+kimi-k2.5,t3_04,1,column_mismatch,Returns only source value without event_id column
+kimi-k2.5,t3_04,2,column_mismatch,Returns only source value without event_id column
+kimi-k2.5,t3_04,3,column_mismatch,Returns only source value without event_id column
+kimi-k2.5,t3_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+kimi-k2.5,t3_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+kimi-k2.5,t3_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+kimi-k2.5,t3_10,1,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+kimi-k2.5,t3_10,2,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+kimi-k2.5,t3_10,3,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+kimi-k2.5,t4_01,1,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+kimi-k2.5,t4_01,2,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+kimi-k2.5,t4_01,3,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+kimi-k2.5,t4_04,1,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+kimi-k2.5,t4_04,2,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+kimi-k2.5,t4_04,3,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+kimi-k2.5,t4_05,2,column_mismatch,"Adds extra columns (email, plan) via JOIN instead of returning just user_id and count"
+kimi-k2.5,t4_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+kimi-k2.5,t4_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+kimi-k2.5,t4_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+kimi-k2.5,t4_08,1,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+kimi-k2.5,t4_08,2,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+kimi-k2.5,t4_08,3,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+kimi-k2.5,t4_09,1,column_mismatch,Returns only country without the count column
+kimi-k2.5,t4_10,3,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+kimi-k2.5,t5_01,1,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+kimi-k2.5,t5_01,2,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+kimi-k2.5,t5_01,3,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+kimi-k2.5,t5_04,1,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+kimi-k2.5,t5_04,2,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+kimi-k2.5,t5_04,3,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+kimi-k2.5,t5_05,2,column_mismatch,Missing max_duration column; returns only event_type and user_id
+kimi-k2.5,t5_06,1,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+kimi-k2.5,t5_06,2,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+kimi-k2.5,t5_07,1,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+kimi-k2.5,t5_07,2,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+kimi-k2.5,t5_07,3,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+kimi-k2.5,t5_08,2,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+kimi-k2.5,t5_08,3,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+kimi-k2.5,t5_09,1,format_mismatch,Uses toHour returning integer 0-23 instead of toStartOfHour returning DateTime
+kimi-k2.5,t5_09,3,format_mismatch,Uses toHour returning integer 0-23 instead of toStartOfHour returning DateTime
+kimi-k2.5,t5_10,1,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+kimi-k2.5,t5_10,2,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+kimi-k2.5,t5_10,3,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+minimax-m2.5,t2_04,1,column_mismatch,Returns only country without the count column; correct filter logic
+minimax-m2.5,t2_04,3,column_mismatch,Returns only country without the count column; correct filter logic
+minimax-m2.5,t3_03,1,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+minimax-m2.5,t3_03,2,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+minimax-m2.5,t3_03,3,format_mismatch,Missing ORDER BY timestamp or different LIMIT; correct filter logic but different row ordering
+minimax-m2.5,t3_04,1,column_mismatch,Returns only source value without event_id column
+minimax-m2.5,t3_04,2,column_mismatch,Returns only source value without event_id column
+minimax-m2.5,t3_04,3,column_mismatch,Returns only source value without event_id column
+minimax-m2.5,t3_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+minimax-m2.5,t3_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+minimax-m2.5,t3_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter but different row ordering
+minimax-m2.5,t3_10,1,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+minimax-m2.5,t3_10,2,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+minimax-m2.5,t3_10,3,format_mismatch,Correct filter logic but missing ORDER BY timestamp LIMIT 100; different row ordering
+minimax-m2.5,t4_01,1,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+minimax-m2.5,t4_01,2,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+minimax-m2.5,t4_01,3,column_mismatch,"Returns all event columns plus plan instead of just event_id, timestamp, event_type, plan"
+minimax-m2.5,t4_04,1,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+minimax-m2.5,t4_04,2,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+minimax-m2.5,t4_04,3,format_mismatch,Correct logic and results but different column aliases or ordering; cnt vs event_count
+minimax-m2.5,t4_06,1,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+minimax-m2.5,t4_06,2,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+minimax-m2.5,t4_06,3,format_mismatch,Missing ORDER BY timestamp LIMIT 100; correct filter logic but different row ordering
+minimax-m2.5,t4_08,1,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+minimax-m2.5,t4_08,2,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+minimax-m2.5,t4_08,3,column_mismatch,"Returns extra columns (plan, country, aggregates) beyond required user_id, email, created_at"
+minimax-m2.5,t4_09,1,column_mismatch,Returns only country without the count column
+minimax-m2.5,t4_09,2,column_mismatch,Returns only country without the count column
+minimax-m2.5,t4_09,3,column_mismatch,Returns only country without the count column
+minimax-m2.5,t4_10,1,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+minimax-m2.5,t4_10,2,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+minimax-m2.5,t4_10,3,format_mismatch,Correct results via different approach (window function vs IN subquery); row order may differ
+minimax-m2.5,t5_01,1,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+minimax-m2.5,t5_01,2,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+minimax-m2.5,t5_01,3,column_mismatch,"Returns all columns plus row number instead of just user_id, event_id, timestamp, rn"
+minimax-m2.5,t5_03,3,format_mismatch,Uses dateTrunc returning DateTime instead of toDate returning Date; prev day shows 0 vs NULL
+minimax-m2.5,t5_04,2,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+minimax-m2.5,t5_04,3,column_mismatch,"Returns extra columns (timestamp, user_id, event_type) beyond required event_id and upper_tags"
+minimax-m2.5,t5_05,1,column_mismatch,Missing max_duration column; returns only event_type and user_id
+minimax-m2.5,t5_05,2,column_mismatch,Missing max_duration column; returns only event_type and user_id
+minimax-m2.5,t5_05,3,column_mismatch,Missing max_duration column; returns only event_type and user_id
+minimax-m2.5,t5_06,2,format_mismatch,Correct WITH FILL logic but comparison fails on exact output format
+minimax-m2.5,t5_07,1,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+minimax-m2.5,t5_07,2,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+minimax-m2.5,t5_07,3,logic_error,Uses groupArray without DISTINCT or groupUniqArray; returns duplicate event types in array
+minimax-m2.5,t5_08,3,column_mismatch,"Returns extra argMax columns beyond required user_id, last_event_id, last_event_time"
+minimax-m2.5,t5_09,2,format_mismatch,Uses toHour returning integer 0-23 instead of toStartOfHour returning DateTime
+minimax-m2.5,t5_10,1,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.
+minimax-m2.5,t5_10,2,logic_error,Filters for exact tag premium instead of LIKE %premium%; misses premium_user etc.

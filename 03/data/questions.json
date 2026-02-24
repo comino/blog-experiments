@@ -1,0 +1,568 @@
+[
+  {
+    "id": "t1_01",
+    "tier": 1,
+    "natural_language": "How many events are in the events table?",
+    "reference_sql": "SELECT count() FROM events",
+    "ch_features": [
+      "count()"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t1_02",
+    "tier": 1,
+    "natural_language": "Return the 10 most recent events.",
+    "reference_sql": "SELECT * FROM events ORDER BY timestamp DESC LIMIT 10",
+    "ch_features": [
+      "ORDER BY",
+      "LIMIT"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t1_03",
+    "tier": 1,
+    "natural_language": "How many events occurred in March 2024?",
+    "reference_sql": "SELECT count() FROM events WHERE timestamp >= '2024-03-01' AND timestamp < '2024-04-01'",
+    "ch_features": [
+      "count()",
+      "WHERE",
+      "date range"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t1_04",
+    "tier": 1,
+    "natural_language": "List all distinct event types.",
+    "reference_sql": "SELECT DISTINCT event_type FROM events ORDER BY event_type",
+    "ch_features": [
+      "DISTINCT",
+      "ORDER BY"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t1_05",
+    "tier": 1,
+    "natural_language": "How many events came from Germany?",
+    "reference_sql": "SELECT count() FROM events WHERE country = 'DE'",
+    "ch_features": [
+      "count()",
+      "WHERE"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t1_06",
+    "tier": 1,
+    "natural_language": "Show the first 5 events of type 'purchase' ordered by timestamp.",
+    "reference_sql": "SELECT * FROM events WHERE event_type = 'purchase' ORDER BY timestamp LIMIT 5",
+    "ch_features": [
+      "WHERE",
+      "ORDER BY",
+      "LIMIT"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t1_07",
+    "tier": 1,
+    "natural_language": "How many users are on the 'pro' plan?",
+    "reference_sql": "SELECT count() FROM users WHERE plan = 'pro'",
+    "ch_features": [
+      "count()",
+      "WHERE"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t1_08",
+    "tier": 1,
+    "natural_language": "What is the earliest and latest event timestamp?",
+    "reference_sql": "SELECT min(timestamp) AS earliest, max(timestamp) AS latest FROM events",
+    "ch_features": [
+      "min()",
+      "max()"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t1_09",
+    "tier": 1,
+    "natural_language": "List all events from user_id 42 in 2024.",
+    "reference_sql": "SELECT * FROM events WHERE user_id = 42 AND timestamp >= '2024-01-01' AND timestamp < '2025-01-01' ORDER BY timestamp",
+    "ch_features": [
+      "WHERE",
+      "AND",
+      "date range"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t1_10",
+    "tier": 1,
+    "natural_language": "How many events have a non-null duration_ms?",
+    "reference_sql": "SELECT count() FROM events WHERE duration_ms IS NOT NULL",
+    "ch_features": [
+      "count()",
+      "IS NOT NULL",
+      "Nullable"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t2_01",
+    "tier": 2,
+    "natural_language": "How many events per event type? Order by count descending.",
+    "reference_sql": "SELECT event_type, count() AS cnt FROM events GROUP BY event_type ORDER BY cnt DESC",
+    "ch_features": [
+      "GROUP BY",
+      "count()",
+      "ORDER BY"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t2_02",
+    "tier": 2,
+    "natural_language": "What is the average duration_ms per device type?",
+    "reference_sql": "SELECT device, avg(duration_ms) AS avg_duration FROM events GROUP BY device ORDER BY avg_duration DESC",
+    "ch_features": [
+      "GROUP BY",
+      "avg()",
+      "Nullable"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t2_03",
+    "tier": 2,
+    "natural_language": "Show the number of events per day in January 2024.",
+    "reference_sql": "SELECT toDate(timestamp) AS day, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2024-02-01' GROUP BY day ORDER BY day",
+    "ch_features": [
+      "toDate()",
+      "GROUP BY",
+      "date range"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t2_04",
+    "tier": 2,
+    "natural_language": "Which countries have more than 10000 events?",
+    "reference_sql": "SELECT country, count() AS cnt FROM events GROUP BY country HAVING cnt > 10000 ORDER BY cnt DESC",
+    "ch_features": [
+      "GROUP BY",
+      "HAVING"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t2_05",
+    "tier": 2,
+    "natural_language": "Count events per hour of the day across all data.",
+    "reference_sql": "SELECT toHour(timestamp) AS hour, count() AS cnt FROM events GROUP BY hour ORDER BY hour",
+    "ch_features": [
+      "toHour()",
+      "GROUP BY"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t2_06",
+    "tier": 2,
+    "natural_language": "What is the average duration_ms only for 'pageview' events?",
+    "reference_sql": "SELECT avgIf(duration_ms, event_type = 'pageview') AS avg_pageview_duration FROM events",
+    "ch_features": [
+      "avgIf()",
+      "-If combinator"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t2_07",
+    "tier": 2,
+    "natural_language": "How many events per month in 2024?",
+    "reference_sql": "SELECT toStartOfMonth(timestamp) AS month, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2025-01-01' GROUP BY month ORDER BY month",
+    "ch_features": [
+      "toStartOfMonth()",
+      "GROUP BY"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t2_08",
+    "tier": 2,
+    "natural_language": "For each event type, count the number of distinct countries.",
+    "reference_sql": "SELECT event_type, uniq(country) AS country_count FROM events GROUP BY event_type ORDER BY country_count DESC",
+    "ch_features": [
+      "uniq()",
+      "GROUP BY"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t2_09",
+    "tier": 2,
+    "natural_language": "What is the total revenue_cents per country, excluding nulls?",
+    "reference_sql": "SELECT country, sum(revenue_cents) AS total_revenue FROM events WHERE revenue_cents IS NOT NULL GROUP BY country ORDER BY total_revenue DESC",
+    "ch_features": [
+      "sum()",
+      "GROUP BY",
+      "Nullable",
+      "IS NOT NULL"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t2_10",
+    "tier": 2,
+    "natural_language": "Count how many purchase events and how many pageview events there are.",
+    "reference_sql": "SELECT countIf(event_type = 'purchase') AS purchases, countIf(event_type = 'pageview') AS pageviews FROM events",
+    "ch_features": [
+      "countIf()",
+      "-If combinator"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t3_01",
+    "tier": 3,
+    "natural_language": "What is the median duration_ms across all events?",
+    "reference_sql": "SELECT quantile(0.5)(duration_ms) AS median_duration FROM events",
+    "ch_features": [
+      "quantile()"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t3_02",
+    "tier": 3,
+    "natural_language": "How many exact distinct users are there in the events table?",
+    "reference_sql": "SELECT uniqExact(user_id) AS exact_unique_users FROM events",
+    "ch_features": [
+      "uniqExact()"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t3_03",
+    "tier": 3,
+    "natural_language": "List all events where the properties map contains the key 'campaign'.",
+    "reference_sql": "SELECT * FROM events WHERE mapContains(properties, 'campaign') ORDER BY timestamp LIMIT 100",
+    "ch_features": [
+      "Map",
+      "mapContains()"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t3_04",
+    "tier": 3,
+    "natural_language": "Get the value of the 'source' key from the properties map for the first 10 purchase events.",
+    "reference_sql": "SELECT event_id, properties['source'] AS source FROM events WHERE event_type = 'purchase' ORDER BY timestamp LIMIT 10",
+    "ch_features": [
+      "Map",
+      "map['key'] access"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t3_05",
+    "tier": 3,
+    "natural_language": "Explode the tags array so each tag gets its own row, and count occurrences of each tag.",
+    "reference_sql": "SELECT tag, count() AS cnt FROM events ARRAY JOIN tags AS tag GROUP BY tag ORDER BY cnt DESC",
+    "ch_features": [
+      "ARRAY JOIN",
+      "arrayJoin"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t3_06",
+    "tier": 3,
+    "natural_language": "Find events that have the tag 'promo' in their tags array.",
+    "reference_sql": "SELECT * FROM events WHERE has(tags, 'promo') ORDER BY timestamp LIMIT 100",
+    "ch_features": [
+      "Array",
+      "has()"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t3_07",
+    "tier": 3,
+    "natural_language": "What are the p90 and p99 of duration_ms for each event type?",
+    "reference_sql": "SELECT event_type, quantile(0.9)(duration_ms) AS p90, quantile(0.99)(duration_ms) AS p99 FROM events GROUP BY event_type ORDER BY event_type",
+    "ch_features": [
+      "quantile()",
+      "GROUP BY"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t3_08",
+    "tier": 3,
+    "natural_language": "Sum revenue_cents only for events from mobile devices using the sumIf combinator.",
+    "reference_sql": "SELECT sumIf(revenue_cents, device = 'mobile') AS mobile_revenue FROM events",
+    "ch_features": [
+      "sumIf()",
+      "-If combinator"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t3_09",
+    "tier": 3,
+    "natural_language": "List all unique keys that appear in the properties map across all events.",
+    "reference_sql": "SELECT DISTINCT arrayJoin(mapKeys(properties)) AS key FROM events ORDER BY key",
+    "ch_features": [
+      "Map",
+      "mapKeys()",
+      "arrayJoin()"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t3_10",
+    "tier": 3,
+    "natural_language": "Filter events to only those whose tags array contains at least one tag starting with 'vip'.",
+    "reference_sql": "SELECT * FROM events WHERE notEmpty(arrayFilter(x -> x LIKE 'vip%', tags)) ORDER BY timestamp LIMIT 100",
+    "ch_features": [
+      "Array",
+      "arrayFilter()",
+      "lambda"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t4_01",
+    "tier": 4,
+    "natural_language": "For each event, show the event details along with the user's plan. Use a JOIN.",
+    "reference_sql": "SELECT e.event_id, e.timestamp, e.event_type, u.plan FROM events AS e INNER JOIN users AS u ON e.user_id = u.user_id ORDER BY e.timestamp LIMIT 100",
+    "ch_features": [
+      "INNER JOIN"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t4_02",
+    "tier": 4,
+    "natural_language": "Count events per user plan type.",
+    "reference_sql": "SELECT u.plan, count() AS cnt FROM events AS e INNER JOIN users AS u ON e.user_id = u.user_id GROUP BY u.plan ORDER BY cnt DESC",
+    "ch_features": [
+      "INNER JOIN",
+      "GROUP BY"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t4_03",
+    "tier": 4,
+    "natural_language": "Find users who have never generated any events.",
+    "reference_sql": "SELECT u.user_id, u.email FROM users AS u LEFT JOIN events AS e ON u.user_id = e.user_id WHERE e.user_id IS NULL",
+    "ch_features": [
+      "LEFT JOIN",
+      "IS NULL anti-join"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t4_04",
+    "tier": 4,
+    "natural_language": "Using a CTE, find the top 10 users by event count, then show their plan.",
+    "reference_sql": "WITH top_users AS (SELECT user_id, count() AS cnt FROM events GROUP BY user_id ORDER BY cnt DESC LIMIT 10) SELECT t.user_id, t.cnt, u.plan FROM top_users AS t INNER JOIN users AS u ON t.user_id = u.user_id ORDER BY t.cnt DESC",
+    "ch_features": [
+      "WITH CTE",
+      "INNER JOIN",
+      "subquery"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t4_05",
+    "tier": 4,
+    "natural_language": "Find users whose total event count is above the average event count per user.",
+    "reference_sql": "SELECT user_id, count() AS cnt FROM events GROUP BY user_id HAVING cnt > (SELECT avg(c) FROM (SELECT count() AS c FROM events GROUP BY user_id))",
+    "ch_features": [
+      "HAVING",
+      "subquery",
+      "nested subquery"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t4_06",
+    "tier": 4,
+    "natural_language": "List events from users who are on the 'enterprise' plan using an IN subquery.",
+    "reference_sql": "SELECT * FROM events WHERE user_id IN (SELECT user_id FROM users WHERE plan = 'enterprise') ORDER BY timestamp LIMIT 100",
+    "ch_features": [
+      "IN subquery"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t4_07",
+    "tier": 4,
+    "natural_language": "For each user plan, calculate the average number of events per user.",
+    "reference_sql": "WITH user_counts AS (SELECT e.user_id, u.plan, count() AS cnt FROM events AS e INNER JOIN users AS u ON e.user_id = u.user_id GROUP BY e.user_id, u.plan) SELECT plan, avg(cnt) AS avg_events_per_user FROM user_counts GROUP BY plan ORDER BY avg_events_per_user DESC",
+    "ch_features": [
+      "WITH CTE",
+      "INNER JOIN",
+      "nested aggregation"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t4_08",
+    "tier": 4,
+    "natural_language": "Show users who signed up in 2024 and had at least one purchase event.",
+    "reference_sql": "SELECT DISTINCT u.user_id, u.email, u.created_at FROM users AS u INNER JOIN events AS e ON u.user_id = e.user_id WHERE u.created_at >= '2024-01-01' AND u.created_at < '2025-01-01' AND e.event_type = 'purchase'",
+    "ch_features": [
+      "INNER JOIN",
+      "DISTINCT",
+      "WHERE"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t4_09",
+    "tier": 4,
+    "natural_language": "Find the country with the highest number of 'pro' plan users.",
+    "reference_sql": "SELECT country, count() AS cnt FROM users WHERE plan = 'pro' GROUP BY country ORDER BY cnt DESC LIMIT 1",
+    "ch_features": [
+      "GROUP BY",
+      "ORDER BY",
+      "LIMIT"
+    ],
+    "expected_result_type": "scalar"
+  },
+  {
+    "id": "t4_10",
+    "tier": 4,
+    "natural_language": "For each device type, find the user with the most events.",
+    "reference_sql": "WITH device_user_counts AS (SELECT device, user_id, count() AS cnt FROM events GROUP BY device, user_id) SELECT device, user_id, cnt FROM device_user_counts WHERE (device, cnt) IN (SELECT device, max(cnt) FROM device_user_counts GROUP BY device) ORDER BY device",
+    "ch_features": [
+      "WITH CTE",
+      "tuple IN subquery"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t5_01",
+    "tier": 5,
+    "natural_language": "For each user, number their events sequentially by timestamp using a window function.",
+    "reference_sql": "SELECT user_id, event_id, timestamp, row_number() OVER (PARTITION BY user_id ORDER BY timestamp) AS rn FROM events ORDER BY user_id, rn LIMIT 100",
+    "ch_features": [
+      "window function",
+      "row_number()",
+      "OVER PARTITION BY"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t5_02",
+    "tier": 5,
+    "natural_language": "Calculate a running total of events per day throughout 2024.",
+    "reference_sql": "SELECT day, daily_cnt, sum(daily_cnt) OVER (ORDER BY day) AS running_total FROM (SELECT toDate(timestamp) AS day, count() AS daily_cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2025-01-01' GROUP BY day) ORDER BY day",
+    "ch_features": [
+      "window function",
+      "running total",
+      "sum() OVER"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t5_03",
+    "tier": 5,
+    "natural_language": "For each day, show the event count and the previous day's event count using lag().",
+    "reference_sql": "SELECT day, cnt, lag(cnt, 1) OVER (ORDER BY day) AS prev_day_cnt FROM (SELECT toDate(timestamp) AS day, count() AS cnt FROM events GROUP BY day) ORDER BY day",
+    "ch_features": [
+      "window function",
+      "lag()"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t5_04",
+    "tier": 5,
+    "natural_language": "Transform the tags array to uppercase for each event using arrayMap.",
+    "reference_sql": "SELECT event_id, arrayMap(x -> upper(x), tags) AS upper_tags FROM events LIMIT 20",
+    "ch_features": [
+      "arrayMap()",
+      "lambda"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t5_05",
+    "tier": 5,
+    "natural_language": "For each event type, find the user_id with the longest total duration using argMax.",
+    "reference_sql": "SELECT event_type, argMax(user_id, total_dur) AS top_user, max(total_dur) AS max_duration FROM (SELECT event_type, user_id, sum(duration_ms) AS total_dur FROM events WHERE duration_ms IS NOT NULL GROUP BY event_type, user_id) GROUP BY event_type ORDER BY event_type",
+    "ch_features": [
+      "argMax()",
+      "nested aggregation"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t5_06",
+    "tier": 5,
+    "natural_language": "Show daily event counts for January 2024, filling missing days with zero using WITH FILL.",
+    "reference_sql": "SELECT toDate(timestamp) AS day, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2024-02-01' GROUP BY day ORDER BY day WITH FILL FROM '2024-01-01' TO '2024-02-01' STEP INTERVAL 1 DAY",
+    "ch_features": [
+      "WITH FILL",
+      "STEP INTERVAL"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t5_07",
+    "tier": 5,
+    "natural_language": "For each user, collect all their event types into a sorted array.",
+    "reference_sql": "SELECT user_id, arraySort(groupArray(DISTINCT event_type)) AS event_types FROM events GROUP BY user_id ORDER BY user_id LIMIT 50",
+    "ch_features": [
+      "groupArray()",
+      "arraySort()",
+      "DISTINCT inside aggregate"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t5_08",
+    "tier": 5,
+    "natural_language": "Find the most recent event per user using argMax.",
+    "reference_sql": "SELECT user_id, argMax(event_id, timestamp) AS last_event_id, max(timestamp) AS last_event_time FROM events GROUP BY user_id ORDER BY user_id LIMIT 50",
+    "ch_features": [
+      "argMax()"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t5_09",
+    "tier": 5,
+    "natural_language": "Show hourly event counts for 2024-06-15, filling all 24 hours even if there are no events.",
+    "reference_sql": "SELECT toStartOfHour(timestamp) AS hour, count() AS cnt FROM events WHERE toDate(timestamp) = '2024-06-15' GROUP BY hour ORDER BY hour WITH FILL FROM toDateTime('2024-06-15 00:00:00') TO toDateTime('2024-06-16 00:00:00') STEP INTERVAL 1 HOUR",
+    "ch_features": [
+      "toStartOfHour()",
+      "WITH FILL",
+      "STEP INTERVAL"
+    ],
+    "expected_result_type": "table"
+  },
+  {
+    "id": "t5_10",
+    "tier": 5,
+    "natural_language": "For each user, filter their tags to only those containing 'premium' and return users who have at least one such tag across all their events.",
+    "reference_sql": "SELECT user_id, groupArray(filtered_tags) AS all_premium_tags FROM (SELECT user_id, arrayFilter(x -> x LIKE '%premium%', tags) AS filtered_tags FROM events WHERE notEmpty(arrayFilter(x -> x LIKE '%premium%', tags))) GROUP BY user_id ORDER BY user_id LIMIT 50",
+    "ch_features": [
+      "arrayFilter()",
+      "lambda",
+      "groupArray()",
+      "notEmpty()"
+    ],
+    "expected_result_type": "table"
+  }
+]
