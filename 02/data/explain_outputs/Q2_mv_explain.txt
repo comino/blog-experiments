@@ -1,0 +1,126 @@
+Expression (Project names)
+Header: page LowCardinality(String)
+        hour DateTime
+        hits UInt64
+        avg_dur Float64
+Actions: INPUT : 0 -> countMerge(__table1.hits) UInt64 : 0
+         INPUT : 1 -> avgMerge(__table1.avg_duration) Float64 : 1
+         INPUT : 2 -> __table1.page LowCardinality(String) : 2
+         INPUT : 3 -> __table1.hour DateTime : 3
+         ALIAS countMerge(__table1.hits) :: 0 -> hits UInt64 : 4
+         ALIAS avgMerge(__table1.avg_duration) :: 1 -> avg_dur Float64 : 0
+         ALIAS __table1.page :: 2 -> page LowCardinality(String) : 1
+         ALIAS __table1.hour :: 3 -> hour DateTime : 2
+Positions: 1 2 4 0
+  Sorting (Sorting for ORDER BY)
+  Header: __table1.hour DateTime
+          countMerge(__table1.hits) UInt64
+          avgMerge(__table1.avg_duration) Float64
+          __table1.page LowCardinality(String)
+  Sort description: __table1.hour ASC
+    Expression ((Before ORDER BY + Projection))
+    Header: __table1.hour DateTime
+            countMerge(__table1.hits) UInt64
+            avgMerge(__table1.avg_duration) Float64
+            __table1.page LowCardinality(String)
+    Actions: INPUT :: 0 -> countMerge(__table1.hits) UInt64 : 0
+             INPUT :: 1 -> avgMerge(__table1.avg_duration) Float64 : 1
+             INPUT :: 2 -> __table1.page LowCardinality(String) : 2
+             INPUT :: 3 -> __table1.hour DateTime : 3
+    Positions: 3 0 1 2
+      Aggregating
+      Header: __table1.page LowCardinality(String)
+              __table1.hour DateTime
+              countMerge(__table1.hits) UInt64
+              avgMerge(__table1.avg_duration) Float64
+      Keys: __table1.page, __table1.hour
+      Aggregates:
+          countMerge(__table1.hits)
+            Function: countMerge(AggregateFunction(count, UInt64)) → UInt64
+            Arguments: __table1.hits
+          avgMerge(__table1.avg_duration)
+            Function: avgMerge(AggregateFunction(avg, UInt32)) → Float64
+            Arguments: __table1.avg_duration
+      Skip merging: 0
+        Expression (Before GROUP BY)
+        Header: __table1.page LowCardinality(String)
+                __table1.hour DateTime
+                __table1.hits AggregateFunction(count, UInt64)
+                __table1.avg_duration AggregateFunction(avg, UInt32)
+        Actions: INPUT :: 0 -> __table1.page LowCardinality(String) : 0
+                 INPUT :: 1 -> __table1.hour DateTime : 1
+                 INPUT :: 2 -> __table1.hits AggregateFunction(count, UInt64) : 2
+                 INPUT :: 3 -> __table1.avg_duration AggregateFunction(avg, UInt32) : 3
+        Positions: 0 1 2 3
+          Expression ((WHERE + Change column names to column identifiers))
+          Header: __table1.page LowCardinality(String)
+                  __table1.hour DateTime
+                  __table1.hits AggregateFunction(count, UInt64)
+                  __table1.avg_duration AggregateFunction(avg, UInt32)
+          Actions: INPUT : 2 -> hits AggregateFunction(count, UInt64) : 0
+                   INPUT : 3 -> avg_duration AggregateFunction(avg, UInt32) : 1
+                   INPUT : 0 -> page LowCardinality(String) : 2
+                   INPUT : 1 -> hour DateTime : 3
+                   ALIAS hits :: 0 -> __table1.hits AggregateFunction(count, UInt64) : 4
+                   ALIAS avg_duration :: 1 -> __table1.avg_duration AggregateFunction(avg, UInt32) : 0
+                   ALIAS page :: 2 -> __table1.page LowCardinality(String) : 1
+                   ALIAS hour :: 3 -> __table1.hour DateTime : 2
+          Positions: 1 2 4 0
+            ReadFromMergeTree (exp02_projections.hourly_stats_mv_target)
+            Header: page LowCardinality(String)
+                    hour DateTime
+                    hits AggregateFunction(count, UInt64)
+                    avg_duration AggregateFunction(avg, UInt32)
+            ReadType: Default
+            Parts: 1
+            Granules: 2
+            Prewhere info
+            Need filter: 1
+              Prewhere filter
+              Prewhere filter column: and(greaterOrEquals(__table1.hour, \'2024-06-01\'_String), less(__table1.hour, \'2024-07-01\'_String), equals(__table1.page, \'/page/42\'_String)) (removed)
+              Actions: INPUT : 0 -> page LowCardinality(String) : 0
+                       INPUT : 1 -> hour DateTime : 1
+                       COLUMN Const(String) -> \'/page/42\'_String String : 2
+                       COLUMN Const(String) -> \'2024-06-01\'_String String : 3
+                       COLUMN Const(String) -> \'2024-07-01\'_String String : 4
+                       FUNCTION equals(page : 0, \'/page/42\'_String :: 2) -> equals(__table1.page, \'/page/42\'_String) LowCardinality(UInt8) : 5
+                       FUNCTION greaterOrEquals(hour : 1, \'2024-06-01\'_String :: 3) -> greaterOrEquals(__table1.hour, \'2024-06-01\'_String) UInt8 : 2
+                       FUNCTION less(hour : 1, \'2024-07-01\'_String :: 4) -> less(__table1.hour, \'2024-07-01\'_String) UInt8 : 3
+                       FUNCTION and(greaterOrEquals(__table1.hour, \'2024-06-01\'_String) :: 2, less(__table1.hour, \'2024-07-01\'_String) :: 3, equals(__table1.page, \'/page/42\'_String) :: 5) -> and(greaterOrEquals(__table1.hour, \'2024-06-01\'_String), less(__table1.hour, \'2024-07-01\'_String), e... UInt8 : 4
+              Positions: 0 1 4
+---
+Expression (Project names)
+Header: page LowCardinality(String)
+        hour DateTime
+        hits UInt64
+        avg_dur Float64
+  Sorting (Sorting for ORDER BY)
+  Header: __table1.hour DateTime
+          countMerge(__table1.hits) UInt64
+          avgMerge(__table1.avg_duration) Float64
+          __table1.page LowCardinality(String)
+    Expression ((Before ORDER BY + Projection))
+    Header: __table1.hour DateTime
+            countMerge(__table1.hits) UInt64
+            avgMerge(__table1.avg_duration) Float64
+            __table1.page LowCardinality(String)
+      Aggregating
+      Header: __table1.page LowCardinality(String)
+              __table1.hour DateTime
+              countMerge(__table1.hits) UInt64
+              avgMerge(__table1.avg_duration) Float64
+        Expression (Before GROUP BY)
+        Header: __table1.page LowCardinality(String)
+                __table1.hour DateTime
+                __table1.hits AggregateFunction(count, UInt64)
+                __table1.avg_duration AggregateFunction(avg, UInt32)
+          Expression ((WHERE + Change column names to column identifiers))
+          Header: __table1.page LowCardinality(String)
+                  __table1.hour DateTime
+                  __table1.hits AggregateFunction(count, UInt64)
+                  __table1.avg_duration AggregateFunction(avg, UInt32)
+            ReadFromMergeTree (exp02_projections.hourly_stats_mv_target)
+            Header: page LowCardinality(String)
+                    hour DateTime
+                    hits AggregateFunction(count, UInt64)
+                    avg_duration AggregateFunction(avg, UInt32)

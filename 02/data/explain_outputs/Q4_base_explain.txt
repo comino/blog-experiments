@@ -1,0 +1,66 @@
+Expression ((Project names + Projection))
+Header: count() UInt64
+        avg(duration_ms) Float64
+Actions: INPUT :: 0 -> count() UInt64 : 0
+         INPUT : 1 -> avg(__table1.duration_ms) Float64 : 1
+         ALIAS avg(__table1.duration_ms) :: 1 -> avg(duration_ms) Float64 : 2
+Positions: 0 2
+  Aggregating
+  Header: count() UInt64
+          avg(__table1.duration_ms) Float64
+  Keys:
+  Aggregates:
+      count()
+        Function: count() → UInt64
+        Arguments: none
+      avg(__table1.duration_ms)
+        Function: avg(UInt32) → Float64
+        Arguments: __table1.duration_ms
+  Skip merging: 0
+    Expression (Before GROUP BY)
+    Header: __table1.duration_ms UInt32
+    Actions: INPUT :: 0 -> __table1.duration_ms UInt32 : 0
+    Positions: 0
+      Expression ((WHERE + Change column names to column identifiers))
+      Header: __table1.duration_ms UInt32
+      Actions: INPUT : 0 -> duration_ms UInt32 : 0
+               INPUT :: 1 -> country LowCardinality(String) : 1
+               INPUT :: 2 -> timestamp DateTime : 2
+               ALIAS duration_ms :: 0 -> __table1.duration_ms UInt32 : 3
+      Positions: 3
+        ReadFromMergeTree (exp02_projections.web_analytics_base)
+        Header: country LowCardinality(String)
+                timestamp DateTime
+                duration_ms UInt32
+        ReadType: Default
+        Parts: 1
+        Granules: 4066
+        Prewhere info
+        Need filter: 1
+          Prewhere filter
+          Prewhere filter column: and(equals(__table1.country, \'DE\'_String), greaterOrEquals(__table1.timestamp, \'2024-03-01\'_String), less(__table1.timestamp, \'2024-04-01\'_String)) (removed)
+          Actions: INPUT : 0 -> country LowCardinality(String) : 0
+                   INPUT : 1 -> timestamp DateTime : 1
+                   COLUMN Const(String) -> \'DE\'_String String : 2
+                   COLUMN Const(String) -> \'2024-03-01\'_String String : 3
+                   COLUMN Const(String) -> \'2024-04-01\'_String String : 4
+                   FUNCTION equals(country : 0, \'DE\'_String :: 2) -> equals(__table1.country, \'DE\'_String) LowCardinality(UInt8) : 5
+                   FUNCTION greaterOrEquals(timestamp : 1, \'2024-03-01\'_String :: 3) -> greaterOrEquals(__table1.timestamp, \'2024-03-01\'_String) UInt8 : 2
+                   FUNCTION less(timestamp : 1, \'2024-04-01\'_String :: 4) -> less(__table1.timestamp, \'2024-04-01\'_String) UInt8 : 3
+                   FUNCTION and(equals(__table1.country, \'DE\'_String) :: 5, greaterOrEquals(__table1.timestamp, \'2024-03-01\'_String) :: 2, less(__table1.timestamp, \'2024-04-01\'_String) :: 3) -> and(equals(__table1.country, \'DE\'_String), greaterOrEquals(__table1.timestamp, \'2024-03-01\'_String),... UInt8 : 4
+          Positions: 0 1 4
+---
+Expression ((Project names + Projection))
+Header: count() UInt64
+        avg(duration_ms) Float64
+  Aggregating
+  Header: count() UInt64
+          avg(__table1.duration_ms) Float64
+    Expression (Before GROUP BY)
+    Header: __table1.duration_ms UInt32
+      Expression ((WHERE + Change column names to column identifiers))
+      Header: __table1.duration_ms UInt32
+        ReadFromMergeTree (exp02_projections.web_analytics_base)
+        Header: country LowCardinality(String)
+                timestamp DateTime
+                duration_ms UInt32

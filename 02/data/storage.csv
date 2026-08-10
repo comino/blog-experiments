@@ -1,0 +1,5 @@
+table,compressed_bytes,disk_bytes,rows
+hourly_stats_mv_target,107977881,107987456,8760000
+web_analytics_base,1342469029,1342469029,200000000
+web_analytics_mv_source,1342474076,1342474076,200000000
+web_analytics_proj,1342473800,3070572544,200000000

@@ -1,0 +1,13 @@
+size,table,disk_bytes,rows
+1M,scale_base_1M,10517884,1000000
+1M,scale_proj_1M,32319563,1000000
+1M,scale_mv_target_1M,9718274,943748
+10M,scale_base_10M,96665192,10000000
+10M,scale_proj_10M,275344046,10000000
+10M,scale_mv_target_10M,64554862,5928311
+50M,scale_base_50M,411576456,50000000
+50M,scale_proj_50M,992711488,50000000
+50M,scale_mv_target_50M,98214416,8720207
+200M,web_analytics_base,1342820552,200000000
+200M,web_analytics_proj,3072170720,200000000
+200M,hourly_stats_mv_target,107994756,8760000

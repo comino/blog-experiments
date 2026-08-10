@@ -1,0 +1,60 @@
+Expression (Project names)
+Header: country LowCardinality(String)
+        unique_users UInt64
+Actions: INPUT : 0 -> uniqExact(__table1.user_id) UInt64 : 0
+         INPUT : 1 -> __table1.country LowCardinality(String) : 1
+         ALIAS uniqExact(__table1.user_id) :: 0 -> unique_users UInt64 : 2
+         ALIAS __table1.country :: 1 -> country LowCardinality(String) : 0
+Positions: 0 2
+  Sorting (Sorting for ORDER BY)
+  Header: uniqExact(__table1.user_id) UInt64
+          __table1.country LowCardinality(String)
+  Sort description: uniqExact(__table1.user_id) DESC
+    Expression ((Before ORDER BY + Projection))
+    Header: uniqExact(__table1.user_id) UInt64
+            __table1.country LowCardinality(String)
+    Actions: INPUT :: 0 -> uniqExact(__table1.user_id) UInt64 : 0
+             INPUT :: 1 -> __table1.country LowCardinality(String) : 1
+    Positions: 0 1
+      Aggregating
+      Header: __table1.country LowCardinality(String)
+              uniqExact(__table1.user_id) UInt64
+      Keys: __table1.country
+      Aggregates:
+          uniqExact(__table1.user_id)
+            Function: uniqExact(UInt32) → UInt64
+            Arguments: __table1.user_id
+      Skip merging: 0
+        Expression ((Before GROUP BY + Change column names to column identifiers))
+        Header: __table1.country LowCardinality(String)
+                __table1.user_id UInt32
+        Actions: INPUT : 0 -> country LowCardinality(String) : 0
+                 INPUT : 1 -> user_id UInt32 : 1
+                 ALIAS country :: 0 -> __table1.country LowCardinality(String) : 2
+                 ALIAS user_id :: 1 -> __table1.user_id UInt32 : 0
+        Positions: 2 0
+          ReadFromMergeTree (exp02_projections.web_analytics_base)
+          Header: country LowCardinality(String)
+                  user_id UInt32
+          ReadType: Default
+          Parts: 1
+          Granules: 24415
+---
+Expression (Project names)
+Header: country LowCardinality(String)
+        unique_users UInt64
+  Sorting (Sorting for ORDER BY)
+  Header: uniqExact(__table1.user_id) UInt64
+          __table1.country LowCardinality(String)
+    Expression ((Before ORDER BY + Projection))
+    Header: uniqExact(__table1.user_id) UInt64
+            __table1.country LowCardinality(String)
+      Aggregating
+      Header: __table1.country LowCardinality(String)
+              uniqExact(__table1.user_id) UInt64
+        Expression ((Before GROUP BY + Change column names to column identifiers))
+        Header: __table1.country LowCardinality(String)
+                __table1.user_id UInt32
+          ReadFromMergeTree (exp02_projections.web_analytics_base)
+          Header: country LowCardinality(String)
+                  user_id UInt32

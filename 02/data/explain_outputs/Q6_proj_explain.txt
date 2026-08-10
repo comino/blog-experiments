@@ -1,0 +1,105 @@
+Expression (Project names)
+Header: page LowCardinality(String)
+        avg_dur Float64
+        hits UInt64
+Actions: INPUT : 0 -> avg(__table1.duration_ms) Float64 : 0
+         INPUT : 1 -> count() UInt64 : 1
+         INPUT : 2 -> __table1.page LowCardinality(String) : 2
+         ALIAS avg(__table1.duration_ms) :: 0 -> avg_dur Float64 : 3
+         ALIAS count() :: 1 -> hits UInt64 : 0
+         ALIAS __table1.page :: 2 -> page LowCardinality(String) : 1
+Positions: 1 3 0
+  Limit (preliminary LIMIT)
+  Header: avg(__table1.duration_ms) Float64
+          count() UInt64
+          __table1.page LowCardinality(String)
+  Limit 10
+  Offset 0
+    Sorting (Sorting for ORDER BY)
+    Header: avg(__table1.duration_ms) Float64
+            count() UInt64
+            __table1.page LowCardinality(String)
+    Sort description: avg(__table1.duration_ms) DESC
+    Limit 10
+      Expression ((Before ORDER BY + Projection))
+      Header: avg(__table1.duration_ms) Float64
+              count() UInt64
+              __table1.page LowCardinality(String)
+      Actions: INPUT :: 0 -> avg(__table1.duration_ms) Float64 : 0
+               INPUT :: 1 -> count() UInt64 : 1
+               INPUT :: 2 -> __table1.page LowCardinality(String) : 2
+      Positions: 0 1 2
+        Filter (HAVING)
+        Header: avg(__table1.duration_ms) Float64
+                count() UInt64
+                __table1.page LowCardinality(String)
+        Filter column: greater(count(), 100_UInt8) (removed)
+        Actions: INPUT :: 0 -> avg(__table1.duration_ms) Float64 : 0
+                 INPUT : 1 -> count() UInt64 : 1
+                 INPUT :: 2 -> __table1.page LowCardinality(String) : 2
+                 COLUMN Const(UInt8) -> 100_UInt8 UInt8 : 3
+                 FUNCTION greater(count() : 1, 100_UInt8 :: 3) -> greater(count(), 100_UInt8) UInt8 : 4
+        Positions: 4 0 1 2
+          Aggregating
+          Header: __table1.page LowCardinality(String)
+                  avg(__table1.duration_ms) Float64
+                  count() UInt64
+          Keys: __table1.page
+          Aggregates:
+              avg(__table1.duration_ms)
+                Function: avg(UInt32) → Float64
+                Arguments: __table1.duration_ms
+              count()
+                Function: count() → UInt64
+                Arguments: none
+          Skip merging: 0
+            Expression
+            Header: __table1.page LowCardinality(String)
+                    avg(__table1.duration_ms) AggregateFunction(avg, UInt32)
+                    count() AggregateFunction(count)
+            Actions: INPUT : 0 -> page LowCardinality(String) : 0
+                     INPUT : 1 -> avg(duration_ms) AggregateFunction(avg, UInt32) : 1
+                     INPUT :: 2 -> count() AggregateFunction(count) : 2
+                     ALIAS page :: 0 -> __table1.page LowCardinality(String) : 3
+                     ALIAS avg(duration_ms) :: 1 -> avg(__table1.duration_ms) AggregateFunction(avg, UInt32) : 0
+            Positions: 3 0 2
+              ReadFromMergeTree (proj_hourly_stats)
+              Header: page LowCardinality(String)
+                      avg(duration_ms) AggregateFunction(avg, UInt32)
+                      count() AggregateFunction(count)
+              ReadType: Default
+              Parts: 1
+              Granules: 1070
+---
+Expression (Project names)
+Header: page LowCardinality(String)
+        avg_dur Float64
+        hits UInt64
+  Limit (preliminary LIMIT)
+  Header: avg(__table1.duration_ms) Float64
+          count() UInt64
+          __table1.page LowCardinality(String)
+    Sorting (Sorting for ORDER BY)
+    Header: avg(__table1.duration_ms) Float64
+            count() UInt64
+            __table1.page LowCardinality(String)
+      Expression ((Before ORDER BY + Projection))
+      Header: avg(__table1.duration_ms) Float64
+              count() UInt64
+              __table1.page LowCardinality(String)
+        Filter (HAVING)
+        Header: avg(__table1.duration_ms) Float64
+                count() UInt64
+                __table1.page LowCardinality(String)
+          Aggregating
+          Header: __table1.page LowCardinality(String)
+                  avg(__table1.duration_ms) Float64
+                  count() UInt64
+            Expression
+            Header: __table1.page LowCardinality(String)
+                    avg(__table1.duration_ms) AggregateFunction(avg, UInt32)
+                    count() AggregateFunction(count)
+              ReadFromMergeTree (proj_hourly_stats)
+              Header: page LowCardinality(String)
+                      avg(duration_ms) AggregateFunction(avg, UInt32)
+                      count() AggregateFunction(count)

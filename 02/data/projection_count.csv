@@ -1,0 +1,13 @@
+proj_count,metric,value
+0,ingest_ms,3239
+0,storage_bytes,96658889
+0,rows_per_sec,3087372
+1,ingest_ms,5088
+1,storage_bytes,210780433
+1,rows_per_sec,1965408
+3,ingest_ms,18589
+3,storage_bytes,400157627
+3,rows_per_sec,537952
+5,ingest_ms,25893
+5,storage_bytes,493424932
+5,rows_per_sec,386204

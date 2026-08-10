@@ -1,0 +1,5 @@
+table	parts	total_rows	disk
+mp_base	55	110000000	1.31 GiB
+mp_mv_source	55	110000000	1.31 GiB
+mp_mv_target	110	98349640	1.07 GiB
+mp_proj	55	110000000	2.38 GiB

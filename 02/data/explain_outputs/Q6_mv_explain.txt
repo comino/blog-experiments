@@ -1,0 +1,7 @@
+Received exception from server (version 25.11.3):
+Code: 43. DB::Exception: Received from localhost:9000. DB::Exception: Illegal type UInt64 of argument for aggregate function with Merge suffix. It must be AggregateFunction(...). (ILLEGAL_TYPE_OF_ARGUMENT)
+(query: EXPLAIN header=1, actions=1 SELECT page, avgMerge(avg_duration) AS avg_dur, countMerge(hits) AS hits FROM hourly_stats_mv_target GROUP BY page HAVING countMerge(hits) > 100 ORDER BY avg_dur DESC LIMIT 10)
+---
+Received exception from server (version 25.11.3):
+Code: 43. DB::Exception: Received from localhost:9000. DB::Exception: Illegal type UInt64 of argument for aggregate function with Merge suffix. It must be AggregateFunction(...). (ILLEGAL_TYPE_OF_ARGUMENT)
+(query: EXPLAIN PLAN header=1 SELECT page, avgMerge(avg_duration) AS avg_dur, countMerge(hits) AS hits FROM hourly_stats_mv_target GROUP BY page HAVING countMerge(hits) > 100 ORDER BY avg_dur DESC LIMIT 10)

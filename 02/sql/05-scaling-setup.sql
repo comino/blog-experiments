@@ -1,0 +1,3 @@
+-- Scaling Analysis Setup
+-- Tables for 1M, 10M, 50M sizes (200M uses existing tables)
+-- See scripts/ext_01_scaling.sh for DDL and INSERT statements

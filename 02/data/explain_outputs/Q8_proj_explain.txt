@@ -1,0 +1,124 @@
+Expression (Project names)
+Header: country LowCardinality(String)
+        device_type LowCardinality(String)
+        hour DateTime
+        hits UInt64
+        avg_dur Float64
+Actions: INPUT : 0 -> count() UInt64 : 0
+         INPUT : 1 -> avg(__table1.duration_ms) Float64 : 1
+         INPUT : 2 -> __table1.country LowCardinality(String) : 2
+         INPUT : 3 -> __table1.device_type LowCardinality(String) : 3
+         INPUT : 4 -> toStartOfHour(__table1.timestamp) DateTime : 4
+         ALIAS count() :: 0 -> hits UInt64 : 5
+         ALIAS avg(__table1.duration_ms) :: 1 -> avg_dur Float64 : 0
+         ALIAS __table1.country :: 2 -> country LowCardinality(String) : 1
+         ALIAS __table1.device_type :: 3 -> device_type LowCardinality(String) : 2
+         ALIAS toStartOfHour(__table1.timestamp) :: 4 -> hour DateTime : 3
+Positions: 1 2 3 5 0
+  Limit (preliminary LIMIT)
+  Header: count() UInt64
+          avg(__table1.duration_ms) Float64
+          __table1.country LowCardinality(String)
+          __table1.device_type LowCardinality(String)
+          toStartOfHour(__table1.timestamp) DateTime
+  Limit 100
+  Offset 0
+    Sorting (Sorting for ORDER BY)
+    Header: count() UInt64
+            avg(__table1.duration_ms) Float64
+            __table1.country LowCardinality(String)
+            __table1.device_type LowCardinality(String)
+            toStartOfHour(__table1.timestamp) DateTime
+    Sort description: count() DESC
+    Limit 100
+      Expression ((Before ORDER BY + Projection))
+      Header: count() UInt64
+              avg(__table1.duration_ms) Float64
+              __table1.country LowCardinality(String)
+              __table1.device_type LowCardinality(String)
+              toStartOfHour(__table1.timestamp) DateTime
+      Actions: INPUT :: 0 -> count() UInt64 : 0
+               INPUT :: 1 -> avg(__table1.duration_ms) Float64 : 1
+               INPUT :: 2 -> __table1.country LowCardinality(String) : 2
+               INPUT :: 3 -> __table1.device_type LowCardinality(String) : 3
+               INPUT :: 4 -> toStartOfHour(__table1.timestamp) DateTime : 4
+      Positions: 0 1 2 3 4
+        Aggregating
+        Header: __table1.country LowCardinality(String)
+                __table1.device_type LowCardinality(String)
+                toStartOfHour(__table1.timestamp) DateTime
+                count() UInt64
+                avg(__table1.duration_ms) Float64
+        Keys: __table1.country, __table1.device_type, toStartOfHour(__table1.timestamp)
+        Aggregates:
+            count()
+              Function: count() → UInt64
+              Arguments: none
+            avg(__table1.duration_ms)
+              Function: avg(UInt32) → Float64
+              Arguments: __table1.duration_ms
+        Skip merging: 0
+          Expression ((Before GROUP BY + Change column names to column identifiers))
+          Header: __table1.country LowCardinality(String)
+                  __table1.device_type LowCardinality(String)
+                  toStartOfHour(__table1.timestamp) DateTime
+                  __table1.duration_ms UInt32
+          Actions: INPUT : 0 -> country LowCardinality(String) : 0
+                   INPUT : 1 -> device_type LowCardinality(String) : 1
+                   INPUT : 2 -> timestamp DateTime : 2
+                   INPUT : 3 -> duration_ms UInt32 : 3
+                   ALIAS country :: 0 -> __table1.country LowCardinality(String) : 4
+                   ALIAS device_type :: 1 -> __table1.device_type LowCardinality(String) : 0
+                   ALIAS timestamp :: 2 -> __table1.timestamp DateTime : 1
+                   ALIAS duration_ms :: 3 -> __table1.duration_ms UInt32 : 2
+                   FUNCTION toStartOfHour(__table1.timestamp :: 1) -> toStartOfHour(__table1.timestamp) DateTime : 3
+          Positions: 4 0 3 2
+            ReadFromMergeTree (exp02_projections.web_analytics_proj)
+            Header: country LowCardinality(String)
+                    device_type LowCardinality(String)
+                    timestamp DateTime
+                    duration_ms UInt32
+            ReadType: Default
+            Parts: 1
+            Granules: 24415
+---
+Expression (Project names)
+Header: country LowCardinality(String)
+        device_type LowCardinality(String)
+        hour DateTime
+        hits UInt64
+        avg_dur Float64
+  Limit (preliminary LIMIT)
+  Header: count() UInt64
+          avg(__table1.duration_ms) Float64
+          __table1.country LowCardinality(String)
+          __table1.device_type LowCardinality(String)
+          toStartOfHour(__table1.timestamp) DateTime
+    Sorting (Sorting for ORDER BY)
+    Header: count() UInt64
+            avg(__table1.duration_ms) Float64
+            __table1.country LowCardinality(String)
+            __table1.device_type LowCardinality(String)
+            toStartOfHour(__table1.timestamp) DateTime
+      Expression ((Before ORDER BY + Projection))
+      Header: count() UInt64
+              avg(__table1.duration_ms) Float64
+              __table1.country LowCardinality(String)
+              __table1.device_type LowCardinality(String)
+              toStartOfHour(__table1.timestamp) DateTime
+        Aggregating
+        Header: __table1.country LowCardinality(String)
+                __table1.device_type LowCardinality(String)
+                toStartOfHour(__table1.timestamp) DateTime
+                count() UInt64
+                avg(__table1.duration_ms) Float64
+          Expression ((Before GROUP BY + Change column names to column identifiers))
+          Header: __table1.country LowCardinality(String)
+                  __table1.device_type LowCardinality(String)
+                  toStartOfHour(__table1.timestamp) DateTime
+                  __table1.duration_ms UInt32
+            ReadFromMergeTree (exp02_projections.web_analytics_proj)
+            Header: country LowCardinality(String)
+                    device_type LowCardinality(String)
+                    timestamp DateTime
+                    duration_ms UInt32

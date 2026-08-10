@@ -1,0 +1,5 @@
+table	partition	parts	min_rows	max_rows	total_rows	disk
+mp_base	tuple()	1	110000000	110000000	110000000	1.31 GiB
+mp_mv_source	tuple()	1	110000000	110000000	110000000	1.31 GiB
+mp_mv_target	tuple()	1	8759972	8759972	8759972	102.11 MiB
+mp_proj	tuple()	1	110000000	110000000	110000000	1.41 GiB
