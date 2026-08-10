@@ -1,0 +1,17 @@
+Expression (Project names)
+  Sorting (Sorting for ORDER BY)
+    Expression ((Before ORDER BY + Projection))
+      Aggregating
+        Expression (Before GROUP BY)
+          Expression ((WHERE + Change column names to column identifiers))
+            ReadFromMergeTree (exp01_compression.v1_default)
+            Indexes:
+              PrimaryKey
+                Keys:
+                  metric_name
+                  host
+                Condition: and((host in [\'host_0\', \'host_0\']), (metric_name in [\'cpu_usage\', \'cpu_usage\']))
+                Parts: 1/1
+                Granules: 1/12208
+                Search Algorithm: binary search
+              Ranges: 1

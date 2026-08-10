@@ -1,0 +1,15 @@
+Expression ((Project names + Projection))
+  Aggregating
+    Expression (Before GROUP BY)
+      Expression ((WHERE + Change column names to column identifiers))
+        ReadFromMergeTree (exp01_compression.v1_default)
+        Indexes:
+          PrimaryKey
+            Keys:
+              metric_name
+              timestamp
+            Condition: and(and((timestamp in (-Inf, 1704070800]), (timestamp in [1704067200, +Inf))), (metric_name in [\'cpu_usage\', \'cpu_usage\']))
+            Parts: 1/1
+            Granules: 12/12208
+            Search Algorithm: generic exclusion search
+          Ranges: 11

@@ -1,0 +1,5 @@
+variant,query,wall_clock_ms,cpu_virtual_us,disk_read_us,read_rows,read_bytes,memory_bytes,notes
+V1,Q05_warm,16,190000,70000,40050688,320405504,5468984,median of 10 warm runs
+V4,Q05_warm,87,1300000,57000,40050688,320405504,3352024,median of 5 warm runs
+V1,Q06_warm,554,,,100000000,1800000000,110505561,avg of 5 warm runs
+V4,Q06_warm,658,,,100000000,1800000000,100323718,avg of 5 warm runs

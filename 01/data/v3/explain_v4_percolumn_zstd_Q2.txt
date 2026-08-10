@@ -1,0 +1,14 @@
+Expression ((Project names + Projection))
+  Aggregating
+    Expression (Before GROUP BY)
+      Expression ((WHERE + Change column names to column identifiers))
+        ReadFromMergeTree (exp01_compression.v4_percolumn_zstd)
+        Indexes:
+          PrimaryKey
+            Keys:
+              metric_name
+            Condition: (metric_name in [\'cpu_usage\', \'cpu_usage\'])
+            Parts: 1/1
+            Granules: 2442/12208
+            Search Algorithm: binary search
+          Ranges: 1

@@ -1,0 +1,41 @@
+Per-column compression data from system.columns (100M rows, single merged part)
+
+v1_default:
+  counter:     compressed=420,052,884  uncompressed=800,000,000  marks=34,395  ratio=1.90
+  host:        compressed=483,543      uncompressed=100,306,951  marks=9,166   ratio=207.44
+  metric_name: compressed=482,493      uncompressed=100,306,623  marks=9,165   ratio=207.89
+  region:      compressed=485,781      uncompressed=100,306,597  marks=9,164   ratio=206.49
+  timestamp:   compressed=401,727,295  uncompressed=400,000,000  marks=32,327  ratio=1.00
+  value:       compressed=551,243,705  uncompressed=800,000,000  marks=35,729  ratio=1.45
+
+v2_zstd:
+  counter:     compressed=138,571,841  uncompressed=800,000,000  marks=29,026  ratio=5.77
+  host:        compressed=111,780      uncompressed=100,367,479  marks=8,571   ratio=897.90
+  metric_name: compressed=110,481      uncompressed=100,367,151  marks=8,572   ratio=908.46
+  region:      compressed=115,568      uncompressed=100,367,125  marks=8,612   ratio=868.47
+  timestamp:   compressed=285,394,799  uncompressed=400,000,000  marks=31,625  ratio=1.40
+  value:       compressed=440,441,744  uncompressed=800,000,000  marks=34,236  ratio=1.82
+
+v3_percolumn:
+  counter:     compressed=38,729,312   uncompressed=800,000,000  marks=26,301  ratio=20.66
+  host:        compressed=491,850      uncompressed=100,367,415  marks=9,368   ratio=204.06
+  metric_name: compressed=490,538      uncompressed=100,367,087  marks=9,382   ratio=204.61
+  region:      compressed=494,587      uncompressed=100,367,061  marks=9,376   ratio=202.93
+  timestamp:   compressed=476,874      uncompressed=400,000,000  marks=19,867  ratio=838.80
+  value:       compressed=632,873,127  uncompressed=800,000,000  marks=36,615  ratio=1.26
+
+v4_percolumn_zstd:
+  counter:     compressed=948,789      uncompressed=800,000,000  marks=19,099  ratio=843.18
+  host:        compressed=111,812      uncompressed=100,367,367  marks=8,546   ratio=897.64
+  metric_name: compressed=110,578      uncompressed=100,367,039  marks=8,553   ratio=907.66
+  region:      compressed=115,789      uncompressed=100,367,013  marks=8,553   ratio=866.81
+  timestamp:   compressed=458,532      uncompressed=400,000,000  marks=19,685  ratio=872.35
+  value:       compressed=541,658,691  uncompressed=800,000,000  marks=35,724  ratio=1.48
+
+v5_aggressive:
+  counter:     compressed=942,673      uncompressed=800,000,000  marks=19,067  ratio=848.65
+  host:        compressed=106,144      uncompressed=100,367,239  marks=8,620   ratio=945.58
+  metric_name: compressed=105,360      uncompressed=100,366,911  marks=8,603   ratio=952.61
+  region:      compressed=109,280      uncompressed=100,366,885  marks=8,566   ratio=918.44
+  timestamp:   compressed=458,532      uncompressed=400,000,000  marks=19,685  ratio=872.35
+  value:       compressed=541,658,691  uncompressed=800,000,000  marks=35,724  ratio=1.48
