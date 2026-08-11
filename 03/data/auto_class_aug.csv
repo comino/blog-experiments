@@ -1,0 +1,624 @@
+model,question_id,run,failure_type,rule
+claude-opus-5,t2_10,2,format_mismatch,"same columns after overlap matching, formatting/order differs"
+claude-opus-5,t2_10,3,format_mismatch,"same columns after overlap matching, formatting/order differs"
+claude-opus-5,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t3_04,1,logic_error,results differ structurally
+claude-opus-5,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t3_04,3,logic_error,results differ structurally
+claude-opus-5,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t4_07,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t4_07,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t4_08,1,logic_error,results differ structurally
+claude-opus-5,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t5_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t5_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t5_01,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t5_04,1,logic_error,results differ structurally
+claude-opus-5,t5_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t5_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t5_07,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t5_07,2,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t5_07,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t5_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t5_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t5_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-opus-5,t5_10,1,logic_error,results differ structurally
+claude-opus-5,t5_10,2,column_mismatch,"1/2 columns overlap >=80%, column count differs"
+claude-opus-5,t5_10,3,column_mismatch,"1/2 columns overlap >=80%, column count differs"
+claude-sonnet-5,t2_10,1,format_mismatch,"same columns after overlap matching, formatting/order differs"
+claude-sonnet-5,t2_10,2,format_mismatch,"same columns after overlap matching, formatting/order differs"
+claude-sonnet-5,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-sonnet-5,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-sonnet-5,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-sonnet-5,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-sonnet-5,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-sonnet-5,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-sonnet-5,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-sonnet-5,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-sonnet-5,t5_01,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t5_01,2,format_mismatch,"same columns after overlap matching, formatting/order differs"
+claude-sonnet-5,t5_01,3,format_mismatch,"same columns after overlap matching, formatting/order differs"
+claude-sonnet-5,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-sonnet-5,t5_07,1,logic_error,results differ structurally
+claude-sonnet-5,t5_07,2,logic_error,results differ structurally
+claude-sonnet-5,t5_07,3,logic_error,results differ structurally
+claude-sonnet-5,t5_08,1,column_mismatch,"2/3 columns overlap >=80%, column count differs"
+claude-sonnet-5,t5_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-sonnet-5,t5_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+claude-sonnet-5,t5_09,3,logic_error,results differ structurally
+claude-sonnet-5,t5_10,1,logic_error,results differ structurally
+claude-sonnet-5,t5_10,2,logic_error,results differ structurally
+claude-sonnet-5,t5_10,3,logic_error,results differ structurally
+deepseek-v4-flash,t2_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t2_10,2,format_mismatch,"same columns after overlap matching, formatting/order differs"
+deepseek-v4-flash,t3_01,2,format_mismatch,scalar within 5% (approx vs exact aggregate)
+deepseek-v4-flash,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t3_07,3,logic_error,results differ structurally
+deepseek-v4-flash,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t4_04,1,format_mismatch,"same columns after overlap matching, formatting/order differs"
+deepseek-v4-flash,t4_04,2,format_mismatch,"same columns after overlap matching, formatting/order differs"
+deepseek-v4-flash,t4_04,3,format_mismatch,"same columns after overlap matching, formatting/order differs"
+deepseek-v4-flash,t4_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t4_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t4_08,3,logic_error,results differ structurally
+deepseek-v4-flash,t4_09,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t4_09,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t5_01,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t5_01,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t5_01,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t5_02,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t5_02,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t5_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t5_04,3,logic_error,results differ structurally
+deepseek-v4-flash,t5_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t5_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t5_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t5_07,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t5_07,2,logic_error,results differ structurally
+deepseek-v4-flash,t5_07,3,logic_error,results differ structurally
+deepseek-v4-flash,t5_08,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-flash,t5_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-flash,t5_08,3,logic_error,results differ structurally
+deepseek-v4-flash,t5_09,1,logic_error,results differ structurally
+deepseek-v4-flash,t5_09,2,logic_error,results differ structurally
+deepseek-v4-flash,t5_09,3,logic_error,results differ structurally
+deepseek-v4-flash,t5_10,1,logic_error,results differ structurally
+deepseek-v4-flash,t5_10,2,logic_error,results differ structurally
+deepseek-v4-flash,t5_10,3,logic_error,results differ structurally
+deepseek-v4-pro,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t4_04,1,format_mismatch,"same columns after overlap matching, formatting/order differs"
+deepseek-v4-pro,t4_04,2,format_mismatch,"same columns after overlap matching, formatting/order differs"
+deepseek-v4-pro,t4_04,3,format_mismatch,"same columns after overlap matching, formatting/order differs"
+deepseek-v4-pro,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t4_09,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t4_09,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t4_09,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t4_10,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t5_01,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t5_01,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t5_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t5_02,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t5_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t5_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+deepseek-v4-pro,t5_07,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t5_07,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t5_07,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t5_08,1,logic_error,results differ structurally
+deepseek-v4-pro,t5_08,2,logic_error,results differ structurally
+deepseek-v4-pro,t5_08,3,logic_error,results differ structurally
+deepseek-v4-pro,t5_09,2,logic_error,results differ structurally
+deepseek-v4-pro,t5_09,3,logic_error,results differ structurally
+deepseek-v4-pro,t5_10,1,logic_error,results differ structurally
+deepseek-v4-pro,t5_10,2,logic_error,results differ structurally
+deepseek-v4-pro,t5_10,3,logic_error,results differ structurally
+gemini-3.5-flash,t2_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t2_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t2_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t4_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t4_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t4_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t4_09,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t4_09,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t4_09,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t5_01,1,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t5_01,2,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t5_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+gemini-3.5-flash,t5_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t5_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t5_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gemini-3.5-flash,t5_07,1,logic_error,results differ structurally
+gemini-3.5-flash,t5_07,2,logic_error,results differ structurally
+gemini-3.5-flash,t5_07,3,logic_error,results differ structurally
+gemini-3.5-flash,t5_10,1,logic_error,results differ structurally
+gemini-3.5-flash,t5_10,2,logic_error,results differ structurally
+gemini-3.5-flash,t5_10,3,logic_error,results differ structurally
+gpt-5.5,t3_01,2,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.5,t3_01,3,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.5,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t3_07,1,logic_error,results differ structurally
+gpt-5.5,t3_07,2,logic_error,results differ structurally
+gpt-5.5,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t5_01,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t5_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t5_01,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t5_02,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t5_02,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t5_02,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.5,t5_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t5_07,1,logic_error,results differ structurally
+gpt-5.5,t5_07,2,logic_error,results differ structurally
+gpt-5.5,t5_07,3,logic_error,results differ structurally
+gpt-5.5,t5_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t5_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.5,t5_10,1,logic_error,results differ structurally
+gpt-5.5,t5_10,2,logic_error,results differ structurally
+gpt-5.5,t5_10,3,logic_error,results differ structurally
+gpt-5.6-luna-pro,t3_01,1,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.6-luna-pro,t3_01,2,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.6-luna-pro,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t3_07,1,logic_error,results differ structurally
+gpt-5.6-luna-pro,t3_07,2,logic_error,results differ structurally
+gpt-5.6-luna-pro,t3_07,3,logic_error,results differ structurally
+gpt-5.6-luna-pro,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t4_09,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t5_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t5_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t5_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t5_02,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t5_02,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t5_02,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna-pro,t5_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t5_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t5_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t5_06,2,format_mismatch,identical after normalization/sorting
+gpt-5.6-luna-pro,t5_07,1,logic_error,results differ structurally
+gpt-5.6-luna-pro,t5_07,2,logic_error,results differ structurally
+gpt-5.6-luna-pro,t5_07,3,logic_error,results differ structurally
+gpt-5.6-luna-pro,t5_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t5_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t5_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna-pro,t5_09,1,logic_error,results differ structurally
+gpt-5.6-luna-pro,t5_09,2,logic_error,results differ structurally
+gpt-5.6-luna-pro,t5_09,3,logic_error,results differ structurally
+gpt-5.6-luna-pro,t5_10,1,logic_error,results differ structurally
+gpt-5.6-luna-pro,t5_10,2,logic_error,results differ structurally
+gpt-5.6-luna-pro,t5_10,3,logic_error,results differ structurally
+gpt-5.6-luna,t2_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t3_01,1,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.6-luna,t3_01,2,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.6-luna,t3_01,3,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.6-luna,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t4_09,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t4_09,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t5_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t5_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t5_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t5_02,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t5_02,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t5_02,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-luna,t5_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t5_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t5_06,3,format_mismatch,identical after normalization/sorting
+gpt-5.6-luna,t5_07,1,logic_error,results differ structurally
+gpt-5.6-luna,t5_07,2,logic_error,results differ structurally
+gpt-5.6-luna,t5_07,3,logic_error,results differ structurally
+gpt-5.6-luna,t5_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t5_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t5_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-luna,t5_09,1,logic_error,results differ structurally
+gpt-5.6-luna,t5_09,2,logic_error,results differ structurally
+gpt-5.6-luna,t5_10,1,logic_error,results differ structurally
+gpt-5.6-luna,t5_10,2,logic_error,results differ structurally
+gpt-5.6-luna,t5_10,3,logic_error,results differ structurally
+gpt-5.6-sol-pro,t3_01,1,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.6-sol-pro,t3_01,2,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.6-sol-pro,t3_01,3,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.6-sol-pro,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t3_07,1,logic_error,results differ structurally
+gpt-5.6-sol-pro,t3_07,2,logic_error,results differ structurally
+gpt-5.6-sol-pro,t3_07,3,logic_error,results differ structurally
+gpt-5.6-sol-pro,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t4_09,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t4_09,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t4_09,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t5_01,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t5_01,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t5_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t5_02,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t5_02,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t5_02,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol-pro,t5_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t5_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t5_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol-pro,t5_07,1,logic_error,results differ structurally
+gpt-5.6-sol-pro,t5_07,2,logic_error,results differ structurally
+gpt-5.6-sol-pro,t5_07,3,logic_error,results differ structurally
+gpt-5.6-sol-pro,t5_08,1,logic_error,results differ structurally
+gpt-5.6-sol-pro,t5_09,1,logic_error,results differ structurally
+gpt-5.6-sol-pro,t5_09,3,logic_error,results differ structurally
+gpt-5.6-sol-pro,t5_10,1,logic_error,results differ structurally
+gpt-5.6-sol-pro,t5_10,2,logic_error,results differ structurally
+gpt-5.6-sol-pro,t5_10,3,logic_error,results differ structurally
+gpt-5.6-sol,t2_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t3_01,2,format_mismatch,scalar within 5% (approx vs exact aggregate)
+gpt-5.6-sol,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t3_07,1,logic_error,results differ structurally
+gpt-5.6-sol,t3_07,2,logic_error,results differ structurally
+gpt-5.6-sol,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t4_09,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t4_09,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t4_09,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t5_01,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t5_01,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t5_01,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t5_02,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t5_02,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t5_02,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-sol,t5_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t5_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t5_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-sol,t5_07,1,logic_error,results differ structurally
+gpt-5.6-sol,t5_07,2,logic_error,results differ structurally
+gpt-5.6-sol,t5_07,3,logic_error,results differ structurally
+gpt-5.6-sol,t5_10,1,logic_error,results differ structurally
+gpt-5.6-sol,t5_10,2,logic_error,results differ structurally
+gpt-5.6-sol,t5_10,3,logic_error,results differ structurally
+gpt-5.6-terra-pro,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t3_07,2,logic_error,results differ structurally
+gpt-5.6-terra-pro,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t4_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t4_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t4_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t4_09,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t4_09,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t5_01,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t5_01,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t5_01,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t5_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t5_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t5_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra-pro,t5_07,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t5_07,2,logic_error,results differ structurally
+gpt-5.6-terra-pro,t5_07,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra-pro,t5_10,1,logic_error,results differ structurally
+gpt-5.6-terra-pro,t5_10,2,logic_error,results differ structurally
+gpt-5.6-terra-pro,t5_10,3,logic_error,results differ structurally
+gpt-5.6-terra,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t3_07,2,logic_error,results differ structurally
+gpt-5.6-terra,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t4_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t4_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t4_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t5_01,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t5_01,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t5_01,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t5_04,2,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+gpt-5.6-terra,t5_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t5_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t5_05,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+gpt-5.6-terra,t5_07,1,logic_error,results differ structurally
+gpt-5.6-terra,t5_07,2,logic_error,results differ structurally
+gpt-5.6-terra,t5_07,3,logic_error,results differ structurally
+gpt-5.6-terra,t5_10,1,logic_error,results differ structurally
+gpt-5.6-terra,t5_10,2,logic_error,results differ structurally
+gpt-5.6-terra,t5_10,3,logic_error,results differ structurally
+kimi-k3,t2_07,2,logic_error,results differ structurally
+kimi-k3,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t4_08,1,logic_error,results differ structurally
+kimi-k3,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t4_09,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t5_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t5_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t5_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t5_04,1,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t5_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t5_04,3,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t5_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t5_07,1,format_mismatch,row subset (LIMIT/ordering difference)
+kimi-k3,t5_07,2,logic_error,results differ structurally
+kimi-k3,t5_07,3,logic_error,results differ structurally
+kimi-k3,t5_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t5_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t5_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+kimi-k3,t5_10,1,logic_error,results differ structurally
+kimi-k3,t5_10,2,logic_error,results differ structurally
+kimi-k3,t5_10,3,logic_error,results differ structurally
+minimax-m3,t2_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t3_03,1,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t3_03,2,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t3_03,3,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t3_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t3_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t3_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t3_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t3_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t3_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t3_10,1,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t3_10,2,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t3_10,3,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t4_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t4_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t4_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t4_05,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t4_05,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t4_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t4_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t4_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t4_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t4_08,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t4_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t4_09,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t5_01,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t5_01,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t5_01,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t5_04,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t5_04,2,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t5_04,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t5_07,2,logic_error,results differ structurally
+minimax-m3,t5_07,3,logic_error,results differ structurally
+minimax-m3,t5_08,1,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t5_08,3,column_mismatch,"extra/missing columns, shared columns overlap >=80%"
+minimax-m3,t5_10,1,logic_error,results differ structurally
+minimax-m3,t5_10,2,logic_error,results differ structurally
+minimax-m3,t5_10,3,logic_error,results differ structurally

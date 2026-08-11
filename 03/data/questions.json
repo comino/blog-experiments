@@ -511,7 +511,7 @@
     "id": "t5_06",
     "tier": 5,
     "natural_language": "Show daily event counts for January 2024, filling missing days with zero using WITH FILL.",
-    "reference_sql": "SELECT toDate(timestamp) AS day, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2024-02-01' GROUP BY day ORDER BY day WITH FILL FROM '2024-01-01' TO '2024-02-01' STEP INTERVAL 1 DAY",
+    "reference_sql": "SELECT toDate(timestamp) AS day, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2024-02-01' GROUP BY day ORDER BY day WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP INTERVAL 1 DAY",
     "ch_features": [
       "WITH FILL",
       "STEP INTERVAL"
