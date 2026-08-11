@@ -1,0 +1,1832 @@
+[
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_01",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM (\n    SELECT \n        user_id,\n        windowFunnel(86400)(timestamp, \n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT \n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM (\n    SELECT \n        user_id,\n        windowFunnel(86400)(timestamp, \n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 517,
+    "tokens_out": 147,
+    "cost_usd": 0.01878,
+    "latency_ms": 3942.8,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448934-8NyNziRoOODC0WSUMjbU",
+      "object": "chat.completion",
+      "created": 1786448934,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM (\n    SELECT \n        user_id,\n        windowFunnel(86400)(timestamp, \n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 517,
+        "completion_tokens": 147,
+        "total_tokens": 664,
+        "cost": 0.01878,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01878,
+          "upstream_inference_prompt_cost": 0.007755,
+          "upstream_inference_completions_cost": 0.011025
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_01",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM (\n    SELECT \n        user_id,\n        windowFunnel(86400)(timestamp, \n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT \n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM (\n    SELECT \n        user_id,\n        windowFunnel(86400)(timestamp, \n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 517,
+    "tokens_out": 147,
+    "cost_usd": 0.01878,
+    "latency_ms": 4018.4,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448939-GqXdMQnCtVHLKuWjyB5I",
+      "object": "chat.completion",
+      "created": 1786448939,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM (\n    SELECT \n        user_id,\n        windowFunnel(86400)(timestamp, \n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 517,
+        "completion_tokens": 147,
+        "total_tokens": 664,
+        "cost": 0.01878,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01878,
+          "upstream_inference_prompt_cost": 0.007755,
+          "upstream_inference_completions_cost": 0.011025
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_01",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM (\n    SELECT \n        user_id,\n        windowFunnel(86400)(timestamp, \n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT \n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM (\n    SELECT \n        user_id,\n        windowFunnel(86400)(timestamp, \n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 517,
+    "tokens_out": 147,
+    "cost_usd": 0.01878,
+    "latency_ms": 4247.9,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448943-gLqEgnxNleGx2rC2UD9F",
+      "object": "chat.completion",
+      "created": 1786448943,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM (\n    SELECT \n        user_id,\n        windowFunnel(86400)(timestamp, \n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 517,
+        "completion_tokens": 147,
+        "total_tokens": 664,
+        "cost": 0.01878,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01878,
+          "upstream_inference_prompt_cost": 0.007755,
+          "upstream_inference_completions_cost": 0.011025
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_02",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    r[1] AS r1,\n    r[2] AS r2,\n    r[3] AS r3\nFROM (\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n)",
+    "raw_response": "```sql\nSELECT \n    r[1] AS r1,\n    r[2] AS r2,\n    r[3] AS r3\nFROM (\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n)\n```",
+    "tokens_in": 504,
+    "tokens_out": 106,
+    "cost_usd": 0.01551,
+    "latency_ms": 3598.9,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448948-AgsTyQocH7KdUxlE9KKu",
+      "object": "chat.completion",
+      "created": 1786448948,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    r[1] AS r1,\n    r[2] AS r2,\n    r[3] AS r3\nFROM (\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 504,
+        "completion_tokens": 106,
+        "total_tokens": 610,
+        "cost": 0.01551,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01551,
+          "upstream_inference_prompt_cost": 0.00756,
+          "upstream_inference_completions_cost": 0.00795
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_02",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    r[1] AS r1,\n    r[2] AS r2,\n    r[3] AS r3\nFROM (\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n)",
+    "raw_response": "```sql\nSELECT \n    r[1] AS r1,\n    r[2] AS r2,\n    r[3] AS r3\nFROM (\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n)\n```",
+    "tokens_in": 504,
+    "tokens_out": 106,
+    "cost_usd": 0.01551,
+    "latency_ms": 3906.6,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448952-ezVfZCxmxSo6JYF14awP",
+      "object": "chat.completion",
+      "created": 1786448952,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    r[1] AS r1,\n    r[2] AS r2,\n    r[3] AS r3\nFROM (\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 504,
+        "completion_tokens": 106,
+        "total_tokens": 610,
+        "cost": 0.01551,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01551,
+          "upstream_inference_prompt_cost": 0.00756,
+          "upstream_inference_completions_cost": 0.00795
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_02",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    r[1] AS r1,\n    r[2] AS r2,\n    r[3] AS r3\nFROM (\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n)",
+    "raw_response": "```sql\nSELECT \n    r[1] AS r1,\n    r[2] AS r2,\n    r[3] AS r3\nFROM (\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n)\n```",
+    "tokens_in": 504,
+    "tokens_out": 106,
+    "cost_usd": 0.01551,
+    "latency_ms": 3667.6,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448957-yNQUFAaS2K08PwJHq7ZB",
+      "object": "chat.completion",
+      "created": 1786448957,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    r[1] AS r1,\n    r[2] AS r2,\n    r[3] AS r3\nFROM (\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 504,
+        "completion_tokens": 106,
+        "total_tokens": 610,
+        "cost": 0.01551,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01551,
+          "upstream_inference_prompt_cost": 0.00756,
+          "upstream_inference_completions_cost": 0.00795
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_03",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT COUNT(DISTINCT user_id) AS users_with_signup_then_purchase\nFROM events\nWHERE sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n) = 1",
+    "raw_response": "```sql\nSELECT COUNT(DISTINCT user_id) AS users_with_signup_then_purchase\nFROM events\nWHERE sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n) = 1\n```",
+    "tokens_in": 472,
+    "tokens_out": 77,
+    "cost_usd": 0.012855,
+    "latency_ms": 4189.3,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448961-sYzvTqqIJUPvyQxLiJvP",
+      "object": "chat.completion",
+      "created": 1786448961,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT COUNT(DISTINCT user_id) AS users_with_signup_then_purchase\nFROM events\nWHERE sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n) = 1\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 472,
+        "completion_tokens": 77,
+        "total_tokens": 549,
+        "cost": 0.012855,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.012855,
+          "upstream_inference_prompt_cost": 0.00708,
+          "upstream_inference_completions_cost": 0.005775
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_03",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT COUNT(DISTINCT user_id) AS users_with_signup_then_purchase\nFROM events\nWHERE sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n) = 1",
+    "raw_response": "```sql\nSELECT COUNT(DISTINCT user_id) AS users_with_signup_then_purchase\nFROM events\nWHERE sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n) = 1\n```",
+    "tokens_in": 472,
+    "tokens_out": 77,
+    "cost_usd": 0.012855,
+    "latency_ms": 4049.4,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448965-6I3pyxhrnneh89JJwycu",
+      "object": "chat.completion",
+      "created": 1786448965,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT COUNT(DISTINCT user_id) AS users_with_signup_then_purchase\nFROM events\nWHERE sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n) = 1\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 472,
+        "completion_tokens": 77,
+        "total_tokens": 549,
+        "cost": 0.012855,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.012855,
+          "upstream_inference_prompt_cost": 0.00708,
+          "upstream_inference_completions_cost": 0.005775
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_03",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT COUNT(DISTINCT user_id) AS users_with_signup_then_purchase\nFROM events\nWHERE sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n) = 1",
+    "raw_response": "```sql\nSELECT COUNT(DISTINCT user_id) AS users_with_signup_then_purchase\nFROM events\nWHERE sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n) = 1\n```",
+    "tokens_in": 472,
+    "tokens_out": 77,
+    "cost_usd": 0.012855,
+    "latency_ms": 4113.4,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448970-Iakah5pRGK2b9R3TnIr3",
+      "object": "chat.completion",
+      "created": 1786448970,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT COUNT(DISTINCT user_id) AS users_with_signup_then_purchase\nFROM events\nWHERE sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n) = 1\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 472,
+        "completion_tokens": 77,
+        "total_tokens": 549,
+        "cost": 0.012855,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.012855,
+          "upstream_inference_prompt_cost": 0.00708,
+          "upstream_inference_completions_cost": 0.005775
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_04",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON u.user_id = e.user_id AND u.created_at <= e.timestamp\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC",
+    "raw_response": "```sql\nSELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON u.user_id = e.user_id AND u.created_at <= e.timestamp\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+    "tokens_in": 494,
+    "tokens_out": 88,
+    "cost_usd": 0.01401,
+    "latency_ms": 4037.0,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448975-nJaLZIkgbt3VgefcKnyO",
+      "object": "chat.completion",
+      "created": 1786448975,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON u.user_id = e.user_id AND u.created_at <= e.timestamp\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 494,
+        "completion_tokens": 88,
+        "total_tokens": 582,
+        "cost": 0.01401,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01401,
+          "upstream_inference_prompt_cost": 0.00741,
+          "upstream_inference_completions_cost": 0.0066
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_04",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON u.user_id = e.user_id AND u.created_at <= e.timestamp\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC",
+    "raw_response": "```sql\nSELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON u.user_id = e.user_id AND u.created_at <= e.timestamp\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+    "tokens_in": 494,
+    "tokens_out": 88,
+    "cost_usd": 0.01401,
+    "latency_ms": 3186.0,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448979-tBxJ8WnA4NsJmtZmPwix",
+      "object": "chat.completion",
+      "created": 1786448979,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON u.user_id = e.user_id AND u.created_at <= e.timestamp\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 494,
+        "completion_tokens": 88,
+        "total_tokens": 582,
+        "cost": 0.01401,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01401,
+          "upstream_inference_prompt_cost": 0.00741,
+          "upstream_inference_completions_cost": 0.0066
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_04",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON u.user_id = e.user_id AND u.created_at <= e.timestamp\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC",
+    "raw_response": "```sql\nSELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON u.user_id = e.user_id AND u.created_at <= e.timestamp\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+    "tokens_in": 494,
+    "tokens_out": 88,
+    "cost_usd": 0.01401,
+    "latency_ms": 3227.0,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448983-HwPxH9GonzN26tQ0CnjN",
+      "object": "chat.completion",
+      "created": 1786448983,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON u.user_id = e.user_id AND u.created_at <= e.timestamp\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 494,
+        "completion_tokens": 88,
+        "total_tokens": 582,
+        "cost": 0.01401,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01401,
+          "upstream_inference_prompt_cost": 0.00741,
+          "upstream_inference_completions_cost": 0.0066
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_05",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type",
+    "raw_response": "```sql\nSELECT \n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+    "tokens_in": 485,
+    "tokens_out": 49,
+    "cost_usd": 0.01095,
+    "latency_ms": 2569.3,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448987-98N04IP9MYvjTS6Hkyop",
+      "object": "chat.completion",
+      "created": 1786448987,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 485,
+        "completion_tokens": 49,
+        "total_tokens": 534,
+        "cost": 0.01095,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01095,
+          "upstream_inference_prompt_cost": 0.007275,
+          "upstream_inference_completions_cost": 0.003675
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_05",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type",
+    "raw_response": "```sql\nSELECT \n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+    "tokens_in": 485,
+    "tokens_out": 49,
+    "cost_usd": 0.01095,
+    "latency_ms": 2525.9,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448990-zvZ8Sq7H6ihxZUZzweNV",
+      "object": "chat.completion",
+      "created": 1786448990,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 485,
+        "completion_tokens": 49,
+        "total_tokens": 534,
+        "cost": 0.01095,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01095,
+          "upstream_inference_prompt_cost": 0.007275,
+          "upstream_inference_completions_cost": 0.003675
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_05",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type",
+    "raw_response": "```sql\nSELECT \n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+    "tokens_in": 485,
+    "tokens_out": 49,
+    "cost_usd": 0.01095,
+    "latency_ms": 2870.2,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448993-mPqX8JDNiUGpIaAfYz9S",
+      "object": "chat.completion",
+      "created": 1786448993,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 485,
+        "completion_tokens": 49,
+        "total_tokens": 534,
+        "cost": 0.01095,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01095,
+          "upstream_inference_prompt_cost": 0.007275,
+          "upstream_inference_completions_cost": 0.003675
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_06",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase' \n    AND revenue_cents > 9950\n    AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31'\nGROUP BY day\nORDER BY day ASC WITH FILL \n    FROM toDate('2024-01-01') \n    TO toDate('2024-01-31') \n    STEP INTERVAL 1 DAY\n    INTERPOLATE (revenue AS revenue)",
+    "raw_response": "```sql\nSELECT \n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase' \n    AND revenue_cents > 9950\n    AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31'\nGROUP BY day\nORDER BY day ASC WITH FILL \n    FROM toDate('2024-01-01') \n    TO toDate('2024-01-31') \n    STEP INTERVAL 1 DAY\n    INTERPOLATE (revenue AS revenue)\n```",
+    "tokens_in": 517,
+    "tokens_out": 144,
+    "cost_usd": 0.018555,
+    "latency_ms": 4124.3,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448996-0TfEQUaC5lMLgk3wlGQj",
+      "object": "chat.completion",
+      "created": 1786448996,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase' \n    AND revenue_cents > 9950\n    AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31'\nGROUP BY day\nORDER BY day ASC WITH FILL \n    FROM toDate('2024-01-01') \n    TO toDate('2024-01-31') \n    STEP INTERVAL 1 DAY\n    INTERPOLATE (revenue AS revenue)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 517,
+        "completion_tokens": 144,
+        "total_tokens": 661,
+        "cost": 0.018555,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.018555,
+          "upstream_inference_prompt_cost": 0.007755,
+          "upstream_inference_completions_cost": 0.0108
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_06",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase' \n    AND revenue_cents > 9950\n    AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31'\nGROUP BY day\nORDER BY day ASC WITH FILL \n    FROM toDate('2024-01-01') \n    TO toDate('2024-01-31') \n    STEP INTERVAL 1 DAY\n    INTERPOLATE (revenue AS revenue)",
+    "raw_response": "```sql\nSELECT \n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase' \n    AND revenue_cents > 9950\n    AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31'\nGROUP BY day\nORDER BY day ASC WITH FILL \n    FROM toDate('2024-01-01') \n    TO toDate('2024-01-31') \n    STEP INTERVAL 1 DAY\n    INTERPOLATE (revenue AS revenue)\n```",
+    "tokens_in": 517,
+    "tokens_out": 144,
+    "cost_usd": 0.018555,
+    "latency_ms": 4458.2,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449001-5sBkLONo0OBwRD3DZNLF",
+      "object": "chat.completion",
+      "created": 1786449001,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase' \n    AND revenue_cents > 9950\n    AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31'\nGROUP BY day\nORDER BY day ASC WITH FILL \n    FROM toDate('2024-01-01') \n    TO toDate('2024-01-31') \n    STEP INTERVAL 1 DAY\n    INTERPOLATE (revenue AS revenue)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 517,
+        "completion_tokens": 144,
+        "total_tokens": 661,
+        "cost": 0.018555,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.018555,
+          "upstream_inference_prompt_cost": 0.007755,
+          "upstream_inference_completions_cost": 0.0108
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_06",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase' \n    AND revenue_cents > 9950\n    AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31'\nGROUP BY day\nORDER BY day ASC WITH FILL \n    FROM toDate('2024-01-01') \n    TO toDate('2024-01-31') \n    STEP INTERVAL 1 DAY\n    INTERPOLATE (revenue AS revenue)",
+    "raw_response": "```sql\nSELECT \n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase' \n    AND revenue_cents > 9950\n    AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31'\nGROUP BY day\nORDER BY day ASC WITH FILL \n    FROM toDate('2024-01-01') \n    TO toDate('2024-01-31') \n    STEP INTERVAL 1 DAY\n    INTERPOLATE (revenue AS revenue)\n```",
+    "tokens_in": 517,
+    "tokens_out": 144,
+    "cost_usd": 0.018555,
+    "latency_ms": 4070.4,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449006-vl5J0L7Z9ZEQ4KyOIrNp",
+      "object": "chat.completion",
+      "created": 1786449006,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase' \n    AND revenue_cents > 9950\n    AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31'\nGROUP BY day\nORDER BY day ASC WITH FILL \n    FROM toDate('2024-01-01') \n    TO toDate('2024-01-31') \n    STEP INTERVAL 1 DAY\n    INTERPOLATE (revenue AS revenue)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 517,
+        "completion_tokens": 144,
+        "total_tokens": 661,
+        "cost": 0.018555,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.018555,
+          "upstream_inference_prompt_cost": 0.007755,
+          "upstream_inference_completions_cost": 0.0108
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_07",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(1, toHour(timestamp)) AS hour_buckets\nFROM events",
+    "raw_response": "```sql\nSELECT countResample(0, 24, 6)(1, toHour(timestamp)) AS hour_buckets\nFROM events\n```",
+    "tokens_in": 497,
+    "tokens_out": 37,
+    "cost_usd": 0.01023,
+    "latency_ms": 2793.0,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449010-elmajQYWaONSVgLnvYZJ",
+      "object": "chat.completion",
+      "created": 1786449010,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countResample(0, 24, 6)(1, toHour(timestamp)) AS hour_buckets\nFROM events\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 497,
+        "completion_tokens": 37,
+        "total_tokens": 534,
+        "cost": 0.01023,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01023,
+          "upstream_inference_prompt_cost": 0.007455,
+          "upstream_inference_completions_cost": 0.002775
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_07",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(1, toHour(timestamp)) AS hour_buckets\nFROM events",
+    "raw_response": "```sql\nSELECT countResample(0, 24, 6)(1, toHour(timestamp)) AS hour_buckets\nFROM events\n```",
+    "tokens_in": 497,
+    "tokens_out": 37,
+    "cost_usd": 0.01023,
+    "latency_ms": 2376.9,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449014-7SPvXCiu0vGVxBjyoZxI",
+      "object": "chat.completion",
+      "created": 1786449014,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countResample(0, 24, 6)(1, toHour(timestamp)) AS hour_buckets\nFROM events\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 497,
+        "completion_tokens": 37,
+        "total_tokens": 534,
+        "cost": 0.01023,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01023,
+          "upstream_inference_prompt_cost": 0.007455,
+          "upstream_inference_completions_cost": 0.002775
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_07",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(1, toHour(timestamp)) AS hour_buckets\nFROM events",
+    "raw_response": "```sql\nSELECT countResample(0, 24, 6)(1, toHour(timestamp)) AS hour_buckets\nFROM events\n```",
+    "tokens_in": 497,
+    "tokens_out": 37,
+    "cost_usd": 0.01023,
+    "latency_ms": 3118.5,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449016-FNhjlZk2vVFiIaSkev9i",
+      "object": "chat.completion",
+      "created": 1786449016,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countResample(0, 24, 6)(1, toHour(timestamp)) AS hour_buckets\nFROM events\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 497,
+        "completion_tokens": 37,
+        "total_tokens": 534,
+        "cost": 0.01023,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01023,
+          "upstream_inference_prompt_cost": 0.007455,
+          "upstream_inference_completions_cost": 0.002775
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_08",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(count)) AS cumulative_purchases\nFROM (\n    SELECT \n        toDate(timestamp) AS date,\n        countIf(event_type = 'purchase') AS count\n    FROM events\n    WHERE toYYYYMM(timestamp) = 202401\n    GROUP BY date\n    ORDER BY date\n)",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(count)) AS cumulative_purchases\nFROM (\n    SELECT \n        toDate(timestamp) AS date,\n        countIf(event_type = 'purchase') AS count\n    FROM events\n    WHERE toYYYYMM(timestamp) = 202401\n    GROUP BY date\n    ORDER BY date\n)\n```",
+    "tokens_in": 484,
+    "tokens_out": 90,
+    "cost_usd": 0.01401,
+    "latency_ms": 3864.4,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449020-DsyZsX6CS0PfdQifo0Vz",
+      "object": "chat.completion",
+      "created": 1786449020,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(count)) AS cumulative_purchases\nFROM (\n    SELECT \n        toDate(timestamp) AS date,\n        countIf(event_type = 'purchase') AS count\n    FROM events\n    WHERE toYYYYMM(timestamp) = 202401\n    GROUP BY date\n    ORDER BY date\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 484,
+        "completion_tokens": 90,
+        "total_tokens": 574,
+        "cost": 0.01401,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01401,
+          "upstream_inference_prompt_cost": 0.00726,
+          "upstream_inference_completions_cost": 0.00675
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_08",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(count)) AS cumulative_purchases\nFROM (\n    SELECT \n        toDate(timestamp) AS date,\n        countIf(event_type = 'purchase') AS count\n    FROM events\n    WHERE toYYYYMM(timestamp) = 202401\n    GROUP BY date\n    ORDER BY date\n)",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(count)) AS cumulative_purchases\nFROM (\n    SELECT \n        toDate(timestamp) AS date,\n        countIf(event_type = 'purchase') AS count\n    FROM events\n    WHERE toYYYYMM(timestamp) = 202401\n    GROUP BY date\n    ORDER BY date\n)\n```",
+    "tokens_in": 484,
+    "tokens_out": 90,
+    "cost_usd": 0.01401,
+    "latency_ms": 2840.8,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449024-wJGViqjQGlqpj3yEOks2",
+      "object": "chat.completion",
+      "created": 1786449024,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(count)) AS cumulative_purchases\nFROM (\n    SELECT \n        toDate(timestamp) AS date,\n        countIf(event_type = 'purchase') AS count\n    FROM events\n    WHERE toYYYYMM(timestamp) = 202401\n    GROUP BY date\n    ORDER BY date\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 484,
+        "completion_tokens": 90,
+        "total_tokens": 574,
+        "cost": 0.01401,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01401,
+          "upstream_inference_prompt_cost": 0.00726,
+          "upstream_inference_completions_cost": 0.00675
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_08",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(count)) AS cumulative_purchases\nFROM (\n    SELECT \n        toDate(timestamp) AS date,\n        countIf(event_type = 'purchase') AS count\n    FROM events\n    WHERE toYYYYMM(timestamp) = 202401\n    GROUP BY date\n    ORDER BY date\n)",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(count)) AS cumulative_purchases\nFROM (\n    SELECT \n        toDate(timestamp) AS date,\n        countIf(event_type = 'purchase') AS count\n    FROM events\n    WHERE toYYYYMM(timestamp) = 202401\n    GROUP BY date\n    ORDER BY date\n)\n```",
+    "tokens_in": 484,
+    "tokens_out": 90,
+    "cost_usd": 0.01401,
+    "latency_ms": 3851.0,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449028-WEfMCShHXcMfO5PeyuQo",
+      "object": "chat.completion",
+      "created": 1786449028,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(count)) AS cumulative_purchases\nFROM (\n    SELECT \n        toDate(timestamp) AS date,\n        countIf(event_type = 'purchase') AS count\n    FROM events\n    WHERE toYYYYMM(timestamp) = 202401\n    GROUP BY date\n    ORDER BY date\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 484,
+        "completion_tokens": 90,
+        "total_tokens": 574,
+        "cost": 0.01401,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01401,
+          "upstream_inference_prompt_cost": 0.00726,
+          "upstream_inference_completions_cost": 0.00675
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_09",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT \n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC\n```",
+    "tokens_in": 478,
+    "tokens_out": 58,
+    "cost_usd": 0.01152,
+    "latency_ms": 3197.4,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449032-IP0VoEc0wNncHKck6MfK",
+      "object": "chat.completion",
+      "created": 1786449032,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 478,
+        "completion_tokens": 58,
+        "total_tokens": 536,
+        "cost": 0.01152,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01152,
+          "upstream_inference_prompt_cost": 0.00717,
+          "upstream_inference_completions_cost": 0.00435
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_09",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT \n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC\n```",
+    "tokens_in": 478,
+    "tokens_out": 58,
+    "cost_usd": 0.01152,
+    "latency_ms": 3052.4,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449036-jsjdPPCahN963xDTcYQo",
+      "object": "chat.completion",
+      "created": 1786449036,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 478,
+        "completion_tokens": 58,
+        "total_tokens": 536,
+        "cost": 0.01152,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01152,
+          "upstream_inference_prompt_cost": 0.00717,
+          "upstream_inference_completions_cost": 0.00435
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_09",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT \n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC\n```",
+    "tokens_in": 478,
+    "tokens_out": 58,
+    "cost_usd": 0.01152,
+    "latency_ms": 3753.2,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449039-QcC5LVD2IEqvFFP7GKZN",
+      "object": "chat.completion",
+      "created": 1786449039,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 478,
+        "completion_tokens": 58,
+        "total_tokens": 536,
+        "cost": 0.01152,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01152,
+          "upstream_inference_prompt_cost": 0.00717,
+          "upstream_inference_completions_cost": 0.00435
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_10",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase' \n  AND toDate(timestamp) = '2024-03-01'",
+    "raw_response": "```sql\nSELECT count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase' \n  AND toDate(timestamp) = '2024-03-01'\n```",
+    "tokens_in": 479,
+    "tokens_out": 57,
+    "cost_usd": 0.01146,
+    "latency_ms": 2991.9,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449044-apDfSGqTsCqVBuIiYwHa",
+      "object": "chat.completion",
+      "created": 1786449044,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase' \n  AND toDate(timestamp) = '2024-03-01'\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 479,
+        "completion_tokens": 57,
+        "total_tokens": 536,
+        "cost": 0.01146,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01146,
+          "upstream_inference_prompt_cost": 0.007185,
+          "upstream_inference_completions_cost": 0.004275
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_10",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase' \n  AND toDate(timestamp) = '2024-03-01'",
+    "raw_response": "```sql\nSELECT count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase' \n  AND toDate(timestamp) = '2024-03-01'\n```",
+    "tokens_in": 479,
+    "tokens_out": 57,
+    "cost_usd": 0.01146,
+    "latency_ms": 3338.4,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449047-R80HrjnnqFUgtV2DU3fL",
+      "object": "chat.completion",
+      "created": 1786449047,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase' \n  AND toDate(timestamp) = '2024-03-01'\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 479,
+        "completion_tokens": 57,
+        "total_tokens": 536,
+        "cost": 0.01146,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01146,
+          "upstream_inference_prompt_cost": 0.007185,
+          "upstream_inference_completions_cost": 0.004275
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-4",
+    "model_id": "anthropic/claude-opus-4",
+    "question_id": "t6_10",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase' \n  AND toDate(timestamp) = '2024-03-01'",
+    "raw_response": "```sql\nSELECT count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase' \n  AND toDate(timestamp) = '2024-03-01'\n```",
+    "tokens_in": 479,
+    "tokens_out": 57,
+    "cost_usd": 0.01146,
+    "latency_ms": 3631.1,
+    "model_id_returned": "anthropic/claude-opus-4",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449051-3ejHnzkINbz9GgtWVmWy",
+      "object": "chat.completion",
+      "created": 1786449051,
+      "model": "anthropic/claude-opus-4",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase' \n  AND toDate(timestamp) = '2024-03-01'\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 479,
+        "completion_tokens": 57,
+        "total_tokens": 536,
+        "cost": 0.01146,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01146,
+          "upstream_inference_prompt_cost": 0.007185,
+          "upstream_inference_completions_cost": 0.004275
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,2072 @@
+[
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_01",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(level >= 1) AS users_l1,\n    sum(level >= 2) AS users_l2,\n    sum(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "SELECT\n    sum(level >= 1) AS users_l1,\n    sum(level >= 2) AS users_l2,\n    sum(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "tokens_in": 483,
+    "tokens_out": 120,
+    "cost_usd": 0.0006015,
+    "latency_ms": 1524.4,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448936-iSHSQl3G3sNSPkT26qpd",
+      "object": "chat.completion",
+      "created": 1786448936,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    sum(level >= 1) AS users_l1,\n    sum(level >= 2) AS users_l2,\n    sum(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1/ykwSRbBpPH4nw4nYyp+9RbPqama+kfCkFAPcWBkhou+Ce0tqso4oB7rUQDmk=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 483,
+        "completion_tokens": 120,
+        "total_tokens": 603,
+        "cost": 0.0006015,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0006015,
+          "upstream_inference_prompt_cost": 0.0002415,
+          "upstream_inference_completions_cost": 0.00036
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_01",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(level >= 1) AS users_l1,\n    sum(level >= 2) AS users_l2,\n    sum(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "SELECT\n    sum(level >= 1) AS users_l1,\n    sum(level >= 2) AS users_l2,\n    sum(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "tokens_in": 483,
+    "tokens_out": 120,
+    "cost_usd": 0.0006015,
+    "latency_ms": 1794.4,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448938-2QpODF8RcYEMGeSREzqm",
+      "object": "chat.completion",
+      "created": 1786448938,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    sum(level >= 1) AS users_l1,\n    sum(level >= 2) AS users_l2,\n    sum(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a18L0+PCrB/AvH1x1VspY+XWXamxIrtgeG6ojL9lSS9LECCeS4d7NItVMIwKaqg=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 483,
+        "completion_tokens": 120,
+        "total_tokens": 603,
+        "cost": 0.0006015,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0006015,
+          "upstream_inference_prompt_cost": 0.0002415,
+          "upstream_inference_completions_cost": 0.00036
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_01",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(level >= 1) AS users_l1,\n    sum(level >= 2) AS users_l2,\n    sum(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "SELECT\n    sum(level >= 1) AS users_l1,\n    sum(level >= 2) AS users_l2,\n    sum(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "tokens_in": 483,
+    "tokens_out": 120,
+    "cost_usd": 0.0006015,
+    "latency_ms": 1675.7,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448940-5HKotsZuUAXxoZpg3ren",
+      "object": "chat.completion",
+      "created": 1786448940,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    sum(level >= 1) AS users_l1,\n    sum(level >= 2) AS users_l2,\n    sum(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a18FYWb2pYSsNHJBpqxpZ7I0Lg4nDSF9dVfztlT3v1t9kah26PKgjUPgEI6ATVc=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 483,
+        "completion_tokens": 120,
+        "total_tokens": 603,
+        "cost": 0.0006015,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0006015,
+          "upstream_inference_prompt_cost": 0.0002415,
+          "upstream_inference_completions_cost": 0.00036
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_02",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    )[1] AS r1,\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    )[2] AS r2,\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    )[3] AS r3\nFROM events\nWHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')\nGROUP BY user_id;",
+    "raw_response": "SELECT\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    )[1] AS r1,\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    )[2] AS r2,\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    )[3] AS r3\nFROM events\nWHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')\nGROUP BY user_id;",
+    "tokens_in": 484,
+    "tokens_out": 267,
+    "cost_usd": 0.001043,
+    "latency_ms": 2345.4,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448942-cWywHg6EzDPSbz3iC942",
+      "object": "chat.completion",
+      "created": 1786448942,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    )[1] AS r1,\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    )[2] AS r2,\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    )[3] AS r3\nFROM events\nWHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')\nGROUP BY user_id;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a19vQL3or0EArwsCQLLWf8xN4zAy/yBkBt+RLn836w+D2y2/E95Y5fDlKP3mtuQ=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 484,
+        "completion_tokens": 267,
+        "total_tokens": 751,
+        "cost": 0.001043,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001043,
+          "upstream_inference_prompt_cost": 0.000242,
+          "upstream_inference_completions_cost": 0.000801
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_02",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\nFROM events\nGROUP BY user_id\nLIMIT 1\nFORMAT JSONEachRow;\n\n-- Note: The standard way to get the total counts for the whole dataset as requested:\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM (\n    SELECT\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')\n    GROUP BY user_id\n);",
+    "raw_response": "SELECT\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\nFROM events\nGROUP BY user_id\nLIMIT 1\nFORMAT JSONEachRow;\n\n-- Note: The standard way to get the total counts for the whole dataset as requested:\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM (\n    SELECT\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')\n    GROUP BY user_id\n);",
+    "tokens_in": 484,
+    "tokens_out": 274,
+    "cost_usd": 0.001064,
+    "latency_ms": 2348.7,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448945-fxMh81kE6UlX2UXlgoTr",
+      "object": "chat.completion",
+      "created": 1786448945,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\nFROM events\nGROUP BY user_id\nLIMIT 1\nFORMAT JSONEachRow;\n\n-- Note: The standard way to get the total counts for the whole dataset as requested:\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM (\n    SELECT\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')\n    GROUP BY user_id\n);",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a18e12JTjtAoR7SfYjtp3F75QIScRS7DKmKWVZGv73aU3bDvXm0t9CKXEVU3muQ=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 484,
+        "completion_tokens": 274,
+        "total_tokens": 758,
+        "cost": 0.001064,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001064,
+          "upstream_inference_prompt_cost": 0.000242,
+          "upstream_inference_completions_cost": 0.000822
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_02",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\nFROM events\nGROUP BY user_id\nLIMIT 1\nFORMAT JSONEachRow;\n\n-- Note: The standard way to get the total counts for the whole dataset as requested:\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM (\n    SELECT\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')\n    GROUP BY user_id\n);",
+    "raw_response": "SELECT\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\nFROM events\nGROUP BY user_id\nLIMIT 1\nFORMAT JSONEachRow;\n\n-- Note: The standard way to get the total counts for the whole dataset as requested:\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM (\n    SELECT\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')\n    GROUP BY user_id\n);",
+    "tokens_in": 484,
+    "tokens_out": 274,
+    "cost_usd": 0.001064,
+    "latency_ms": 2110.0,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448948-YaDnbZiAELHhQVLfEwXy",
+      "object": "chat.completion",
+      "created": 1786448948,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\nFROM events\nGROUP BY user_id\nLIMIT 1\nFORMAT JSONEachRow;\n\n-- Note: The standard way to get the total counts for the whole dataset as requested:\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM (\n    SELECT\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')\n    GROUP BY user_id\n);",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1/FEUQftaeZ99AI65E2YRX0gm4FkvKoA9PVSyl7AYhlY2JEqJAoLotehtDedDM=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 484,
+        "completion_tokens": 274,
+        "total_tokens": 758,
+        "cost": 0.001064,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001064,
+          "upstream_inference_prompt_cost": 0.000242,
+          "upstream_inference_completions_cost": 0.000822
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_03",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    count(DISTINCT user_id)\nFROM events\nGROUP BY user_id\nHAVING sequenceMatch('(?1).*(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase' AND (timestamp <= (SELECT timestamp FROM events e2 WHERE e2.user_id = events.user_id AND e2.event_type = 'signup' LIMIT 1) + INTERVAL 60 SECOND)\n)",
+    "raw_response": "```sql\nSELECT\n    count(DISTINCT user_id)\nFROM events\nGROUP BY user_id\nHAVING sequenceMatch('(?1).*(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase' AND (timestamp <= (SELECT timestamp FROM events e2 WHERE e2.user_id = events.user_id AND e2.event_type = 'signup' LIMIT 1) + INTERVAL 60 SECOND)\n)\n```\n\n*Correction for standard `sequenceMatch` usage with time constraints in ClickHouse:*\n\n```sql\nSELECT\n    count(DISTINCT user_id)\nFROM events\nGROUP BY user_id\nHAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n)\n```",
+    "tokens_in": 439,
+    "tokens_out": 195,
+    "cost_usd": 0.0008045,
+    "latency_ms": 2307.4,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448951-BkIXoQ9avS151EQE6xfB",
+      "object": "chat.completion",
+      "created": 1786448951,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    count(DISTINCT user_id)\nFROM events\nGROUP BY user_id\nHAVING sequenceMatch('(?1).*(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase' AND (timestamp <= (SELECT timestamp FROM events e2 WHERE e2.user_id = events.user_id AND e2.event_type = 'signup' LIMIT 1) + INTERVAL 60 SECOND)\n)\n```\n\n*Correction for standard `sequenceMatch` usage with time constraints in ClickHouse:*\n\n```sql\nSELECT\n    count(DISTINCT user_id)\nFROM events\nGROUP BY user_id\nHAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n    timestamp,\n    event_type = 'signup',\n    event_type = 'purchase'\n)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a19Xgv1RTE6Wge2ckNTgzTKkzoHXptJy/qJiJLH0rgxYR5Klmj60dfTJObAtnZ0=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 439,
+        "completion_tokens": 195,
+        "total_tokens": 634,
+        "cost": 0.0008045,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0008045,
+          "upstream_inference_prompt_cost": 0.0002195,
+          "upstream_inference_completions_cost": 0.000585
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_03",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1).*(?2)')(\n        timestamp,\n        event_type = 'signup',\n        event_type = 'purchase'\n    ) AND (\n        SELECT maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup')\n        FROM (SELECT timestamp, event_type)\n    ) <= 60\n)",
+    "raw_response": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1).*(?2)')(\n        timestamp,\n        event_type = 'signup',\n        event_type = 'purchase'\n    ) AND (\n        SELECT maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup')\n        FROM (SELECT timestamp, event_type)\n    ) <= 60\n)",
+    "tokens_in": 439,
+    "tokens_out": 114,
+    "cost_usd": 0.0005615,
+    "latency_ms": 1759.0,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448954-BZnX2y70wU54Wdyawnm1",
+      "object": "chat.completion",
+      "created": 1786448954,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1).*(?2)')(\n        timestamp,\n        event_type = 'signup',\n        event_type = 'purchase'\n    ) AND (\n        SELECT maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup')\n        FROM (SELECT timestamp, event_type)\n    ) <= 60\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a194/BFDkf+Cm2frlbGaC/eJPw4CpcftjugHXKcVXm5YDNGSIYXXHL6twfkLDu4=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 439,
+        "completion_tokens": 114,
+        "total_tokens": 553,
+        "cost": 0.0005615,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0005615,
+          "upstream_inference_prompt_cost": 0.0002195,
+          "upstream_inference_completions_cost": 0.000342
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_03",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1).*(?2)')(\n        timestamp,\n        event_type = 'signup',\n        event_type = 'purchase'\n    ) AND (\n        SELECT maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup')\n        FROM (SELECT timestamp, event_type)\n    ) <= 60\n)",
+    "raw_response": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1).*(?2)')(\n        timestamp,\n        event_type = 'signup',\n        event_type = 'purchase'\n    ) AND (\n        SELECT maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup')\n        FROM (SELECT timestamp, event_type)\n    ) <= 60\n)",
+    "tokens_in": 439,
+    "tokens_out": 114,
+    "cost_usd": 0.0005615,
+    "latency_ms": 1535.8,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448956-KxFmE8MPqJoyLpCgEcME",
+      "object": "chat.completion",
+      "created": 1786448956,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1).*(?2)')(\n        timestamp,\n        event_type = 'signup',\n        event_type = 'purchase'\n    ) AND (\n        SELECT maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup')\n        FROM (SELECT timestamp, event_type)\n    ) <= 60\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1/gaOr8gJNoRrPcG++5qTsFCIt18brLtxXBBhnxaUZD7IHT71ntdDmyCbUwhek=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 439,
+        "completion_tokens": 114,
+        "total_tokens": 553,
+        "cost": 0.0005615,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0005615,
+          "upstream_inference_prompt_cost": 0.0002195,
+          "upstream_inference_completions_cost": 0.000342
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_04",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;",
+    "raw_response": "SELECT\n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;",
+    "tokens_in": 462,
+    "tokens_out": 78,
+    "cost_usd": 0.000465,
+    "latency_ms": 1659.2,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448958-HCGIUlmMX92lGPmXRKdW",
+      "object": "chat.completion",
+      "created": 1786448958,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1+6pkBtGGjauK7IoYIHL7h7fK25chglFEss9A/cmBK90YXbJoyGCKW89GUB4xk=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 462,
+        "completion_tokens": 78,
+        "total_tokens": 540,
+        "cost": 0.000465,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000465,
+          "upstream_inference_prompt_cost": 0.000231,
+          "upstream_inference_completions_cost": 0.000234
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_04",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;",
+    "raw_response": "SELECT\n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;",
+    "tokens_in": 462,
+    "tokens_out": 78,
+    "cost_usd": 0.000465,
+    "latency_ms": 4205.4,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448963-HRydfJ744x9MwfpXncAy",
+      "object": "chat.completion",
+      "created": 1786448963,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a19mulJdzfx22zG2TUi3M2PQX3luedoN63U347gbz/9KzUefMFisc8Rw6BowRBY=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 462,
+        "completion_tokens": 78,
+        "total_tokens": 540,
+        "cost": 0.000465,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000465,
+          "upstream_inference_prompt_cost": 0.000231,
+          "upstream_inference_completions_cost": 0.000234
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_04",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;",
+    "raw_response": "SELECT\n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;",
+    "tokens_in": 462,
+    "tokens_out": 78,
+    "cost_usd": 0.000465,
+    "latency_ms": 1628.0,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448965-BJGfJ7VO0X5vMwiP6gog",
+      "object": "chat.completion",
+      "created": 1786448965,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a193VKGpj/L0PzDoiwcnmmXE8aURm2Re9vD9FmBQXlfJtCElLQjVkktdT2JbLTo=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 462,
+        "completion_tokens": 78,
+        "total_tokens": 540,
+        "cost": 0.000465,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000465,
+          "upstream_inference_prompt_cost": 0.000231,
+          "upstream_inference_completions_cost": 0.000234
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_05",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "raw_response": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "tokens_in": 450,
+    "tokens_out": 42,
+    "cost_usd": 0.000351,
+    "latency_ms": 1153.0,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448967-hHOWkdiWdJEZYoGGzu94",
+      "object": "chat.completion",
+      "created": 1786448967,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a19zXjonSvhI+o8fWJXBMtJC9JuTHqhDtQ4iuMSOAUCsoXKJeDk4UVHitnsJbv8=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 42,
+        "total_tokens": 492,
+        "cost": 0.000351,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000351,
+          "upstream_inference_prompt_cost": 0.000225,
+          "upstream_inference_completions_cost": 0.000126
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_05",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "raw_response": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "tokens_in": 450,
+    "tokens_out": 42,
+    "cost_usd": 0.000351,
+    "latency_ms": 1660.3,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448969-BAr5Y3sJFHb6x0GJnJXH",
+      "object": "chat.completion",
+      "created": 1786448969,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1+L7+rIQEmoBrjV0XZyZGKKonlLQe+3Jy5WYG7G1RNguvqQ3AOyFhckcU+Riwc=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 42,
+        "total_tokens": 492,
+        "cost": 0.000351,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000351,
+          "upstream_inference_prompt_cost": 0.000225,
+          "upstream_inference_completions_cost": 0.000126
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_05",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "raw_response": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "tokens_in": 450,
+    "tokens_out": 42,
+    "cost_usd": 0.000351,
+    "latency_ms": 1345.2,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448971-pFQ0iKg059EUsjWhsAiN",
+      "object": "chat.completion",
+      "created": 1786448971,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1/hwgI+XVrFx7/vcJB59nKFRzFKbe1KLou6ppImIJMHmPT3l9PYMM3LJHAGFSI=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 42,
+        "total_tokens": 492,
+        "cost": 0.000351,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000351,
+          "upstream_inference_prompt_cost": 0.000225,
+          "upstream_inference_completions_cost": 0.000126
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_06",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= '2024-01-01 00:00:00'\n  AND timestamp < '2024-02-01 00:00:00'\nGROUP BY day\nORDER BY day ASC \nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE (revenue AS revenue)",
+    "raw_response": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= '2024-01-01 00:00:00'\n  AND timestamp < '2024-02-01 00:00:00'\nGROUP BY day\nORDER BY day ASC \nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE (revenue AS revenue)\n```",
+    "tokens_in": 495,
+    "tokens_out": 156,
+    "cost_usd": 0.0007155,
+    "latency_ms": 1846.1,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448973-xZw5RZxVwyTeNi15eQyz",
+      "object": "chat.completion",
+      "created": 1786448973,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= '2024-01-01 00:00:00'\n  AND timestamp < '2024-02-01 00:00:00'\nGROUP BY day\nORDER BY day ASC \nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE (revenue AS revenue)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1874eZ+/nsl8VnroQQ/7/un9Oi3dJ1RrxZ2GGXmHQG6XBddP9zvyhEEYBTkTd4=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 495,
+        "completion_tokens": 156,
+        "total_tokens": 651,
+        "cost": 0.0007155,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0007155,
+          "upstream_inference_prompt_cost": 0.0002475,
+          "upstream_inference_completions_cost": 0.000468
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_06",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= '2024-01-01 00:00:00'\n  AND timestamp < '2024-02-01 00:00:00'\nGROUP BY day\nORDER BY day ASC \nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE (revenue AS revenue)",
+    "raw_response": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= '2024-01-01 00:00:00'\n  AND timestamp < '2024-02-01 00:00:00'\nGROUP BY day\nORDER BY day ASC \nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE (revenue AS revenue)\n```",
+    "tokens_in": 495,
+    "tokens_out": 156,
+    "cost_usd": 0.0007155,
+    "latency_ms": 1815.0,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448975-tEizxMVIE1pyIUXQ1QSn",
+      "object": "chat.completion",
+      "created": 1786448975,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= '2024-01-01 00:00:00'\n  AND timestamp < '2024-02-01 00:00:00'\nGROUP BY day\nORDER BY day ASC \nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE (revenue AS revenue)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1+WacbEeFsL0J5rkTeM2Y+37KG60WNdkuHjvui1oW8MwzSrNhm+AkcDBVJ0a5U=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 495,
+        "completion_tokens": 156,
+        "total_tokens": 651,
+        "cost": 0.0007155,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0007155,
+          "upstream_inference_prompt_cost": 0.0002475,
+          "upstream_inference_completions_cost": 0.000468
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_06",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE (event_type = 'purchase') AND (revenue_cents > 9950) AND (timestamp >= '2024-01-01 00:00:00') AND (timestamp < '2024-02-01 00:00:00')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1 INTERPOLATE (revenue AS revenue)",
+    "raw_response": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE (event_type = 'purchase') AND (revenue_cents > 9950) AND (timestamp >= '2024-01-01 00:00:00') AND (timestamp < '2024-02-01 00:00:00')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1 INTERPOLATE (revenue AS revenue)",
+    "tokens_in": 495,
+    "tokens_out": 147,
+    "cost_usd": 0.0006885,
+    "latency_ms": 1567.8,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448977-h2cH7xhKz94tLSyTP72g",
+      "object": "chat.completion",
+      "created": 1786448977,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE (event_type = 'purchase') AND (revenue_cents > 9950) AND (timestamp >= '2024-01-01 00:00:00') AND (timestamp < '2024-02-01 00:00:00')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1 INTERPOLATE (revenue AS revenue)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a19LXh1JWapvaewhv8aI7QyCvD4olVmI+GD6lmL3l16wRX+COKEim/JbgTeAAzg=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 495,
+        "completion_tokens": 147,
+        "total_tokens": 642,
+        "cost": 0.0006885,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0006885,
+          "upstream_inference_prompt_cost": 0.0002475,
+          "upstream_inference_completions_cost": 0.000441
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_07",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countResample(0, 23, 6)(toHour(timestamp))\nFROM events;",
+    "raw_response": "SELECT\n    countResample(0, 23, 6)(toHour(timestamp))\nFROM events;",
+    "tokens_in": 469,
+    "tokens_out": 25,
+    "cost_usd": 0.0003095,
+    "latency_ms": 1169.4,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448979-FL4s8u1F1LGJvmByZsIW",
+      "object": "chat.completion",
+      "created": 1786448979,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    countResample(0, 23, 6)(toHour(timestamp))\nFROM events;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a18p8BqBpiUNZEdBp/mDoWjDFW2Nf643QmdyyMFMowEp0l35vU0ylsLkxdG2yRo=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 469,
+        "completion_tokens": 25,
+        "total_tokens": 494,
+        "cost": 0.0003095,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0003095,
+          "upstream_inference_prompt_cost": 0.0002345,
+          "upstream_inference_completions_cost": 7.5e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_07",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countResample(0, 23, 6)(toHour(timestamp)) AS bucket_counts\nFROM events;",
+    "raw_response": "SELECT\n    countResample(0, 23, 6)(toHour(timestamp)) AS bucket_counts\nFROM events;",
+    "tokens_in": 469,
+    "tokens_out": 29,
+    "cost_usd": 0.0003215,
+    "latency_ms": 1465.3,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448981-9GybhvfABN7PgCPMGoUC",
+      "object": "chat.completion",
+      "created": 1786448981,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    countResample(0, 23, 6)(toHour(timestamp)) AS bucket_counts\nFROM events;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1/2IMso3B2l1CNy/hr7D9umTLG7CzVswz/XBNlgA6LTB/oOKonfPLLl89TScw0=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 469,
+        "completion_tokens": 29,
+        "total_tokens": 498,
+        "cost": 0.0003215,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0003215,
+          "upstream_inference_prompt_cost": 0.0002345,
+          "upstream_inference_completions_cost": 8.7e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_07",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countResample(0, 23, 6)(toHour(timestamp)) AS bucket_counts\nFROM events;",
+    "raw_response": "SELECT\n    countResample(0, 23, 6)(toHour(timestamp)) AS bucket_counts\nFROM events;",
+    "tokens_in": 469,
+    "tokens_out": 29,
+    "cost_usd": 0.0003215,
+    "latency_ms": 926.4,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448983-kpcz7wt08dPC1dOhlrEv",
+      "object": "chat.completion",
+      "created": 1786448983,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    countResample(0, 23, 6)(toHour(timestamp)) AS bucket_counts\nFROM events;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1+Ph3+RYNe32eRoeKWdQ/OV4aA24QNDNwhGG7U6K6X0ihq8+i4dc6uzeasvllo=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 469,
+        "completion_tokens": 29,
+        "total_tokens": 498,
+        "cost": 0.0003215,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0003215,
+          "upstream_inference_prompt_cost": 0.0002345,
+          "upstream_inference_completions_cost": 8.7e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_08",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    arrayCumSum(groupArray(daily_count))\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase' AND timestamp >= '2024-01-01 00:00:00' AND timestamp < '2024-02-01 00:00:00'\n    GROUP BY day\n    ORDER BY day ASC\n)",
+    "raw_response": "```sql\nSELECT\n    arrayCumSum(groupArray(daily_count))\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase' AND timestamp >= '2024-01-01 00:00:00' AND timestamp < '2024-02-01 00:00:00'\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+    "tokens_in": 450,
+    "tokens_out": 118,
+    "cost_usd": 0.000579,
+    "latency_ms": 1576.0,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448984-QM8R3OJ8giF0vlPtqX9u",
+      "object": "chat.completion",
+      "created": 1786448984,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    arrayCumSum(groupArray(daily_count))\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase' AND timestamp >= '2024-01-01 00:00:00' AND timestamp < '2024-02-01 00:00:00'\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1/ouf7UYnJ8Z/WxR9QixHRZ9W9e1QY0QiAtGczu917PuhLyb4qb5jL57zZCgaE=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 118,
+        "total_tokens": 568,
+        "cost": 0.000579,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000579,
+          "upstream_inference_prompt_cost": 0.000225,
+          "upstream_inference_completions_cost": 0.000354
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_08",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    arrayCumSum(groupArray(daily_count))\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase' AND timestamp >= '2024-01-01 00:00:00' AND timestamp < '2024-02-01 00:00:00'\n    GROUP BY day\n    ORDER BY day ASC\n)",
+    "raw_response": "```sql\nSELECT\n    arrayCumSum(groupArray(daily_count))\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase' AND timestamp >= '2024-01-01 00:00:00' AND timestamp < '2024-02-01 00:00:00'\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+    "tokens_in": 450,
+    "tokens_out": 118,
+    "cost_usd": 0.000579,
+    "latency_ms": 1840.6,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448986-zDhHGFkyqoVOCUkXqT4V",
+      "object": "chat.completion",
+      "created": 1786448987,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    arrayCumSum(groupArray(daily_count))\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase' AND timestamp >= '2024-01-01 00:00:00' AND timestamp < '2024-02-01 00:00:00'\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1+cFlfoLBGRYMmopWG3Z/PbuZIwbVWEheyTim1hfsfdGSrGJ2LvGxC/nu/chRQ=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 118,
+        "total_tokens": 568,
+        "cost": 0.000579,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000579,
+          "upstream_inference_prompt_cost": 0.000225,
+          "upstream_inference_completions_cost": 0.000354
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_08",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    arrayCumSum(groupArray(purchase_count))\nFROM\n(\n    SELECT\n        toStartOfDay(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE (event_type = 'purchase') AND (timestamp >= '2024-01-01 00:00:00') AND (timestamp < '2024-02-01 00:00:00')\n    GROUP BY day\n    ORDER BY day ASC\n)",
+    "raw_response": "SELECT\n    arrayCumSum(groupArray(purchase_count))\nFROM\n(\n    SELECT\n        toStartOfDay(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE (event_type = 'purchase') AND (timestamp >= '2024-01-01 00:00:00') AND (timestamp < '2024-02-01 00:00:00')\n    GROUP BY day\n    ORDER BY day ASC\n)",
+    "tokens_in": 450,
+    "tokens_out": 118,
+    "cost_usd": 0.000579,
+    "latency_ms": 1580.0,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448989-ww66EMPnNtOnHTr0fNUt",
+      "object": "chat.completion",
+      "created": 1786448989,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    arrayCumSum(groupArray(purchase_count))\nFROM\n(\n    SELECT\n        toStartOfDay(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE (event_type = 'purchase') AND (timestamp >= '2024-01-01 00:00:00') AND (timestamp < '2024-02-01 00:00:00')\n    GROUP BY day\n    ORDER BY day ASC\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1/EslNEK5O3utxkoFMTKqG4nSct6+GavEZgjD8vmWhzGqwqF9bWusC+1kY8UOU=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 118,
+        "total_tokens": 568,
+        "cost": 0.000579,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000579,
+          "upstream_inference_prompt_cost": 0.000225,
+          "upstream_inference_completions_cost": 0.000354
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_09",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMax(page, timestamp) IF(event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC;",
+    "raw_response": "```sql\nSELECT\n    country,\n    argMax(page, timestamp) IF(event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC;\n```",
+    "tokens_in": 447,
+    "tokens_out": 43,
+    "cost_usd": 0.0003525,
+    "latency_ms": 1187.4,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448991-gdUAYxSNnb1oSGAJ39u2",
+      "object": "chat.completion",
+      "created": 1786448991,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "provisioned",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    country,\n    argMax(page, timestamp) IF(event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC;\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a19dNrssGRHdzbpo3oYDIBrOKQLJWRQy3hLY3f7NpwMd8UUJm2C6uFSkJtDLJF0=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 447,
+        "completion_tokens": 43,
+        "total_tokens": 490,
+        "cost": 0.0003525,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0003525,
+          "upstream_inference_prompt_cost": 0.0002235,
+          "upstream_inference_completions_cost": 0.000129
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_09",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC;",
+    "raw_response": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC;",
+    "tokens_in": 447,
+    "tokens_out": 37,
+    "cost_usd": 0.0003345,
+    "latency_ms": 1343.5,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448993-SwtoB0NZRmnTMpAFH9lA",
+      "object": "chat.completion",
+      "created": 1786448993,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a18CxOt9XCSSGtzd66VDbgEmF+9nRZ1rJCx84/67RotiOq7q8YyKYg1GRx063o8=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 447,
+        "completion_tokens": 37,
+        "total_tokens": 484,
+        "cost": 0.0003345,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0003345,
+          "upstream_inference_prompt_cost": 0.0002235,
+          "upstream_inference_completions_cost": 0.000111
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_09",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMax(page, timestamp) IF(event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC;",
+    "raw_response": "```sql\nSELECT\n    country,\n    argMax(page, timestamp) IF(event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC;\n```",
+    "tokens_in": 447,
+    "tokens_out": 43,
+    "cost_usd": 0.0003525,
+    "latency_ms": 916.4,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448994-bVZK6yavYUPceAuZ3YQM",
+      "object": "chat.completion",
+      "created": 1786448994,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    country,\n    argMax(page, timestamp) IF(event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC;\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a19bVcmjs5kyfjeOOXFb8Y3gHDykjC3YTuHvGpdnM0fLYUsv/+HPIzGOiNxT09U=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 447,
+        "completion_tokens": 43,
+        "total_tokens": 490,
+        "cost": 0.0003525,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0003525,
+          "upstream_inference_prompt_cost": 0.0002235,
+          "upstream_inference_completions_cost": 0.000129
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_10",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND toDate(timestamp) = '2024-03-01'",
+    "raw_response": "```sql\nSELECT\n    count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND toDate(timestamp) = '2024-03-01'\n```",
+    "tokens_in": 450,
+    "tokens_out": 57,
+    "cost_usd": 0.000396,
+    "latency_ms": 1015.3,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448996-BSEawnvNQ5YB8GCkuEuP",
+      "object": "chat.completion",
+      "created": 1786448996,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND toDate(timestamp) = '2024-03-01'\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1/KlI/pZlamrHfkaQRx1pYXX6/tMnalhRTW/grm93OXPS3Bw3KoEBDhl5zAuCY=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 57,
+        "total_tokens": 507,
+        "cost": 0.000396,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000396,
+          "upstream_inference_prompt_cost": 0.000225,
+          "upstream_inference_completions_cost": 0.000171
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_10",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND toDate(timestamp) = '2024-03-01'",
+    "raw_response": "```sql\nSELECT\n    count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND toDate(timestamp) = '2024-03-01'\n```",
+    "tokens_in": 450,
+    "tokens_out": 57,
+    "cost_usd": 0.000396,
+    "latency_ms": 1218.0,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448997-FDsn37ctFPU5TGM08Obk",
+      "object": "chat.completion",
+      "created": 1786448997,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND toDate(timestamp) = '2024-03-01'\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1/xmEchXBLDnddvoZq7eM/lx1uAPbpwVARxghXDfd/SXwKtBzHpisWKqGqU8vA=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 57,
+        "total_tokens": 507,
+        "cost": 0.000396,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000396,
+          "upstream_inference_prompt_cost": 0.000225,
+          "upstream_inference_completions_cost": 0.000171
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gemini-3-flash",
+    "model_id": "google/gemini-3-flash-preview",
+    "question_id": "t6_10",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND toDate(timestamp) = '2024-03-01'",
+    "raw_response": "```sql\nSELECT\n    count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND toDate(timestamp) = '2024-03-01'\n```",
+    "tokens_in": 450,
+    "tokens_out": 57,
+    "cost_usd": 0.000396,
+    "latency_ms": 1830.3,
+    "model_id_returned": "google/gemini-3-flash-preview",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448999-GyMTDfbyPtQotUJltrTC",
+      "object": "chat.completion",
+      "created": 1786448999,
+      "model": "google/gemini-3-flash-preview",
+      "provider": "Google",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "STOP",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    count(DISTINCT key)\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND toDate(timestamp) = '2024-03-01'\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "AY89a1/a7gHCOzyqB9wUJbv8pnFDKo1JGekuy9V4sBayDCIa7SqtDbkBNCadx9Gj5Xs=",
+                "format": "google-gemini-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 450,
+        "completion_tokens": 57,
+        "total_tokens": 507,
+        "cost": 0.000396,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000396,
+          "upstream_inference_prompt_cost": 0.000225,
+          "upstream_inference_completions_cost": 0.000171
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  }
+]

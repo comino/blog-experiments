@@ -1,0 +1,82 @@
+[
+  {
+    "id": "t6_01",
+    "tier": 6,
+    "natural_language": "Using windowFunnel with a 24-hour window, compute how many users reach each stage of the funnel pageview -> click -> purchase. Return exactly one row with three columns named users_l1, users_l2, users_l3: the number of users reaching at least stage 1, at least stage 2, and all 3 stages.",
+    "reference_sql": "SELECT countIf(lvl >= 1) AS users_l1, countIf(lvl >= 2) AS users_l2, countIf(lvl >= 3) AS users_l3 FROM (SELECT user_id, windowFunnel(86400)(toDateTime(timestamp), event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS lvl FROM events GROUP BY user_id)",
+    "expected_result_type": "scalar",
+    "ch_features": ["windowFunnel", "DateTime64 cast", "countIf"]
+  },
+  {
+    "id": "t6_02",
+    "tier": 6,
+    "natural_language": "Using the retention aggregate function with the daily conditions date = 2024-01-01, date = 2024-01-02, date = 2024-01-03, count how many users satisfy each retention condition. Return exactly one row with three columns named r1, r2, r3.",
+    "reference_sql": "SELECT countIf(r[1]) AS r1, countIf(r[2]) AS r2, countIf(r[3]) AS r3 FROM (SELECT user_id, retention(toDate(timestamp) = '2024-01-01', toDate(timestamp) = '2024-01-02', toDate(timestamp) = '2024-01-03') AS r FROM events GROUP BY user_id)",
+    "expected_result_type": "scalar",
+    "ch_features": ["retention", "countIf"]
+  },
+  {
+    "id": "t6_03",
+    "tier": 6,
+    "natural_language": "Count how many users performed a signup event followed by a purchase event within 60 seconds, using sequenceMatch with a time condition. Return a single number.",
+    "reference_sql": "SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?t<=60)(?2)')(toDateTime(timestamp), event_type = 'signup', event_type = 'purchase'))",
+    "expected_result_type": "scalar",
+    "ch_features": ["sequenceMatch", "time condition", "DateTime64 cast"]
+  },
+  {
+    "id": "t6_04",
+    "tier": 6,
+    "natural_language": "For users with user_id 1 to 20, find the timestamp of their earliest event at or after their created_at, using ASOF JOIN. Return two columns named user_id and first_event_time, ordered by user_id ascending.",
+    "reference_sql": "SELECT u.user_id AS user_id, e.timestamp AS first_event_time FROM users AS u ASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at WHERE u.user_id <= 20 ORDER BY u.user_id",
+    "expected_result_type": "table",
+    "ch_features": ["ASOF JOIN"]
+  },
+  {
+    "id": "t6_05",
+    "tier": 6,
+    "natural_language": "For each event_type, return its 2 most recent events using the LIMIT BY clause. Return three columns named event_type, event_id, timestamp, ordered by event_type ascending and timestamp descending.",
+    "reference_sql": "SELECT event_type, event_id, timestamp FROM events ORDER BY event_type ASC, timestamp DESC LIMIT 2 BY event_type",
+    "expected_result_type": "table",
+    "ch_features": ["LIMIT BY"]
+  },
+  {
+    "id": "t6_06",
+    "tier": 6,
+    "natural_language": "Show daily total revenue_cents from purchase events with revenue_cents > 9950 for January 2024. Fill missing days with WITH FILL and carry the previous day's revenue forward on filled days using INTERPOLATE. Return two columns named day and revenue, ordered by day ascending, covering 2024-01-01 through 2024-01-31.",
+    "reference_sql": "SELECT toDate(timestamp) AS day, sum(revenue_cents) AS revenue FROM events WHERE event_type = 'purchase' AND revenue_cents > 9950 AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31' GROUP BY day ORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') INTERPOLATE (revenue AS revenue)",
+    "expected_result_type": "table",
+    "ch_features": ["WITH FILL", "INTERPOLATE"]
+  },
+  {
+    "id": "t6_07",
+    "tier": 6,
+    "natural_language": "Using the countResample aggregate function combinator, count events in four 6-hour buckets of the hour of day (0-5, 6-11, 12-17, 18-23). Return a single row with one array column of the four counts.",
+    "reference_sql": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS buckets FROM events",
+    "expected_result_type": "scalar",
+    "ch_features": ["-Resample combinator", "toHour"]
+  },
+  {
+    "id": "t6_08",
+    "tier": 6,
+    "natural_language": "Compute the cumulative sum of daily purchase-event counts for January 2024 as an array, with days ordered ascending, using groupArray and arrayCumSum. Return a single row with one array column.",
+    "reference_sql": "SELECT arrayCumSum(groupArray(c)) AS cumulative FROM (SELECT toDate(timestamp) AS d, count() AS c FROM events WHERE event_type = 'purchase' AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31' GROUP BY d ORDER BY d ASC)",
+    "expected_result_type": "scalar",
+    "ch_features": ["arrayCumSum", "groupArray"]
+  },
+  {
+    "id": "t6_09",
+    "tier": 6,
+    "natural_language": "For each country, find the page of that country's most recent purchase event, using argMax with the -If combinator. Return two columns named country and page, ordered by country ascending.",
+    "reference_sql": "SELECT country, argMaxIf(page, timestamp, event_type = 'purchase') AS page FROM events GROUP BY country ORDER BY country ASC",
+    "expected_result_type": "table",
+    "ch_features": ["argMaxIf", "combinator stacking"]
+  },
+  {
+    "id": "t6_10",
+    "tier": 6,
+    "natural_language": "Count the number of distinct property keys that occur across the properties maps of all purchase events on 2024-03-01, by combining mapKeys with ARRAY JOIN. Return a single number.",
+    "reference_sql": "SELECT uniqExact(k) FROM events ARRAY JOIN mapKeys(properties) AS k WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01'",
+    "expected_result_type": "scalar",
+    "ch_features": ["mapKeys", "ARRAY JOIN", "uniqExact"]
+  }
+]

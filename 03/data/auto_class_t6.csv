@@ -1,0 +1,44 @@
+model,question_id,run,failure_type,rule
+claude-opus-4,t6_02,1,logic_error,results differ structurally
+claude-opus-4,t6_02,2,logic_error,results differ structurally
+claude-opus-4,t6_02,3,logic_error,results differ structurally
+claude-opus-4,t6_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-4,t6_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-4,t6_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+claude-opus-5,t6_06,1,format_mismatch,"same columns after overlap matching, formatting/order differs"
+claude-sonnet-4.5,t6_02,1,logic_error,results differ structurally
+claude-sonnet-4.5,t6_02,2,logic_error,results differ structurally
+claude-sonnet-4.5,t6_02,3,logic_error,results differ structurally
+claude-sonnet-5,t6_07,1,logic_error,results differ structurally
+claude-sonnet-5,t6_07,2,logic_error,results differ structurally
+claude-sonnet-5,t6_07,3,logic_error,results differ structurally
+deepseek-v3.2,t6_02,1,logic_error,results differ structurally
+deepseek-v3.2,t6_02,2,logic_error,results differ structurally
+deepseek-v3.2,t6_02,3,logic_error,results differ structurally
+deepseek-v3.2,t6_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v3.2,t6_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v3.2,t6_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v3.2,t6_07,1,logic_error,results differ structurally
+deepseek-v3.2,t6_07,2,logic_error,results differ structurally
+deepseek-v3.2,t6_07,3,logic_error,results differ structurally
+deepseek-v4-flash,t6_07,3,logic_error,results differ structurally
+deepseek-v4-pro,t6_06,1,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t6_06,3,format_mismatch,row subset (LIMIT/ordering difference)
+deepseek-v4-pro,t6_07,2,logic_error,results differ structurally
+gemini-3-flash,t6_02,1,logic_error,results differ structurally
+gemini-3-flash,t6_02,2,logic_error,results differ structurally
+gemini-3-flash,t6_02,3,logic_error,results differ structurally
+gemini-3-flash,t6_07,1,logic_error,results differ structurally
+gemini-3-flash,t6_07,2,logic_error,results differ structurally
+gemini-3-flash,t6_07,3,logic_error,results differ structurally
+gemini-3.5-flash,t6_07,1,logic_error,results differ structurally
+gemini-3.5-flash,t6_07,2,logic_error,results differ structurally
+gpt-5.2,t6_06,2,format_mismatch,"same columns after overlap matching, formatting/order differs"
+gpt-5.2,t6_06,3,format_mismatch,"same columns after overlap matching, formatting/order differs"
+gpt-5.6-luna-pro,t6_02,1,logic_error,results differ structurally
+gpt-5.6-luna-pro,t6_02,3,logic_error,results differ structurally
+gpt-5.6-luna-pro,t6_06,3,format_mismatch,"same columns after overlap matching, formatting/order differs"
+gpt-5.6-luna,t6_02,1,logic_error,results differ structurally
+kimi-k2.5,t6_02,2,logic_error,results differ structurally
+minimax-m2.5,t6_06,2,format_mismatch,row subset (LIMIT/ordering difference)
+minimax-m3,t6_01,2,logic_error,results differ structurally

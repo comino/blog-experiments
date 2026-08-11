@@ -1,0 +1,1832 @@
+[
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_01",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(steps >= 1) AS users_l1,\n    countIf(steps >= 2) AS users_l2,\n    countIf(steps >= 3) AS users_l3\nFROM (\n    SELECT\n        user_id,\n        windowFunnel(86400000)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS steps\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    countIf(steps >= 1) AS users_l1,\n    countIf(steps >= 2) AS users_l2,\n    countIf(steps >= 3) AS users_l3\nFROM (\n    SELECT\n        user_id,\n        windowFunnel(86400000)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS steps\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 431,
+    "tokens_out": 109,
+    "cost_usd": 0.00015348,
+    "latency_ms": 3019.2,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448936-AfbPCgVLvN2BGOYpS7JC",
+      "object": "chat.completion",
+      "created": 1786448936,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    countIf(steps >= 1) AS users_l1,\n    countIf(steps >= 2) AS users_l2,\n    countIf(steps >= 3) AS users_l3\nFROM (\n    SELECT\n        user_id,\n        windowFunnel(86400000)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS steps\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 431,
+        "completion_tokens": 109,
+        "total_tokens": 540,
+        "cost": 0.00015348,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00015348,
+          "upstream_inference_prompt_cost": 0.00011206,
+          "upstream_inference_completions_cost": 4.142e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_01",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(steps >= 1) AS users_l1,\n    countIf(steps >= 2) AS users_l2,\n    countIf(steps = 3) AS users_l3\nFROM (\n    SELECT\n        user_id,\n        windowFunnel(86400000000000)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS steps\n    FROM events\n    WHERE timestamp BETWEEN '2024-01-01 00:00:00' AND '2024-12-31 23:59:59.999'\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    countIf(steps >= 1) AS users_l1,\n    countIf(steps >= 2) AS users_l2,\n    countIf(steps = 3) AS users_l3\nFROM (\n    SELECT\n        user_id,\n        windowFunnel(86400000000000)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS steps\n    FROM events\n    WHERE timestamp BETWEEN '2024-01-01 00:00:00' AND '2024-12-31 23:59:59.999'\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 431,
+    "tokens_out": 146,
+    "cost_usd": 0.00011762,
+    "latency_ms": 3608.0,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448940-vQAEQRg50mSdqHi7Nrfj",
+      "object": "chat.completion",
+      "created": 1786448940,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    countIf(steps >= 1) AS users_l1,\n    countIf(steps >= 2) AS users_l2,\n    countIf(steps = 3) AS users_l3\nFROM (\n    SELECT\n        user_id,\n        windowFunnel(86400000000000)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS steps\n    FROM events\n    WHERE timestamp BETWEEN '2024-01-01 00:00:00' AND '2024-12-31 23:59:59.999'\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 431,
+        "completion_tokens": 146,
+        "total_tokens": 577,
+        "cost": 0.00011762,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 384,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00011762,
+          "upstream_inference_prompt_cost": 6.214e-05,
+          "upstream_inference_completions_cost": 5.548e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_01",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(steps >= 1) AS users_l1,\n    countIf(steps >= 2) AS users_l2,\n    countIf(steps >= 3) AS users_l3\nFROM (\n    SELECT\n        user_id,\n        windowFunnel(86400000)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS steps\n    FROM events\n    WHERE timestamp BETWEEN '2024-01-01 00:00:00' AND '2024-12-31 23:59:59'\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    countIf(steps >= 1) AS users_l1,\n    countIf(steps >= 2) AS users_l2,\n    countIf(steps >= 3) AS users_l3\nFROM (\n    SELECT\n        user_id,\n        windowFunnel(86400000)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS steps\n    FROM events\n    WHERE timestamp BETWEEN '2024-01-01 00:00:00' AND '2024-12-31 23:59:59'\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 431,
+    "tokens_out": 142,
+    "cost_usd": 0.0001161,
+    "latency_ms": 3793.6,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448944-Zr6EyMxt65gXsLQSYsZf",
+      "object": "chat.completion",
+      "created": 1786448944,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    countIf(steps >= 1) AS users_l1,\n    countIf(steps >= 2) AS users_l2,\n    countIf(steps >= 3) AS users_l3\nFROM (\n    SELECT\n        user_id,\n        windowFunnel(86400000)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS steps\n    FROM events\n    WHERE timestamp BETWEEN '2024-01-01 00:00:00' AND '2024-12-31 23:59:59'\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 431,
+        "completion_tokens": 142,
+        "total_tokens": 573,
+        "cost": 0.0001161,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 384,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001161,
+          "upstream_inference_prompt_cost": 6.214e-05,
+          "upstream_inference_completions_cost": 5.396e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_02",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    retention(timestamp = toDate('2024-01-01'), timestamp = toDate('2024-01-02'), timestamp = toDate('2024-01-03')) AS retention_conditions,\n    retention_conditions[1] AS r1,\n    retention_conditions[2] AS r2,\n    retention_conditions[3] AS r3\nFROM events\nWHERE timestamp >= '2024-01-01' AND timestamp < '2024-01-04'\nGROUP BY user_id",
+    "raw_response": "```sql\nSELECT\n    retention(timestamp = toDate('2024-01-01'), timestamp = toDate('2024-01-02'), timestamp = toDate('2024-01-03')) AS retention_conditions,\n    retention_conditions[1] AS r1,\n    retention_conditions[2] AS r2,\n    retention_conditions[3] AS r3\nFROM events\nWHERE timestamp >= '2024-01-01' AND timestamp < '2024-01-04'\nGROUP BY user_id\n```",
+    "tokens_in": 425,
+    "tokens_out": 113,
+    "cost_usd": 0.00015344,
+    "latency_ms": 3181.8,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448948-YFCwUYHxu74lUL6JyD97",
+      "object": "chat.completion",
+      "created": 1786448948,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    retention(timestamp = toDate('2024-01-01'), timestamp = toDate('2024-01-02'), timestamp = toDate('2024-01-03')) AS retention_conditions,\n    retention_conditions[1] AS r1,\n    retention_conditions[2] AS r2,\n    retention_conditions[3] AS r3\nFROM events\nWHERE timestamp >= '2024-01-01' AND timestamp < '2024-01-04'\nGROUP BY user_id\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 425,
+        "completion_tokens": 113,
+        "total_tokens": 538,
+        "cost": 0.00015344,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00015344,
+          "upstream_inference_prompt_cost": 0.0001105,
+          "upstream_inference_completions_cost": 4.294e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_02",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    retention(date = toDate('2024-01-01'), date = toDate('2024-01-02'), date = toDate('2024-01-03')) AS ret,\n    ret[1] AS r1,\n    ret[2] AS r2,\n    ret[3] AS r3\nFROM (\n    SELECT user_id, toDate(timestamp) AS date\n    FROM events\n    WHERE date BETWEEN '2024-01-01' AND '2024-01-03'\n    GROUP BY user_id, date\n)",
+    "raw_response": "```sql\nSELECT\n    retention(date = toDate('2024-01-01'), date = toDate('2024-01-02'), date = toDate('2024-01-03')) AS ret,\n    ret[1] AS r1,\n    ret[2] AS r2,\n    ret[3] AS r3\nFROM (\n    SELECT user_id, toDate(timestamp) AS date\n    FROM events\n    WHERE date BETWEEN '2024-01-01' AND '2024-01-03'\n    GROUP BY user_id, date\n)\n```",
+    "tokens_in": 425,
+    "tokens_out": 123,
+    "cost_usd": 0.00010732,
+    "latency_ms": 3323.7,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448952-syClpI5h7vV7bkAI9gMo",
+      "object": "chat.completion",
+      "created": 1786448952,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    retention(date = toDate('2024-01-01'), date = toDate('2024-01-02'), date = toDate('2024-01-03')) AS ret,\n    ret[1] AS r1,\n    ret[2] AS r2,\n    ret[3] AS r3\nFROM (\n    SELECT user_id, toDate(timestamp) AS date\n    FROM events\n    WHERE date BETWEEN '2024-01-01' AND '2024-01-03'\n    GROUP BY user_id, date\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 425,
+        "completion_tokens": 123,
+        "total_tokens": 548,
+        "cost": 0.00010732,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 384,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00010732,
+          "upstream_inference_prompt_cost": 6.058e-05,
+          "upstream_inference_completions_cost": 4.674e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_02",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    retention(date = toDate('2024-01-01'), date = toDate('2024-01-02'), date = toDate('2024-01-03')) AS ret,\n    ret[1] AS r1,\n    ret[2] AS r2,\n    ret[3] AS r3\nFROM (\n    SELECT user_id, toDate(timestamp) AS date\n    FROM events\n    WHERE date BETWEEN '2024-01-01' AND '2024-01-03'\n    GROUP BY user_id, date\n)",
+    "raw_response": "```sql\nSELECT\n    retention(date = toDate('2024-01-01'), date = toDate('2024-01-02'), date = toDate('2024-01-03')) AS ret,\n    ret[1] AS r1,\n    ret[2] AS r2,\n    ret[3] AS r3\nFROM (\n    SELECT user_id, toDate(timestamp) AS date\n    FROM events\n    WHERE date BETWEEN '2024-01-01' AND '2024-01-03'\n    GROUP BY user_id, date\n)\n```",
+    "tokens_in": 425,
+    "tokens_out": 124,
+    "cost_usd": 0.00015762,
+    "latency_ms": 5725.1,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448956-MRM6g6IzHdkR3O50uiL4",
+      "object": "chat.completion",
+      "created": 1786448956,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    retention(date = toDate('2024-01-01'), date = toDate('2024-01-02'), date = toDate('2024-01-03')) AS ret,\n    ret[1] AS r1,\n    ret[2] AS r2,\n    ret[3] AS r3\nFROM (\n    SELECT user_id, toDate(timestamp) AS date\n    FROM events\n    WHERE date BETWEEN '2024-01-01' AND '2024-01-03'\n    GROUP BY user_id, date\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 425,
+        "completion_tokens": 124,
+        "total_tokens": 549,
+        "cost": 0.00015762,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00015762,
+          "upstream_inference_prompt_cost": 0.0001105,
+          "upstream_inference_completions_cost": 4.712e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_03",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT countDistinct(user_id) FROM events WHERE sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') OVER (PARTITION BY user_id ORDER BY timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AND timestamp BETWEEN '2024-01-01 00:00:00' AND '2024-12-31 23:59:59.999';",
+    "raw_response": "```sql\nSELECT countDistinct(user_id) FROM events WHERE sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') OVER (PARTITION BY user_id ORDER BY timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AND timestamp BETWEEN '2024-01-01 00:00:00' AND '2024-12-31 23:59:59.999';\n```",
+    "tokens_in": 392,
+    "tokens_out": 104,
+    "cost_usd": 0.00010816,
+    "latency_ms": 5034.4,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448962-8a7ZgIkIuAw2XCNfZko5",
+      "object": "chat.completion",
+      "created": 1786448962,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countDistinct(user_id) FROM events WHERE sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') OVER (PARTITION BY user_id ORDER BY timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AND timestamp BETWEEN '2024-01-01 00:00:00' AND '2024-12-31 23:59:59.999';\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 392,
+        "completion_tokens": 104,
+        "total_tokens": 496,
+        "cost": 0.00010816,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00010816,
+          "upstream_inference_prompt_cost": 6.864e-05,
+          "upstream_inference_completions_cost": 3.952e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_03",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT countDistinct(user_id) FROM events WHERE sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') OVER (PARTITION BY user_id ORDER BY timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AND timestamp BETWEEN '2024-01-01' AND '2024-12-31';",
+    "raw_response": "```sql\nSELECT countDistinct(user_id) FROM events WHERE sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') OVER (PARTITION BY user_id ORDER BY timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AND timestamp BETWEEN '2024-01-01' AND '2024-12-31';\n```",
+    "tokens_in": 392,
+    "tokens_out": 90,
+    "cost_usd": 9.452e-05,
+    "latency_ms": 4308.7,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448968-lTaU8DpDVmpLphbDHput",
+      "object": "chat.completion",
+      "created": 1786448968,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countDistinct(user_id) FROM events WHERE sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') OVER (PARTITION BY user_id ORDER BY timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AND timestamp BETWEEN '2024-01-01' AND '2024-12-31';\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 392,
+        "completion_tokens": 90,
+        "total_tokens": 482,
+        "cost": 9.452e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 320,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.452e-05,
+          "upstream_inference_prompt_cost": 6.032e-05,
+          "upstream_inference_completions_cost": 3.42e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_03",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT countDistinct(user_id) FROM events WHERE sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') OVER (PARTITION BY user_id ORDER BY timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AND timestamp BETWEEN '2024-01-01' AND '2024-12-31'",
+    "raw_response": "```sql\nSELECT countDistinct(user_id) FROM events WHERE sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') OVER (PARTITION BY user_id ORDER BY timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AND timestamp BETWEEN '2024-01-01' AND '2024-12-31'\n```",
+    "tokens_in": 392,
+    "tokens_out": 89,
+    "cost_usd": 0.00010246,
+    "latency_ms": 2998.8,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448972-cDaDpFlQF6CC0AMsUOBe",
+      "object": "chat.completion",
+      "created": 1786448972,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countDistinct(user_id) FROM events WHERE sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') OVER (PARTITION BY user_id ORDER BY timestamp ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AND timestamp BETWEEN '2024-01-01' AND '2024-12-31'\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 392,
+        "completion_tokens": 89,
+        "total_tokens": 481,
+        "cost": 0.00010246,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00010246,
+          "upstream_inference_prompt_cost": 6.864e-05,
+          "upstream_inference_completions_cost": 3.382e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_04",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON (u.user_id = e.user_id) AND (u.created_at <= e.timestamp)\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;",
+    "raw_response": "```sql\nSELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON (u.user_id = e.user_id) AND (u.created_at <= e.timestamp)\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;\n```",
+    "tokens_in": 407,
+    "tokens_out": 69,
+    "cost_usd": 9.876e-05,
+    "latency_ms": 3221.5,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448976-ehE9smaC2Cl3K2klbr8i",
+      "object": "chat.completion",
+      "created": 1786448976,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users u\nASOF LEFT JOIN events e ON (u.user_id = e.user_id) AND (u.created_at <= e.timestamp)\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 407,
+        "completion_tokens": 69,
+        "total_tokens": 476,
+        "cost": 9.876e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.876e-05,
+          "upstream_inference_prompt_cost": 7.254e-05,
+          "upstream_inference_completions_cost": 2.622e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_04",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF LEFT JOIN events AS e \n    ON u.user_id = e.user_id \n    AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC",
+    "raw_response": "```sql\nSELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF LEFT JOIN events AS e \n    ON u.user_id = e.user_id \n    AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+    "tokens_in": 407,
+    "tokens_out": 72,
+    "cost_usd": 9.158e-05,
+    "latency_ms": 3297.8,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448980-fE0YnPNowFEPz0lDbOgL",
+      "object": "chat.completion",
+      "created": 1786448980,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    u.user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF LEFT JOIN events AS e \n    ON u.user_id = e.user_id \n    AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 407,
+        "completion_tokens": 72,
+        "total_tokens": 479,
+        "cost": 9.158e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 320,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.158e-05,
+          "upstream_inference_prompt_cost": 6.422e-05,
+          "upstream_inference_completions_cost": 2.736e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_04",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT \n    users.user_id,\n    events.timestamp AS first_event_time\nFROM users ASOF LEFT JOIN events \n    ON users.user_id = events.user_id \n    AND users.created_at <= events.timestamp\nWHERE users.user_id BETWEEN 1 AND 20\nORDER BY users.user_id ASC",
+    "raw_response": "```sql\nSELECT \n    users.user_id,\n    events.timestamp AS first_event_time\nFROM users ASOF LEFT JOIN events \n    ON users.user_id = events.user_id \n    AND users.created_at <= events.timestamp\nWHERE users.user_id BETWEEN 1 AND 20\nORDER BY users.user_id ASC\n```",
+    "tokens_in": 407,
+    "tokens_out": 67,
+    "cost_usd": 8.136e-05,
+    "latency_ms": 3161.2,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448983-fmAq1WvVlYWt0G4wA3M2",
+      "object": "chat.completion",
+      "created": 1786448983,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT \n    users.user_id,\n    events.timestamp AS first_event_time\nFROM users ASOF LEFT JOIN events \n    ON users.user_id = events.user_id \n    AND users.created_at <= events.timestamp\nWHERE users.user_id BETWEEN 1 AND 20\nORDER BY users.user_id ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 407,
+        "completion_tokens": 67,
+        "total_tokens": 474,
+        "cost": 8.136e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 384,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.136e-05,
+          "upstream_inference_prompt_cost": 5.59e-05,
+          "upstream_inference_completions_cost": 2.546e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_05",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type;",
+    "raw_response": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type;\n```",
+    "tokens_in": 400,
+    "tokens_out": 34,
+    "cost_usd": 8.364e-05,
+    "latency_ms": 2804.2,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448987-zMztdWF5mHdCkWLVGFXg",
+      "object": "chat.completion",
+      "created": 1786448987,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 400,
+        "completion_tokens": 34,
+        "total_tokens": 434,
+        "cost": 8.364e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.364e-05,
+          "upstream_inference_prompt_cost": 7.072e-05,
+          "upstream_inference_completions_cost": 1.292e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_05",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type;",
+    "raw_response": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type;\n```",
+    "tokens_in": 400,
+    "tokens_out": 33,
+    "cost_usd": 8.326e-05,
+    "latency_ms": 1920.7,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448990-nKCaWHAnL04INxjWk7sO",
+      "object": "chat.completion",
+      "created": 1786448990,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 400,
+        "completion_tokens": 33,
+        "total_tokens": 433,
+        "cost": 8.326e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.326e-05,
+          "upstream_inference_prompt_cost": 7.072e-05,
+          "upstream_inference_completions_cost": 1.254e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_05",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT event_type, event_id, timestamp\nFROM events\nORDER BY timestamp DESC\nLIMIT 2 BY event_type\nORDER BY event_type ASC, timestamp DESC;",
+    "raw_response": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY timestamp DESC\nLIMIT 2 BY event_type\nORDER BY event_type ASC, timestamp DESC;\n```",
+    "tokens_in": 400,
+    "tokens_out": 39,
+    "cost_usd": 7.722e-05,
+    "latency_ms": 2693.1,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448993-9ThDPUMQJEx5UZVAMHxc",
+      "object": "chat.completion",
+      "created": 1786448993,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY timestamp DESC\nLIMIT 2 BY event_type\nORDER BY event_type ASC, timestamp DESC;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 400,
+        "completion_tokens": 39,
+        "total_tokens": 439,
+        "cost": 7.722e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 320,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.722e-05,
+          "upstream_inference_prompt_cost": 6.24e-05,
+          "upstream_inference_completions_cost": 1.482e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_06",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n    AND revenue_cents > 9950\n    AND timestamp >= '2024-01-01'\n    AND timestamp < '2024-02-01'\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-01-31') STEP INTERVAL 1 DAY\nINTERPOLATE (revenue AS revenue)",
+    "raw_response": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n    AND revenue_cents > 9950\n    AND timestamp >= '2024-01-01'\n    AND timestamp < '2024-02-01'\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-01-31') STEP INTERVAL 1 DAY\nINTERPOLATE (revenue AS revenue)\n```",
+    "tokens_in": 436,
+    "tokens_out": 119,
+    "cost_usd": 0.0001253,
+    "latency_ms": 3101.6,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448996-WBhwZTgLBdeCxVkYE3QD",
+      "object": "chat.completion",
+      "created": 1786448996,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n    AND revenue_cents > 9950\n    AND timestamp >= '2024-01-01'\n    AND timestamp < '2024-02-01'\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-01-31') STEP INTERVAL 1 DAY\nINTERPOLATE (revenue AS revenue)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 436,
+        "completion_tokens": 119,
+        "total_tokens": 555,
+        "cost": 0.0001253,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001253,
+          "upstream_inference_prompt_cost": 8.008e-05,
+          "upstream_inference_completions_cost": 4.522e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_06",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n    AND revenue_cents > 9950\n    AND timestamp >= '2024-01-01'\n    AND timestamp < '2024-02-01'\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-01-31') STEP INTERVAL 1 DAY\nINTERPOLATE (revenue AS revenue);",
+    "raw_response": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n    AND revenue_cents > 9950\n    AND timestamp >= '2024-01-01'\n    AND timestamp < '2024-02-01'\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-01-31') STEP INTERVAL 1 DAY\nINTERPOLATE (revenue AS revenue);\n```",
+    "tokens_in": 436,
+    "tokens_out": 119,
+    "cost_usd": 0.0001253,
+    "latency_ms": 3360.3,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449000-Vn5zHqU42P7Iiy6CoXCJ",
+      "object": "chat.completion",
+      "created": 1786449000,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n    AND revenue_cents > 9950\n    AND timestamp >= '2024-01-01'\n    AND timestamp < '2024-02-01'\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-01-31') STEP INTERVAL 1 DAY\nINTERPOLATE (revenue AS revenue);\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 436,
+        "completion_tokens": 119,
+        "total_tokens": 555,
+        "cost": 0.0001253,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001253,
+          "upstream_inference_prompt_cost": 8.008e-05,
+          "upstream_inference_completions_cost": 4.522e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_06",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n    AND revenue_cents > 9950\n    AND timestamp >= '2024-01-01'\n    AND timestamp < '2024-02-01'\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-01-31') STEP 1\nINTERPOLATE (revenue AS revenue)",
+    "raw_response": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n    AND revenue_cents > 9950\n    AND timestamp >= '2024-01-01'\n    AND timestamp < '2024-02-01'\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-01-31') STEP 1\nINTERPOLATE (revenue AS revenue)\n```",
+    "tokens_in": 436,
+    "tokens_out": 117,
+    "cost_usd": 0.0001079,
+    "latency_ms": 3188.4,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449003-7sxwACHT0WMRiWgeb7Xc",
+      "object": "chat.completion",
+      "created": 1786449004,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n    AND revenue_cents > 9950\n    AND timestamp >= '2024-01-01'\n    AND timestamp < '2024-02-01'\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-01-31') STEP 1\nINTERPOLATE (revenue AS revenue)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 436,
+        "completion_tokens": 117,
+        "total_tokens": 553,
+        "cost": 0.0001079,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 384,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0001079,
+          "upstream_inference_prompt_cost": 6.344e-05,
+          "upstream_inference_completions_cost": 4.446e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_07",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(event_id) AS hourly_buckets FROM events;",
+    "raw_response": "```sql\nSELECT countResample(0, 24, 6)(event_id) AS hourly_buckets FROM events;\n```",
+    "tokens_in": 415,
+    "tokens_out": 29,
+    "cost_usd": 8.564e-05,
+    "latency_ms": 2150.8,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449007-Crmrxy5AzD8BiFVHNCPB",
+      "object": "chat.completion",
+      "created": 1786449007,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countResample(0, 24, 6)(event_id) AS hourly_buckets FROM events;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 415,
+        "completion_tokens": 29,
+        "total_tokens": 444,
+        "cost": 8.564e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.564e-05,
+          "upstream_inference_prompt_cost": 7.462e-05,
+          "upstream_inference_completions_cost": 1.102e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_07",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(event_id) AS hourly_buckets FROM events;",
+    "raw_response": "```sql\nSELECT countResample(0, 24, 6)(event_id) AS hourly_buckets FROM events;\n```",
+    "tokens_in": 415,
+    "tokens_out": 29,
+    "cost_usd": 8.564e-05,
+    "latency_ms": 2222.0,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449010-ansxlBUA4NoeV7z1FnjZ",
+      "object": "chat.completion",
+      "created": 1786449010,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countResample(0, 24, 6)(event_id) AS hourly_buckets FROM events;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 415,
+        "completion_tokens": 29,
+        "total_tokens": 444,
+        "cost": 8.564e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.564e-05,
+          "upstream_inference_prompt_cost": 7.462e-05,
+          "upstream_inference_completions_cost": 1.102e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_07",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(event_id) AS hourly_buckets FROM events;",
+    "raw_response": "```sql\nSELECT countResample(0, 24, 6)(event_id) AS hourly_buckets FROM events;\n```",
+    "tokens_in": 415,
+    "tokens_out": 29,
+    "cost_usd": 7.732e-05,
+    "latency_ms": 2211.3,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449013-Rk0GW9RWFxj6kaMj4tB1",
+      "object": "chat.completion",
+      "created": 1786449013,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countResample(0, 24, 6)(event_id) AS hourly_buckets FROM events;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 415,
+        "completion_tokens": 29,
+        "total_tokens": 444,
+        "cost": 7.732e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 320,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 7.732e-05,
+          "upstream_inference_prompt_cost": 6.63e-05,
+          "upstream_inference_completions_cost": 1.102e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_08",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(daily_purchases)) AS cumulative_purchases\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_purchases\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= '2024-01-01'\n      AND timestamp < '2024-02-01'\n    GROUP BY day\n    ORDER BY day ASC\n)",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(daily_purchases)) AS cumulative_purchases\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_purchases\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= '2024-01-01'\n      AND timestamp < '2024-02-01'\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+    "tokens_in": 401,
+    "tokens_out": 93,
+    "cost_usd": 0.00010632,
+    "latency_ms": 4314.1,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449015-k36rcfFEahXE2xz7MJjv",
+      "object": "chat.completion",
+      "created": 1786449015,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(daily_purchases)) AS cumulative_purchases\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_purchases\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= '2024-01-01'\n      AND timestamp < '2024-02-01'\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 401,
+        "completion_tokens": 93,
+        "total_tokens": 494,
+        "cost": 0.00010632,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00010632,
+          "upstream_inference_prompt_cost": 7.098e-05,
+          "upstream_inference_completions_cost": 3.534e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_08",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(daily_purchases)) AS cumulative_purchases\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_purchases\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= '2024-01-01'\n      AND timestamp < '2024-02-01'\n    GROUP BY day\n    ORDER BY day\n)",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(daily_purchases)) AS cumulative_purchases\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_purchases\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= '2024-01-01'\n      AND timestamp < '2024-02-01'\n    GROUP BY day\n    ORDER BY day\n)\n```",
+    "tokens_in": 401,
+    "tokens_out": 92,
+    "cost_usd": 0.00010594,
+    "latency_ms": 4450.1,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449020-xDEnM9KNDU3aoV7coft1",
+      "object": "chat.completion",
+      "created": 1786449020,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(daily_purchases)) AS cumulative_purchases\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_purchases\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= '2024-01-01'\n      AND timestamp < '2024-02-01'\n    GROUP BY day\n    ORDER BY day\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 401,
+        "completion_tokens": 92,
+        "total_tokens": 493,
+        "cost": 0.00010594,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00010594,
+          "upstream_inference_prompt_cost": 7.098e-05,
+          "upstream_inference_completions_cost": 3.496e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_08",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(daily_purchases)) AS cumulative_purchases\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_purchases\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= '2024-01-01'\n      AND timestamp < '2024-02-01'\n    GROUP BY day\n    ORDER BY day ASC\n)",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(daily_purchases)) AS cumulative_purchases\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_purchases\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= '2024-01-01'\n      AND timestamp < '2024-02-01'\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+    "tokens_in": 401,
+    "tokens_out": 93,
+    "cost_usd": 9.8e-05,
+    "latency_ms": 4199.9,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449025-XxJY0UJfia5n49tPTKRd",
+      "object": "chat.completion",
+      "created": 1786449025,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(daily_purchases)) AS cumulative_purchases\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_purchases\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= '2024-01-01'\n      AND timestamp < '2024-02-01'\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 401,
+        "completion_tokens": 93,
+        "total_tokens": 494,
+        "cost": 9.8e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 320,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 9.8e-05,
+          "upstream_inference_prompt_cost": 6.266e-05,
+          "upstream_inference_completions_cost": 3.534e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_09",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC\n```",
+    "tokens_in": 398,
+    "tokens_out": 47,
+    "cost_usd": 0.00012134,
+    "latency_ms": 1918.2,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449030-IYZutxjoWp28ce6xgvzK",
+      "object": "chat.completion",
+      "created": 1786449030,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nWHERE event_type = 'purchase'\nGROUP BY country\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 398,
+        "completion_tokens": 47,
+        "total_tokens": 445,
+        "cost": 0.00012134,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00012134,
+          "upstream_inference_prompt_cost": 0.00010348,
+          "upstream_inference_completions_cost": 1.786e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_09",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT country, argMaxIf(page, timestamp, event_type = 'purchase') AS page FROM events GROUP BY country ORDER BY country ASC",
+    "raw_response": "```sql\nSELECT country, argMaxIf(page, timestamp, event_type = 'purchase') AS page FROM events GROUP BY country ORDER BY country ASC\n```",
+    "tokens_in": 398,
+    "tokens_out": 33,
+    "cost_usd": 6.61e-05,
+    "latency_ms": 1846.9,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449032-FXciB58yv61hXhKy2moA",
+      "object": "chat.completion",
+      "created": 1786449032,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT country, argMaxIf(page, timestamp, event_type = 'purchase') AS page FROM events GROUP BY country ORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 398,
+        "completion_tokens": 33,
+        "total_tokens": 431,
+        "cost": 6.61e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 384,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.61e-05,
+          "upstream_inference_prompt_cost": 5.356e-05,
+          "upstream_inference_completions_cost": 1.254e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_09",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+    "tokens_in": 398,
+    "tokens_out": 39,
+    "cost_usd": 6.838e-05,
+    "latency_ms": 1879.8,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449035-pATpwHDSweLtNJIqucyb",
+      "object": "chat.completion",
+      "created": 1786449035,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 398,
+        "completion_tokens": 39,
+        "total_tokens": 437,
+        "cost": 6.838e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 384,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.838e-05,
+          "upstream_inference_prompt_cost": 5.356e-05,
+          "upstream_inference_completions_cost": 1.482e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_10",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT countDistinct(arrayJoin(mapKeys(properties))) FROM events WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01';",
+    "raw_response": "```sql\nSELECT countDistinct(arrayJoin(mapKeys(properties))) FROM events WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01';\n```",
+    "tokens_in": 400,
+    "tokens_out": 40,
+    "cost_usd": 8.592e-05,
+    "latency_ms": 1926.5,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449037-8S46R6HAtQdLrcoMR2qs",
+      "object": "chat.completion",
+      "created": 1786449037,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countDistinct(arrayJoin(mapKeys(properties))) FROM events WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01';\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 400,
+        "completion_tokens": 40,
+        "total_tokens": 440,
+        "cost": 8.592e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.592e-05,
+          "upstream_inference_prompt_cost": 7.072e-05,
+          "upstream_inference_completions_cost": 1.52e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_10",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT countDistinct(arrayJoin(mapKeys(properties))) FROM events WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01';",
+    "raw_response": "```sql\nSELECT countDistinct(arrayJoin(mapKeys(properties))) FROM events WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01';\n```",
+    "tokens_in": 400,
+    "tokens_out": 40,
+    "cost_usd": 6.928e-05,
+    "latency_ms": 1800.8,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449039-ztMpuiT22LIkJLwjqKNv",
+      "object": "chat.completion",
+      "created": 1786449039,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countDistinct(arrayJoin(mapKeys(properties))) FROM events WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01';\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 400,
+        "completion_tokens": 40,
+        "total_tokens": 440,
+        "cost": 6.928e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 384,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 6.928e-05,
+          "upstream_inference_prompt_cost": 5.408e-05,
+          "upstream_inference_completions_cost": 1.52e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "deepseek-v3.2",
+    "model_id": "deepseek/deepseek-v3.2",
+    "question_id": "t6_10",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT countDistinct(arrayJoin(mapKeys(properties))) FROM events WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01';",
+    "raw_response": "```sql\nSELECT countDistinct(arrayJoin(mapKeys(properties))) FROM events WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01';\n```",
+    "tokens_in": 400,
+    "tokens_out": 40,
+    "cost_usd": 8.592e-05,
+    "latency_ms": 1793.3,
+    "model_id_returned": "deepseek/deepseek-v3.2",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449042-9xOef16yoyDXg6qrYxpf",
+      "object": "chat.completion",
+      "created": 1786449042,
+      "model": "deepseek/deepseek-v3.2",
+      "provider": "AtlasCloud",
+      "system_fingerprint": null,
+      "service_tier": null,
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "stop",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countDistinct(arrayJoin(mapKeys(properties))) FROM events WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01';\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 400,
+        "completion_tokens": 40,
+        "total_tokens": 440,
+        "cost": 8.592e-05,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 256,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.592e-05,
+          "upstream_inference_prompt_cost": 7.072e-05,
+          "upstream_inference_completions_cost": 1.52e-05
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,1857 @@
+[
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_01",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 700,
+    "tokens_out": 154,
+    "cost_usd": 0.00294,
+    "latency_ms": 3615.0,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448937-GMj9G1Uq6V4HISb2IegM",
+      "object": "chat.completion",
+      "created": 1786448937,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 700,
+        "completion_tokens": 154,
+        "total_tokens": 854,
+        "cost": 0.00294,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00294,
+          "upstream_inference_prompt_cost": 0.0014,
+          "upstream_inference_completions_cost": 0.00154
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_01",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 700,
+    "tokens_out": 154,
+    "cost_usd": 0.00294,
+    "latency_ms": 3729.0,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448941-VGsyJR1ifwD82aSmXckY",
+      "object": "chat.completion",
+      "created": 1786448941,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 700,
+        "completion_tokens": 154,
+        "total_tokens": 854,
+        "cost": 0.00294,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00294,
+          "upstream_inference_prompt_cost": 0.0014,
+          "upstream_inference_completions_cost": 0.00154
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_01",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 700,
+    "tokens_out": 154,
+    "cost_usd": 0.00294,
+    "latency_ms": 3538.7,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448945-P6xaHDBHMiWRo9ZjdD0u",
+      "object": "chat.completion",
+      "created": 1786448945,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 700,
+        "completion_tokens": 154,
+        "total_tokens": 854,
+        "cost": 0.00294,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00294,
+          "upstream_inference_prompt_cost": 0.0014,
+          "upstream_inference_completions_cost": 0.00154
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_02",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 682,
+    "tokens_out": 389,
+    "cost_usd": 0.005254,
+    "latency_ms": 5441.5,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448949-6snU1CIkcCqSjyRTjJ6s",
+      "object": "chat.completion",
+      "created": 1786448949,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": "I need\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "I need\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "EtsFCokBCBAYAipA4bl+GQ2SUVvfT0kbcCz2nWLGtT0qdxIBmSf6ltm1VJNdea6A0Z/0YLPvU29G4416r+9r1b/Tvfm+0FAHnl8TNjIPY2xhdWRlLXNvbm5ldC01OABCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDLgM2D8reSIoE+SnRhoMaRaZurZmpryRUZGiIjA4x22zOd6876Jra7N2EWY3ynIqAiP5ad5AD6An54ESAZuxU8eC2cIigvBaxNowPQwq/gMuAycTK1D8gvji9R/T3yGbMTG1GLQrbtH2Crz498iwb71RqC6dVzAFLhKnAPHpJo03IoZuxCCr1Ug8HcQ2aHbugzgKqkZwV67C+X+jIbo4OkfG4k0sLWm2krvCfZhyajppnCsG5fZXv4lgbmAX/p6c1Ds+kw/bYeIxsPNMrik4JI64LEmKe6q0H63/3VSk1hT3NqymPDiRe6PwzOtTnTOeKt2IpKD5cq1KkTsNJaFAwlKhd4ThH2Vpvd2r1QMHfp7svcjvfCe1rnwR7s8IcrIIT5ODoAoLdozB45D1oezgI3UjJ43xN/abf7VUbWU/rMzQObPnpNxf/XtIipNBj7t3mjs9WU1bghANcJS0DiLa7DjsRYVCoqG6w3fdjhlWOlYvRhfoEnbzjKZejgj89IURm96s8q+zT0sbSuSwt6UQjsyeS5vM8ZPFfHsfdBdvzVke52F77PIeDbm7Ph731r4LaQnPtGMA1E/wq3kEjgOTVyWl/zC8ZuHbuUy95P6ggCBFe1x+3fM9Wh21A34j/iXaE9OzeA+XrWlpy69ptCbSJIcmQT8K7YRYR6OJ8AFT4+9qFYG4Q5DHup+VCgHmvs3YJgTdkb1xARlkQbDgPAJl842+hdxPc4/nWi9wMMHBwiD/EfyNX2VCviGbe5jO9mO8tgjfwPS6T3/6qnYqTTwYAQ=="
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 682,
+        "completion_tokens": 389,
+        "total_tokens": 1071,
+        "cost": 0.005254,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.005254,
+          "upstream_inference_prompt_cost": 0.001364,
+          "upstream_inference_completions_cost": 0.00389
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_02",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(r.r1) AS r1,\n    sum(r.r2) AS r2,\n    sum(r.r3) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(toDate(timestamp) = '2024-01-01', toDate(timestamp) = '2024-01-02', toDate(timestamp) = '2024-01-03') AS r\n    FROM events\n    GROUP BY user_id\n) AS x\nARRAY JOIN [1] AS dummy\nSETTINGS max_threads = 1\nFORMAT TabSeparated",
+    "raw_response": "```sql\nSELECT\n    sum(r.r1) AS r1,\n    sum(r.r2) AS r2,\n    sum(r.r3) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(toDate(timestamp) = '2024-01-01', toDate(timestamp) = '2024-01-02', toDate(timestamp) = '2024-01-03') AS r\n    FROM events\n    GROUP BY user_id\n) AS x\nARRAY JOIN [1] AS dummy\nSETTINGS max_threads = 1\nFORMAT TabSeparated\n```\n\n```sql\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(toDate(timestamp) = '2024-01-01', toDate(timestamp) = '2024-01-02', toDate(timestamp) = '2024-01-03') AS r\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 682,
+    "tokens_out": 356,
+    "cost_usd": 0.004924,
+    "latency_ms": 5480.7,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448955-iRgyqe9WFYE74ZRJp3WM",
+      "object": "chat.completion",
+      "created": 1786448955,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    sum(r.r1) AS r1,\n    sum(r.r2) AS r2,\n    sum(r.r3) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(toDate(timestamp) = '2024-01-01', toDate(timestamp) = '2024-01-02', toDate(timestamp) = '2024-01-03') AS r\n    FROM events\n    GROUP BY user_id\n) AS x\nARRAY JOIN [1] AS dummy\nSETTINGS max_threads = 1\nFORMAT TabSeparated\n```\n\n```sql\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(toDate(timestamp) = '2024-01-01', toDate(timestamp) = '2024-01-02', toDate(timestamp) = '2024-01-03') AS r\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 682,
+        "completion_tokens": 356,
+        "total_tokens": 1038,
+        "cost": 0.004924,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.004924,
+          "upstream_inference_prompt_cost": 0.001364,
+          "upstream_inference_completions_cost": 0.00356
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_02",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 682,
+    "tokens_out": 395,
+    "cost_usd": 0.005314,
+    "latency_ms": 6026.7,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448961-fFZ8MXYwfxtL4rxxNm42",
+      "object": "chat.completion",
+      "created": 1786448961,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = '2024-01-01',\n            toDate(timestamp) = '2024-01-02',\n            toDate(timestamp) = '2024-01-03'\n        ) AS r\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "Es0FCokBCBAYAipAVNz/4NHVFWaeKJJzVeP28YJqAqezwwc42iVbaJO3nmldjtOtHkvF8LApUUMSCrLm5bArZhZojOAqvt2zbj36XjIPY2xhdWRlLXNvbm5ldC01OABCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDFSnU2+kbNeARnvXiBoMuYcAGLUdi5x8l4EcIjAFoC7k/6A7PPHUvgtA04jTXa6Xn0uCjnsZs84kfESkHV+r/dJtLe4LIogdNyYREFEq8ANcUJBGKxcbuBvzX/7SUmpGpMhot9nXYRcxDqukgVv+wp3kMFblmgujz59P8H9IkvkSE1Q1OQ+vg5M/TThzKHg1vX6KVOszS7roctJDckfzPn4y0FN6iKD8fJK9uva/9imq3F6WaYWb+uYyuno/NYX7+tg00KT4f8Yuawt4R/KZIwSvPgmcu9W+LlY0ifbb9ZV5Jpo3CwASCSyyMhcqWIV9aTVUHSVhLSBsosQVMfyX+yeLhaS0TltgRWt6znmdy5zYtFi6g3b+GZj/BrT/dcezQWiJcIh/N4htgXz3SsgHEBao0iPm2QktGUqmTNiM1Lrv+5f/gV6kweOYe2bEMgX84neWcBCXWBM4+qSEWLiwBR0EXFy67ewFeoOOZ6hlws8JI3OuVcCGuxM8EhCXAaxGSwg5dczDqNeeFM/ym5QMi0TRdYjYcC3muTT6SgQv21OJsXtMnxWuhhNqJR5DxXa+eQGfnsW2orjPGB6QFCMKmQlIE0XO1ajet4GsRtsse1MTakGGTOnetZIKS0+RcyLzaGB3H0N2X2gEyBsH0XQAIns7dpTkPVxUiDLNVcXjhcY2NjEEUeZCdL411lTb/mHgYsB0Iyp0oj9RIMSGQrzZBGPM9kbybQLXIGOH80wV/4BuaZ489W2bOopZWgrsfXQmGAE=",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 682,
+        "completion_tokens": 395,
+        "total_tokens": 1077,
+        "cost": 0.005314,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.005314,
+          "upstream_inference_prompt_cost": 0.001364,
+          "upstream_inference_completions_cost": 0.00395
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_03",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT sequenceCount('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase' AND timestamp <= timestamp + 60) AS cnt\nFROM (\n    SELECT user_id, timestamp, event_type\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    ORDER BY user_id, timestamp\n)",
+    "raw_response": "```sql\nSELECT sequenceCount('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase' AND timestamp <= timestamp + 60) AS cnt\nFROM (\n    SELECT user_id, timestamp, event_type\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    ORDER BY user_id, timestamp\n)\n```\n\nWait, sequenceMatch with time condition requires a different approach. Let me provide the correct query:\n\n```sql\nSELECT countIf(matched) AS cnt\nFROM (\n    SELECT\n        user_id,\n        sequenceMatch('(?1)(?2)')(\n            timestamp,\n            event_type = 'signup',\n            event_type = 'purchase'\n        ) AS matched\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    GROUP BY user_id\n)\nWHERE matched = 1\n```",
+    "tokens_in": 647,
+    "tokens_out": 325,
+    "cost_usd": 0.004544,
+    "latency_ms": 5193.7,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448968-gFsvLq3UfQ3vobOdFWSt",
+      "object": "chat.completion",
+      "created": 1786448968,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT sequenceCount('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase' AND timestamp <= timestamp + 60) AS cnt\nFROM (\n    SELECT user_id, timestamp, event_type\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    ORDER BY user_id, timestamp\n)\n```\n\nWait, sequenceMatch with time condition requires a different approach. Let me provide the correct query:\n\n```sql\nSELECT countIf(matched) AS cnt\nFROM (\n    SELECT\n        user_id,\n        sequenceMatch('(?1)(?2)')(\n            timestamp,\n            event_type = 'signup',\n            event_type = 'purchase'\n        ) AS matched\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    GROUP BY user_id\n)\nWHERE matched = 1\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 647,
+        "completion_tokens": 325,
+        "total_tokens": 972,
+        "cost": 0.004544,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.004544,
+          "upstream_inference_prompt_cost": 0.001294,
+          "upstream_inference_completions_cost": 0.00325
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_03",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AS matched, count()\nFROM (SELECT user_id, timestamp, event_type FROM events WHERE event_type IN ('signup','purchase')) AS t\nGROUP BY user_id\nHAVING sequenceMatch('(?1)(?t<=60)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase')",
+    "raw_response": "```sql\nSELECT sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AS matched, count()\nFROM (SELECT user_id, timestamp, event_type FROM events WHERE event_type IN ('signup','purchase')) AS t\nGROUP BY user_id\nHAVING sequenceMatch('(?1)(?t<=60)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase')\n```",
+    "tokens_in": 647,
+    "tokens_out": 172,
+    "cost_usd": 0.003014,
+    "latency_ms": 5897.8,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448973-ZH0scRPBA5DWYl1HWVYo",
+      "object": "chat.completion",
+      "created": 1786448973,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AS matched, count()\nFROM (SELECT user_id, timestamp, event_type FROM events WHERE event_type IN ('signup','purchase')) AS t\nGROUP BY user_id\nHAVING sequenceMatch('(?1)(?t<=60)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase')\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 647,
+        "completion_tokens": 172,
+        "total_tokens": 819,
+        "cost": 0.003014,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003014,
+          "upstream_inference_prompt_cost": 0.001294,
+          "upstream_inference_completions_cost": 0.00172
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_03",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT countIf(seq) AS users_signup_then_purchase_within_60s\nFROM\n(\n    SELECT\n        user_id,\n        sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase' AND timestamp <= timestamp AND (timestamp - timestamp) <= 60) AS seq\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    GROUP BY user_id\n) WHERE seq;",
+    "raw_response": "```sql\nSELECT countIf(seq) AS users_signup_then_purchase_within_60s\nFROM\n(\n    SELECT\n        user_id,\n        sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase' AND timestamp <= timestamp AND (timestamp - timestamp) <= 60) AS seq\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    GROUP BY user_id\n) WHERE seq;\n```",
+    "tokens_in": 647,
+    "tokens_out": 180,
+    "cost_usd": 0.003094,
+    "latency_ms": 4018.7,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448980-57pLagStg4DKs2j3dAjn",
+      "object": "chat.completion",
+      "created": 1786448980,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countIf(seq) AS users_signup_then_purchase_within_60s\nFROM\n(\n    SELECT\n        user_id,\n        sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase' AND timestamp <= timestamp AND (timestamp - timestamp) <= 60) AS seq\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    GROUP BY user_id\n) WHERE seq;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 647,
+        "completion_tokens": 180,
+        "total_tokens": 827,
+        "cost": 0.003094,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003094,
+          "upstream_inference_prompt_cost": 0.001294,
+          "upstream_inference_completions_cost": 0.0018
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_04",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT u.user_id AS user_id, e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e\nON e.user_id = u.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC",
+    "raw_response": "```sql\nSELECT u.user_id AS user_id, e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e\nON e.user_id = u.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+    "tokens_in": 670,
+    "tokens_out": 124,
+    "cost_usd": 0.00258,
+    "latency_ms": 3435.7,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448984-LoJEi3i7QZxgmwRFa39f",
+      "object": "chat.completion",
+      "created": 1786448984,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT u.user_id AS user_id, e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e\nON e.user_id = u.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 670,
+        "completion_tokens": 124,
+        "total_tokens": 794,
+        "cost": 0.00258,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00258,
+          "upstream_inference_prompt_cost": 0.00134,
+          "upstream_inference_completions_cost": 0.00124
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_04",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT u.user_id AS user_id, e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e\nON e.user_id = u.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC",
+    "raw_response": "```sql\nSELECT u.user_id AS user_id, e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e\nON e.user_id = u.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+    "tokens_in": 670,
+    "tokens_out": 124,
+    "cost_usd": 0.00258,
+    "latency_ms": 3176.0,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448988-U4PQcydAJbvMhCOUjEo2",
+      "object": "chat.completion",
+      "created": 1786448988,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT u.user_id AS user_id, e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e\nON e.user_id = u.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 670,
+        "completion_tokens": 124,
+        "total_tokens": 794,
+        "cost": 0.00258,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00258,
+          "upstream_inference_prompt_cost": 0.00134,
+          "upstream_inference_completions_cost": 0.00124
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_04",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT u.user_id AS user_id, e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e\nON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC",
+    "raw_response": "```sql\nSELECT u.user_id AS user_id, e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e\nON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+    "tokens_in": 670,
+    "tokens_out": 124,
+    "cost_usd": 0.00258,
+    "latency_ms": 4003.0,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448992-h0Ed27tZrMGKNkhAM0dO",
+      "object": "chat.completion",
+      "created": 1786448992,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT u.user_id AS user_id, e.timestamp AS first_event_time\nFROM users AS u\nASOF JOIN events AS e\nON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY u.user_id ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 670,
+        "completion_tokens": 124,
+        "total_tokens": 794,
+        "cost": 0.00258,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00258,
+          "upstream_inference_prompt_cost": 0.00134,
+          "upstream_inference_completions_cost": 0.00124
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_05",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type",
+    "raw_response": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+    "tokens_in": 664,
+    "tokens_out": 64,
+    "cost_usd": 0.001968,
+    "latency_ms": 4610.9,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448997-pKheBsmInKYgCjIWzg0b",
+      "object": "chat.completion",
+      "created": 1786448997,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 664,
+        "completion_tokens": 64,
+        "total_tokens": 728,
+        "cost": 0.001968,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001968,
+          "upstream_inference_prompt_cost": 0.001328,
+          "upstream_inference_completions_cost": 0.00064
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_05",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type",
+    "raw_response": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+    "tokens_in": 664,
+    "tokens_out": 64,
+    "cost_usd": 0.001968,
+    "latency_ms": 2958.3,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449002-UeiYHTNXlrwHohhGhT5r",
+      "object": "chat.completion",
+      "created": 1786449002,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 664,
+        "completion_tokens": 64,
+        "total_tokens": 728,
+        "cost": 0.001968,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001968,
+          "upstream_inference_prompt_cost": 0.001328,
+          "upstream_inference_completions_cost": 0.00064
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_05",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type",
+    "raw_response": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+    "tokens_in": 664,
+    "tokens_out": 64,
+    "cost_usd": 0.001968,
+    "latency_ms": 2926.9,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449005-99EJjfXkC6V8veSnzefG",
+      "object": "chat.completion",
+      "created": 1786449005,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT event_type, event_id, timestamp\nFROM events\nORDER BY event_type ASC, timestamp DESC\nLIMIT 2 BY event_type\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 664,
+        "completion_tokens": 64,
+        "total_tokens": 728,
+        "cost": 0.001968,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001968,
+          "upstream_inference_prompt_cost": 0.001328,
+          "upstream_inference_completions_cost": 0.00064
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_06",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime('2024-01-01')\n  AND timestamp < toDateTime('2024-02-01')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01')\nINTERPOLATE (revenue AS revenue)",
+    "raw_response": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime('2024-01-01')\n  AND timestamp < toDateTime('2024-02-01')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01')\nINTERPOLATE (revenue AS revenue)\n```",
+    "tokens_in": 714,
+    "tokens_out": 194,
+    "cost_usd": 0.003368,
+    "latency_ms": 3922.0,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449008-Nm6MJ4vSq3IAS90FRsUF",
+      "object": "chat.completion",
+      "created": 1786449008,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime('2024-01-01')\n  AND timestamp < toDateTime('2024-02-01')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01')\nINTERPOLATE (revenue AS revenue)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 714,
+        "completion_tokens": 194,
+        "total_tokens": 908,
+        "cost": 0.003368,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003368,
+          "upstream_inference_prompt_cost": 0.001428,
+          "upstream_inference_completions_cost": 0.00194
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_06",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1 INTERPOLATE (revenue AS revenue)",
+    "raw_response": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1 INTERPOLATE (revenue AS revenue)\n```",
+    "tokens_in": 714,
+    "tokens_out": 235,
+    "cost_usd": 0.003778,
+    "latency_ms": 4095.6,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449013-Cbpo6EiDsRWj3hAl2KBH",
+      "object": "chat.completion",
+      "created": 1786449013,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1 INTERPOLATE (revenue AS revenue)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 714,
+        "completion_tokens": 235,
+        "total_tokens": 949,
+        "cost": 0.003778,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003778,
+          "upstream_inference_prompt_cost": 0.001428,
+          "upstream_inference_completions_cost": 0.00235
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_06",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime('2024-01-01')\n  AND timestamp < toDateTime('2024-02-01')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1 INTERPOLATE (revenue AS revenue)",
+    "raw_response": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime('2024-01-01')\n  AND timestamp < toDateTime('2024-02-01')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1 INTERPOLATE (revenue AS revenue)\n```",
+    "tokens_in": 714,
+    "tokens_out": 199,
+    "cost_usd": 0.003418,
+    "latency_ms": 4649.8,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449017-X15IJva78RVLjEHxGcDn",
+      "object": "chat.completion",
+      "created": 1786449017,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime('2024-01-01')\n  AND timestamp < toDateTime('2024-02-01')\nGROUP BY day\nORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1 INTERPOLATE (revenue AS revenue)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 714,
+        "completion_tokens": 199,
+        "total_tokens": 913,
+        "cost": 0.003418,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003418,
+          "upstream_inference_prompt_cost": 0.001428,
+          "upstream_inference_completions_cost": 0.00199
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_07",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 4)(1, toHour(timestamp)) AS bucket_counts\nFROM events;",
+    "raw_response": "```sql\nSELECT countResample(0, 24, 4)(1, toHour(timestamp)) AS bucket_counts\nFROM events;\n```",
+    "tokens_in": 668,
+    "tokens_out": 51,
+    "cost_usd": 0.001846,
+    "latency_ms": 2826.3,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449023-bsBkY479qovc3N8Fdvza",
+      "object": "chat.completion",
+      "created": 1786449023,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countResample(0, 24, 4)(1, toHour(timestamp)) AS bucket_counts\nFROM events;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 668,
+        "completion_tokens": 51,
+        "total_tokens": 719,
+        "cost": 0.001846,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001846,
+          "upstream_inference_prompt_cost": 0.001336,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_07",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 4)(1, toHour(timestamp)) AS bucket_counts\nFROM events;",
+    "raw_response": "```sql\nSELECT countResample(0, 24, 4)(1, toHour(timestamp)) AS bucket_counts\nFROM events;\n```",
+    "tokens_in": 668,
+    "tokens_out": 51,
+    "cost_usd": 0.001846,
+    "latency_ms": 2780.7,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449026-ITcVPxw2y1cyQyMRmzFH",
+      "object": "chat.completion",
+      "created": 1786449026,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countResample(0, 24, 4)(1, toHour(timestamp)) AS bucket_counts\nFROM events;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 668,
+        "completion_tokens": 51,
+        "total_tokens": 719,
+        "cost": 0.001846,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001846,
+          "upstream_inference_prompt_cost": 0.001336,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_07",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 4)(1, toHour(timestamp)) AS bucket_counts\nFROM events;",
+    "raw_response": "```sql\nSELECT countResample(0, 24, 4)(1, toHour(timestamp)) AS bucket_counts\nFROM events;\n```",
+    "tokens_in": 668,
+    "tokens_out": 51,
+    "cost_usd": 0.001846,
+    "latency_ms": 3157.6,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449029-5VrUxrl89jlsYhLYO8TQ",
+      "object": "chat.completion",
+      "created": 1786449029,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countResample(0, 24, 4)(1, toHour(timestamp)) AS bucket_counts\nFROM events;\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 668,
+        "completion_tokens": 51,
+        "total_tokens": 719,
+        "cost": 0.001846,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.001846,
+          "upstream_inference_prompt_cost": 0.001336,
+          "upstream_inference_completions_cost": 0.00051
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_08",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(daily_count)) AS cumulative_purchase_counts\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime('2024-01-01')\n      AND timestamp < toDateTime('2024-02-01')\n    GROUP BY day\n    ORDER BY day ASC\n)",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(daily_count)) AS cumulative_purchase_counts\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime('2024-01-01')\n      AND timestamp < toDateTime('2024-02-01')\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+    "tokens_in": 663,
+    "tokens_out": 166,
+    "cost_usd": 0.002986,
+    "latency_ms": 3293.3,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449033-LzDGae6UCQKtEGBiM6iT",
+      "object": "chat.completion",
+      "created": 1786449033,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(daily_count)) AS cumulative_purchase_counts\nFROM (\n    SELECT toDate(timestamp) AS day, count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime('2024-01-01')\n      AND timestamp < toDateTime('2024-02-01')\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 166,
+        "total_tokens": 829,
+        "cost": 0.002986,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.002986,
+          "upstream_inference_prompt_cost": 0.001326,
+          "upstream_inference_completions_cost": 0.00166
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_08",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(daily_count)) AS cumulative_purchases\nFROM\n(\n    SELECT toDate(timestamp) AS day, count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime('2024-01-01 00:00:00')\n      AND timestamp < toDateTime('2024-02-01 00:00:00')\n    GROUP BY day\n    ORDER BY day ASC\n)",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(daily_count)) AS cumulative_purchases\nFROM\n(\n    SELECT toDate(timestamp) AS day, count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime('2024-01-01 00:00:00')\n      AND timestamp < toDateTime('2024-02-01 00:00:00')\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+    "tokens_in": 663,
+    "tokens_out": 176,
+    "cost_usd": 0.003086,
+    "latency_ms": 3865.1,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449037-1thvgvBBjDGIq3yHWWZY",
+      "object": "chat.completion",
+      "created": 1786449037,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(daily_count)) AS cumulative_purchases\nFROM\n(\n    SELECT toDate(timestamp) AS day, count() AS daily_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime('2024-01-01 00:00:00')\n      AND timestamp < toDateTime('2024-02-01 00:00:00')\n    GROUP BY day\n    ORDER BY day ASC\n)\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 176,
+        "total_tokens": 839,
+        "cost": 0.003086,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003086,
+          "upstream_inference_prompt_cost": 0.001326,
+          "upstream_inference_completions_cost": 0.00176
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_08",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(cnt)) AS cumulative_purchases\nFROM (\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n    ORDER BY day ASC\n);",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(cnt)) AS cumulative_purchases\nFROM (\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n    ORDER BY day ASC\n);\n```",
+    "tokens_in": 663,
+    "tokens_out": 268,
+    "cost_usd": 0.004006,
+    "latency_ms": 4541.0,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449041-8KuPHb9T5spJ3zEI4tdz",
+      "object": "chat.completion",
+      "created": 1786449041,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(cnt)) AS cumulative_purchases\nFROM (\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n    ORDER BY day ASC\n);\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "EqoDCokBCBAYAipAQSWK9lQ6+Cj28PEG/9V8T3UwiomVeXV/tkIiWCxVC/zw7Li3ZC848FNPV0xdMRBcLWmbsi42Sye1SixdF6UimjIPY2xhdWRlLXNvbm5ldC01OABCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDEU4Pyk4eXHME5KSYRoMRh18QuMmVN4aiR+yIjBEvddoJ/8UsMP8gou3Ah6JFHzm/Jhk+IRECLoN9dx14fKkFuTRfR9k1QMRG9+oZgAqzQGo+wjYUjyq/cosf96L4aIujThIjoIgFpVezo+R6yXoOgMd/T4mr+hk9/LgeqFzjOKoqGpezAKfvhs0pMfNzlrThual3lbg5wHtsAmfvYH2NjZ7OzvLZlHVWHNWjo7gcTwUsENhOaJ/9ts8hrtUg6Hd18z3edwKGMSiBRgG+OxIa3rn2TwL9ls2BAgyxvNLSleNZZ4vwEmVf9MvcYI6b19BjT5LyMDqhoaKN5sEu/kNXiUMAQJ47sZFqSlOGu0FHxh6a8iLkiC9OXj09kSlGAE=",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 268,
+        "total_tokens": 931,
+        "cost": 0.004006,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.004006,
+          "upstream_inference_prompt_cost": 0.001326,
+          "upstream_inference_completions_cost": 0.00268
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_09",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+    "tokens_in": 650,
+    "tokens_out": 69,
+    "cost_usd": 0.00199,
+    "latency_ms": 3180.5,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449046-ioeAG11Mq47QgQmSaGz4",
+      "object": "chat.completion",
+      "created": 1786449046,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 69,
+        "total_tokens": 719,
+        "cost": 0.00199,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00199,
+          "upstream_inference_prompt_cost": 0.0013,
+          "upstream_inference_completions_cost": 0.00069
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_09",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT country, argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT country, argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+    "tokens_in": 650,
+    "tokens_out": 65,
+    "cost_usd": 0.00195,
+    "latency_ms": 3212.1,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449050-JtmBFoKdJFoRt3GJV4qq",
+      "object": "chat.completion",
+      "created": 1786449050,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT country, argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 65,
+        "total_tokens": 715,
+        "cost": 0.00195,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00195,
+          "upstream_inference_prompt_cost": 0.0013,
+          "upstream_inference_completions_cost": 0.00065
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_09",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+    "tokens_in": 650,
+    "tokens_out": 69,
+    "cost_usd": 0.00199,
+    "latency_ms": 3076.2,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449054-R8P8ZQj9CIdcEFuXKXrP",
+      "object": "chat.completion",
+      "created": 1786449054,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 69,
+        "total_tokens": 719,
+        "cost": 0.00199,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00199,
+          "upstream_inference_prompt_cost": 0.0013,
+          "upstream_inference_completions_cost": 0.00069
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_10",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT uniqExact(key) AS distinct_key_count\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-03-02 00:00:00', 3, 'UTC')",
+    "raw_response": "```sql\nSELECT uniqExact(key) AS distinct_key_count\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-03-02 00:00:00', 3, 'UTC')\n```",
+    "tokens_in": 660,
+    "tokens_out": 149,
+    "cost_usd": 0.00281,
+    "latency_ms": 3410.6,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449057-ISTV9fL90jfkP4wDxhKL",
+      "object": "chat.completion",
+      "created": 1786449057,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT uniqExact(key) AS distinct_key_count\nFROM events\nARRAY JOIN mapKeys(properties) AS key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-03-02 00:00:00', 3, 'UTC')\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 660,
+        "completion_tokens": 149,
+        "total_tokens": 809,
+        "cost": 0.00281,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00281,
+          "upstream_inference_prompt_cost": 0.00132,
+          "upstream_inference_completions_cost": 0.00149
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_10",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT count(DISTINCT key) FROM events ARRAY JOIN mapKeys(properties) AS key WHERE event_type = 'purchase' AND timestamp >= toDateTime('2024-03-01') AND timestamp < toDateTime('2024-03-02')",
+    "raw_response": "```sql\nSELECT count(DISTINCT key) FROM events ARRAY JOIN mapKeys(properties) AS key WHERE event_type = 'purchase' AND timestamp >= toDateTime('2024-03-01') AND timestamp < toDateTime('2024-03-02')\n```",
+    "tokens_in": 660,
+    "tokens_out": 102,
+    "cost_usd": 0.00234,
+    "latency_ms": 3309.6,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449061-iOv1VJBTCxCYZRTzgXwh",
+      "object": "chat.completion",
+      "created": 1786449061,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT count(DISTINCT key) FROM events ARRAY JOIN mapKeys(properties) AS key WHERE event_type = 'purchase' AND timestamp >= toDateTime('2024-03-01') AND timestamp < toDateTime('2024-03-02')\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 660,
+        "completion_tokens": 102,
+        "total_tokens": 762,
+        "cost": 0.00234,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00234,
+          "upstream_inference_prompt_cost": 0.00132,
+          "upstream_inference_completions_cost": 0.00102
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-sonnet-5",
+    "model_id": "anthropic/claude-sonnet-5",
+    "question_id": "t6_10",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT uniqExact(key) FROM events ARRAY JOIN mapKeys(properties) AS key WHERE event_type = 'purchase' AND timestamp >= toDateTime64('2024-03-01 00:00:00',3,'UTC') AND timestamp < toDateTime64('2024-03-02 00:00:00',3,'UTC')",
+    "raw_response": "```sql\nSELECT uniqExact(key) FROM events ARRAY JOIN mapKeys(properties) AS key WHERE event_type = 'purchase' AND timestamp >= toDateTime64('2024-03-01 00:00:00',3,'UTC') AND timestamp < toDateTime64('2024-03-02 00:00:00',3,'UTC')\n```",
+    "tokens_in": 660,
+    "tokens_out": 128,
+    "cost_usd": 0.0026,
+    "latency_ms": 3511.9,
+    "model_id_returned": "anthropic/claude-sonnet-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449065-dCI5IuV3Pt3rS8FKzzTN",
+      "object": "chat.completion",
+      "created": 1786449065,
+      "model": "anthropic/claude-sonnet-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT uniqExact(key) FROM events ARRAY JOIN mapKeys(properties) AS key WHERE event_type = 'purchase' AND timestamp >= toDateTime64('2024-03-01 00:00:00',3,'UTC') AND timestamp < toDateTime64('2024-03-02 00:00:00',3,'UTC')\n```",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 660,
+        "completion_tokens": 128,
+        "total_tokens": 788,
+        "cost": 0.0026,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0026,
+          "upstream_inference_prompt_cost": 0.00132,
+          "upstream_inference_completions_cost": 0.00128
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  }
+]

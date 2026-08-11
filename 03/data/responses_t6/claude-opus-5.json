@@ -1,0 +1,2082 @@
+[
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_01",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            toDateTime(timestamp),\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            toDateTime(timestamp),\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 700,
+    "tokens_out": 416,
+    "cost_usd": 0.0139,
+    "latency_ms": 6285.9,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448937-UP5TO6avaeUYWOmwEeSV",
+      "object": "chat.completion",
+      "created": 1786448937,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            toDateTime(timestamp),\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISwQYKhwEIEBgCKkCA0Y7cw+IP5tk7GAb7R3kegCHyrMlokxsTvM5aE/ZI2Y/3xCGYGYNAoS24xqIRGJ9+N4mN3GvI7uJLnTBgheDUMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDKDSUayXKb7kTAiiWBoMcRvooAeR8q9IXuhKIjCrhMGC2Iv1BnTwHY/HNRgeeVUKeA4D1UouZHsqUJE2njiibDCM/itCnbFEv+Py0Tgq5gQl26eK7pGn70XhnB53koT5vD8CRptLg/aEaIkIcP4yQIb1DP0cJ29QGZW3DYNTTGNdCpaVDPigva4Fg1z6dDr46agVZbPlSTS+ylaLPFXbps2tvFN0YN8mOiJjP9799Vt5LuQTSGAPJApzZP8+AXLhbAdz0AFY+V9Jubjg0vMuYsOczZylhfD+q0S+o7P5FDUoGgJtHMzt1sMuN1Kz/ss2JTntmR5Wn/H7ztLacbL5cNhpp/njHsJ/0tFA/M+lm6SSAntMzmqQRRF/MzY1BJFkGsj+hHboz5yj5g683SuXznfXd61eBtv4Mb1su/EK6610+6HmwyfyBXsFevt47/rJtzmsYhQknI9qljKonqQ6K7Cfuk/++sxzaq9E3ZwugtNZ6KcMjc7usx7skmkPjYtlCsNEEJqmMQZuRFqWaw0YK8Ycy+Gx/wtpKZERNyGSMlKO9z+nJ+TiDULyMOUGperAlBWPDrPrrABfbXlMIZyGSNGSObtQkRZZSXpkaB39YKvAFzGHYy2DaxZzpEXy7f7cTnF/Pvyq4/fJmnCyiyv0A95ki7/EkPLFP258brC7W/HY5y/JCl24lQlaeaiVbR0i2Gj9GnKjFww6n2oPAzDkD2NP+aYUIvOq15Q2sVKDwsIQsWML3PFK6e3cPoeibXdTt9+/75R1uzqjJmSAnrfdMiEpFFa+vh+Iue5ugo++o1HjCQdzZ5RL5T1THbfGogg4HSFE2+4lY8SvQXsN3a5WOr1lpwi+imgm+4ndTjhYLlJks4WeyEvSoOB8WaEJGVkdtSbfYRgzZkFlZr//av9RsFAkSeSm/hgB",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 700,
+        "completion_tokens": 416,
+        "total_tokens": 1116,
+        "cost": 0.0139,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0139,
+          "upstream_inference_prompt_cost": 0.0035,
+          "upstream_inference_completions_cost": 0.0104
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_01",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 700,
+    "tokens_out": 250,
+    "cost_usd": 0.00975,
+    "latency_ms": 5165.0,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448944-ORfdq79aYCwVz8egGlkz",
+      "object": "chat.completion",
+      "created": 1786448944,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISwwMKhwEIEBgCKkCalmm8gwJyNZAi8q2U1CG8OimW6Miluk0R3Ih6x6VoES3cI0HQM6sIQHfctezill1rGvISH+9DU1AfNsDfOD86Mg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDPj5Q34F2R0VQZW0IBoMd6ejEIcTw69H2G7FIjAdqrzbPUMrdVcPrtrIWeLcvrSwK5+Oq2Ergrq69cwLADQLvPhXmYKC4AsPmpZ985oq6AGiCQiOVUFLtwPtt2kBsn7rxzYXKHmUMLeEjKc7vpJVeQBSJFnF8CisOfTGUEUh1bfDHJV+uhb31bGAIZwwsOYGyaFw3YZBslEme3M+RsR/VOKQYZTy17jw3P+C5gDtPoO9VKaowEgQxgPw8tjhGABP9dzFM7bk3rkGS6dfh466FXSkbfKFHK16ei6TEgWmG3KO0m4L8IYw7oJDDlj20OUrkXVrR7AZQkbiTseLX9nQ3csGlD5wPNJaAqWGlxTU+b6ZAfxPG06kjyFm/pCIWQaYZsvAaZf8tLyNVh/7in5Y8GUJ3aXO8NNqGAE=",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 700,
+        "completion_tokens": 250,
+        "total_tokens": 950,
+        "cost": 0.00975,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00975,
+          "upstream_inference_prompt_cost": 0.0035,
+          "upstream_inference_completions_cost": 0.00625
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_01",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 700,
+    "tokens_out": 173,
+    "cost_usd": 0.007825,
+    "latency_ms": 4500.7,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448950-NItxaOkxL8P42jLhmJHn",
+      "object": "chat.completion",
+      "created": 1786448950,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAIS+QEKhwEIEBgCKkBGrVWQNk8w5/pKBLd2QLC0pP5B0TWHAMcFNU2lAXvrYaOtHmXNb4mzl/Ax5cy6nncu7fT6m4qCSZyHWUQ0K5/yMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDO+kMIUjWRXQeH4lkRoMojiK+glukXi7FS2pIjArgdelrA90QTpBD2LGd3AtF1qXY7VC2qrZPDEfBZZ7oOE+84Sm0eP2kpLOONQ5ljkqH2J6bh+ynEst1QAC8hNAfGtYBdR7McrZFuzn/B44y9YYAQ==",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 700,
+        "completion_tokens": 173,
+        "total_tokens": 873,
+        "cost": 0.007825,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.007825,
+          "upstream_inference_prompt_cost": 0.0035,
+          "upstream_inference_completions_cost": 0.004325
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_02",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = toDate('2024-01-01'),\n            toDate(timestamp) = toDate('2024-01-02'),\n            toDate(timestamp) = toDate('2024-01-03')\n        ) AS r\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = toDate('2024-01-01'),\n            toDate(timestamp) = toDate('2024-01-02'),\n            toDate(timestamp) = toDate('2024-01-03')\n        ) AS r\n    FROM events\n    GROUP BY user_id\n)",
+    "tokens_in": 682,
+    "tokens_out": 402,
+    "cost_usd": 0.01346,
+    "latency_ms": 6495.4,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448955-oMASyrNBo5ZiRuATrsbc",
+      "object": "chat.completion",
+      "created": 1786448955,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = toDate('2024-01-01'),\n            toDate(timestamp) = toDate('2024-01-02'),\n            toDate(timestamp) = toDate('2024-01-03')\n        ) AS r\n    FROM events\n    GROUP BY user_id\n)",
+            "refusal": null,
+            "reasoning": "I'm thinking\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "I'm thinking\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "CAIShQYKhwEIEBgCKkDIW1YGELObBoUdhVMd711KRMbdpqHDqbu8Xtpzx8VQ/VXD5itawK0rzUGZESVWXZSqpmbr3LN7LqZTLWw49F3gMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDCRnPIw405m6UJ7FmBoMufDFcyoyJDzYC7eMIjAputrh7dy56btgMqWsE+96vlZ5w2t0axxapt/AP/wQYuOuqtGucHGaU7rcnSI+HbsqqgSJjmYKPy92RVL8PbdU//aEyPmFQw+xFngPpLpM3st+JTnRpuSR7lSpaQTlEKkvS51H104cpNGHuoCYZ7N5Rm5bxX+Ug7veG3tDqOU4Up6BY6GaDKT7zmc+2qcWBokPBV7XTX98vIfHybIP7i6rdwCEIxIh5vWsQKuAte9yCZmSOSG+mbmEYYa5QWd/UOYvxwE6eaXgv8W/7k1fZ3PC/ZEQV5XmarAUtYeF1QyPSsvuXzMzr9TRjUoE8XLvM3p5/GRBEMxdmXM1AdEMmGViTl3nGGih+w7pRdJB/IBJgTfK8k6GcGgjn62G0XZg2SuSprkGKuHcWT1l9DlBjAc1Hw4F6OAzP+D3ipHjPI2zh92wkCZWPLNWpNIfxlFwFJ5uCH1W9v2k60MMuwbFqOPEB0RvUR71M6hSJjsVJxeWvnYqD/X52XjLZZLVx4ONO+w0zeb3fzcHotBGApbdLlbkSTnnO/S2aXkZfSDfrFEXh3NhyX+edz/F0QGiGa3KagbpOXOrlkwYv7iItJ8p8baPNjVDHrbR6xNoWMyNZMZeE2ONVTXVPhB3YxuLB+SJoVqZ2xlLBTrpUHdhSRirdvdKlGd7vtZfqfezHa/xrjvF146ToWgBesgCMjWrhW1cjKJoYnZYcCJarc91EkXD4qab2krOZvon38L0mFsqA2qBnAEEZh+bLXpxJ3naP7d5u4YiFJTx/vfo2iobbufMtjm7rBRiJohakfMYSutAdxgB"
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 682,
+        "completion_tokens": 402,
+        "total_tokens": 1084,
+        "cost": 0.01346,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01346,
+          "upstream_inference_prompt_cost": 0.00341,
+          "upstream_inference_completions_cost": 0.01005
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 4,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_02",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(ret[1]) AS r1,\n    sum(ret[2]) AS r2,\n    sum(ret[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = toDate('2024-01-01'),\n            toDate(timestamp) = toDate('2024-01-02'),\n            toDate(timestamp) = toDate('2024-01-03')\n        ) AS ret\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "```sql\nSELECT\n    sum(ret[1]) AS r1,\n    sum(ret[2]) AS r2,\n    sum(ret[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = toDate('2024-01-01'),\n            toDate(timestamp) = toDate('2024-01-02'),\n            toDate(timestamp) = toDate('2024-01-03')\n        ) AS ret\n    FROM events\n    GROUP BY user_id\n)\n```",
+    "tokens_in": 682,
+    "tokens_out": 484,
+    "cost_usd": 0.01551,
+    "latency_ms": 8202.9,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448962-wJlOlA6jswenctAvGlid",
+      "object": "chat.completion",
+      "created": 1786448962,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    sum(ret[1]) AS r1,\n    sum(ret[2]) AS r2,\n    sum(ret[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = toDate('2024-01-01'),\n            toDate(timestamp) = toDate('2024-01-02'),\n            toDate(timestamp) = toDate('2024-01-03')\n        ) AS ret\n    FROM events\n    GROUP BY user_id\n)\n```",
+            "refusal": null,
+            "reasoning": "I'm working through how to aggregate retention metrics across users\u2014I need to use a retention\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "I'm working through how to aggregate retention metrics across users\u2014I need to use a retention\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "CAIS6gYKhwEIEBgCKkA/UUBy9CYqI3k9JJKovrsG9LCRMiTKTcwSXIF7wQIRGe2gTviay74AER+lHtXE4Wg6qg+oGvLblX03CS6Ah+9pMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDIPKkGYHl3O5lzPl+RoMMVvAluP8cK+6wMo9IjDLnrOnD3F2Ng4VLAjy9FnZpIym+TX0ze3YOwTRYfMW3JqupWPBmjHoDtAAUPmalF0qjwWB1KODeM+L9/EhMqvi6h9xOdNjGFIF2mG8qogsu3ymHzJ40ZcOSo770r78rAevTBjndgkFH+PXA3hPuqifXboh7uskpLhojFTP5o373glt12CogklawXlaOBBYfmb7n2XS0BIcuePzqID7xz+zbJVW7GIYlzzBAIr0S/M4KiAVunzymuxz7dK8WQLP8q5MT1BJnXAIK2OBynZg/Cfz/c3iDvt325WVJctdm82aiuBKtfPFOmRJVDoxpRIwVTLY/lebsxMzqLYe4ES2LGEnKabJnLDFgN5xhOAmZnZQwuFt497mvUf7dxix/6NB54TOvFya/4Z6/LVxt+TzhEjgxSK4C3R3B8KRFiez43lSXnhOHR8zm/BbxYevOFXuOvZU/dFGNW2sAU3oCJCeUaHqFMa8OXrJUGhXzWAD5ogUVeShjL8XMG4vHiAkFBzv3iksr8vrsAEGMUkGHHKAlvRAKo3l/TnSeVOCXhOdeDTNUQH+ljc6/RbKVTJbv4AcsrIIL1KcCj5yEtnWuBRTD52qnba3pcgIuxhuwIXaEbNzBcaZSlUBR7pk5XdHAt/EgGZvzkN1YkaaKzuH0wn7BRQRSGXIukHLCUMU78eUkeHn3dQORO0swPHuLkfWNLVYdYfGYO7xsxc/756u2r5v2u7MiQuFRstZ7VIubcYm6cXCOTtwzSJ/qhO4XPlezYEUtumTrWCPDcWMiLFQb9anBzKWirCVtkhpgRPfFW+A+YVjfc7uYdoV+gb9pgNNQj58XdMKCMNM194Sl/Cxm7BwHUXVX8SUleAv39SJJ51XG4k/F9Um+yxiw2VQXpAtHKBKDZegWkS14gq7R+SsEdFA56ep64w3NeQn89dEE0IlbppSzn7qGAE="
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 682,
+        "completion_tokens": 484,
+        "total_tokens": 1166,
+        "cost": 0.01551,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01551,
+          "upstream_inference_prompt_cost": 0.00341,
+          "upstream_inference_completions_cost": 0.0121
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 25,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_02",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            date = toDate('2024-01-01'),\n            date = toDate('2024-01-02'),\n            date = toDate('2024-01-03')\n        ) AS r\n    FROM\n    (\n        SELECT\n            user_id,\n            toDate(timestamp) AS date\n        FROM events\n    )\n    GROUP BY user_id\n);",
+    "raw_response": "```sql\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            date = toDate('2024-01-01'),\n            date = toDate('2024-01-02'),\n            date = toDate('2024-01-03')\n        ) AS r\n    FROM\n    (\n        SELECT\n            user_id,\n            toDate(timestamp) AS date\n        FROM events\n    )\n    GROUP BY user_id\n);\n```",
+    "tokens_in": 682,
+    "tokens_out": 478,
+    "cost_usd": 0.01536,
+    "latency_ms": 6488.0,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448970-nRzSZEnlNYRSjUc7d996",
+      "object": "chat.completion",
+      "created": 1786448970,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            date = toDate('2024-01-01'),\n            date = toDate('2024-01-02'),\n            date = toDate('2024-01-03')\n        ) AS r\n    FROM\n    (\n        SELECT\n            user_id,\n            toDate(timestamp) AS date\n        FROM events\n    )\n    GROUP BY user_id\n);\n```",
+            "refusal": null,
+            "reasoning": "I need to use a retention aggregate function over grouped user data, which means I'm calculating retention metrics across multiple date conditions for each user and then summing those results together.\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "I need to use a retention aggregate function over grouped user data, which means I'm calculating retention metrics across multiple date conditions for each user and then summing those results together.\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "CAISrAYKhwEIEBgCKkDaeOoaNrNO+fP4RUcRnqGzOa/6ChOtl+GM42Dbb0B3cFkoLlXvev64/aCNxOYcUBa9UFgi5MsII7+8/rQBNSI2Mg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDKN+BomGMxai2GBaMRoMxot7KNkLadYVwj8TIjDtM+YlFdWsVGyDK+QEMKTJ5gDatUyyss40jdHiEkaEjyBSm8FVerw1wOpPrzGwpXkq0QQCdi4sSEFEzRHbMmCkCEsJhHNBMe3g3fO1yhh0lYpRs9dPYO9//6NHMT1iiuyNXdYgIq4218/fAhdmDROWn97uj3If1Vf9Snvjm9qT4k3/0XPmWmHcIvLIMjQvuAkQsVjedcwgvKjX4YzEUv+YN0SDIdfXUuPaUhvwlMVSroVxDelj986RHyyVZA+ZmzzFggazSaKcpwQrz/GqXNcrlCPcIBBDOUXaCxKbaHDBGyMNvStRaR1sH4ByiVnfA9sYGUVUG3yvevN0AVlG/DV9Rtn0hL5SaAU74SOrv7ETeOqTTgOD+7WVlS3qVnB8STdUIDGhXMuN6CtY5vAiWHwVEhtapSPG1r8mLMu5aOxX879f/5kuipNOCYx6lx8AOJbb9KDEanOxcxDrOzW7At1vfHRPd0dK0VLihgqvfDhT7aneDIGxPWfjv/I5sODmmWX43FAWL2Pr1lHGA4Sd8kJ1kvFqSOGYzQcuGH3cApy70M11XzEFH/gbyMDUuRpgrAD10TtKZ2hluN3Pf2nrj/RATmgFMaI+lr2EAZRc6R3wcLjLNOVl0u5BORmlRuxuxSxICen6xJda6Mzr3Q/EpjnjsfSPRPb6iduOMxfOiU9PC5bxyDqprQyKBcMLKoHWsMOd2Hz1BrWnlm1pOem3d7TCwYTPk+XyYRdqvWW6D9GdN/xIzvo5MwFQCpIcgo2lzz90JNTzyMw56Q3HMX7ynm6DaHPg1+9LlXNfo/U5ScM4kDKxiahH71u1yh1sYI/dQyePP5U1+dzzCg7wpJh5PCSHdDYdeBgB"
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 682,
+        "completion_tokens": 478,
+        "total_tokens": 1160,
+        "cost": 0.01536,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01536,
+          "upstream_inference_prompt_cost": 0.00341,
+          "upstream_inference_completions_cost": 0.01195
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 52,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_03",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT count() AS users_with_signup_then_purchase_within_60s\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toDateTime(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)",
+    "raw_response": "```sql\nSELECT count() AS users_with_signup_then_purchase_within_60s\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toDateTime(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)\n```",
+    "tokens_in": 647,
+    "tokens_out": 301,
+    "cost_usd": 0.01076,
+    "latency_ms": 5943.9,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448977-nzpc4jSQ6g4jyePB6mYI",
+      "object": "chat.completion",
+      "created": 1786448977,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT count() AS users_with_signup_then_purchase_within_60s\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toDateTime(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)\n```",
+            "refusal": null,
+            "reasoning": "I need\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "I need\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "CAISxQQKhwEIEBgCKkBBx9M+NhlwDTMt9KIzQMYejC6I3eauAiWIDrW3Oq1G7ug9OgMa0+GjezpEaR3o9YOIwJZnuQ7hEqCMElIIxLlcMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDF4HuSOrsgIVOXyIrhoMq1Gx3rPoy8gmMDGWIjDo4EPR5OevUXEoa52z12+H3rIOQoqfUxJ1mZY/i9vo7tVPHRoHJPf9hDHL8hFtwdkq6gJK6rnGoHw997mudiXLfq+bhOP8a1u1JA+Udk97SpSWIxqqLjajTp/l9EiVc0qLfWIMf9hkqh5Giw5BsoExiuuMp6IeTon7FnBHtjDniQyQBZLGO76g+hbQ/DKqHQFaKqrUO7dkErprPM9lhrFX6wq9ts2CJKPtWk57ITaR9VZ9Rn2xV2kkm+CgUpAWffCL98MjvbEX6cAbXm7vvMtVtJ1PHgoYMOn9KC5GL4qEbg7z7aMjj/4dXjouK6t3juWCOE3ugEicxJeund9ySj9GZFBQ0cCSxbr+kOSKLp17Tzkmjs1867iVvV0ivZVd2l1tPbmkyXXefbtOaJBDTOMnK5+eY//VMafdBhWFyD/RA6CTbXxJ2ZBU1UF5Ul5BQX9JLbGqPI//j7zQl0lOMDbEkqKSGK4gVzTIdPRRg3gycANNtydj17D5uY8VhMdER5nFGXh/oJaybVISpPeuJ8nyOPeBfCGmR2+aoTNlThgB"
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 647,
+        "completion_tokens": 301,
+        "total_tokens": 948,
+        "cost": 0.01076,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01076,
+          "upstream_inference_prompt_cost": 0.003235,
+          "upstream_inference_completions_cost": 0.007525
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_03",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT count() AS users_signup_then_purchase_60s\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toDateTime(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n);",
+    "raw_response": "```sql\nSELECT count() AS users_signup_then_purchase_60s\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toDateTime(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n);\n```",
+    "tokens_in": 647,
+    "tokens_out": 368,
+    "cost_usd": 0.012435,
+    "latency_ms": 6022.3,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448984-EqV6YsbTKMygPgOuBpDj",
+      "object": "chat.completion",
+      "created": 1786448984,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT count() AS users_signup_then_purchase_60s\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toDateTime(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n);\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAIS6wUKhwEIEBgCKkA9nqt+eL732UVCisSsWd0S7kvAJH60I1zKZeoblxjr/fDf4yWbchm32bK2Muv3XG436tdGjgRO+3EvXg+j7T8nMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDAgxZL2NLnGjXF45yhoMEwVf9Ts0NPC/hWGJIjBNsy6ouRcUnOuo1yHcTBDX0EVyd6QxTR8kwr/9bE3stgPKF4fqTEOGnwDGFOq/CQ0qkASkmxQBKJT5wmTNyS4HqGLhu5zL3kX8JpYKmFaxGui6pFedePFIp0rabumnkQTHofr/wuvRLUYGVUV3MULpHhd5XOpertvlqafjdvsF4aIP7i+IzJPihyTj7uVpqKsMyV8UzqxtCgruqIexd2nmKlLuUdWeaMoquwbbF7In4H/1U8vdqhVQfw7VOFrD1eb+7U0vtD2o8v5KFtqG1eCtfJGgeP8oKzqk74Sy8MkVtA5n25hydRHDT5i6m6i+ALAdCG6GAdw6mnI6rH2f85ZoDo5qu7kO7Wx1snyxWSkOtuH/eDWigVHMdzlLqN3K9JAnv3eQIsLRi0dJDP1JG4FBeL9lEmzC8D8GsrbmZPj2lG6Y3LQOYPa6pAxwEmnuavFYewymHBmFGQ8aqlEn3zPkLwUwzS34fvoB+m5qSGpKruriyEtZW5kwv2bSiDakg1GrOZ6LUVp9N2WP0JbDAH+ZRnmJxPN32c88ad8pOjhNOds9e26r0Ub+CpB55WG3SoOLd2ZkkV/mk+9/GGhNh79jr+G8dJuhdI6gVuIHNU3cM/r+dOuvSha+WHE8vmOTqZejzzLyr0q1tZGI5jYVMfylZoiDVrR2O7x+yHy9yhVTw9yhi8Iyb2lFUwxoBsvESzgWWraUzBZANixrFyyuotUs4iQKOtEAYBTLiIC+NX8F0agG7D3JwB/AJnh5Xm73B0II8mcYAQ==",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 647,
+        "completion_tokens": 368,
+        "total_tokens": 1015,
+        "cost": 0.012435,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.012435,
+          "upstream_inference_prompt_cost": 0.003235,
+          "upstream_inference_completions_cost": 0.0092
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_03",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT count() AS users_with_signup_then_purchase\nFROM\n(\n    SELECT user_id\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toDateTime(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)",
+    "raw_response": "```sql\nSELECT count() AS users_with_signup_then_purchase\nFROM\n(\n    SELECT user_id\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toDateTime(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)\n```",
+    "tokens_in": 647,
+    "tokens_out": 281,
+    "cost_usd": 0.01026,
+    "latency_ms": 6423.8,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448990-QsIxzGXqfAQ6RJjANFgv",
+      "object": "chat.completion",
+      "created": 1786448990,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT count() AS users_with_signup_then_purchase\nFROM\n(\n    SELECT user_id\n    FROM events\n    WHERE event_type IN ('signup', 'purchase')\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toDateTime(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAIShgQKhwEIEBgCKkCKSOcIUAQzOzjJGTFlUnlyHICSmNA9OEPC2fBXCe06zEp6x5GHAhIHTEvvfuRvUl2ji0gzQ2/9SwTDfZSgWHtnMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDCusUvZ85qNWdNontBoM1h4/qRRDOVG4AM8EIjD5uyhfBH9wNxUnFBWlJVOgUzuB5NV+1eZdVeMf5mJNW+DVvrpeCYJ3mx8phh8AzW4qqwIM6n04RZbf5rDEWZ8NifpTW9Q6mRyOpautgbs4hpOmKJduhoupKbvZAiQ9uZPmAepIrqkzOFP76mM812vOAq6OP7sZp5/IaSWny6sdPgvbXlOBhI3s0/ZfmDgwCjxZ63Ghk4MpJMp2kPBXYLrloIdFWpdcY3ey9qpDR0171fNJAf6DuWbpmhMlbc3W6rTG+M9g0XDOsG1va+zl9kqz2QKXgfQxXS9fenT2kv+BWQ584EE5A8vjKwpHlyvhLuwlGmISfF6uLB4n7AnXLfAuZmjim+YB/vBJ5llr8TNpM8tVCUvMcISb1HS/lpbBdLP2IlD/tGDHHysdGRhlGj63ODSs45aYKzjTwq/xI58N8kRUT/Ip3d06FhlpI4s+vaJNSpq0KHOBxGWywgGMHhgB",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 647,
+        "completion_tokens": 281,
+        "total_tokens": 928,
+        "cost": 0.01026,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01026,
+          "upstream_inference_prompt_cost": 0.003235,
+          "upstream_inference_completions_cost": 0.007025
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_04",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF INNER JOIN events AS e\n    ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY user_id ASC;",
+    "raw_response": "```sql\nSELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF INNER JOIN events AS e\n    ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY user_id ASC;\n```",
+    "tokens_in": 670,
+    "tokens_out": 401,
+    "cost_usd": 0.013375,
+    "latency_ms": 5965.7,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448997-IGYtEIt7M7YWdhytX8Du",
+      "object": "chat.completion",
+      "created": 1786448997,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM users AS u\nASOF INNER JOIN events AS e\n    ON u.user_id = e.user_id AND e.timestamp >= u.created_at\nWHERE u.user_id BETWEEN 1 AND 20\nORDER BY user_id ASC;\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISvgYKhwEIEBgCKkDNGmR8J3zwBORKpndWqmbOd9YB818Mb+XTDxvH90RpROuYTNhVc0rqJpSKgEWYb4TASjegfIea4iDpu83yabmyMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDEGkLzlGW56EtbYihRoMwaZpdb2M1s08osLPIjBoPxQ4HhtigFdGlJ90fDi9gOKeR8Oy1ixMMOBTE9+l6aI8ui7ElBQ87DBKlnlrm7Uq4wTDkOm6GG5jG1lzBrcR8HQEGnz/eDpR5WRzZvRt/29IezH9eOXyRuOEy807+puJ1ipff6ikAgSd9YZZ8tJsgCxPppszNO76ogiwbgqvSbIhG6lQnAEoLWgoCECh93ZEH1qXvAgICX/RqDVgaPKNNZL1HB/exjn3E6sHskBrHuKJ/TsYfEpL9XWVweinFMkbpRZvnRft9FBfOMbHw5rq61osq+0aniYqN27mskqBHO0ToqgeMJEkcu2Qydhl/oH8UPcE/2LT9aRUKOW5qWvErCRMviM8PCd5Id5jfT6utCxrx/x/kjG8q8d/DmO62YdLUzjyOxmNOxsWpU6TbHUHHGEvOw6lCAlMBci9EjEDvwTl/f+SWJ//ys4GDjgLPMdL5WHOUm6O4fDv+6vxY17BgveJXLkQWUO5xhCWP5YEqIR4IVudQfo9YLMx/tFrZUc+WWQzpwHTRtpgeQ1O7f7d0ZJlGGtQRvGwXbOr5xYrJYNGmMDUoHgA88gWFcyeC1lHPPFmBBHCbjOLnu1VUapTl2lywFyWR24o/cbN/Wtz0TNMj5lmQ99zKaRq8RwEGKCp2Y/o/P8cHpBpxPYFduzu+cPTaHDiojHgXD41xJGeUTePgbJ8BEQ4IAIyFS8fTFwOgkx7MKqH1+SqR4/RSz1/1vOxNU1+PJn4dK0OhqGlYj1QTA0WHrqJmsgwiWq2QU+odugqO2rAwv92xMrq1bc/5ju4wmANsDr6D4sBLSK69EuERsYMSDoN+HqeY1qa18q7EYj8GvfIvw32s8AdXu+AOYdeXPlmlKg1ufrp6gLrSEqcXOpQXRgB",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 670,
+        "completion_tokens": 401,
+        "total_tokens": 1071,
+        "cost": 0.013375,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.013375,
+          "upstream_inference_prompt_cost": 0.00335,
+          "upstream_inference_completions_cost": 0.010025
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_04",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF INNER JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n) AS e\nON u.user_id = e.user_id AND e.timestamp >= u.created_at\nORDER BY user_id ASC",
+    "raw_response": "```sql\nSELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF INNER JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n) AS e\nON u.user_id = e.user_id AND e.timestamp >= u.created_at\nORDER BY user_id ASC\n```",
+    "tokens_in": 670,
+    "tokens_out": 549,
+    "cost_usd": 0.017075,
+    "latency_ms": 7686.2,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449004-nqW6SgHWBdXIsGRbuzMX",
+      "object": "chat.completion",
+      "created": 1786449004,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF INNER JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n) AS e\nON u.user_id = e.user_id AND e.timestamp >= u.created_at\nORDER BY user_id ASC\n```",
+            "refusal": null,
+            "reasoning": "I'm working through how ASOF JOIN handles the >= condition in ClickHouse to find the earliest event at or after a user's created_at timestamp. The key is that ASOF JOIN finds the closest match based on the inequality operator, so using >= on the timestamp column will give me the nearest event that occurred at or after the specified time. One thing to keep in mind is that ClickHouse requires the inequality condition to be on the left table side.\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "I'm working through how ASOF JOIN handles the >= condition in ClickHouse to find the earliest event at or after a user's created_at timestamp. The key is that ASOF JOIN finds the closest match based on the inequality operator, so using >= on the timestamp column will give me the nearest event that occurred at or after the specified time. One thing to keep in mind is that ClickHouse requires the inequality condition to be on the left table side.\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "CAIStQgKhwEIEBgCKkAtmpBlB6+hxBEvZHRX1Xn1I1W01VfZEgxa+oIRBsO/W0oeSd2L3HujBXMsTRdl/HxGfZQjd5cEnbl/K+GwrdIYMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDLJv/wtWDkfoKg0BhRoMSkISaxbyBLrxEb/VIjBvRl7hd6BBfg5EnK0jQrrcPbXeWQj3tK9YtUgIH/myt4DxOL2hSk/zCaEEHtPQkw8q2ga5TwVkff/ujitTFO3ABdf/N80/yP6HBj+24HuNy6qtldrq1WtYUTuBC/A2q6z0QG37F33ik84yR2zU/PJ+IpCQWjQhcSWa7qTLkDd0YXGYAZhYyukvBi9h0sagQilOzXsoBBMhAvteQa0I+lDFdKvBh4Cd8cis4hDHlPDq2RsFSBsc6Og9HgUgCb6dQ5UIxr4o8MeqvxuOY5b56W7aCjjcSx7rbgjYaaOfrDcS4eanIhyNSok9rWVoS8+zpT0yJOkAG0z8TjzN9eakMIhyF67ZVxuSF291w6U86+K20R4VvVdcWLSiZk7DUCbUnMReYh/te8RuTDArCBp4t+x+bkh85JYrKKGiEUeWO48MByUz0vvNgo7rdFMuEvDtgIaf47bfjyMSpx4z2NrLSkyDBmd4eAZMNnv+1xn3IOKM1R1MEI+IWhlIKdIu51V8AtKc70bMUPqwrajZEjKtHtKs82X4xfHK9GYWqpxGMA3PQeWOwK05P/X5edtYHGxuNQ2IsQP4tGqv/plsN8DKudXd2Ws7mOAnuGF2Ib/8uXsztg7+r1G+oIxa6/rJ31B6b8UFcBAGdOeUW8BGrTJ3UU5ldhn4+035q29DZri3hI6EuND3B8mtUwddNTnw2Vu0y6t42yiXqvkjgq9F87FsrXzKyObzsACBFgVWTyKEqP0fF/w8JWSX4EFvUaRIK4jrdhZgSAQypnCd5sxU1Jji4PS81OGX5ct1AZz2dhuQQydvt2sRhLKkrFQHlb+RYNDx7IqMnDVVlZchEm+5UfpzjflohjZM5FdaXOqv/Jiq86POfH8LB5gVXaK2vVqGCA2hakpgR5Fg7t8co0BdIu9+wpAU/G8a+yPvsKs7L2xmvmeP3mfvBeIUIKbJipuYmoa9ypn83B1XZutp/Ht7foQZTKd4T4JsBNDFVy/Dhh9HZpyXQxr4xl3MkWZiiK3Sv9EZXs2JvKmXOlcqyGAA9VzMFlzep3UZuu7NuusFrcEwuaI+dX34OMz7ldYFmXpRFROZuXDrzgVOfLxkykRWkR79n/lxc1B1Ui0fmNNQOUpPeTkrgW6J9bjNo2x1xPzNZTvKzp1Y/s3iY7Oi/kTW3hJTLU9f5RPentg0piQK5In5/ALyZs/hON5r/kqJvO7x/ToYAQ=="
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 670,
+        "completion_tokens": 549,
+        "total_tokens": 1219,
+        "cost": 0.017075,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.017075,
+          "upstream_inference_prompt_cost": 0.00335,
+          "upstream_inference_completions_cost": 0.013725
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 113,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_04",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n) AS e\nON u.user_id = e.user_id AND u.created_at <= e.timestamp\nORDER BY user_id ASC",
+    "raw_response": "```sql\nSELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n) AS e\nON u.user_id = e.user_id AND u.created_at <= e.timestamp\nORDER BY user_id ASC\n```",
+    "tokens_in": 670,
+    "tokens_out": 690,
+    "cost_usd": 0.0206,
+    "latency_ms": 11126.8,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449012-sIyEhwCGgHnrJaSDFAv7",
+      "object": "chat.completion",
+      "created": 1786449012,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n) AS e\nON u.user_id = e.user_id AND u.created_at <= e.timestamp\nORDER BY user_id ASC\n```",
+            "refusal": null,
+            "reasoning": "ASOF JOIN in ClickHouse supports the >= condition on the right table, finding the smallest timestamp that meets or exceeds the created_at value. This lets me join users with their earliest events using a query that matches user IDs and filters for events occurring at or after account creation.\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "ASOF JOIN in ClickHouse supports the >= condition on the right table, finding the smallest timestamp that meets or exceeds the created_at value. This lets me join users with their earliest events using a query that matches user IDs and filters for events occurring at or after account creation.\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "CAISmgsKhwEIEBgCKkCZ9ZdgqRvbwLKm6flBwMa22dy/aFOWoJVtlOX0kemmUpNcAg3YKb8yZN93VJS1YzferxhDMOOHrFK3aZawyqkIMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDDAJPx5LxAZpR3VXLhoMmZD97oengj+KfHodIjAFgxRFNWeEjAg7YExP5XyfHAPqH89HX8wW4x78hXNTBeLYquB6nVI09GxU2GnD3OwqvwlUcno24c0qDLfMOtawa8+Z76lwEL3eKhDuGr3K4Z++4K3U4NiOvPqgZU/1C2buCKaGLhcD8+TUQcCzH55smvhhcfCik9khw61nTwgZ+9jCv4CZWptrJxDKxQV6eYb3m2GT8jV7AiZycdXeSuPKIBfEWt8lXWONQyBvZjPqVjuD2ZdOB8C7ov3PNEsloi/7x+eA0ksKBC3rHFM99Y74VzrpQC5yKAFQQtVIX1gslx/4MtoznQP/t/M5qcKqJJj+87OoXPvruc1ZuNhXDZT+HGRUm3dNg7Nk7mBFnWxCagftDMPgFmMhxy/8bfHp5wkXXxvER69v+iiUPYS9iwc7jfnhKUKn5bOPtK1mcsKQx02PeS0pqoAun2Y1pYaDcuTV0+b1oCQcIl1km6uFOuJdkFZyCd0veqkYlQ8w/sr1c4/jhomaXa+o2qeL5X/ZAkMd9L9vUNsWnX/NohNsOSzERlP+EXymO8jaIC/x0TC3y79iLQPFmkKEPwjsup2UOXlmyoXLZvIkCfqEB/qGWSqK1xzdtHfJXZE6DBv3teFA3hQR6KO7EMAgbhVtX1cp2dL5TtQbsmcbsy8AdBA1aHjZvyxRw5Fy7f4itRiejR3RM64Bw1kGUao4yDEkRdMBl1Fn8q9AhS3X4uuzKyDPMdFtlPzff55Kwf4jNXgZmtOAD738SbF4TC5Jiw0wNjV+sEvbXCIK7M17541XUVG0BdvuglgmovuKPPXdwvy0cbD6mXtqOCbA2OOMB3IQ1xHkg7aANOnHcPoOR3mbsT/g5imELKFpZorDdlKFG5+DzTq2ByRcxZDd4rsPWAuEWzKKwoDO4j/RE2quzkwOsDCK+gOtrrVDdDbptdrS2hxh/SaSHiD4EXeMbggdbudoQ5IExhAdeg6Vx0Nhu8p+YK8uzAZj8XV5Ajrr2iEv0OiisGab1nOm1lBPfRbaaCnMmSrgwZlKcb7O38dSqCT73JbM9phsjf85QJ9pYhBchJsuT6mC5kT35ZM9q2ZjqNd4qEFhrodmUxB6EefRhul2WZswfAHPjQDVkaghnSI0k/3VMxHjAgo0wEXQX7RjKo8F2hqzWeJKaWMpvpDXl+tsU7khKIbBgaFj0jSEshsRhkIPanTbc8+GlYMCH7SYqxouE+FwKb6npRaH2pqt2wcES1H9Ba8WrTAdSacMoX/3wR63rp9P1wQ/skWztPoRDfiWL7dX/M0COIVxHPxc4DcpmB3ODe5jE+C76MQSW48wGoVm04NCFfAAhgwQCgDA5EZLiPItDcQ/c+qYOHV0AztrvTkUQJR8skkZah/W4XJvZiAy+TbstL1Qcr12MODNJVTHT1ePWYU5vaR3RXSIRSb4/0jqfuJT0uJlc8udlL8BNHMaT9zoZ/B1hnjpbwrm0cU0jH/ydGfRcY57lJaq4cxExOanpWbh2jZLNJpY6Ds7kv8yB7AakmuAJMdqoSCZRJvlIXTsN2kQDRLov/M4XO1eUJKftlkVuxObga0j30DbVUo3+lICMMKTT5a5R+RoxtibSRTh6wC2Uxo8p0LNdo2rdEOfs49ym3F2ps4wo9ouNmQ/ra6AJeRH3XlXLCM8i0DYJT7LHNQTuZa6fsUWS981nfA/AANWCbwYAQ=="
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 670,
+        "completion_tokens": 690,
+        "total_tokens": 1360,
+        "cost": 0.0206,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0206,
+          "upstream_inference_prompt_cost": 0.00335,
+          "upstream_inference_completions_cost": 0.01725
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 75,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_05",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type",
+    "raw_response": "```sql\nSELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type\n```",
+    "tokens_in": 664,
+    "tokens_out": 177,
+    "cost_usd": 0.007745,
+    "latency_ms": 4111.0,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449024-U3xKPAt4yFW0s7fQoxFu",
+      "object": "chat.completion",
+      "created": 1786449024,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISugMKhwEIEBgCKkDq7wPaVmkJGOEfi180xE7H0dQPfxQ8zMGK4TGYkAEj9x9flscZHN7mj2p4XEnkmrtnI7I+n6MNKDX86U8MfYcFMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDFPQRZwybgDOPinx1BoMyEW8fTgVM0jGJohLIjBDN4Aq0ht7FzWZAjs8MCDmOA2ZOpWsRFVUkuBp/9rNV3H3s0vnMIQY+C2v5KtYnF0q3wFV8Dmpwfj0vO6D/RBqiT4zUJNp+IhQTVsBylNHmxvoJaGySpm3fHM0ixNTAARSyN4gdDDoZri17IVVaY5206LazYevA0CksBN2Ln03bWtBsEnhHPIwaAsEKrgGr1VCQQb01Mv62Pa9MjuIPQ/F2w+eE2MQSCPOuOVcUuFQ684VuO+hdfOdF52vg6AtKlQJ9ClU9NM91PyihP9RUAIVmNPz0kGsssnDpzDWmbzd664XU++3zh0gsql6nok+nj+Vy6ts5LM3od8LzcSaqZQy4Qc2nwn5VVZ19flE/ym+Acl+GAE=",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 664,
+        "completion_tokens": 177,
+        "total_tokens": 841,
+        "cost": 0.007745,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.007745,
+          "upstream_inference_prompt_cost": 0.00332,
+          "upstream_inference_completions_cost": 0.004425
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_05",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type",
+    "raw_response": "```sql\nSELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type\n```",
+    "tokens_in": 664,
+    "tokens_out": 113,
+    "cost_usd": 0.006145,
+    "latency_ms": 4803.2,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449028-O5QTzlpVC5UnexmIyexl",
+      "object": "chat.completion",
+      "created": 1786449028,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISsQIKhwEIEBgCKkCILJvRmnSWXRjMNmP9bjm6Nm3uXCjG5Kr0GqmnZaBTRU10EcrpGQ8nPlQ1y3qcBYXVcxI11HY7FuFi7E+7KxfEMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDMPDoEI/hCqm+VO12RoM/L/OYfRGZHtLzlFqIjDEYyQsbTsz5EVz460lsUzq8Jj3gUbvxz2kSYUgB/4XuZUmAQNZ98CqLgg33z0LhCUqV421l0aBpDyjoAiF6UQHr2wv1pq7Hm06K8I/mkjVQGTSQeuEFd8b2VEWI0xyYuNiP0lBo2cMUrcaDDTwZiwAkSEclifRPkSOH7Yvggpme0nGe3cXByS9xRgB",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 664,
+        "completion_tokens": 113,
+        "total_tokens": 777,
+        "cost": 0.006145,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.006145,
+          "upstream_inference_prompt_cost": 0.00332,
+          "upstream_inference_completions_cost": 0.002825
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_05",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type",
+    "raw_response": "```sql\nSELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type\n```",
+    "tokens_in": 664,
+    "tokens_out": 113,
+    "cost_usd": 0.006145,
+    "latency_ms": 5836.4,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449034-p156MsFe7Bt3IXCDSNhF",
+      "object": "chat.completion",
+      "created": 1786449034,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISsQIKhwEIEBgCKkCILJvRmnSWXRjMNmP9bjm6Nm3uXCjG5Kr0GqmnZaBTRU10EcrpGQ8nPlQ1y3qcBYXVcxI11HY7FuFi7E+7KxfEMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDJso9mOYeFveUVi3QRoMSaXbleq4zGWXEpQtIjA6O238XpcebFSEs4rAf6K/rzQBCpsj0fvqDIrPrFXUtTRYjHE8VtwzW18ffp9HN0QqV/oyeTh+M+kYq3DQ0GqpuS6YDDrwJqLflf6eCiZ1uRezMC98UPc9dciQ8sMHEL40lmGldCXa9W6dVXr6cOrrRoORrxbM/KtSzEZNx1QBx0RunKYqcy/dHBgB",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 664,
+        "completion_tokens": 113,
+        "total_tokens": 777,
+        "cost": 0.006145,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.006145,
+          "upstream_inference_prompt_cost": 0.00332,
+          "upstream_inference_completions_cost": 0.002825
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_06",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(assumeNotNull(revenue_cents)) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE (revenue AS revenue)",
+    "raw_response": "SELECT\n    toDate(timestamp) AS day,\n    sum(assumeNotNull(revenue_cents)) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE (revenue AS revenue)",
+    "tokens_in": 714,
+    "tokens_out": 547,
+    "cost_usd": 0.017245,
+    "latency_ms": 9032.0,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449040-13N1eOHkxLPy198qjWwt",
+      "object": "chat.completion",
+      "created": 1786449040,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    toDate(timestamp) AS day,\n    sum(assumeNotNull(revenue_cents)) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE (revenue AS revenue)",
+            "refusal": null,
+            "reasoning": "I need to use a WITH FILL clause to generate a complete date range from January 1st to February 1st, 2024, with daily steps and interpolation for the revenue values. The key constraint is that the TO date is exclusive, and the INTERPOLATE function needs to reference the aggregated revenue column directly in the ORDER BY clause rather than as a separate expression.\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "I need to use a WITH FILL clause to generate a complete date range from January 1st to February 1st, 2024, with daily steps and interpolation for the revenue values. The key constraint is that the TO date is exclusive, and the INTERPOLATE function needs to reference the aggregated revenue column directly in the ORDER BY clause rather than as a separate expression.\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "CAIS/gYKhwEIEBgCKkCYFEdICYC5p+Pw9ND9APu5Ky19YqFuvT6OLEAKSCYrXvSZ+b0OgMCJmF3JAAIy1arnLduilKWO15yobx93hzz5Mg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDP4jMCZKy03UPMr86BoMz8wmfr9erqVB2nlRIjClDw4FgW3QuLoW2Uz0zUYghBKMVbI7fcP05i4R/YFGn7KDdRqBZFc1HWQ0V8XQaTYqowVkZHLlFsKf7X5MSWqexV44AW5AQv/p4JFi86DBgMal569VJIs+e/kcNBwz08/Fz69uBf6iARBqfGTjzpNcn38uHeSIjSruplycmW53d08nXmMhRGMXHOCyQPjXKioKLFjlErMJzNZj/EgMnGNHmnUtM54f4HdLyoqkHBUHOvcr2LHMt9O3bePLMXH1sjzMC9dLg4GtN9jAGVUntXQBijNKdHVgbzAuK5GJ4nWNeTV/fVRXBwE8z4nWavYU9kH8QN+s1lPFCSaWs1An4GisrWZ3LyvvdXMtxojyv26bdD1hXhpREs943T9L39dduW5VySq3OmwgS+f0F3qof7u9TlgfEauGi4P5rOAE0iq4X7DCraB+q8LraTchVI4LF+/h9UdXlY3GY1WRqsiAiqSyAJ7Q4b7t1JpLa5XWz5V23x96dcfkYpsSNwKn+f83ggGqkak4uP+L4pk5QaBtesSODpxgtfQTUG+j84e6nbCvseHmJVAUreXlnTxM/+Z9KG83TUClMvD9fTsdfQ+40mz5HvZgOs4J+pBZOrwkZmHSEkhiVve+ZHx/fYWRVBZJFNnfVFRrpxUeT61XZylkmwi0O2Dwx+ZuocQ1iwRKgn7d9bssm8xpEP1Rub7IgPSDMscln1Zr5Iir8111jxrP3pU/PfcWv2G4sO0lRzoTug/9rDuMeOPb/zRvNJqCpiuTih4IxOEfPOhnFRA92A08lM3KHM+MvepbBdm1G7Tpg1gj0EAzlcxdinjKY3vp+wpJqt3rX0d+jqO+cEBYr7lVK3q3N6MvmpVjN1j38vqMEvQWh93NNWhd3NbR2YLbCaF3nH+EDvW3kz+ZyLOMA+ucXKz8BH5994jzemHojCn5SXVHM8OldaUA0J1bA8hmH//fkaxTUrnhNq8YAQ=="
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 714,
+        "completion_tokens": 547,
+        "total_tokens": 1261,
+        "cost": 0.017245,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.017245,
+          "upstream_inference_prompt_cost": 0.00357,
+          "upstream_inference_completions_cost": 0.013675
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 93,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_06",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE ( revenue AS revenue )",
+    "raw_response": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE ( revenue AS revenue )\n```",
+    "tokens_in": 714,
+    "tokens_out": 304,
+    "cost_usd": 0.01117,
+    "latency_ms": 5836.1,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449049-t3wKLkMtc6AfyWt3YsiV",
+      "object": "chat.completion",
+      "created": 1786449049,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP 1\nINTERPOLATE ( revenue AS revenue )\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAIS6AIKhwEIEBgCKkC6FD7qRXI2FVCfJulkjh/eBXACa+G7T6d1DL0Zm3XugkUy+f7037Jp2kUvmONapMjOXbbNw7bLDl5lNpBI8dLBMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDEANh9njWFBHRAPsWhoM+yaL6e+K/uP1vR4lIjAt9iwLj76Ui6wir0nARuEO12KXlQl+WVFpWHSPTfWb8PDX/OWVO60HiKR8mVBdqmEqjQFpTh/Cc7s3jqg9cZ2+ufV2BvUpi14GCT2Kf9We4kiEjyXcnEGUFoTW4aAcO3L9ikhKRWoOk+7begCowKwYnpf1RZ4JrS2U9hyA9gzyiTbvKA/fLssSfpkWgvuNp1RdFkA8h0h3899DReXk2Q6mwvdwF6+OjkhUt0VyWxPd3dwGK2F1gEzAlvS1h1fv0S4YAQ==",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 714,
+        "completion_tokens": 304,
+        "total_tokens": 1018,
+        "cost": 0.01117,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01117,
+          "upstream_inference_prompt_cost": 0.00357,
+          "upstream_inference_completions_cost": 0.0076
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_06",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP INTERVAL 1 DAY\nINTERPOLATE ( revenue AS revenue )",
+    "raw_response": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP INTERVAL 1 DAY\nINTERPOLATE ( revenue AS revenue )\n```",
+    "tokens_in": 714,
+    "tokens_out": 386,
+    "cost_usd": 0.01322,
+    "latency_ms": 6480.6,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449056-GeSxTQFySPZiDH1FyO7F",
+      "object": "chat.completion",
+      "created": 1786449056,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP INTERVAL 1 DAY\nINTERPOLATE ( revenue AS revenue )\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISiAQKhwEIEBgCKkATA/IlG/gw4fGk69xIYc1eRhhEhwsP7WOHZlbShN7WVXXeVgH9vJo+u+D7AwHPkDnrlDaQ8MO/uWkBGvqwRrcwMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDPz8IK+/955hGfxxuRoMnlXTqnnwVxA33WNXIjCSNttnP02uUye3rr/kSV6ahxMohI57Kk8rF9zUZm1KAOAJq5O16XXHJQcsEPVQoGUqrQLOOip9g7QmadDkTR/V1hOtYYdPxPchl63J6NTRyszhCYUetRM2Is+NGaQY5ZRIxRHSXOmTJPT60uIpE/li2gCQLvs0OwO+RKVk1Tn/AfIg5F6ZMMRnPkihQnp4+TfaLPgQMN5UEGNafT9IUVEPwhXckh67kUaMHGJ3j6VsZAmxVldwvqi+xkhyPrg1nwmzu60J1DxqkYq9ze3lHSeK9jHQgvAPk1x5UO3j1sjkUSHiXp1XU96doEsF/iJ6e1kR3FR9Npi8bVAfvrUGqsguLGnzLpftKO7V0fMl1lILqW71OsJCok2XfjhwZ3/Ab6ELzg2lCzDsCa1UZF5NfAKxa5dw6AsvAKNo+2wqKUd/JYT6we98wm0w82mnUohZ3v6tPGOxQQmyvwmXsv/xjX2QGAE=",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 714,
+        "completion_tokens": 386,
+        "total_tokens": 1100,
+        "cost": 0.01322,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01322,
+          "upstream_inference_prompt_cost": 0.00357,
+          "upstream_inference_completions_cost": 0.00965
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_07",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts_by_6h_bucket\nFROM events;",
+    "raw_response": "```sql\nSELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts_by_6h_bucket\nFROM events;\n```",
+    "tokens_in": 668,
+    "tokens_out": 156,
+    "cost_usd": 0.00724,
+    "latency_ms": 4750.7,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449063-ZmOO3vy2A9mqfIoL1FZ0",
+      "object": "chat.completion",
+      "created": 1786449063,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts_by_6h_bucket\nFROM events;\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAIS6wMKhwEIEBgCKkDd+416XttKEhkspqJkcmK8mM4bSZjZSQp4Inr+IT68Iapee8S4tFqxZbA6dM+THyCYLJkVf6drs5KEGMT6UXciMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDIgoJw2wjRS4YQXYFhoMub3+m1Gmehrq/T40IjD3DWeTUCnsvPI52JmeW6ssFznpFsBKC0GA6/lGiVHQK6JgrJMgQT6N8cAUDEil5i4qkAIdLNyOBawLERAbXynUJGOCXBgcj3mcTJ8gsWkdI7eWv+RxZgn+4QMn+6+ChSRfTegM29J2ltr6r1uEqScGYajWLBBHWv+09tnbJy4JxW3Y37R4mxdfTbdTBXMcYF+cUtBoA2vQ9mTYmYbMHw/yBenqgmEeuApnhGRYU+5aCr31TOPSbvhzLaWdCHRhosHVoUtHD3E0+s+jjo1RzmPEFYDcVRfHszUUbgcAIVuwM1ARXlJaIuP/izfrNLZmadTJlzIKk4cxPPtfMihX9/e4ZLrgqJXhD4TSj7+D6qG5Sc3wvDODQdyAGLOBfN9XPJyNGYCx/JnuQ0h+C8nx9v0Kmkf4R+weeyNTO9srkX7xitETlxgB",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 668,
+        "completion_tokens": 156,
+        "total_tokens": 824,
+        "cost": 0.00724,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00724,
+          "upstream_inference_prompt_cost": 0.00334,
+          "upstream_inference_completions_cost": 0.0039
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_07",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts_by_6h\nFROM events",
+    "raw_response": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts_by_6h\nFROM events",
+    "tokens_in": 668,
+    "tokens_out": 249,
+    "cost_usd": 0.009565,
+    "latency_ms": 6391.5,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449068-AXlUAFI1C97o2P0Q3CL5",
+      "object": "chat.completion",
+      "created": 1786449068,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts_by_6h\nFROM events",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISigYKhwEIEBgCKkB21Hp0PvbZ9+dcpUuqjC5vdtWDeTq9RA8qsRuujBsNFfoJZHv0QPHqU0Xps3IY1EDKalQb9kcAQ84jteq86YazMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDBfvNGGX8HcRHDO23BoMdY+8elyPz5lJ6X+eIjDa/tLhjw58Kgl2ZxCEDWKsFeok1lteFz02hSM36Xr8MvS0UKMyFxY/JSD/4BXBAz0qrwQCsib3313Z9t6u0uBz6T/2jVE1dSh73DVS2/CWX2/kjUSPtMucgHvfqCXQbs+pUksUVb2FOveanoNK4D06UCO5DcbkkvTloOamOnPBw66jJa0GqkZsMe6R1DOd/ZiDlfG7VjIG5yCZTfCC1c620kHC9HFi6z798wtQcVxLQdBL2mtva9Ts5xMmRtU5wK9R7zTZ/qiu/5OZrP7jhVpwcAwq2VAhRwwQaIlqKBMRkW0RtnJDBXBsvu4i1SB95IKoao/TzkpSQjMZUfjVx3R3OMK9Pgauz+IXlQTGgv1ueLgfBpu1nW1E/++JizfzPuw5+53CwivckQ0kOA8ILU33BAn7nxu4MwCqjxEtW9xTh2gZD4z4P0+dbtyfcdS3g/cdbfdkgs+Tw2lFcEgkJv/nA0hCr85XGJzx32CG+eonkUDaHzkHWLPFKfmc8+JJRRk7wpT40c/IE3Oq62EEodIr3ha57ahytFc/0NzX20e+XZhXzCmhJUcclYulvCeFzn/toa/h/u3PPQ7t74bnUgVwaKPnI0u9e/r0LT8392UAyQ0ISXHFpPEzSzjCxpT+hXa52J2fOLJbH0NRlnInVMDtGuRWh+XxbjQuxlXN8dxZ9hN3Nc38AW2r+JhmM9So15vEWO3PcoCEDIsqgEC7s++j8zOp96ED6J/vmmsrSgCC+bNhDZyCo3rKvo4SVT/D3iE3vs05CQTUgdpycXcHp1hvcQe62+pv5FqnLcdm2cAYF0MGGAE=",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 668,
+        "completion_tokens": 249,
+        "total_tokens": 917,
+        "cost": 0.009565,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.009565,
+          "upstream_inference_prompt_cost": 0.00334,
+          "upstream_inference_completions_cost": 0.006225
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_07",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts_by_6h_bucket\nFROM events;",
+    "raw_response": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts_by_6h_bucket\nFROM events;",
+    "tokens_in": 668,
+    "tokens_out": 224,
+    "cost_usd": 0.00894,
+    "latency_ms": 5304.0,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449075-JqwtMSFl3Qswa5xxvj69",
+      "object": "chat.completion",
+      "created": 1786449075,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts_by_6h_bucket\nFROM events;",
+            "refusal": null,
+            "reasoning": "I'm working through the resample combinator syntax where the aggregation function takes a time range and step size, then applies resampling by a specified column. For count\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "I'm working through the resample combinator syntax where the aggregation function takes a time range and step size, then applies resampling by a specified column. For count\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "CAISpwUKhwEIEBgCKkD3CLRfaC9NlpniG/JcLfojVcGIMlLVopEeTrtW06lyu05Vj92ZazsZ8l5S4JMTklNPICXQZYgxuKdNIeAC5AOXMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDI92UYz5Bb/MkST59RoMh+kRH+7wvMhoFZbSIjBnBa6eUxeg+CgGkaJWwaigSbaPr+sWPCPD00LkEp4V8YU1leIIk8llWokSr7umbBYqzAPevRmQiQQHGkRbhLBzk8mCCEC0gWYIcVGDoFMfdSMpN8fGyZ/GrlOKH3Glrg+BVeGp2bCJvouv4Bg8yPmmKPMLv8S8O3uW56/OngwGc4+ESviKF9X2h1VhawCyldcWYX5aVMwGasXFaUThPab4cfCMqEmHHI++/lWcC3hpGCRbfYI3h/jNSsZwW/gLp64HZlZFziN2CYSolLQQgKVY6i1e7JHXy6LgEkTPAV+/RZjnL0C2nfuWP3KCXpawgrSI2TKNNJ5qFrlQ5d7zrcWtrtSHapqkPVO+mTaqfoYRiNB3BDvr3C4zr2HZNlD72k0FPoCcpDgJ1xq8Qn06LbI1lsR5OIc0F0fUckYYVgvHy5pmxYkXIxCaHLhfS9fk9QGtTVo5cMRJvnXgbnbIuvbS1t/EoO+BZgPVkQp4yTW0hl3SAIKGdkav7gqhbWBzjjWvr6KZD0wZFBSzXG7NIfsVB0giyh8mJZNnngWmnzPzPLwGPOG0aNbSAP9Ju0dgZVXFLFlwNG3+ZYVNYNv508DI11kQntsJZtfy25CTsb7df7dF4uHKC9BME+bCQQac0VzbtjnQ0YWv3nfKdqLgXGLqRq4bYxQMhxNUrXUFQntVGAE="
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 668,
+        "completion_tokens": 224,
+        "total_tokens": 892,
+        "cost": 0.00894,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00894,
+          "upstream_inference_prompt_cost": 0.00334,
+          "upstream_inference_completions_cost": 0.0056
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 44,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_08",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(cnt)) AS cumulative_purchases\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\n    GROUP BY day\n    ORDER BY day ASC\n);",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(cnt)) AS cumulative_purchases\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\n    GROUP BY day\n    ORDER BY day ASC\n);\n```",
+    "tokens_in": 663,
+    "tokens_out": 460,
+    "cost_usd": 0.014815,
+    "latency_ms": 6800.0,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449081-2XJMUCXGgVIe7f5LVVVh",
+      "object": "chat.completion",
+      "created": 1786449081,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(cnt)) AS cumulative_purchases\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\n    GROUP BY day\n    ORDER BY day ASC\n);\n```",
+            "refusal": null,
+            "reasoning": "I'm querying for daily purchase counts throughout January 2024, then using groupArray to collect those counts in chronological order and arrayCumSum to compute the running total across the month.\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "I'm querying for daily purchase counts throughout January 2024, then using groupArray to collect those counts in chronological order and arrayCumSum to compute the running total across the month.\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "CAISwwYKhwEIEBgCKkACQ+S13dG6rYjsSkDIdL59yH1mX0l73+TvUGbNyOMyV+YZ6e3euJiRYjz+I4+Qlv6dPZQZSa8cKOH0zXxwawmRMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDCXFrpy4+aBo/2zGIRoMbWvY4w+6QPHOG/YPIjAuO9uJpbE7H79ADyo00+YeQSPuBtI7GkBjlWnKWTcQMd8MzwesBh5rOWoc0ol7aBgq6ATFczUo9x1+tCWKhbP5qg2GBGUv/E107DWOtqao6ifCnpQV3jIX4c+ArVMHv4SrAtDDksk7RVAaUpk2a3heJK7xz6+pZzpKxfFv4Kn7MYbPrOM6zsg6r+T6CNdI6wJ4TqpbOm4+5VWCvSrrqGwL1mnJt21/iGJHNP1oop1I5VpIUJ0NAV6yU7IP/XUmtiJx2dJn3dUROGe684TFZ5xOaZbQQY4/eP4jBUlMrGpr7lycZuhYENdqq1hdCV7JfczgkJ9Wkn/tnUtQmvtWz8ggQXevBm5Zguj+I8Pvd60W9T/9nshRPWSx/SjwNi0FwoTxatiI7IjvCUggUOZ5/ep92bjYYtl3juGJ6H2CnbqxraDRb7vipFQ6zkBJtoVOM6Oj8SbewNXHVFqdXM0lxcuihjQCIX7UQod3Ne4sxKDXJQBKrnrNfO3xG14ymmRFmQKZioZKE1s5ttN9A1GyQnxpopgaOywmKIysKGt1nnEnddHpsxyxnORtEQygT2ewiROb5uRgeoZ10SNvUqsX6643Vtd6DfsyKNr+W4KflC+2/IIrUhc2KBUc9jFr5RMdkNY/rzJuePF0m1bDV9nJRW6LhUB5dNmtpboK7D6li+7scDDBI2keFHlQe4S+prkjVeG45vtOk+mkmKu6zpS5aTFge2wPf8ficYEO+2ZGR8l1msQO+GcdrXBegiuhskjPUmkYKgrACc+tIK2AWmytXkPaDK7ppqfT9GSIubqgYY457sgk6exUWfawl83lRQFA2/+8p8wLUDjSt4EQe6vPaMZo/Un7qRtN14N2ONbkagDVOdc/rnvriPUxlfLYGAE="
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 460,
+        "total_tokens": 1123,
+        "cost": 0.014815,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.014815,
+          "upstream_inference_prompt_cost": 0.003315,
+          "upstream_inference_completions_cost": 0.0115
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 50,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_08",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(cnt)) AS cumulative_purchases\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\n    GROUP BY day\n    ORDER BY day ASC\n);",
+    "raw_response": "```sql\nSELECT arrayCumSum(groupArray(cnt)) AS cumulative_purchases\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\n    GROUP BY day\n    ORDER BY day ASC\n);\n```",
+    "tokens_in": 663,
+    "tokens_out": 357,
+    "cost_usd": 0.01224,
+    "latency_ms": 5574.5,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449088-1ddmPoj4GpIgNlVrOw9u",
+      "object": "chat.completion",
+      "created": 1786449088,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT arrayCumSum(groupArray(cnt)) AS cumulative_purchases\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\n    GROUP BY day\n    ORDER BY day ASC\n);\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISpwQKhwEIEBgCKkD1LVnIXwTqeJ/Qz2tyhLhkhGArcchmLu9CkybEOL7dWAxd3K5GyWzQ0ME9iZvkyOcb7GqgFY0DvqqXO6PShie2Mg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDM7Nx6WH5kmGW+a1GBoMn/iN4K9IxJZ6WCnjIjDZYPy0FyxVFW3gwRXn7sPivByTtnPmMiNqxuvy89XN3tV2kN6BIDNtqpObYhlWxqcqzAKhf3MnkGkL1TlaSpmL5tyYT20JXOlWpjhyxf8ggopOda/DI3VcXpHpkZ75zBzT+Bt+r9C533bR8bEif/S2IGjlIfz2YUvOEjl7pg0mhyUZigVud+NKx06zz4E9HhLLWgoeD4l/LOetFGAsxw+w26rRLiLmTnZ5zzxHoB7vcpK6nPrLq8SzXy7lVSAsu+UzhTmhED4IkO0tEmLNLdj0GZkD51TyPIoHTaesMM46qKWXmOhzpIms29gjvS5pnqdz2A1jpgMV0QDqf+3o7eECBYdZMO1mDmczV7P6YSq7rVGNcb2t8+fVp4Ni2CZhYA16zFO0U8Ga1EYppHMtYeT4sfVBVi/ENKjmbIdqPPcqWLfmG9WIaARhIjmCCXY62Q0OTjFc0nDBhlVGSczKz/jKdlkuy7M5JkD4PYlzlseP5euJR2kmJ61We8GGd5g18hgB",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 357,
+        "total_tokens": 1020,
+        "cost": 0.01224,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01224,
+          "upstream_inference_prompt_cost": 0.003315,
+          "upstream_inference_completions_cost": 0.008925
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_08",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    arrayCumSum(\n        arrayMap(t -> t.2, arraySort(t -> t.1, groupArray((d, cnt))))\n    ) AS cumulative_daily_purchases\nFROM\n(\n    SELECT\n        toDate(timestamp) AS d,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\n    GROUP BY d\n);",
+    "raw_response": "```sql\nSELECT\n    arrayCumSum(\n        arrayMap(t -> t.2, arraySort(t -> t.1, groupArray((d, cnt))))\n    ) AS cumulative_daily_purchases\nFROM\n(\n    SELECT\n        toDate(timestamp) AS d,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\n    GROUP BY d\n);\n```",
+    "tokens_in": 663,
+    "tokens_out": 532,
+    "cost_usd": 0.016615,
+    "latency_ms": 7964.6,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449094-rglpdddLfH33b1W4js1A",
+      "object": "chat.completion",
+      "created": 1786449094,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    arrayCumSum(\n        arrayMap(t -> t.2, arraySort(t -> t.1, groupArray((d, cnt))))\n    ) AS cumulative_daily_purchases\nFROM\n(\n    SELECT\n        toDate(timestamp) AS d,\n        count() AS cnt\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00.000', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-02-01 00:00:00.000', 3, 'UTC')\n    GROUP BY d\n);\n```",
+            "refusal": null,
+            "reasoning": "I'm querying for daily purchase event counts throughout January 2024, then using groupArray to collect those counts into a single array and arrayCumSum to compute\u2026",
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "text": "I'm querying for daily purchase event counts throughout January 2024, then using groupArray to collect those counts into a single array and arrayCumSum to compute\u2026",
+                "format": "anthropic-claude-v1",
+                "index": 0,
+                "signature": "CAISjwcKhwEIEBgCKkAd1HLrnI5jqnEApEBa309I4a5SS0qEXlc09w1Zm8QzfVGRjS6cqI1Q9DHzFOLFKLLV+4liGWkbZKrYQ1Wj/9IAMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDPc35ZeVmIeQKZtEuBoMeeSSgJ0J8NVdjtn5IjAA0GY3lWa2AcBYZDFzjt4ElE9VYIKf+J69cWWF4ruBPphJvbP97YyAe4A545/R274qtAUsjpa03Q971JQDpo1TjYBDBIXdKO0Lzw8Q95hR8rR8meqyolP0b8Jg/eTiclk4Rj/3hG9fn4aazQcUkv0V++7UgbhwZFsmEoapD5CzzwfdjEF5j6ZaB1KN4NMiOhW7kjCAP/l5pB45X16+iUwN74sYeXCt4lI7uUt+OMn4zXy5nZz6dhTNmaYMHQ7aGZK7cakwQN6OIzq5uZWRhEttKYffBqOvENtPpcM2ke9yoLFphm3BDl9f0d1m0AJrEyxGgrjylbtC/3qVr8ChdbDg2ZJJzsTYgi4ApGwnUTvT+f9FNYpyC9iIioSmY8OqRDKxU2ML/00NFUKKZyPr+MfpX3K+l8RsMoSz2938XnULrSr22B64zcS53wgpjHhNN+GlPbzyDA9inM3eQ1PHYkKGagALIcdAP+3EVq9NbLHYlsoWlVpX8lNEgupyO4ExsPmUtMTYD3Dti21r8m/POrXmOokn1jT7ScG9FTO7/pf5NvxXDh01mFlowP90K6TgFCPaTf9VEqseolp0IZto4BeDwacFbQPl6c9PV7lauQRPIJ6xM42w0bh1T6pjp9ijO6s6DE8PfhDjnTY779M0DSOPYt6B4Vk2OgroOZyoapgbTyYwQT2h8E0GQXHXC77QvpLxc2Ga75kxJjCxKdHx2AG/oepTkkCZS3qSDQMerEI9WzfX0sJXMS4JeFSFtN3lt5nMb3vQjlN6I/VsTe2PceXqXTGyoctdHJ6bOa2p1azEKk/uHGbxM0CCNSk4WOQI6Gjv7lNNo1FtuzsFgrRww2UrPZvLani7bJJSHGVV1LSJKwmvVnDI2Kc9H3ds7KJwFuANm6gaajQPyuqS0331Gniias1wxKc6UJdB113XTi/b+DX+vzLWgLmbIX7BKVrRNY5mDDO7NzDy7Y94uoINZhmICi2Pg0s2gBgB"
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 663,
+        "completion_tokens": 532,
+        "total_tokens": 1195,
+        "cost": 0.016615,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.016615,
+          "upstream_inference_prompt_cost": 0.003315,
+          "upstream_inference_completions_cost": 0.0133
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 42,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_09",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+    "tokens_in": 650,
+    "tokens_out": 93,
+    "cost_usd": 0.005575,
+    "latency_ms": 3298.5,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449102-jXNVj4RJPQWCuHifpldO",
+      "object": "chat.completion",
+      "created": 1786449102,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISmgIKhwEIEBgCKkCQmAuP4/SQbHn7GRhKCjwlCh6xTqYyXQPlWUZv5gEKqD6AxcyagVRVgsivg12jh90uIOIe0AyChWF9dpnyxfLQMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDDDZJ9WY057SNWJyaBoMBFpdetJ3QTvj/z9NIjBKMC8U5C7+HSZSp0pHAVbLvBCxSxZ0C22Csd0VVww88yhu+6W2Xy8bHFK8qqWzbDQqQF4J6H3B6BuoR5zFGSvL5fCXp0lRHCw92wDT3QKkzYIRQjOTVnvmrW/LwdmeAbmZx8gO8+E2v4UE3v4OtkxCnGAYAQ==",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 93,
+        "total_tokens": 743,
+        "cost": 0.005575,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.005575,
+          "upstream_inference_prompt_cost": 0.00325,
+          "upstream_inference_completions_cost": 0.002325
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_09",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+    "tokens_in": 650,
+    "tokens_out": 93,
+    "cost_usd": 0.005575,
+    "latency_ms": 4266.4,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449106-mL4prSzjhYI1PNuEHrSx",
+      "object": "chat.completion",
+      "created": 1786449106,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISmgIKhwEIEBgCKkCQmAuP4/SQbHn7GRhKCjwlCh6xTqYyXQPlWUZv5gEKqD6AxcyagVRVgsivg12jh90uIOIe0AyChWF9dpnyxfLQMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDKrxg3bKZYX6jSBOIhoM01DS4zfwn1qIrxTEIjD74W72KhUge1peL17W4LJmEFlLo1eWRcS0W37WUjbm5fxbWma7g+JLdQ4c2rhSJoQqQDtluK/X0P8+6P5GsDGOyuORgcPqCFZLw1BB5cznHLJG4k1X3bDq2MuUS48EgBRqfIt5BH4LjRNUDccpBut9eF8YAQ==",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 93,
+        "total_tokens": 743,
+        "cost": 0.005575,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.005575,
+          "upstream_inference_prompt_cost": 0.00325,
+          "upstream_inference_completions_cost": 0.002325
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_09",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC",
+    "raw_response": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC\n```",
+    "tokens_in": 650,
+    "tokens_out": 181,
+    "cost_usd": 0.007775,
+    "latency_ms": 4677.8,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449111-uZBeuiXktSrM2tyM6mBY",
+      "object": "chat.completion",
+      "created": 1786449111,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAIS2gMKhwEIEBgCKkCHTr4+Esr5w1NpKRJek0tM7mRFdxF1SLnoMrv4uQhnfwFABxhcPGlsV4rv4bV8gwJQA220ItbyTxFrQPhKal/LMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDHqJLp6vT9N5rhQRFBoMHfImSj+V0OcK8bZyIjDYiFOp365aKoOfFfn2KzCcUNuPnTIjrXNMwYqSc+kIKbtMVYZEudPBtL9MV+FZDgwq/wG3nP2QbZU89IwNsynvZCDjUBSzgmVlKKw1AyOm3FEPDXFHwZACPgfepC2a3NK18I57N1mbtX14u0Mbgh/QzF/5xnl/nXelPJaWCVChBZNIColcVYjEbeqkWBp8OLyPis3GYermMjuQbGEqHf40wCa6gBf4maLfg/ebOq4J5rfvGuLeYkcQTDefUtco2ahz1uWZ6Kw2Cvn/IlN+yhcOcY+3wxCABO/7yVKg6fvjhSWOuYNOwSXV+PR6tYys0v/MBV9XCkPzYBZ8khZSeGwR0FUIJnkrV0xB4Q/yCfXifNzx55gHjLH6RME+WFZbJXf0oa8SyW3Cr/gfrzwzO75BAqgYAQ==",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 650,
+        "completion_tokens": 181,
+        "total_tokens": 831,
+        "cost": 0.007775,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.007775,
+          "upstream_inference_prompt_cost": 0.00325,
+          "upstream_inference_completions_cost": 0.004525
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_10",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT uniqExact(key) AS distinct_property_keys\nFROM\n(\n    SELECT arrayJoin(mapKeys(properties)) AS key\n    FROM events\n    WHERE event_type = 'purchase'\n      AND toDate(timestamp, 'UTC') = toDate('2024-03-01')\n)",
+    "raw_response": "```sql\nSELECT uniqExact(key) AS distinct_property_keys\nFROM\n(\n    SELECT arrayJoin(mapKeys(properties)) AS key\n    FROM events\n    WHERE event_type = 'purchase'\n      AND toDate(timestamp, 'UTC') = toDate('2024-03-01')\n)\n```",
+    "tokens_in": 660,
+    "tokens_out": 203,
+    "cost_usd": 0.008375,
+    "latency_ms": 4307.1,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449116-xmblvWrkeiYMzntpwdDB",
+      "object": "chat.completion",
+      "created": 1786449116,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT uniqExact(key) AS distinct_property_keys\nFROM\n(\n    SELECT arrayJoin(mapKeys(properties)) AS key\n    FROM events\n    WHERE event_type = 'purchase'\n      AND toDate(timestamp, 'UTC') = toDate('2024-03-01')\n)\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISlQMKhwEIEBgCKkADPn3nngewS3VMPs0DpiHH+4AZuk9PqRSYUnR3r82DwHykeOnQ0mzr7WEr1Win+zRVYnU0ZLKvyhOB6pnRmGwAMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDCsatJus9OViOJT7dBoMasbgWgZVUVTRwxmXIjDaoAfJICUSlYxPJymMfih7sfGfif05ylcxwQn3zA0EgesfAXSGI12/LFdA0jWdZ9YqugHNzyfWvJu/kw4ct2gM1RmQpD508uO01UsdlecMTKfYzhY7Cu70bmzyN3o5r6dWYFGVQt+B86u/SY3itSGX7I1ZqwlGgPl1/8cbfxRPX5RfTQPHMutKMvsmw8Vx2O7iouIUmGqBDGcMw3VM0zOu5Rvs56I5idQ+LmPfTGPx/lpO3wAgxanaVvF5ZRnL5P3+fRfaer7/M8BelBAwI/8EcGsMbWJGlM6bLRj3ZaHoHKwnxbo/vxUahw/vRnEYAQ==",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 660,
+        "completion_tokens": 203,
+        "total_tokens": 863,
+        "cost": 0.008375,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.008375,
+          "upstream_inference_prompt_cost": 0.0033,
+          "upstream_inference_completions_cost": 0.005075
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_10",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT uniqExact(prop_key) AS distinct_property_keys\nFROM\n(\n    SELECT mapKeys(properties) AS keys\n    FROM events\n    WHERE event_type = 'purchase'\n      AND toDate(timestamp) = toDate('2024-03-01')\n)\nARRAY JOIN keys AS prop_key",
+    "raw_response": "```sql\nSELECT uniqExact(prop_key) AS distinct_property_keys\nFROM\n(\n    SELECT mapKeys(properties) AS keys\n    FROM events\n    WHERE event_type = 'purchase'\n      AND toDate(timestamp) = toDate('2024-03-01')\n)\nARRAY JOIN keys AS prop_key\n```",
+    "tokens_in": 660,
+    "tokens_out": 136,
+    "cost_usd": 0.0067,
+    "latency_ms": 3638.9,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449121-Pr8XVPIR1QJgKAvkuKgy",
+      "object": "chat.completion",
+      "created": 1786449121,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "```sql\nSELECT uniqExact(prop_key) AS distinct_property_keys\nFROM\n(\n    SELECT mapKeys(properties) AS keys\n    FROM events\n    WHERE event_type = 'purchase'\n      AND toDate(timestamp) = toDate('2024-03-01')\n)\nARRAY JOIN keys AS prop_key\n```",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISgwIKhwEIEBgCKkDoeCRyn8+WAlRPf/9dsOWTf9gmGjF+cspBBpQUrt8udDmCpTlU9uXRDFZ8f+/8MO+YSOlRV7tnR6ZX76crvwF0Mg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDIp+70/epuYB8T/gcBoM1iAeYnyXk7Pzk6/yIjCDUqn0UVL1OaUMZYi+O55GdYl+00gVmWxqbuxJ4k157XzRxjzlfxaRO/bIf2/jLDQqKbZQ1yKJNob/nlaqfASzBOwpu+h4HAlkEKn1ZhbijnfuRaoVkvfmv5KOGAE=",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 660,
+        "completion_tokens": 136,
+        "total_tokens": 796,
+        "cost": 0.0067,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0067,
+          "upstream_inference_prompt_cost": 0.0033,
+          "upstream_inference_completions_cost": 0.0034
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "claude-opus-5",
+    "model_id": "anthropic/claude-opus-5",
+    "question_id": "t6_10",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT uniqExact(key) AS distinct_property_keys\nFROM\n(\n    SELECT mapKeys(properties) AS keys\n    FROM events\n    WHERE event_type = 'purchase'\n      AND toDate(timestamp, 'UTC') = toDate('2024-03-01')\n)\nARRAY JOIN keys AS key",
+    "raw_response": "SELECT uniqExact(key) AS distinct_property_keys\nFROM\n(\n    SELECT mapKeys(properties) AS keys\n    FROM events\n    WHERE event_type = 'purchase'\n      AND toDate(timestamp, 'UTC') = toDate('2024-03-01')\n)\nARRAY JOIN keys AS key",
+    "tokens_in": 660,
+    "tokens_out": 225,
+    "cost_usd": 0.008925,
+    "latency_ms": 5275.4,
+    "model_id_returned": "anthropic/claude-opus-5",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449125-QtLdbMJwZenOSOGriiQY",
+      "object": "chat.completion",
+      "created": 1786449125,
+      "model": "anthropic/claude-opus-5",
+      "provider": "Amazon Bedrock",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "end_turn",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT uniqExact(key) AS distinct_property_keys\nFROM\n(\n    SELECT mapKeys(properties) AS keys\n    FROM events\n    WHERE event_type = 'purchase'\n      AND toDate(timestamp, 'UTC') = toDate('2024-03-01')\n)\nARRAY JOIN keys AS key",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.text",
+                "signature": "CAISvQMKhwEIEBgCKkDWMgi9YsbSA+1fcA4Jry9NvLRjgLCw/5u9hDT3FckjOs4dv3lJAn2fKZsMY/Dps7n07osq26c0p2o65iSXQvnmMg1jbGF1ZGUtb3B1cy01OAFCCHRoaW5raW5nWiQ0YzBmMDQ2Zi0yNWZkLTQ1ZmItYmZiMy1hMDhhOGUyNDljYTcSDLFxrI63pkz6lgH8/xoMWLwOEUsRfkwW4B7EIjD79MiCuGqgAiKZr0UAWi9vuUnqiD0P0pNwpYg2A/4CDcBMkTF2Z4o6bkPVKGJfSCcq4gEdgAHq3qgZloWSs49JhhRKMXM0ZDZP55lIe7fnElFPV1TdaE88PWpEZ3+8ai5pNdmjJvHneX3qp3KsuyNNUkiiOdlDy6Mbi0AuEFIA5vUU+mrJstxjzB/btLAlfL6vHmiZupBIxvVe3lXPXa2vATDpwBm9HUUod8ZfNL5DYi1RwKtFgDFT4AoYLMJA9NfdrSYpsS7KknzXKTMS031b43RaKCvWe6EOX7f5ieY2Fa0roa7GW1BAcNqSxrZKD7KR88kmYgjhz77p+u7z5shTaTMIE6shSXysRt8UNWDAdhzQ0jMFGAE=",
+                "format": "anthropic-claude-v1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 660,
+        "completion_tokens": 225,
+        "total_tokens": 885,
+        "cost": 0.008925,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.008925,
+          "upstream_inference_prompt_cost": 0.0033,
+          "upstream_inference_completions_cost": 0.005625
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  }
+]

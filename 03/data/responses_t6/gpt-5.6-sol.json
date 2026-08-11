@@ -1,0 +1,2038 @@
+[
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_01",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n);",
+    "raw_response": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n);",
+    "tokens_in": 420,
+    "tokens_out": 737,
+    "cost_usd": 0.02421,
+    "latency_ms": 17227.0,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448941-ZE1H8mwdNbvCcEKwFa7D",
+      "object": "chat.completion",
+      "created": 1786448941,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n);",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqeww6m__a8HjIQr_Z-JcUT1ZZs388Fd_hYv1LkxkM4OrsB8MOIRxKJpUzjnf3kX5lfw7bvp6NrltJHJWSIVehKYabDv4sarmLOIDVVH6jygUpT_xw6aNk0huYc5od7suEzu_4SwiqGtOzWKedXRWjbhT4L5Y_icKmoW2ArvziYSrD0JCFVVMwlN91fQG4CHHMiwaV09m7Z8pA7X9ath6AG4BGxpigV3k-4J5Fc2Wjj4Pv6g-846w26uD_vE_ZaagVqmWLhxc6tFvAhlU0FrigKxssWG2FyuPWgKiXPvzq03q2e4PoyqDNZty9TB-l_f75LTcmBeN6qplPfm4TKDeSHq2AOl9DLx12y4IlhOcZ-EXNkH_mc0UFonNLp8ZaGWuIDb8OBRUgNz61smg6cHkgk7TIfwmKMPKGbfPi5qTVhCrdgLH5W1OmDw4UB9AMspVzso1W8TS0RhbBu3Em0Kac7GLSYuU-XNgu9rnaEReeuNSXYx6-dKWj36M3ZeLQoo-p_Lznooxa0-nM-OFOvl38TcGYdDFXerc_MF8BeSIEys8ob7yhXp4GxynvpKEiU0PTyKjxlEy3UpAgXCf-Q6T35_MMf1dbUoayt4zTGqeDEEAf0_h6pmzLosQL4uwD0n5YNSrV0BQ4skgP0RyipJ6dlo_TiwlF1qiPd-eHr6ePPTlZYTEmKZeTDYC5Zelo_m37SeevqAUGl7JKP7De-uYXBVJRpdt7VmUKsEKNNRJxYXCV-O_N_pWDS0hnFF5K96VAA25B-KtQ1e-VNzjWOmXDOrJcx_jHKqq8QRFovB6TRcWaJMgHSQ0vz0sgBC6pHw3bY4lexMqHdQD5uUhRw89woZst1nkJ9PhIbwfjorSIZOLzI6g9UriBv1zzx7w0F4ClEFgXDmiZcx073uIPPm_L8Slo15YwOM5Q7FJyQVDi14K4FeisgtMxNtY8d6Ra0Y1u0MDbSdmiSEKnkUKFQJe-YqngwbQFWb095QAjc-l2FFLdEZku6FAUFFjW2Y0jKD20_CYfhLfZty3kQsmdoCfChY7fz7XgFpzI83PEEVwelRs-HGNzZeFgNKAglAOXS0n2YzgMFyBWxXAVxY621rcr1pXFdU5eHPGs4euzv-pyGJAIvdMHOMFZfIxU6eULEdU80ALlzNWz4l1_EZLV67ACk7Uu8F0BeAmyAj9Lw8RY1WOtIFBSDnlh8wTCzhpu4_p26q2ZWh5QjNKdHJTY8gNbzvWa9e8iN67cvwdw51QtjK3Ejk2Q36AaxtuFl5MVJ72c14RFYge6UzTcuss5ZUJpkTxcR9lFYbSJqLWAidzZJUJfWlQgX347Q-zwRmm9Qlpfbb5f915X7lCHpjYjrcl-ADBE7G1bV287ivdeJDbQYZWC_JtZbz7MutA6WmWYEdY3wV_b75LgCFn3_ElscyAeTOMmc16Aqgmmovw3RgThPsRbmnU_02TAuFD3x-fbvbapWb54el6wwVIi0Q_zJMrdnNvk4aQN3bRIXWxb9aU_EFfjh7rp2qKay3rlwQLO0X39_tOQuDHN0zvANFUz1XvrbTjdcA7XEEWXZnpsMXuP4SeSpgMOIs9pomXJuIORxQFmWCMYDR0gyh2YazANBONFZQsMZfjptTnrF-XQ0KPgzeaaGMXqs2zxcNEVxBvBIjhGnK0sqWBjH-TweNmU4JM1Cz-4x-lyU4S35uCtUDSOncOcsVZuUPu-IsnyOY4wHG8Pd5aO1BmrgdDzq8ubVa3qrYoorA3wBHnoU_jXP9n5Mfph43KJO-ubdltUmRzjwesASVcS0DsntSADCKXq-CmAuzD55xudavtLD0QOWrcGkfkwQUCE3bC2lqvu9222UZz3WpSTqGhyTmNGmbGPIxW7KHsh6sbQHSbBDjzGQX02xWQ_RyVU2bPfAUvJb0bDFRsxGC87w4NIqTSTSlS-OfmAEGsn2uFrqnGulgC1p0984cmhtZv2ze4UiyAHc-CZOXcbU2t7tdsIQa2lDKaDw5ZDivPf_17yDaZ6Ecuz0uuUzFCUylJDBVJed9Z8W8ZtQdOAxtQWSgyODnuFy1T-w2ZDXkaIVuZSx7aKm_aaWsBFjGD3oCU7h1J2E_c0Au1tL1VwENrNKcApMRZhMQ-IKlHDYbnKi9RDEpzXZnkbExiKrmRdr0JkcGBs4dC-xMVhLBt6r0QggtQdEL8Pxcx7tLFTdFrxkBHSJVbWILkmH4m1_D6Cu9bkc2drkRZsmCj5elo2zMaLTfxznWOCT6IMAmTXyzFNA_4nW9Dn3Nstt_CqO2H3oLRLJmWSYizuuBr91EwXfhfqelRLtW6InmSGrifurUClyvSXGG27DR9ww1qcW7w_IAzusgAed5J7cJunmIpw1cJMg2x5AV4cv-yg_qu_dOQdmC75YRsfOTCrkUYKKrXNKYdhTx4WPepY1s7i8-eFNerPc6uBYx9lHq9VjT2RqPotEXUE5fbDmbiVAoDaGDYHxKiniKi_jc_fVH_0sPHCElZGLQHzyRtjeI-fHGExj6_ByOaWS87y-w7rHrRABKr5yH1S7iLt8V3VIxHGuv8vfJJH9xtanmW4W_dTmKTPxPa-FGwBBDrKyq0qO3b4BNCUWoGIYDb0T87KP714O9DK7hiZ4tmvvHt7a85kAapeHQacZvvgKfBzbYJwphP-a3OYY4HT9zdZneCnkWlzAbqlCPoQ-qDAjF_SFQdxVuv2NIHVVOnQ7icUKziDhtQp4oRMCkdT8uBs_0mwvLjWa1QGmjmPWpwH6117ugAj8yENVH-E-Dn1sBOrmv6DmigjBcga8zNNEhRk06FT6Jztg_5MmjEl1pSXBQiDIkxNoQFVlvjG9kgFMZJpzehMQ061fNBhSb6jbADsYBe3g6vOafTY-ho0DJ3A7D4YKEsg6DGiKclhigX0EKzxTqtnr272iwwoMV_oMB1uZogdFyu6BSmMEujTjgbzNTv07skwZMg0tibPGz59NIIbzZ78foWThpgt7DKDXuUqe7OtL0tbupDZhYA6G4SjHT9rvComVvl63fmyWVHuzwTD5sxRBnRA36-lXFoyiDkT7RZZrK65LXeGvaryACRtSVbP-VoExHuN_CLrF9WGWmxkJJPlvKZ1zYZQlXsumCSSi7vGWEjs6ukcpcUIjw-sOIi38s_ViRSYfPHYIvSTWPObHUrBGIou2dG2wvpaGwv15cjaCP2rVcwR1XUUX9sbyj70j05mXgew2rHyqpaddp-VPxTF7ART8iehohsVdnVn34lwPDYiOpV4HYeo_aiKexga5zpURjpMWpjAhz5JZ9H4wVk080Smy3O0ik5eK_r2B7k5kFIgwSexEdIjKeSI2mFBMUF2F56Q9cJqutXb1p_0p7fHSLeFIO9JTGVHdJn_Ej2w2_qUCd8ZVkn5UdGg63XbXTSC3MswU54pKG_0t_9p9DbtT-M_qr0u6GbHKI0mec8vwsCkbKydn7WQAVsNtYZ8UXPU8Dbd2EeRrGaBzio16wkADQfROmXP5KmS4j7-vOpPizAgE-fzZAnNlyugCO0oE_iIeG6fzaj9dtDaF5SZdBAp3MHyRsIpCO-B5P1YHupsN8D9M5EWBu5Fx0XHCYJxjXHl0upPMTdA2DchvVqypu4eP_AHaNHGWXpd-sqbYnqr4r2ZpFOEJAS-eQEoHlPQTU4d3ZD_MYP8ZcJ5LS9E15QXUtyyQrJ_npg04JZ6ny7-zENF4EpLuIwTDpybrCHkSuVs6GjEPl-QaYqxlsKdHciGoCjsmiyazYv_lDOefn_skTTPs-t5zRpLjP1brc34nu7M8ElwuNEwfhsQ4mJMPIeoWUt4HUx-kCi5FjHjbnPHk-7U4Bj6m3usOnlmW5dbH_nomx4EUv6EBpAlATucu61ZsjOmyQ1qAg3OIHhmU30P235XIR5Ik-XLxbbloNzmQRV4zYrEo6h1J0AdxLqSxbX9_zwP5XLrwf2Ji1xmN-uaS6fAkPbfY9LgBFXhmflmRUekiCziyfQDs_LwvkShotuLF6YEI_I2OjwkL6Lg2ngeADjYEVfhiF1wVMxRyKgtqmBqVWUy-KMG7g==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0cffeaf5770aa817016a7b0c3093888193b9e6808e5293dc13",
+                "index": 0
+              },
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqeww9h4uMS0E4jxpxk9ragSxpr7-RYcbgJRwLSDPQRtsuQI4XOKrV34-aYfb58wZFR-Afv2_Pi0ZKrH445qZfxYLHLCPlakFK7DM2fimcXiAXHbLhQUGh8qSmojVf_MYnIE2NVKwKO6DQZISPmOl64a26U4jX3AyOiKYxE4QJPFSJtvewFTQm_juDYSf5kEOe1jUnWoEkdNnGSKNLBeheMpDzzwtl55DQe54_S1IPB7r7kOlUtocgX3NCPKi_gBqFC_s0wU4kydh4_oQ33JhTMzOTxuNRb_DJiV2plzLlYEgptkIMKPpa_nSceJM_cZn9HHb3a7hBcRcXHrG0xbb5gOlqJx2jJRnLrkP3L1Z6JtnNUnWOdfzdjy7f6dGdrLGjQIK991ZxBslDNNfHhh7gvv9mwxMlZ0G2lyqJyfg_eHwgmAQexMzsNISQpR1kmqA9dXMCWmA1fBlFf-DmHYzw_cAG3_z95v1OWjJe1w32xhDTiowQHaeHD2T4LFXwtzp8tJqOiMLtnrTvvSRU9icTq_HKCeRfLJCGVH8CUegaPpevYPVBTD0ehyjyHXSZFMeiMw1NdbzJrfjqYN6jk6FbaPBmI7mp7aRPycsisC38wcziWelwkgIIf7b0nkm8nz-B1cwchKSjOjngt7Uf3MZxqgR0py2NtkfMKajAN2-U7CESuZFpY6YrS0CqF6F6o3bu7Sy-QP7AMZjaZnMl3lVpkWlqJ_oHsO2NDfqpScxRClyh_pXKCuIMCt_SlpxPFdQaQljcAN6Tp48U8r9GuN1T5F5K-90Mn2H4Adz7rJSl61D5_TZjqFe_ndUznlwaMuboO32Nqc5y6K42tPx4xX4TpyWFsp9qyfqptywkrau4kmBqQrK0nebRkCd1VOTFm6kBUSyOqLnLd8EPcJModgCSXb1xCtPgHPmyAHez8MZasVNcIcX00A8Hs4z1RKeFnPYZN4VMi_zvTJBCBiElqX5XjDAa12JdeicQsEM8CW3WanhxnNgjqu14Ur92ZYBzDaKBW_bnP3eMTzJd5Yckxp1c5A7Te_LAKaXDwbGQKNqDox3e5x9egTgF4rd7tRHLBj1QFssOB9KLl6QGq9EU4GCtsjA1KVNcfT_M4CknOuEtaEeGIMOYueOFk0DVA9QytHntT4eblp_gNgY7HuyPGeQ6rlRrdQBCfBOwFFFIUg2PLprDRv8Er5hAXtRqDODZC3fI3jg1NlXxgWvVoLaFoSSpTiqwCkMgEttvuiftyP3DspuZz44btlP23huT3R68gr_FNSGR5m7RpoMgw80xFHes-PCjJVxzZFJJg93bHvXuzFfByJeSouQ28WtjWacHctjdaBewXhBFW8xe8FKiUyOgzkI5h_641hR0LJOYTl-uvBOYOD4KRs6e_hegMfwAdMla-er04x93xxg3aKIBxczXrGYmOyGrNmLcMcwT-Feqepy-K6QKk4HuJN3acj044BW_WbPt7yhAKxJwdnovASwwNJXBdeCCDrIqsy2CqHGFwPRlE-bhdYTZbi6U6iQgKLcENplK.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0cffeaf5770aa817016a7b0c3a7bd081939befa588605d8c38",
+                "index": 1
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 420,
+        "completion_tokens": 737,
+        "total_tokens": 1157,
+        "cost": 0.02421,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.02421,
+          "upstream_inference_prompt_cost": 0.0021,
+          "upstream_inference_completions_cost": 0.02211
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 631,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_01",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)",
+    "raw_response": "SELECT\n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)",
+    "tokens_in": 420,
+    "tokens_out": 203,
+    "cost_usd": 0.00819,
+    "latency_ms": 4417.2,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448959-OfRCkZXJa6L8jWKg3uHT",
+      "object": "chat.completion",
+      "created": 1786448959,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    countIf(funnel_level >= 1) AS users_l1,\n    countIf(funnel_level >= 2) AS users_l2,\n    countIf(funnel_level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS funnel_level\n    FROM events\n    GROUP BY user_id\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewxC2nYVptLR8brb_MJRudZ21hOIdgwx-KfgToLAsO_sX__cw3p427DPFEo_ZpPkNy71Tzfsl1GMiuYONOwNXQxF8P0SyuVfWqrTTXsOOvJdDYaae9mcRRgH9YzgCZSngdexBEV51c1u2Oj7hWgLZ21kHcF1euVglqp3Ag39j1IkzciqoDXdQ3jxk2xWO_9P65VNfOFgwTUMLmxROFvgciAchzMbx308W2sxNX3cYRZVnw28a94msHYVPexZ8EInc5iKxNukKobmD2ujLZ2zLkDIt7TB-6f9NzcC8N36ZkEW8xBq19cBwByTb4OV8oE-gNRzh8Ejx7a6hahVjfjZxGDkjV1KXskSQEeeddGhnURy21iMsu8pWrZwStYKebk3Buv9E6Xw8KcMYMrzgND_KXD8w--UDkpgVCQdIeDv830PTDkfBk4dh3vNKP7GGaKXymzP36B-Av9mH8HNcNKniK-0WHatGLtBeH0B0Iez48oUx09fpaxlsZOmhewTxPKJLsx7winqhEfY-iRblqg3XB9HiVMNCwxWJrDcop_O6x7m6nSNRq1qo0kAIak-uY9DsKeeEGwFxQP_Lj8fMe5xW0UUp5SOH9CoNJd44a-JSHz52sdF_LSB3JrOvKLGtUUA3Me-Gn8VpNMwUtHrBBzDvFJ5shRKQ3sEsGPmdd4r_jpm2F_6xK4JMxDsvpANJJ_vi8wiP_a9TDa_DEpWta6NSpyPvuTx8V4qu_VVeu82Gh-zXHslV-fb-9ZYe3Vz_0RV5EPN-ixfqg0kgC2rfzgBut1-tsPMnFOnF40GbrMJ_vQTSNrePlEClYYlw8mPYzEhfLCKTME6k58tV4oL0--TicOB262WCuY09KRVyCPIYJyvvCV2Bk2cZTC6bBuLGfY25UHn9LCW1luRzy4sdClOp_RFBuSBw0Vjs2O5AZchTQyUEqpOZTzskEjTbkJ4A0f6yEeeVtYpJvDEpuIiR0nlda2PLvO2nxpRWeUtbPCzFsjedRTR8WHhkmQ50UvqfvJZR47Bg6M-NHViVSzbic-8_fVEb_IJ7aLMUqSn1YD9zA7icrp-jzlpwT6jKr_rZ7ihSwPBXW6Hg2ilfY7hIoMZq3Q6xKU6YeDN_v-TcMByyS1aC8jnyuyTVjoDBiZ9SzEDN67g3nLnospZZ9LAU2L43ukhztlyeJFcDPhAceP_I61yeuqF-9HeZ3YNRIOBQLSjbntiHeBB-fj_Qfih8wo3IKruO1A6jquFCtJB09cs1dU1FM6kS987Yd9to1xjcnrk29q4-I5yYaDmf5xbQK31h4Lb5Zf8GNYLfsK0S7MHcJAvyO2g1hthBlqeAmw_LzGZbRa_ACUt_iK01gQTGiDWvBUgIhmpPeAga4M--kaOLpfLWiUJL9njtpgf_Wl8MKVIM1EJyWrorNIwXt17Fe5KCgd9RA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_08773435c961f1dc016a7b0c408920819388af370ebd47e7b1",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 420,
+        "completion_tokens": 203,
+        "total_tokens": 623,
+        "cost": 0.00819,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00819,
+          "upstream_inference_prompt_cost": 0.0021,
+          "upstream_inference_completions_cost": 0.00609
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 90,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_01",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n);",
+    "raw_response": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n);",
+    "tokens_in": 420,
+    "tokens_out": 488,
+    "cost_usd": 0.01674,
+    "latency_ms": 9620.8,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448963-lk6GLZWE4xa1nXrvwIHI",
+      "object": "chat.completion",
+      "created": 1786448963,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    countIf(level >= 1) AS users_l1,\n    countIf(level >= 2) AS users_l2,\n    countIf(level >= 3) AS users_l3\nFROM\n(\n    SELECT\n        user_id,\n        windowFunnel(86400)(\n            timestamp,\n            event_type = 'pageview',\n            event_type = 'click',\n            event_type = 'purchase'\n        ) AS level\n    FROM events\n    GROUP BY user_id\n);",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewxMAVSq56JGRqjjclRTm5GVGzCyUJltzhwiMNyPX0uZpwVfJMHPWjlYI2yc5PiLkpCbT-aXPUtmDPIgQGm5bc14WOmMI9aIgAhGj4Bd9dI8r92WOyJiZVBx07y0BuZTRcm93WWX6YpgzZTC0qArTEKtT6apFW8cAR7e_gP-tlwO8-9eFCe9TCpA-9n2esD-Akbqc3KGHBI7A_t6zaOAFgWOSoGIyowk8u5LA9JHk4gA0YXyr1BtCuVNpgGNoCrQ40b825rVNmxPAT6J-sEMEuWIJuWFLgoYODdvuJmxka8Q6_4ai_en0jpt9owZUoYRBn0_nN27U2LvdMigrJroNHl-MulrdIGZYVTLMfDD1EK4tUZ3D5zIDZJilWY5Z5mvfKTsoyT9_5c_-dV_c-4bdOTna7iN2MJp4pWZPVzrULtOub4gfKf78n7EQCTExrXWHjlOiDRKLB-MECuea5z4FBqOTVqGm15NOrOQB6eAOGHIYbPp6r8vWQiReSti94CzfZnza8OYhBOEx8VUfqDCJExxIkwIeaQznm_tZRFlxfjA6pGX0KLdgMnOwepdz1uzbe7PCYOpT9Y1PIUujhY-k6f9Ae5BfnMfEMOYyhcbpa3Ow_RPQn2bQYklaQAcYrmjz8rItKvbWd2f-XpvGRmTZTe3HGe26t23JTxqLvcWLpdPyq1_rG5JGnrkQwM3_meythjeeSC-582TIb6X3MVQW2b6nYDeFBlobddqb1kWsJO53BLhkEhch5_AhnenNCwrXqh-Ozp2FvMZjrgPoEJ_4I4IzKMyhY6rJDBG2A3x4iprgVTL_IFiOlh1Q70a5uanwoEo9XYddhhPoaNBVo2hadTzYnJiIpxRwQYvJevAkmNOJodAj1_bTrJ6_HWrkuhpUbz8fNgmGbcDk-bl__RQOoY3ZNwLYgjJpIvfDaecRp-eXVVz-Yo4cTd6T6xAyxvaTV4igK5k1OPpBsMvGu43tO9QVCS-rAuzX5qrf5llb-MdCv_nURcokhLPykFtA4wuSymyYCtQa2W0H_fMD3Uikf_CYm4oSg0hmd2pY590RvoVcYqqEIlJSuvqRWGOi7AKermTpx-D-qIMLQhIXDtNPqkrfjxNc6mbkJ8KpG7LB8IWY-79VqliI5Xtb_8LNikRK9BIFXnTMWhgRl3bsZLqr7bZQzWZc5YZMhTULxbV-KMASEtiCPrhTaCX3WfJiNtQhnDhkFn6a-lozmV_8TG2hszfL-9RKMCqA4nw02pLjLCISB45Aj27fz8Z3a_Z9Md-8KF15fm17HtWxSHUXYkmgLU7SbWyFIr7eNWquoutdo5QAgSn-C6uo7ZP7XR4-W9BDAZIXvM_Kwg8tV0wiNKTsiDw4ya36FdU91EAqiFrRs75l5XtLlVVn_5ebjE9fMuNRiAXQQFmVUYQM_Zh0BSgZVSsHeDbp-7ulGU7LLS7v1lHQaAEj1jwrtZ5Vi74qa6rXrdeWVRIx1F5vZXfdwh-WoPny1MegwQctjTYPcbEPWiAlZSDo_byXwI6lpSXm3MR19zgSLzKZZxz5A-W7nKt1_h5glvFzuoSFRf_IFtFxjwmfjZB6vUJBs2ujBoex3f1W9l6usa_X0i94ruMYBjYsys4v5KmOo4aoXA5Hx9O9gtS81KspAWty_NccaXazlZcwAQjtL_vvKVdrVmkvHxwTkAXf9_MpHraItelKSxHDGg8AEEzdfYxLeFmTNY_t6F0TBWfbd1LYcrspTKd1Tdr1WvgyNp9cbKXq2sDg5U9WMQl0z8YDTQQqcVn4_vx-OEPPylGC7XgzxA_-sKAUuYpIcnOqSmMVQu14jUQakwetRnm3fKUnR8gEnZurOaa6y62B1KDqKq13MGK9DxQTDlE6GBaOAN5m85K2LRk29o2PbAPPFvGmOFS-wIMQ8S0xf_rPjOW-YPjtO9iQcHarVaBbCOrf7e4qdftYMZClRFWxuOTvYkZFrrjVkLFTgP01t3GZucuZZp_wkgyJo8I-IJzb-ysukW0Sx7yf8X3NZD5DAQGicB0RtJcO0eKxEz9Vrq-dZ6I4wPSL4MqOtHw4Lb5eNjr0VEqH_Ud1CqLPjinlHTZ1Dj_69QsgGLLbb2GbnshvRlnTLa8X0_lGLgIf7qRUhUvN_4qxzM80VRcDholgzjUs4ZDq8QHTwp-B80OdMYwTq3HNmo3VkRmfWInJgiMr8GeYjhsCIBFeTblwhXUVtjvj5kFpgxDVCk88uVQjJ4Bhm2mGg24tsrv5kwj27rmhhfWyI61RK80847lGXd0BCLfXzFxS_v9ilukcmjG6jtygjpSvyTAnl-QJBJdbeGzBFhh4yNxEGi5uHcLOFamyIqFk3mvuGndOpNKDBDPYUZKEbrp0yd0DeOoYhnA9XXo1wIGb6LNBsOMCaqoPc62dNaGEejXVnrJoOeFOkDpLyGyVT_fqIhJ5fNSaPM4FX-IiegI-SjkqmQhM4wo17Zo22H3OWGdmkCznquFU62TeBIr7faQCsceCPcSpmx0Jw9lFfFu_jTB-UXNLciWIxMMTG-b1Q_evF1XrOyB5v3oC4TAPPIs_6fRJ0xEbLbhVQfuvNJER_39YgTZsib8YEbZIVzdtT7CIhFzhy-DFfrTkQXV0MDgtZLsJ8G88K4tYFUbejGeRlVMy7r6qB1qTnUb3Eubf9MT-AYt9iRUw6tJWdZC75W7eHUN3Zn42Cbtl4_BVgap3xxix9JwLLswiIDCrnyrAWHaEVtte_AEfA89qaEIFCRC1EtWG7oMuGOG0Xfn2-rgJBfQqdDm2BSK-3to-nbFin6A0JUVPInWugeVeHM6G8dvyffQEbz91oVEeXTsSrh0RJF8cLg2DrZv0mgNBfFbzyn56O4mUxUasLI1YJeQaSMLAjwOL0MkCCquK0SBwELJZgx2ZI91_lo-VUlMZ5PzHmD337wCRf7IhTGM6jrISAMmy_JfYB6yPKipseUDQjYlvCAWLh5JYZd9BJPW8shMMNnHeQc_W6g7WpzRuM_wg09dFfmUf9gpR-z4HzoSH-kGi2npqegoulduTrGgXRjfgwxm75GOahSaRegz__O9Dv3hSiJ8HAEqnOpnwrcU2CI1fkYBihy3DpzbRG8hS7GnMnO6It-C1fxxk8peZBhKaBo_UtB8iEdRO8wEpPU6VCoCwZYD2slybBFssAZJS19KmTIasu7omgBnjXN9rGpn0sjB1YifSdE3LSTFP1CVcX9i2moG8AGPsRll_nR1YBtSW8E=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_08ff36d4c5c3e56e016a7b0c4530248197aca93853792234d5",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 420,
+        "completion_tokens": 488,
+        "total_tokens": 908,
+        "cost": 0.01674,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01674,
+          "upstream_inference_prompt_cost": 0.0021,
+          "upstream_inference_completions_cost": 0.01464
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 382,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_02",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = toDate('2024-01-01'),\n            toDate(timestamp) = toDate('2024-01-02'),\n            toDate(timestamp) = toDate('2024-01-03')\n        ) AS r\n    FROM events\n    WHERE timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-01-04 00:00:00', 3, 'UTC')\n    GROUP BY user_id\n)",
+    "raw_response": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = toDate('2024-01-01'),\n            toDate(timestamp) = toDate('2024-01-02'),\n            toDate(timestamp) = toDate('2024-01-03')\n        ) AS r\n    FROM events\n    WHERE timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-01-04 00:00:00', 3, 'UTC')\n    GROUP BY user_id\n)",
+    "tokens_in": 414,
+    "tokens_out": 367,
+    "cost_usd": 0.01308,
+    "latency_ms": 6855.3,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448974-QEfNVYklsj255LYGUbdb",
+      "object": "chat.completion",
+      "created": 1786448974,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT\n        user_id,\n        retention(\n            toDate(timestamp) = toDate('2024-01-01'),\n            toDate(timestamp) = toDate('2024-01-02'),\n            toDate(timestamp) = toDate('2024-01-03')\n        ) AS r\n    FROM events\n    WHERE timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-01-04 00:00:00', 3, 'UTC')\n    GROUP BY user_id\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewxTrzLx_1y3H9H8qdWv9g2r9gfcaUOwC5ylCb1ajdmIWtJHRLz7KYXoV6aaW7ByFikEZbjpztrPikjD-wG8O6vLm6xI-P-9JrPKH5YZwPJmns6zO3dtadHwEZXq5XfNEhsypt_E3dkZwzfhSuDx3DGxczQYfHaDesCwa8bdrUGSNmdl8SiAsC3DIXJYXjlPpHFgvhRpii_Qpr6RdTDGn5Nhb8paGCDpqch7X6Uad-lVLNI5EaKUMRBFCaFz7b34Yas7YOGND4BvHybn4N5Kfz06pMFpRR7RGTKdghn-O2NrmGYjN7v_HXkEPenfuLI3Pqmpo_jOPzAnPHPj4yciTtyjRgFjkyVwJheiwh4hAgcedJ27lVjXLhcLtlr8CJSmSSYioX68ORhQfAd0igSnzV3tGJP0XWytpd6M_NjTevj6NC7gDnzNBwC9pQRzo4YKhJfyjImxHCIbH_i6fP6m4U0Zr0s__ZgPkKIR6jaNzQS5adwvxLF07l0w7-Hl5R9rAFqYqL5DWs3bFA__rJlH2ZRH1YtiZvjr-apM0GusY9qDYVyfA1_IL5gwyaQ0-Hrti7pgNNyB1ram9L-SY9SEB4jU2v6XKdAFPy-e2rVhRz0qzMEOf4_dN070aDw_MxZ-CqBoUX2Xtg0BBA4UinqEitv4tdoDAJwxciOXY99BF8Mgt94weuNPQaETQBkPoHSO8ZzJeEiIerSVftJry48I5fcvL9yiH8eeapjrck1qWuqluU9_49WjHdwO41vqS37aGYkEXslGYuiSbdIOvaxECKiI68R1-rbBfEuVwa_2fjnCw8YWb3-HCgvFyXzT2KGaHIBbnsS48ZG7LzvsQGcgGUW3jTdURMsPghNvf2cxK75kN3HBBJ_w7gLz2YDdP9W4kIHmYvMele9gJY_bK_2FGorOeO9xzm9rG5xbUX2-pbL9LKA23a2Y0Es7_rA6oZAvKQfN0dHQXkkdKVHn-g9MI4jjH58KQQnWZiJliyK09T8Gz5U-0bS9aLfTdX-j1M1kmjKiCEJmFIQUkzG4JwU_5xtlh9tnFKDCUR6ytnIXF8jhdg5gLm6bdceeiLotajg-wElg6u-8ldrSAqnLr_sHp-LnCGUBVVeiB1nzPu9kjEv1ABexJvBKWDCVLD4OW9xVkl-8aKIYtQ7ZRCWvE_LWyJq7MMI0JN5otoYRr5T9NGUGT9dtBVHJXMCG0L6kevIGs3kb7dblZYz7nvImPBYG2jbsm2NXl3GmTujEKf9iVerpKWIuSKxpBk78k5MVYMuNgceJ0v6xH6uwnIIe0YmJLCTP_y4ciSVLb8Ig2fJfVwk8RV-VWxjXrkJ0HcO9zwDFDD6Jozc0agZunYmB4ulOVW0Yma_IChHmaq7vvS-nemC2u5rfm7N4StKoZACyy6LVMmbmAomaIO1MXxdH6RtokSGt-8c_jJqsJHyrHHxOOQPAjb1BHguKrfrA7aFEjpbJm7W_aQzwRzlp32tqpKJ5B_S78UmKUSx6adrOnsy15IK3WZtRpayT1bXmpleUgrHQmpZJ1DflgBn7LbBEqp9QM2h5PXVixpxxMRL21TazbJwWReL-sj92BV4R9ci1-PI8pBixHoLpYeJhEDZvTQalBca8qT_XXt0mzfYhMowpXznIsHT1dj8wBzzFL7CQtbD4DUIM28WSx5AhcVQfPMhqXA5vl4ynA5W7BEwp8qrf2UqrLTS9sDUdCG__hyJqDHc5JZwFZ71dHgYOgyx9nW8ylgHxuRYHMEGu4jcxjf1qq_Q_PkdVd5Y_4RcXJE4bnm84QlXrk0_ZZAw1TWw_qnPdkzuExw6uduyojOdadJFjRIaf7LVcmKHRZD61_8iagFUGBHbileDlRmjSbSWp_mH7Ci7JeeYIU_Uar3jezWRT585xB80P0KVxnO16LgJx5Id8vXI4bcUWkmLamkpclUigsnfAeMMjk10rEbpEsW1fOPaXDZONZg00cNbmxrom7kAn7Po7yQUidicSkEDrd8L4kx8YR1FXzDOrTKTbQPa1ev4yw-zqlgxytjGs1s3rlX-wi1IaM7g7hJFDhpxgJNU-4HEqdUS6I-i77WFgzrB5ZMbAkEV69PsZJ3tjFuDu_Hq0WkrN.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0b5e94f6d008299b016a7b0c4f2174819384bbc626e99705e8",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 414,
+        "completion_tokens": 367,
+        "total_tokens": 781,
+        "cost": 0.01308,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01308,
+          "upstream_inference_prompt_cost": 0.00207,
+          "upstream_inference_completions_cost": 0.01101
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 195,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_02",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT retention(\n        toDate(timestamp) = toDate('2024-01-01'),\n        toDate(timestamp) = toDate('2024-01-02'),\n        toDate(timestamp) = toDate('2024-01-03')\n    ) AS r\n    FROM events\n    WHERE timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-01-04 00:00:00', 3, 'UTC')\n    GROUP BY user_id\n)",
+    "raw_response": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT retention(\n        toDate(timestamp) = toDate('2024-01-01'),\n        toDate(timestamp) = toDate('2024-01-02'),\n        toDate(timestamp) = toDate('2024-01-03')\n    ) AS r\n    FROM events\n    WHERE timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-01-04 00:00:00', 3, 'UTC')\n    GROUP BY user_id\n)",
+    "tokens_in": 414,
+    "tokens_out": 344,
+    "cost_usd": 0.01239,
+    "latency_ms": 6229.9,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448981-esoc9RGB95F03VroGVCd",
+      "object": "chat.completion",
+      "created": 1786448981,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT retention(\n        toDate(timestamp) = toDate('2024-01-01'),\n        toDate(timestamp) = toDate('2024-01-02'),\n        toDate(timestamp) = toDate('2024-01-03')\n    ) AS r\n    FROM events\n    WHERE timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp <  toDateTime64('2024-01-04 00:00:00', 3, 'UTC')\n    GROUP BY user_id\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewxajhpD6EL0-B5bRrhCGDnLpqj8ncEQtHz2Hzq2Em3_2LPBoh6pB69WGsI5o5U3KvZH26YfbyJinbHSrNXHtgYtTwnooNfgoscI_Rfz7c00EwtIHsUSJoj-6OgOAuaXfibqmoa4Q7MxjsTEnf-dxs5-zQSTQjEcFtvh7RjezBhmN4aEYlSCi4KxyRCX7819RTYQRkSP0YHkYuCfwxBn5OyKyo7RpFXd5GiGpYOyBcsMAG7nDhJQmddq1ye18ONWfGPnxbvsMphSNjIcZKjx5ZXZBMKNCVuash1v9a7vfGYDVDp0TOX7Sy7B0Pk4E-e1v0Tkl7nhVy1IQMug8KUrbrYgdtuw-R_uBWQomTCnyZefXZAJ-ij2SZu93brjFT-aj5xm78KP4J_qkyqLsz9xftkOIKdWs8E36JMGQaxIE6zBhQW_OnZHJHIje0LxuQVd1-aY-IO5wXEXxmAPEpHm5kSCiPy7GrM64ReGT61ie-svEvNbD7Fk0thov1W7a90btf1LgcRuZvWchHt6JYdRd00SPNKFTVY3RbvOTHe13pZrNTZLWFwWw8j4SSfd3izhlHUTCPGwDceZROwgwW14ZYL34JN-Amm3Fz7GLlOIzDptXDOFcx3u_3kgNTGe4d8_Dn3FydOfMWKNbuP-nYLHyF19JLfWIWyjnQ-VlIKtI_MCglCQwvjI0TSNNjYHgozJv-304yyd7KE3Dh55DbxHQ4eBSIgUp6DNlBnpVruIbO96geiqlpm5ChyEI8gDO2KreavG1dvIhLc-XGyWbw-f13dDbmZxDOQRhwOOXlOAhlIgQIYfbVGDg-H0skVDn5gUlzTcmrb9pZfVpKjpPtYsVBw-MBhNBZdoLFBTgLQkFm9hkDdM2Gy4AGEQFchwT9OzrxpGaech69YAHd7iKxY1Usc41QsVamy9qnf-NZ0qOFMcrZqXr5hQGTwI84ly-ikb0HkO_09vMclhwN706N83eTH02NiYYNvs7Uh8SHyW1x2Hrd-DkGRbXLWNnqTeLou7chyGT6zsdOsgnGzwqmu87rnG1P1i311H-CndOEnDFv7oHR1ePjq--jAkEXnbAwDOoWKkCY4ClJ5-C-jfAyLTbVkelOiVqHYfsbdJChRgOg0T7zS9zlOSkwhdYu3Xw2qHj1QGET5AexYXYBXxGA3bygQtZSpm0dxXkRNTkR4-Z00fzlH4GvKBJHV14OSN_izjuOO2JQStM5D92mLTRC1XE6LuuVZjcZLHevzih270CsMMku0AYdvO0MMLc4mj9QqC9wZtMF8aOnvpRw1cURU82L3ZwSwEvoDmHQMGyADhwVFb7hVmZ7TQa9W4RlyO-5vZIiC2mY1l5jZPrM7C8TIfgRCCl5KH9tgEB_NHfmYgsZyw_a610xTnK0LoV7iYKjbbWgizkfIbeFgg7V7A2KV_Fzauo3pOVJCrFCbCAueEMa-vBtXWYKRLRoGe9fX-7ceXXzkeu_-1rS0JAHeThq7jWnkPQ0lNBh22z2efbJyAUmHIBqXm8UxF7eBumElFzhKZ9Y37YZZCfAM8seOKOMx8EwLTSZGn3_S16Us2Bel4saYfBrV3RvMXolSUfZ2GQ2y_UC6SFToxBTxocXng9cyHOO2CS9k7RGZFZAJ-eWOoOYIaHkADRCmk6sFFJtr25GcczHj_z5DQFbPe8CGuKATvLhIGPdIUFCNBkYLeVujy8aAopkLcP_2M17H5EtPsp9qyTvd48Yd0Uwp3WKJbKHSEF0HqPZr8L1gcjLp6ysXhbM1ehQgujeFUJxczChMdsDYOU_G9AwdSw2X5b2JoJvNRYsRjPsfR5Oze2QopY2-L9ag4z2b4lUGBooFEbB7hKBHJj6ezdc_OlNzoILGPzLssmx3dwhDUiHAcQYOLjv3s9TyeihH-TDlm4dBhuIYKOinKtYTH5bE4jYObjNLhpc_xL3LG8YcLyHRorv8woTiRlM9_UiCFtKDRk9vh7b8HLCKpe8jqCxGkVjJAIH_eLN281DAX7ss6ZjVWTKfbGqfoIMhK4p52O7tI49tnwlRYvwE-tcuiFZx3nrlN7MZ6OY98HCARBQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0942edcbcaa96965016a7b0c56d8988194a22b74213556dc0f",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 414,
+        "completion_tokens": 344,
+        "total_tokens": 758,
+        "cost": 0.01239,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01239,
+          "upstream_inference_prompt_cost": 0.00207,
+          "upstream_inference_completions_cost": 0.01032
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 178,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_02",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n    WHERE timestamp >= '2024-01-01 00:00:00'\n      AND timestamp <  '2024-01-04 00:00:00'\n    GROUP BY user_id\n)",
+    "raw_response": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n    WHERE timestamp >= '2024-01-01 00:00:00'\n      AND timestamp <  '2024-01-04 00:00:00'\n    GROUP BY user_id\n)",
+    "tokens_in": 414,
+    "tokens_out": 289,
+    "cost_usd": 0.01074,
+    "latency_ms": 5214.8,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448988-4RS9s91vFSCqYLePtOS4",
+      "object": "chat.completion",
+      "created": 1786448988,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    sum(r[1]) AS r1,\n    sum(r[2]) AS r2,\n    sum(r[3]) AS r3\nFROM\n(\n    SELECT retention(\n        toDate(timestamp) = '2024-01-01',\n        toDate(timestamp) = '2024-01-02',\n        toDate(timestamp) = '2024-01-03'\n    ) AS r\n    FROM events\n    WHERE timestamp >= '2024-01-01 00:00:00'\n      AND timestamp <  '2024-01-04 00:00:00'\n    GROUP BY user_id\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewxgBEzmAsi06t9Jqdi_KBlnooRYC6RSPTjkJEhIsnThxNfhK8PhCobOWlLLN_yB8ORuuo3XJ_I9lq5z6r4QqrYxKNTV0JYUc9YO6QwC3GG562Axr_7UHHgKXDR2L6572zSIGhgq-X2BNDxPN0G-peDwkNWH0Eds86Djn_vKUSLeFjGgW3aWZEgAJhJxSHbLSHc1Ci4E9Y9pftulv49RMEiFNJz_nscAF-4WZsXbsckzjM8QEBXTrpVuhaLOzDnW9yPx19GHx2_wrbCsKcVDZc2F-sp9zsQWZJ21V1dJfKSgfHbcKdjcIiprHsyE6c1drTPQyFBjxaPyS4dtJLPXOTRkRBsdcATJJVo8u-nbz-MhWrM9Gx5Xr0njv9wAiGQ7Uki-_mtakq4trE5suHPHF8n8H3RWZF2X0ydd8SdGOclfDqTrQGWvM0S6xmVZU0pIKpCJnRBewf2ZIUbsDnpUu5gX2cL56pZ99Yiuovr-kudPxHozyE_feMfN3qQJUqoGJjqJVsNMZ4Nz2C4Mohgfgr6Ns39f-U__bu3bemfBnkEgRclijLsBe-A_SkvslRtR7oZ5ba_6KzejtZvP4wvNRz0XCab4wtITPJwXwXmyFjMd2yaYEkeGnZyga59zY5slRJXDM0PNvX3iTlnHMe7X2ZCJNB-sswJOKMK6zoW84OphsTbKgb5EkTb6UsbYUDHlrryORCCsISNntjwrC2A3j1aBDsnFZIVzK3EJR0xDhrjPOyiRDo5MWdq3ZriYQknZ7nLLK2wTzJ8-OSLVmW2-8eqSSee0SqbdezkiR0DSjwL30WGE2NsLCloUrEgszhQexv9cfi4oQk5zwqPHZ34VJO13SaubIw29o8KwDMXTi5khxOB9vBYIewC-wu8oxpP-GbSPDcnY7ODl3Vbj78ncvAIRShSZ0919jwSx7pKpmeSJub7uh9VzEYnarurZuFrdQb7KwX0e25KiJ7xuuO0z5zaMGQzgKt06eWx_qQj9W23TfBOKhM6lZ9LHWZw2I9MMnXaqGdl9_nPBuJ4YGKJXZKnRkq8X-MzKlm2PkLpZolQ4QSIujVSDdzaEjHu9iK-XyV_0kgiRMYeHHHtmv6tNTDWf3rMZ7gCoOl3EFBagGrNKgcaJ0c63pTzjGgzMScwAn1jXzyN5doUM2QOyua1Ee9vblbACcvL9A8aj5XUDOMJDd1Oinx3aigrpkpALDM_81mbYXnHkEMVRVNc4aEK5J0pQJz7GlZibZ2hDochgAiCHghUw2gYZjj9-mJJR6PFbD-ELII9T9dZ36iPxbJ-meKmHl8lPpFvIo5okod7UdYxuSGA-psCSQlbxzxthivdzX6PaiJ6rj5vswayKDK54Xp4R6ZpVSta4x-NCUtG5_OPB1q4UVQHrfCJ8kXRVCmma-W8oaOizFDdKHEQvpK1lO80H0_kDGD8QZ7PXQF7BmIo7NwRSJAcny7z74Or-KJ3AXmyeTfS_DIIxlIQW6Xr450GmFswfCeSA2H1dKwzB_uMcdyhRe3oHdIYbap_2LhJ6TeaqOnHcy3ZrVbAYo7LfJnpgt3jvGQP0LSML_Lh6KGJtZuWCwP20WRipqlyeGrX9d76HYcy4K-_8STIVVEfklzZwOtNngjOpxvdWwIEoLRT45N2R_A_Jji-pL1TCRIZe2eJ-HJXV5cJjnhrBoc_QNhHH63zUoehlGv5FyVYlvyk05GrQjTUB7otOkq3fr3-gqmvHFl7e_C3COGLB58kaEEE3VtcTFxfpEdewkA6uxHJSY24fVg_uLjWqppVLd4dTizpG.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_07c65079f557d951016a7b0c5d7dc48196804f68cdd587dfc9",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 414,
+        "completion_tokens": 289,
+        "total_tokens": 703,
+        "cost": 0.01074,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01074,
+          "upstream_inference_prompt_cost": 0.00207,
+          "upstream_inference_completions_cost": 0.00867
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 149,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_03",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        timestamp,\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)",
+    "raw_response": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        timestamp,\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)",
+    "tokens_in": 380,
+    "tokens_out": 249,
+    "cost_usd": 0.00937,
+    "latency_ms": 5254.0,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448993-ykXyzkaPCJv7BwbmCtLf",
+      "object": "chat.completion",
+      "created": 1786448993,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        timestamp,\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)",
+            "refusal": null,
+            "reasoning": "**Crafting a query for event counting**\n\nI need to create a ClickHouse query that counts users based on specific event conditions. I aim to use `sequenceMatch` to check for a timestamp where a user signs up and then makes a purchase. I\u2019m considering whether `DateTime64` is acceptable for this. I\u2019ll follow the documented syntax for `sequenceMatch`, but I notice potential issues with timestamps being recorded in the same second. Ultimately, I want to return a single count from this query.",
+            "reasoning_details": [
+              {
+                "type": "reasoning.summary",
+                "summary": "**Crafting a query for event counting**\n\nI need to create a ClickHouse query that counts users based on specific event conditions. I aim to use `sequenceMatch` to check for a timestamp where a user signs up and then makes a purchase. I\u2019m considering whether `DateTime64` is acceptable for this. I\u2019ll follow the documented syntax for `sequenceMatch`, but I notice potential issues with timestamps being recorded in the same second. Ultimately, I want to return a single count from this query.",
+                "format": "openai-responses-v1",
+                "index": 0
+              },
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewxmIsQTV0_g8y0oKdeZrNFwZ9c_dJDUuLcBddH2bHeSfu_CnVXU4l_gRdV221GYuEIZcbPvhJHPGe-s3c0yZFjI7FQZh0AbRam4C1S-IjAwi3GEBdmBGA6fjHEJXzbrK_HgAwvJXsY3CUihUA65kuIp0j41TZ0llN89pvvy7divfGBj5DbgKFMnip7e01mytcCUGMarbuKnVWLXO8YFptDI5ioOiIU9rWg40Zq8D-oSfMZx08U8IRDRH10840GWRK-HCIcyYfwFetLIDVWchNiPwc-AS2bknY8exE1AGJALGqiMy9iVkkq_-2GJ4bSytUHoSeyVMef6rf1gRUD_ZEsDCkUXImfRzZU0zuoAuQDm6azXGERUO8X8pPytkpqhhnGkiVm7hvbZJpdRZIsfdDya23sCibiWxnVdTdNQ7BqHSVX_yhdM1FqdRkm1ztKL0Znbc1RrPIqxDcR-wRyv--Ep63A7yiBZYEJOr7NGFO0BNF0YPbcYJF4FXLTFS04w4J7czY0TM5Lzaee7mNhLkP2Dfal8XCLCOnbbaxXq1KXOfvu7e-eZVhhqsSZv2Oo8Ra_-nl-Dsau-l3BoE_Rhmk5NU2bfuG8ZdpVV3pDNfrrCBpWr-YTaO8BsAgPESHqsCxrPXR4RWj_XyOxidjNgqO3FTPcfNAlNyHGRWonxCKGFnx4_NJc4CswiM1E4DrrqhsZQPbnQXIxbIdJLm83pO7KgKSXJVDYMfuDqZyI79fnRVwpH5hlxLRNLvX6bItHCGckUoth0ttKa0PuenUrlbgjDCtuikRX4Qy7xch2a86cXfDsc0Hdrbqo75DpfRILziOX51zUoSehyh2tySyXtqJvTe_V6M0NXYrTBpvzcAXUtoMDqDsrJAaDADiwLJQzfEeFpQfzQuu2nVPo1Fe7_7rmWomrTEXFgLoyCZUY_HnHyQvTqdyCnQ_CUYePKHRTPXSO-xAnJXyErh5Y-HEkTYGqviwjBYmRrqwVDugorG0Wi935smCYWoeK8yhvGbleRmtImCHBJ4PsSHsfO7EILfVKIkeZsIm64k71szfZU_AhnrSyr5UrUJcsicAQ3qd7BfeQi7vD6Mgye5wcXR_n6lil2lXDSoBz3YiywSaP9o4rCB-BXr6m8549JBXh9d_YMseKQto3Wcl-_AKFdOpEmTpTS3EdLU46ylTl_M-S8fOUfozEP9W4mOWDdq_cy36lKT2iDQLTteju-7_pPlVstLbVdm_VJkDYB07IBTyHgym1uaxy7TqG19YfQn951p-I9rReIaUsUOChEV2O9XxEbCbicZQOpbvsc-Kk4Lly0GSeG09ocWHP0DRNXb0EPkbz8DpwDqoUZ1wKOplG764neOWaBXR9JzOJqo1odSMWsFQESP-DLF7-F_wkN2P8l0KGKs1SkGEHeUa74ppxtvy4RwpkkV8Ns6gXwmFXmy1UdclP3VuAhNDMXzBhUbM1hDbBARgrPobsRmH7MKHf6ETOXMBMozdI0JRY7PPvO0ln3BaPGKuCgB-Xsk0jCbrhC41ProPJNHWtphYrTJbK_AXMzRMO19W1wlhp1lBXBtPFF732jMB6irUujUiiepdDlXHBTVdB4L3UBnlWgIRK-7_g0_o6YRwLV39k1lZGXsoDWynY3uM5ky19QD-bRf9ivAtGQZqx3jznkcaGZoG6B6j6XD1OeJNYJwtQ1ACrwN9xkWCuHLE_nYRANsp3v1Vg5sC936Axv6-gj_JUK0-qUS91AotbuVD74ZsrER0bnaoc8cqU_MFYkXAR8QSXkT7uGsY93TyIt9jZIDDb4r2yXQ5hVHyRmC-EezRvp9dH3ymvnR7S9M-N6DKGKRrVxfjJOViUMPgFaAOnLtzUndRbRrDLWxSPQSFCtfjSxTll16POtqeUwS9FmuRzWYd_0HxT3vmWpFIR4gF9TToz_iS5kcKvbBYmzsA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0c478959ab88a941016a7b0c62a8508190b5e673b4c8ac8d7f",
+                "index": 1
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 380,
+        "completion_tokens": 249,
+        "total_tokens": 629,
+        "cost": 0.00937,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00937,
+          "upstream_inference_prompt_cost": 0.0019,
+          "upstream_inference_completions_cost": 0.00747
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 183,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_03",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toUnixTimestamp(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)",
+    "raw_response": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toUnixTimestamp(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)",
+    "tokens_in": 380,
+    "tokens_out": 483,
+    "cost_usd": 0.01639,
+    "latency_ms": 10681.8,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786448999-jh51vLe88cfxRJ0abGZ5",
+      "object": "chat.completion",
+      "created": 1786448999,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(\n        toUnixTimestamp(timestamp),\n        event_type = 'signup',\n        event_type = 'purchase'\n    )\n)",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewxxa3jVy-K6y4fuR4pV3hjaiNCQhd24OefxVgH0hsp7G1mi4bXaHkNo8Bo-RurxipcmOKH5U7qNwoBULPAX9MSSgJG2hIyfFHv0Qob_GaxyD3aEmoBKKyN-BJWGtA8yYXC-q-FQ1jlTEmZiQmzjj41TFFIrxRfWP7JB1eTODHybqSx7YGaBe7AjZbQ1cy-OdyVwaVr91dAyrMLRW1GCiJJEypLpYJ8cVm6C1kJqosA2md2lvigOBhQ4r70nCtprIQgqJoNIVk-4Qs2_4aHjIAOlv-Ql01esk3SIXyXrEJzc0uq69U7uIurURLZr0pTJxWl4yMX03T_nwZDjkOO_BJV4zbKYyNG6qegd7Z9f6GS_UMRo02M_W9SfWvxgQZi4XxmJYHVotP0i4rDZHnfMIOozVUzGf3mly63GbqEoBUJ_GVq7O0LEEHH9P1VXjd9vQiO5TOYR0pSBrbTUzoV0EWOwLnUubCZQxRRCAhbH498RgKknxkAzI9T4NzWnucHe9G0YAx19Wm6d5z50y3jGkK1pQKZH_Dtvot9M4vqDcl5bcS512iOvnKWzU3JennAjkGAiwghpydoO3TgjR0lyn76xH96UJqXSNn9hbu-P-eDokYq5aMkFY_ze00WnSraY6xzxWVpaHB6olT_MCVHfbZGvzsS2OCo9Z9A0hz9GOsmrCjfxo0el87oGFWytLKFqfF-ntUKzc46ucsVM32H5Ig9RtWRKs89gb2k5KKD_0NzMyXh-8RHJ6ttiqSok-ieZ3dovSK2uPKyRoa2WnrZNsFFIgRvpIVSxMfzx0w26laZiEb27dguy_ufWOiumPASoOHHuxMZBA7uSb9yYIEtI7x5pslpUbI6Nj83lA6QdEnJXMvMRdnIvSBbUiULyifxzYvr9kyqLYx3aMCITBeq1bYbxnZ2PsOFHb_-Mz80p0w1divYVhwiYl4MBuYCiWXOtI9X-cQ5ZLZYRpoXG4NlMQMZrLE220N7PO6O9q7GAF4tHxbOFtWzTw_SwCuiYt8C5bgjmHHAeRfijEvf4DyXg94k5hKXWgSRWSwbqjpP4E6S3Tfv5LJZNsYFyaZPmORXsGbS4OhgNaOkGsKg_v85Kf-X1EWF5NmISAlkJ0pXrlQybXn2KuQQ_5fcgwdQFbv7wzZmfDTEvDqsDt-1Eh9BoJ9C_CvUFk--a0duQf0-ooy-w_-p0JGggHDF4dwiuJRL90hypmsLkJheazkpg_HMB2jW3Z77IOajSWWycdMfHu7EUDjauoPGTiarhTBrJbw0NIFg_u9AKRA0s5ovoByPcSLhRSWs5A7z0TwL2hTT8hUmMT4rIzs5iwYFCUlSX490UNubD5ddGccB78oeRagURxSoxwYNljRzvkpTKsmKzPpCra7P77acdhtA-QEAydOAU1LSFr0oEUm6P8ob-a3sBvzPh2sUEqkxIDYWv-7yplNFtTFGwooFdiRlapX5t_bXayb9n2cB4RYyBVF2ynlPDpM0vf5Amj-aVNOzz263XAx541rBRxjRHanosNAmxdAjOhpWzjX3I9kVeogQ0ZWwWHg6sBi3GhfP3w4qu6mPU9Pe3EIBB-R0YwW23y_TPEWlBSsApO2O2ym7ErB4xE8B0B0esqeGajTwHSfoDk3_pRmVSx9wjvIsy3aeTv_ZGPqYA8j8X5uv59Gjl2Tm3Y8SEamTEW9BwtcUP0CSQZFiwb6TwOxtAcRt6JKjxPJCzNtNzIXPW95iOrAXO8UvVJAR5zi67MueRKNtWsYkTv5nEcxB1WvfS3IDR_gwk-QVGUcoae5JeTrjY_a60BEARXtoAuEt1HTUOMuLw6xnQhywDiwEZdYKyAy8gwclFnWGFHxSvVHfvYdA_k6ZY6of22IQwrgfgnP29fvCbms2r3J7JNVskBWVPSrCnfMl6GwTxfz1waGmiDOafiJh0MxZeirk49A8rYigeIZPRl0SF1xqHg-F3oJpO8FRqYn4rO5mjOyE5f-o50qNFC2AxzgNK0WSerELuadjhgsOO7Tn0cmPTXiDqq5DR0cnFE3LJZWFSa-fCyeqnknponupcx_akorOGSJs7UJzn_D9LovZLX2Cn_MLIAAnNcviXDewP1_nYVxKcYINmyqe-nd3SD1oXEvAz9v500QWW4RKkM0mmg3xcHeZPi1CU7uUb1G8-H3Xa-FEWj4nIEcQeapXmzTLqCQJ1NgXGkJ2nyoXe9zkCWBnJcPcunIineM9lFnikA7TmBTqhHveHFfK-Gco_GVW6byujxueff_FPnWcL-WfV3Bc-csXUsGEg6n7-DZ9PggeO69r2PvxLUrUSqJp_gjW5Y9zEr0nKdveIPEqYAzk9vGOxUI726_ViwG_kp6X5ZsmH7rygU5DXiodNhD2DR8i4XrBUGznOoDdO1ZZVUqvrXHsIs5A1_8gjip_oaHgkf1bieSQD_P7Ih816j6lhQRTcVcOxA4cHoqb-uh5FV-OGB5dDDMI26RnNJ9cC7QPoDb_uNzRteQw_8Evf6IhKdU_v3PLXthE8NcDZiN0b6ul7aCtu3-YstMw58wFMlJtmXAqpYtEXbip-C20k7zMF3uS74Lh0GtL9IN-xCV-z65SPSpJPtOJwqExuI0_Om7U2jtceVi8AekRyNsdV-4Dkh5mV8ssRr1V_ju1mr05Gq10mA_eJxRBlgCy1J0N-zFV4r2aeYuJPq3kF2vMbaQfXm2_rhXF9XSJpEoBU0NJUMFnXI4NkMacFtbrhnZbLNLbx7Wgc-8Y-pvwuTZRVima6BrhJeLIEc8PXvgy696um-aG-_ZVH3IpAo5h24oH1OpuMc0XbaJWnU098F4eMNE2noZRewfDCn6H2sIYZDFhVygWHvFazRawo_QcL_1DbKnn1GXr3yuqEzuBuz6_Mflvd7hJZ0xMiOF5-MuozwuThy9gWQef72c4jMvXEBXiK7QngdEVpB7I95TP7jBmTB15FiaiocewJNikjPskCRGG7pt_yAN5Z0lrfNQCz7QXhmURVtLJ0ITeinG0UffHSFdP_O0t4qSpmDZyPkHj2wC_bW0hq-xRc-e_rPQR3xVV-SmGZIfdQ1CTOnrI_ipVJ59GmIxHHRjA10dnEgf1RQ34ZkGYCIHZiiao2sqGHXPKT5B1yj75ZitxduPxTLZxIFA0G5ie9j3sr5Pnpj0Srop1ruGI9e9EdCmq0wSqeKtizUyQaYVqvFQ2KjSivlkGqBGUN4eEwa8CgY40uEU8cwcY0i9-nqyOuBQCKaKG5y_QzDogfbNmiU9E8R4zMqW62Waw_P-ihzqzfJxWZvtNfYBCPIQi86VLBioYi9jHGiFK7tk-vf1hph30viMIUnvxacZ4EjLUN9cf_HHUNlE2S7LyvEnPazoxO4CY2udkTAoiM08Sq5txR0vr8O-GTnI2FNLrJ8yTHaQ7vAygXgPsNUt0QZ2--izetqPLiZyclzimJ__X6f-KJlxFSBq8RA0xJBQGv1HoNlUD_VFZt1-39GGacDLb0cv5bZGnN61A=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0711c6d8268818f4016a7b0c695cb48193a783eb0d4ff9c229",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 380,
+        "completion_tokens": 483,
+        "total_tokens": 863,
+        "cost": 0.01639,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01639,
+          "upstream_inference_prompt_cost": 0.0019,
+          "upstream_inference_completions_cost": 0.01449
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 414,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_03",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase')\n);",
+    "raw_response": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase')\n);",
+    "tokens_in": 380,
+    "tokens_out": 423,
+    "cost_usd": 0.01459,
+    "latency_ms": 16008.3,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449010-sc6tTF5UlTXIztoE60HS",
+      "object": "chat.completion",
+      "created": 1786449010,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT count()\nFROM\n(\n    SELECT user_id\n    FROM events\n    GROUP BY user_id\n    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase')\n);",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewyBjKtgaMnX-wrUIUec40nSclV9iUn9iIUIDC9BU9bvdizKxC2u3LeFQlv0R-IAoz5mc1bqkSouNXR-Au35uVdCg-glir5BVQLMFcIu6vhojqclWXjlKeLZ13rtGjlb04Il9NYXHAe-YUdwLD9SXMd47HF0wLtvFUk94bUoA882wbXscnyg86NwqG_Wp1sf922mogAo-OTTZ5rGbL_0nxuLVe5qIjlah6HrSDpIbL25YzYL2Au4McNEkaZGK3n6itJt5z6EdFMmZ6dZwyTuiiWRMPoGQnPR-UdTXaa8sJWV7YA8Xc0zOi29Zc7q5Ds1-plG40fGyMzpghPZlC3rks2FHYwrD7vhjL0lmHHzb0at7pRn8f-cjNhGvCBrDPkPm7145vSMxhiU86MJio-qAe7WsMfsxp12fgCO4vtT9OVwycEDtRDihno3F2SHB7sK3-nG9gN3vFt7kjkdlkR-4lFQvmQ47HbPSYvKXyQFezlqb21LQTX73ENnfSb7SMWYEN9pvzdZL3xVkeXzBxThzU_nMitIoEjvi5EUkRRfefQPB8hLI44mghpPBJyjzYxIeDPtp4Nwuy3fHn2EiY6IrLNBgpZVazk_rS38q6mvML0V_70Ph8KRglIukF9lG7sJu47yl6S_6-y8_8kFWnhu82sy15GjmgzdfQ7bTw8qa6FQj5IHj8ql0rOAt5diB_hGG8j6cHMqPTe4wvhNdgXCnyakjZEiA8brl6uaCMY9pOEcH0sVK1LQMrZHocU8kfkk5lOtXYP2bj5gjk6rUxbA7Y3jzIOl20g5YtwtCCA8mimVnED63_tiX256jl74yuRi4vqoReGNdZwbuNB1FNlA32ByVtslCZKqfB91KMYzXN6W4QFeq7tF4gJNYiGbMSxTeSEuHevtJjFK2NtTXk4Z2CQlnAjeaahPxFRlkyZ824BInqcWU9sECZiWPvY5VAgRTqvl5V4nxas_8Y_Nsg6AfAwkfrne0SDOkbfDv_oQoBsYrDHAKkqrdgwJz6ic8smn-Ii8MabgOOLlnzpStveQ6vbjZCecovfuTwMUebDV8T6xs48FOjq8SVFQ4YQvPs11dT2Ms8xpryV1NB9LDSsbBsXAZlf5KEoGAcQ62ADEouoyC4oIAC_7xJe5LDN34qG8qEHHWDxPX3oKGgJLdLTN0PbkNtHnoJX_j5DTT_xDohZWwAXoJ5vJODzGfAMKDiJBkKjVEaF7TjcQbUgG02Z6KhZTeS43p1-yh6yWiNKOg4cM0nSY5czt8pl0cUy_lFsaF35irsI_WGQEZ_yuYwhjnrwGg_8gvGaGo91b5bs_wBJ2JnxjdRYYBOX7P7gTwyYCLu1ALZ-Estwt3yRNO_DK_Hb2NUm2cfCtATgMJNp9OV31SyKB2caQ_tcIIBI2fV7x7vFKBRvJMCLFRPa-DF5KatY3dsvE_nEwCx0c23K0Nd-i2n43YylEG1bnT61fZsnbGHe9K_C188g3ak2Zj3vXbu9-Q_w72Ihn3tvTBCsn4is_Oz36lSOwoUBcH7waphVMwNjBGm4FAyiaUHxBkpKTqE87FVDXEv4keS8gSzohZeuX17ekSWH6OfZ8g4gYO2esBtJsrtYRk17JZrxcF-3jQlHf9W3ToGsVyj10niAJlZi97cF8ZFfahSWFD9skF-LcQlKgxA-Tf55RVvPHObxgHenjrnkHT4GHiypubbaCltm8zRXuBPbDCOdXrp4Ix_i-92yJ6n_TvnKEJRV2m1OoqIwaFvPfnnKvDnEPOFTrWM4RQFY6iSSUhbWzw-Z5yd7AT4Xjydri20BLjAcbvQ2bXOkSdFs6PEXqt2DmnFFLFEEn14VJbqOT4Wufa7VtaoNx4C-nT2kKu63OTZXaGZvdyz692ZGtz1b7es3_IqrIM2h9UYy3zIMUcV-4GFhPIRD9kBRsSY6uDjR9cMhdcVBKTWAvAOqXKiZXNx5IlVL9oLoIi0V_krXSn2qSsj4Zl4GKAYqcpMrpesHENHnrXKiFk7L3AHuX8XQVoGW_f2hCT4rEtfVSbUvxp1vI0hHMDLCfgWqNX5BX528G0srhN4KBuCoHRPTmJ15ZL3mTFH0mKZeNw8hFsQVkFdJxSlktN1OoPkulAMSKSO132dJYLR4LMETMBPbYWfRf2hNw3WBsD_LpCsJp28ncK3LON31e-JZFc1yk5efRWIclvm3H1btAquFsMNMTRok_cUUPZ37pzaOalUsENqbjkMeaWCQsxObwNet-hPg2OEGROYAo_wNXvPicDtXkVsGs1I1FQW21xQHXMSPZuZC8hhFMMbXokHwA-XDuZdlcj5aH0LEGILrxALfgWofE4AEbdvoh6udtoSJ9ofd7ERtinHEfuuWXYIJvQcsTDp6Rw5y0ULad-4SpXD5OvHoUbWL7AxYNB38EtxewqsUk0JVo43Ah-a12n7k50JeCA_GohqNpx2STr0jNE4NnaTvs7zcw2uPZji2YXA4-TqnLD-4Ee_D3MfLtCVxT9f_eE8ApqyNlx0Q1tAJ7wcKk7t8k9lK9YTW8p3gTSk1_DH1wQP83tvzkelJqg1GBqUIxsNvAzcb7vPUsRVbRlNadtwP3dRe7KofbWluyArcHopVXHO9V3UkRfuCIgURHqZwKX0-S5bduVGXSmJGgpsibLquNNILlUQUJiXEbGOfdxeHIjCNlZeV3CHfeU6Sqy7E8HLFG_SF0snB9RXM_rVpOgkaGEs4hasMIBnDaYXadsSM8t_6eZVLVL84_qYEtZ4mnKpgw7XJRGPiGRglaQwmurMgnXxxXYUiy9Xm1fPMYsgdVM1u0naZgG0D78A1UMel786nmpD4rUKWKUFcCWYDz_13Tj8nhligBULFuwJkqXsA_WMSbuulft4hw4oANXuxdjfergv3zsGryvIdY8YbDZFS8PgB7_9fHfoqbl2F7u9A14H2b7rcovD66uynHygnuwmXs375RCvDnCU3NCe0SmAv83TorXHcTnuvvsV9Z5HYqAPmZR2doSjItLETs7NEcZX73yRQ9_m3xbmyoCdX2IaZQ64sI_xoK496oNiAGGaEQMnsrmYj29LBKnU9Ol_LI1bFBHdLuUlEMmyQmUQrxpNAxXAsOcEJnEh5d4TsWxVmL7FR8DTlDUnY61QQFMvVM38zbu7Tyq0-YbeCdpayBWdguWBdojdGLENpaJ30cQN6UXbVR-yNcId_5sVdWaeyOmoI7IFQEg16S9Agy50qk_pIL2MbuYHW5QnNFaDiyAGM=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_02cd8a84a12d7440016a7b0c764cc48190becd0280464cb76a",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 380,
+        "completion_tokens": 423,
+        "total_tokens": 803,
+        "cost": 0.01459,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01459,
+          "upstream_inference_prompt_cost": 0.0019,
+          "upstream_inference_completions_cost": 0.01269
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 363,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_04",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF LEFT JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n) AS e\nON u.user_id = e.user_id\nAND u.created_at <= e.timestamp\nORDER BY user_id ASC;",
+    "raw_response": "SELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF LEFT JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n) AS e\nON u.user_id = e.user_id\nAND u.created_at <= e.timestamp\nORDER BY user_id ASC;",
+    "tokens_in": 396,
+    "tokens_out": 559,
+    "cost_usd": 0.01875,
+    "latency_ms": 11410.3,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449027-fXQFqvXEnJ1lhFPhPKMk",
+      "object": "chat.completion",
+      "created": 1786449027,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF LEFT JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n) AS e\nON u.user_id = e.user_id\nAND u.created_at <= e.timestamp\nORDER BY user_id ASC;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewyN3maJfR0UT8r27JgA--aR7btrTBqXUaqWtgUw0Xb0xYNxhSLZ3R4-HMF0biYcVx1GimIS34NHna9KQ8KX3_htI5jxrJZmq5r35f_k__i_5RxktvsMfIRhh-gsNEodqqw7HfLQIRZaPVDsXRzNI55n31H5BTMZiz73c3lPA9kaOhk_VNyMMEDF9S6Cja53bGdUHdQGB9JWb1rCaGQVnYNZOL8O8yisDPQ-8wSw3RDxaV8dZFQK7vtPlTZhL0zK0bS_jhs7r1qLtEjIrIkCJJFphsRrlnuJZ4l9a9MhFVu6DcrkZu4uGKR-iEyY8jNOQqaNsdPiRo74nnZljjKnsVmvIvEENh7vIl241WAs1hoNH01ScHqJNnC-baX8PnGyoC4_eBmSY5eL6bc2jZAPOoYAGYXYVD8AdtND7kECIRoc1QlrmZXQYhDiu65_FaXoA-JriC9hrV__vsueKoVx8LyBWOZ53KcliOsN6Lh1hs5O828uuwpVC004uQYz2D2aTRGpBpb7OmZcYlPSfgipWMuhkNpoyyfczgMOSBbSkyNBCfN6my3Eae8eRzefL8QrFDRRHiKgeU21gEYVu74x2IqOFKutOgPYl2Bgpeec8xUPqEGzn1peMlg9uUkK0E2ZEsQgYHkFL3_AkAvKdZW14pRcyXs3cIHoWlZwWueWNtSumpao_OCR423KduCsXS-bNxYyofW64hDc9zB9LhoDUv13SXF_o92isTvTrYS52XgENziymn0n52RwTHxg2bina5zatH_FY6AWssPG_dxUPJP8NN6OhHY3ygzwTs845O7OypZr4xafI7hISzpZt8nIPdX1uNN37QsxVEkQ7RkzcJssLIx4AAqhJPd45qhJM5XNDP-ubS_GOl97anbKppbllqaIFvCbseWiRcsWmTzurV4hqllQQ6Y4vj1PxSG-zKsQ-wCGMpcYBDBv4yo_i6WGxk8Ov2qw6pv6swLZcmUUuqIxb2Q9XG8rgsaLAxTN8RZz4W7GX0FTYBZV-MnTOn504m-UPn9vtieG7xB_7zhCLCmfbhaCSlj1fYXk2CGreFjVW73mCDzG0VFtVUdisoS3bnsjbLqAHm40MtAGxNGuR8WorvmsemG1APY8CShpxhJlnWNW9l-DAJAcH47aWlpbJA4lxqUjJz_IWkvIZW4SQzt0H8A7lA-Pi5kyA2bERNj1gWQWBoicMDtIQdUjWzchHXXexA7DAWZF11i9ZcF0UzleHUmoaw4pCXetevAXzleGiGxieuQ0kEMSCXZBaJRo9bip4mi0mSwkUpkenVV37A3RiysEupXC8h1lKf7BsluT2XGxex0v_2Uu8Navw7SyA2MuAlE2npPlM6S-aqd74eL6pPD263VHTyQwZW7if4wtVAVjdQQYZ3LvK_ouc1eAzLPnlqRIsRWmUpFLoZzkA-F1BzMGa4K1-BduCBru4-oDYvJsR4XgLw_Y5fSeZ3qU-FP9yl9NP7m0vto_SWSRMh65-hS2Opf9phQi9ZbLb1bys8jwhxu5Y9OtiBD1WDqRLzPl6T1txJW43mU77nhnKkPOJyT_MjBiKdURScloU0In1XDEtZ7WElysFZY9CjiuNIhCJnZDaOIH7hAVkdD1l2UOw9Q5TMoYK47SEGboqKRI0QrnXNJ6p2itBCjfJlL8KUUk2DKi_nlTlzbeD1irxji_2Rsdk086pKitMscBSZVTALsSoNHYSRT36cTlTq8UVbML291zQ23odT5aFT0BOUg-MH5yovihhTdL_sZK7VFaqUV6Q5bQxBdaTBfJS0H12wUIKczTvEEr-Yr2iE3pPf11CTu-ngTbd7ftEi9bkW9My81FIr4uC_cY5WSrMiolrpx6EAcO4OC8i6O6DAGt0Wb7OmqH9UGwKvS2ppRSqctYFqTL0-jeX9Q3dcCVJQL9CaBLVa2MY5kjAZQb_HN8iuBg5iu1eC8ho5QFFq5XwAWx9PmGnr02PPnwY4xvJkgpWrUgzdY5py7eI9YrOOShx3smIZ9RraC4oJFSrGNY5nS5WvBklAZ_NREIEN9eWkkf2sGOS8Clcf8EyrPlak5D4lkZXdd3nQrdZ_e3GBhkKqbI0DAH2mfUUyk-eidk8nHpNaWweZK2JvNU-HB1SD0oWX3iWMJrk17whvHXGqh69PO6oZNRyohtrLiCQpgFH_73O9SXOFsbceAH2rc8fPx3z2_lHOqOWRQs06pTdQk2HS4e1zBFWJ38sKmOJ3O7C8Ky_PXiaBpVxEaMx5NASsYddRX8Ypfb2ISoNr1ddoLkPNNvbRlAxKzMMCXPBJG8zGD_KEiRHiNxi9fL47-jfSkSjC0RfX18ee3kRxsrZHtre42yAgfkMm2QnUc04XQfmZwx1AOWBSdRDG_caN5amjlkck2SELfRGxUQ5wr8eA9uL5gddDG7UY7yVKoL5JySZ8tDj-U5rgMczPSFSf0CTgjSGvS7pAtV4v2Ib2Yp4kqI0FIaWbk2H1tsBFZZHbRd1iOdViVUYV5t9tjz5FOBVkuXHRk5Z-CAbtJL48dtnYALT6iwBT45cBm9zk2e61Yehm1DR2-DghasLniR4kpVK8MX0xDOfcTmkgeC4N4owLNBObPky0MhNqqfsIdU59xHXwpuoKngwmXPnO63GefNPkFOup74tA8wAX0YeQgbNFti228YwVy8kzwHPSy0SFUkIwjA7i-uGiitgI86FfD-VKvBs3Ip1rgWRrO-TebNuYnMm6OegpZzUbY4aaOiA3h74iGfon42wogcs_iMgtIQ5JavQAEGkFb-xHz1BlD-jXvufcTzak3RLYPl95H-DziI_Y8dbpezphyI5m49g5Ezm4z_Hy5AcT13SNLosA0H9rzeNMnZtGcPdDzW3fO7vXtzxa2FtTYe2an8fbsReyj4nXQMK-tHzFe2rlQZdZBNm-ErABOOfNcB_jV1lzV_UO7nFkcVRs0yHxG9VymloCaDrdrqj35h83_mwPg8UmeYztIe2dYhCbE6_BSNeV0BNwloVdt_8vJGVDXwDgNZCplZJ3TpMuJLu9QUo-vp_Zkxu0xC6I4Kb-QeSQpidip9k2mXmOSlPPhcq8G98CTRAIqd52c140HhxIMBpRjofYcsaI1HRDM4aA3z7rxeMr9LjhVaTCK9ZN0yn7y0gVEPXG-3MdyYeLOYzz6tKywkJfehBLgywiSwcIvgyLvj7b9AbN-ZTjrGwaIZiIjxKOtWEnJrwOadAXi7cgOdSqbDMPzLCVl_26H1KAYAINu9d1CA30afZE88ILQwnPIRknKQLhx1MKrgJwARL1Jdri4WzN2szNk9ZhZBUSaxWcjYFw5hC6t3N1CrsWhGqCo3gA-MogxlV8lvrQeIIvQ8eOrZMmDNmkXKT_SAQUmXBYp7Z70jhu8zLfdqzihRiZOvi0DtZytKMvAw-yNGE62EzydQw4-vA_FEy65Gt1cDtWEhv9Rl-c8Q-rf20baum1-OedPIwo2BaHmp500fqeFGSwPQQLKoAlC7au55BNZfcoPuJs_LteK9AWR9QwFrkJzPHkCo4bkTbMwhpq8O4zkvL6LJ32euw-IvSD1aeHkCf8KHFlbDrwcC1djOXAEY6sHoryzd9lkCMH_jC77mduvRJPFo5nzOnTzZu7ly1uOOlc83sl9V992jaxeIXIJ49Tuj4MU4zw1JYjtwF2iwswyRns12F6rdXmov9FRTntkVz2Gc5w2RBjAyqAizBkwb.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_047afb5b66da7c3e016a7b0c8440888193afcb0db26c1370b9",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 396,
+        "completion_tokens": 559,
+        "total_tokens": 955,
+        "cost": 0.01875,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01875,
+          "upstream_inference_prompt_cost": 0.00198,
+          "upstream_inference_completions_cost": 0.01677
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 450,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_04",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    u.user_id AS user_id,\n    e.event_time AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF LEFT JOIN\n(\n    SELECT\n        user_id,\n        timestamp AS event_time\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n    ORDER BY user_id, event_time\n) AS e\nON u.user_id = e.user_id\nAND u.created_at <= e.event_time\nORDER BY user_id ASC;",
+    "raw_response": "SELECT\n    u.user_id AS user_id,\n    e.event_time AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF LEFT JOIN\n(\n    SELECT\n        user_id,\n        timestamp AS event_time\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n    ORDER BY user_id, event_time\n) AS e\nON u.user_id = e.user_id\nAND u.created_at <= e.event_time\nORDER BY user_id ASC;",
+    "tokens_in": 396,
+    "tokens_out": 1038,
+    "cost_usd": 0.03312,
+    "latency_ms": 25056.1,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449039-TjyHb1u4gQUgzdlILpAz",
+      "object": "chat.completion",
+      "created": 1786449039,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    u.user_id AS user_id,\n    e.event_time AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF LEFT JOIN\n(\n    SELECT\n        user_id,\n        timestamp AS event_time\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n    ORDER BY user_id, event_time\n) AS e\nON u.user_id = e.user_id\nAND u.created_at <= e.event_time\nORDER BY user_id ASC;",
+            "refusal": null,
+            "reasoning": "**Exploring ASOF JOIN in ClickHouse**\n\nI'm figuring out how to formulate an ASOF join for timestamps based on created_at events. The ASOF JOIN typically looks for the closest match, where the left side (users) finds events with timestamps greater than or equal to their created_at times. The syntax should be something like LEFT ASOF JOIN events, checking that user.created_at is less than or equal to event timestamps. I wonder if ClickHouse supports opposite inequalities and whether I should use nullable fields for users. I'm really aiming to avoid issues with enormous subqueries or performance!**Clarifying ASOF JOIN queries**\n\nI\u2019m thinking about how to set up the ASOF join correctly, specifically ensuring that user.created_at is less than or equal to event timestamps. I should keep the types the same and consider potential filtering based on user IDs to optimize the query. The ASOF join might require me to sort by user_id and timestamp, but ClickHouse's algorithm seems efficient with hashed keys, so sorting may not always be necessary. I also need to consider how to handle null outputs, especially if there's no match in the events table.**Understanding ASOF LEFT JOIN in ClickHouse**\n\nI\u2019m considering how the LEFT ASOF join works with the setting join_use_nulls=1 for nullable outputs. I wonder if ASOF joins really support this setting since they seem to expect a straightforward query. The typical syntax for this is ASOF LEFT JOIN, not LEFT ASOF. I should double-check the ClickHouse documentation to ensure I'm following the correct format, especially when looking at examples like trades ASOF LEFT JOIN quotes. It\u2019s important to get this right!",
+            "reasoning_details": [
+              {
+                "type": "reasoning.summary",
+                "summary": "**Exploring ASOF JOIN in ClickHouse**\n\nI'm figuring out how to formulate an ASOF join for timestamps based on created_at events. The ASOF JOIN typically looks for the closest match, where the left side (users) finds events with timestamps greater than or equal to their created_at times. The syntax should be something like LEFT ASOF JOIN events, checking that user.created_at is less than or equal to event timestamps. I wonder if ClickHouse supports opposite inequalities and whether I should use nullable fields for users. I'm really aiming to avoid issues with enormous subqueries or performance!**Clarifying ASOF JOIN queries**\n\nI\u2019m thinking about how to set up the ASOF join correctly, specifically ensuring that user.created_at is less than or equal to event timestamps. I should keep the types the same and consider potential filtering based on user IDs to optimize the query. The ASOF join might require me to sort by user_id and timestamp, but ClickHouse's algorithm seems efficient with hashed keys, so sorting may not always be necessary. I also need to consider how to handle null outputs, especially if there's no match in the events table.**Understanding ASOF LEFT JOIN in ClickHouse**\n\nI\u2019m considering how the LEFT ASOF join works with the setting join_use_nulls=1 for nullable outputs. I wonder if ASOF joins really support this setting since they seem to expect a straightforward query. The typical syntax for this is ASOF LEFT JOIN, not LEFT ASOF. I should double-check the ClickHouse documentation to ensure I'm following the correct format, especially when looking at examples like trades ASOF LEFT JOIN quotes. It\u2019s important to get this right!",
+                "format": "openai-responses-v1",
+                "index": 0
+              },
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewyfDkDSYjGmtAJOSdfVZn_OxZ9MTvTsw4uncpBtEBxN3HpWIUJzqQYRU9MwTTVEEMQMLvaAL5kFjYhLJmFXV_EiR22RG-Pr2dbHeCpWHmQqOgDSzIecgiU-E52UlaiOk7k7oqiZSaCr6hm1UQStl62BwRA9BQdH65Iix_X3htI4yC9-NdiUAv2rDzBtgU0MRk_mdUkLUO4_RFrny1kZWaqkmQCsr7t_Of9_9jpHKRgT07ged_Y283LILvvH8B1N61O9Rcn0sCPLofsNxCOPXpQQK4g0rAroXW3CqtWM_hmkuxwJUwyjt00VZN2jlfbJMqd_QuZ6TkbT6kyk_-cjvwPskwxqYrn1UZZBkrv0QABNHf3uFeNqmgs6k-u5yiLZJtJHYdxC5Q5R264bhnMm1eO2IAnWpKpT8AjiQ6UVjYu3MrOzgeyEfK8CkU5jkmylQgw3XML813dn2hNnvkB5zw-0NTnG0Xf1f_TXedsYH7ERkZvejY7HnFlr8avKKsF6t5f5JSWfaBSnFhxH3l-t2B3Z6ZhZOohH6ZCfzDi0E96EbwPNQy_uSJPZszeU2cX3Br-3V00dnWR_a5zK4LGM8rHUyFImfMiyer1o6OS8lrR_Zx0VrfeWeCDeOpzu4T9XHOrT_Cim91Z6u_7pJjvLzKnQKKh3dF6BNfldZo8o1KTsbOHyt5pOw8BqMSSlWMHcV5Xm1RmW9Qt9AJ1ymL-U1GNh_V56UHgGfcT1XQHWGLk44kPD-XBNN9mN_CMWakFhHf76ImV4vrrZQTSXyZZL193CnSelMAkYvKxi0iOjsYgYPo8QD4fZLFubdxQr1ff-iW3caWUXpkefeSZ2IyEC1nJ_D5bIwxQWOqyBi2s1qYl14a0BmmHyZwF-EcaOgeq38RLpNM7EQ4czOaUyMcXsLjvOT_FBdnuTAIAjeJfF1eL1cY0_D6HuxgtONEkQKC8u8fJ3IWV4xGOIL0RzhCmgbzmkXqYITtgptIT67SMO3DXCUYnmx7C3RQkt8DN58gMSlXBrdZ5Gsen7alI9DLp0WVkEHmWxd3bBLq_uNHAv7MxuQwzgFbH0xYQNoUq4SuKUUrTEEZliAMb_ehA4rNqMIdNiOOp4M5-XbefoY6eqlrd13TOrthbzbrozCi6hGk_XSYXO5d65GXh_qxedVuL7tHMap8kuZ4kwgSHPxECQx0k4NnrEXmxffjfGXvbsOqMqKxOYLYe5VUhWRyV1gJPSAPoaxvREjO0TrgXF_1MH5UYRepl1LWnGNT7EA_6m3Q6E1cp5zLBdkVYxg4wMfx9CWhTiRW3G0hJTIfiT1ZOVQ5DdVHR8XHtX_ChSPq-UaJ578O0gUTyZzLhFt9BidtmmwZ7tcAgFIX_CluHmmJaVL7TMatMSvQdxCSRoRV4rd2HtucfPYyfDkn3xlRS-9qKbLZy1iRECAQ2NTfDyE6A6xFadgN6COdcGnHbw2G1BsvhRX3XQBgjSvTcbQCsCYgW7o72qyBW6vpoZlxvCC8XecRtfjtAcBQcoJcCKnAuZqk4YcApJc0BZlNxLyD8mfSByvKIp6scgX-0Y03ff_YBPejaYMH9X2EJv7UE8UKCB2ws6jyS2iEUyHfAz9oHJnNVuzxQ-ibugejeLNeRdBx5Q7ko4VSaq_8qCqEqImTeTZEP3UO0GPqY7GM19-u6AFRv-AIu_l70WH3kKJ8_vSOa8qxiZNVN8YINGBOlZHYq8O0D3ZKXQhO5TuGgJMQ4eJPlCeak3tbibdBeIs21F22V7w-kjU0UHyuy8OIDbzlL4TyBeHv6Sllhz3egpXmYISJdSZ_tTZVkgOkiCpJg2PTm1Hv7s0GwR0X9XVlUgY8kPQkMEMcQsiDqUhQHXoYsVXEGh-0aUzme1GJIho3w1bYP9MdkJeevHNj6zoHMfszjoyOIzipn2j1nT4PgNnei_tCRUCCGJVqn14_gNgMYptHN6ZbOLhRPQu_mDrGhU8-NJQT_Y-mcDGm3Jf1fepRPyp_pe5mjlzTuvVaIUHAVBJUw4eCxJhVvOAmWhgnUp1_zvN4DXHSS0PI8qEGNqWmV7WFwQANm5lTmVQjqi-eQk6W_fnWupcPid4gMrZKGbNAlRG_tB2JVvUaMR4GHf7UQYDQynUDNOd2yvboItkwB7rGMpklUoKfm-ikbNeO6OIir_8VAOMBxEAndebnhDeeXFVrJBjqIocNGND8PCavqC0z3A-7wd8TdAsApSqmCZjHhTwC2LLH089cJZ31VAku46f2hgVVArye4IvYtLyIkkB31lhKtjDEh6i6ohxI0Jwtr9ocX-dRkD3TLvODQTQXIjFbUAXPcnqKQWerRHGCcZ3sqIJkuq80HPTrtnZVViUqdGFCZ24lwCWntCrSYXMIPNJFrVpaCK0ZF_L0sx3gEdHYMvWqYRYKaaT2S9w6mRFVsZLI7akm-KG5WFs28UjARe5ba_JI9PYz1JSkRWNJIcZo3zfPWXZdOlIazWdAi4g--rVJzuxOTJcFGuFB-AisW7ZamqP1W55xuIdOjTY9ckf2r35PY0JkpiBJySrqEvlLXXd8LCvhPB3AzmKxr0yUaneEQOeyPZFh8CYtE339Kk1R703W2QREuEhmaQYj6d7ONxf9kdXvSUDF1pNr_1qE_l4zAmIH2qwfZI1QDYuJmSS5eq9gNSWXexvgF-SE-IrF_Igxll97s9Q8idMTTKDKuJDi0AfIWR3sbuAxWgIcqy_Hfo5Z3Gt2t3xG0HvO1NV1NK2dBcU_CsH7rNyndJ8klsFrRyUhTa7jDfkIOGv37rc3cfQiFg2YW4ERHPU4KjjYtw-jfbK5BD0KJa7sAGDhqko44SFPbpYedPFdviZiKcuwDicSgliJEFSxJ2yc0JSUNQfV6-prHc7RdJCsgFLIeX4qlpgJngGkQL8tZ27JPHqireB1g4GTkw-m0o4vghZc4nMTq7yGiP-vHoz1QZhcPk-Ii5XEzgxsKPjl45WybCCM87RLPqANSm6fGB6jNy1OlDnI4wXiNph6nRQzRONta1PRSH37OZkHkRxqcJ0Xg0nqnceKOfqscIWF3cY67K86nUa_yknL-AJQb1_NrG3hk3dNSV8asC2GuUq2UFpAeo6uKhkC1DAFGrt4-shOawdT6DX0NzGMdqcfXiVjmooIg6fr0VE2gO6aLFWEh8ZOdjbBFnzawMA4JwV82toBvIxwzS7eiTWyYcS1NnC9naWraBDrxr3pJknI0FczlxROfmIck67V2r_yCj70XoEW9Try2f7cxgrQ1PJ1JDVYetRZna76dB_KjRlYslEsy3qqtPl3-QbTBhCZx_HI6obwNMu6q_QBgUfJU4F6zIYwSBFk3rtGZq5g-mdjJ9pPy82qRu-_B_hG89kCngHio5KgAro4p5xvJBV6eHgf7DOQqwnzBRYlDJnTAp7aggUkPIhK1thpxHyoIBcJvAIg7WVfQo2_Wv91NSIp0xUyUQWTYeOwMntUnA53jdZmkC5Sbjq7nNEpVMJbb0qlk8uvyyx2NPgCjdtQsqSSHW98N6ci7tO49Z1bv8rhOKveX9IOa5ajbM67Qbpb5R5Rrs-o-s4WXnr5hYhFCY_Bwe74WQtdXb1Qq9aJcfomszgWrpOwK0nMThI-ayQE0oZvjRGeqpVsf2XJe8QvEMMnJegZkKMTvuIhe1VX5P_W3KGxE3-JpfPmbjuz7cOTB7E_eexKM6wDYQ1ebwtKg03ILgwcb6pO72us1lMr1s_J1AsSU6W6GbAzhEA2F3bfbliFQgIugqVPvTBCwTqMU3h389vTaesqwLBMWruw2Xqa3saT-HWEZlBB-wtsuNt2Xbu_hJRda5cXy5Gif7BojRCQLLYzF8x2Epk95INf_fjtSxohb41Z1J0qqh0ln7zXEQypTKtzGmt2NtB2ZdEq1uoFd5qSsFT80V96Tsw0F991F3BtQGM-nFoHNiTW2ptSQN0tIz7cvhuF2FzEw0RwEwfbcwmavR4MY4PpegZEV1SUn6pltOpo1V2zRVUu2vxJy5TYI0lsrjwyq1iB4YiAggzyoyt-kUMxHBbOzuqe9gBXJTP2kH3pMHlNuL5k5ESWFgNa4=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0a20e0b6c2f99750016a7b0c90df7081958892f85af0363dea",
+                "index": 1
+              },
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewynU35UNL1myAqqaQjnD0LX1dS5SrBk9wDKK6ihMLgtvmw5qWeic5h6ay9j1nSWQnW0jZOKB45i4QqCF1EH8xVw3-G6LiYwqOzR6KjieAnqJM56dmj7eXJ4Y1dKvW0u1fDi1eJc1jG7OrFtlRih2qakvwlYMmFSk4a0uIqz7niQiFWXZyLtz0o_QUP99VAGX-PMUZvweFZphci19-Z0odv0Rxo7EDuNTdis_4hXn2gxpWhJECfapAqoqg3vi-1p6alkKZyNEOMyeGuo1lKusqZk7PqzoO-jxSTg4KziMPnlBiT3WBwOjKky_Ow-DJT6Ym1PDRpKn5Qy_mmEgB4AKvwlxgFWsohiHpMvXQNYCousXjRoh9RWLCpsyQJUdamY3vFBW37_yToZWC9Ag4wxGOY2cBlXBfeqY_G8NpszEY_n8IMN2BYBOo06cDlyM1Oyej7aRIqUdTUCNE5inHiaZDH2vfhXPXu6EFDaU19REImxq8ga3qj-ZNl-2wkxHo-HuCb_syVwbGFLAxNy0TQs7WQOEzFjyERcNuL7FEiUvOkfooj_5osaEDgbFf4ryLOlzZ7yLGkVuoNynJdiwe0HGdqv5CMfbbEuuS8vSkgjDX_c9JDPENv15M8wuVbP7SZziYlPlOSF6TdrPXO5fDNPltx6OzIddus-vsWajeX9qSGnczg078Zlq9lRFLJEZolVYBI7APxbdMVdVWSrhFQyKExRVDxqDydDDOiA1EUpF90-n_c5eHgzg_fJsasLn9XMFC3RO-iq2ToXQkUaYZdWfu_nm4OoFL2mJUnhInh7sHcuh1yB1R0SYC1GMYAm29Q6VFxmfcdD_Q0AXIGPEJ7gxsBtIFJpGEIMtIGRMqUD-a6kg14AOyIzogvv9fK-7DYgRmRjyEB8yqB5-sGvD1TDjVDmrguK8WHHZDHYNfM4OPI-D8k5gBjBq6U1oTojep4SM6DNA8s2Wtu8eS1Ki0jsXOD1jM1981NmTijWgSgo75_e99KrsrHsZcACh36L-iJME3xRFWIxzj3ylSmxh5vnoLSW_4Fla95Y9hRiWWxHAVGKVce7hyp2UOE42ta5NE414u-1UuSslqVk_B8Rhnjb7ESV16Qs1D2ApjNChbkug8lQ4N6_a_9YFq14R3OMX6SQlrhHxyLAJL-_mOwcqzA7yfz-AA8wtVf3JllmggoihPRz-h-TmVF3Oumzgn83Udui1JeHWdW8rPhfIH4PFjRszJsDAMiwrBDqeT9WX4w5wuI3L2ndMiiZqg2WXz2hO5rkDR_Ijqsv6twn1vKZ8t5wCu3tB4cXJub2HuoFpZQZT5QcgaDDFbQFiVDS8vTH-IFBPPVj1IG2hCbX-bkkUfnV50_U7u96MHIESYd3oiHJ9mcqgSKpTnDtecZReAdWgCccvUeZZeOnBXsdNyoQCTQFj1n_dkXe6SBuVBHKKkSgSgK7CGwL3ymKlfNnCxPOdyrUeChfs8nwiC3ChMNOjb88Bnw-I-6B74Xbp6sF_mJ1TrQxCP7vo7slxFBlbwLgop5qHutZ0HiKcqZEYwR00KeFZOFdOKQgGaJwbsRuF6PAPot6BXhRFObxpk99ObuxrPXfXWgvg7nC2uZS2pbXM6qrvgXYx_ySlNrr18ywFUD__XS4kxrPCtArSm3_Ydq3IiVUnu1f8ZJnMUaxoaEnZxXFCQCY8N7hgHbVsqR4tUnzxdrjSa6co_oe8Y6JHPZPeZQXv8cpBY6_0KFREbWifm_O3vyHnftIYzmKkOxsMmmTvOVeEa-RAM3YRvT0l5kMpd1gpyBdxvdHH-w18fCBafupEna340-HISUFK-MVg96ggcXl6mUB_ikpBPgnsGgH3HgZ8hRNEjUssV8mBIQwD_OhjJU31mtQh4dBgkTpjZS5M7wdzgrmEgnJ4me2Oesp7CrugefHDXmLrSePH6NN3A9rapyP154TS13k3rgXNkILwVkwppu6ddm5iPQldZAj0iT8BynhumCTp8kIBqPl9PbgQNGb38sQLSfh8_2TePbN8ItQQQPI-csaz9w626_gdc8ivnPVXy849NwoBJJim3wttSuEswQQuKjzkVCuJNTXyCsmmTzWeIyiGxnTZuktBdt5gwXeUBw9JdDIc8tIeiERLK_2BZ9H0GACsTaIVKxsjFDWl-lwanxUlqfbDl2oWDpi8UuQBq1Vq_rn0sJcil2AToAcGNlsilGHhu-Ah3SMkqigY8fxxQdbKMtCY_TY7M-EaLXi4q8YkWpPVwzXPb1gZwq3_RgmpfhO4DloroVlUadccLVuSF6GiCZ5bb3EGqzT-3b9f5jmXrR4At-MVERo9Y4LzPMGApqckq2DZocf998cbtFYKOUpZhh5NvDxW0s0gnXtOHAeKhH6y-AjqQmRvtkBwO9AlbKcfokkYS7lPlUQdYiert1hh9WiEIv9Mm9aYlSyEG34dy_rdiBsBbj4QM2lxIKM3ld1nCX9nBawcGwcNa6-ywKIsIxYlTvlOpokJDX8djj5uDr6imQJiXB6EQC9B3blt6HQEuZ2MEkptQQp_7maTn8MZ38NvemaanTQSLpHyVgJyRMGledqD2dvIdnJgFKqwc_0M7abOpAjpddAAJdQjS2Px8betDLobI0xLx2cwpzv5AXUWset11oKxzmLBbDbF-8y9iI6PKWApqGd7XuhnhCXUNvepGPXfUtnA24EvXzGdLAvEO04GAYMO3rUmH7K_gMeQWrbNUCY6aK9oxE3kEed_UBatFDNLDsoc2ded4QSbyreiqAUH_qN_NdzleUBqqCNFJYjhka7aAdEQINjUT4qeovwqFCdIpweFHCCv15O3SwhR4mGH7FBtHFuPjeDe_GaPshtCjWAWZPib3_TnAHQbZqYp9CJqnpaRJlOVTsEv2s3nunSSL0oyJI0JQfisYVHT1tvUm3dY7lCTtpqHZArIGloGmXfsuBkgaTlrwJL8KiuLPwE7v9VzoUsoRsPxIz5xBXVGhuSKzshDU5bfoppXaSo93pJxrcVeHAqC_dBwG1zg40x1ic4JnP4xlBRRwFm40rxFs_aiEFINpljADIz-aAypqQxRDaEAol0nTGeJM7Nj_GO4YIsqhwRMUe-LHf4rSieByt92vFjHEaQvOCOuAPNmDs4hGTBpugeWnKUuQAvp6ShdpQZGIW43WNfnDqsoA9uGG6XOgp5lSGrLdX6pC51KNG60jZK9mHshWkjel_tKohkTgcj74JR1egvR30Avj3_f4winEwgU-05XK1n8gHsSywCrFXI5ZIsyQvGl90TvProzJqA3OitrJaN1Vv9-2k8iOugTjsKE0Yt68SvMToNlEc3R7P23u79.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0a20e0b6c2f99750016a7b0c9f20f48195a3a1b48659dee602",
+                "index": 2
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 396,
+        "completion_tokens": 1038,
+        "total_tokens": 1434,
+        "cost": 0.03312,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.03312,
+          "upstream_inference_prompt_cost": 0.00198,
+          "upstream_inference_completions_cost": 0.03114
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 912,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_04",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF LEFT JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n    ORDER BY user_id, timestamp\n) AS e\nON u.user_id = e.user_id\nAND u.created_at <= e.timestamp\nORDER BY user_id ASC;",
+    "raw_response": "SELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF LEFT JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n    ORDER BY user_id, timestamp\n) AS e\nON u.user_id = e.user_id\nAND u.created_at <= e.timestamp\nORDER BY user_id ASC;",
+    "tokens_in": 396,
+    "tokens_out": 490,
+    "cost_usd": 0.01668,
+    "latency_ms": 9900.4,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449064-5aK3ysJCtcHFP85NTBKp",
+      "object": "chat.completion",
+      "created": 1786449064,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    u.user_id AS user_id,\n    e.timestamp AS first_event_time\nFROM\n(\n    SELECT user_id, created_at\n    FROM users\n    WHERE user_id BETWEEN 1 AND 20\n) AS u\nASOF LEFT JOIN\n(\n    SELECT user_id, timestamp\n    FROM events\n    WHERE user_id BETWEEN 1 AND 20\n    ORDER BY user_id, timestamp\n) AS e\nON u.user_id = e.user_id\nAND u.created_at <= e.timestamp\nORDER BY user_id ASC;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewyxVQkp9g-vGFl7ctsS2d-SVoNsAWPsWit73dJ98WaX7RK60SHrGxXZAGQb6148NVfFHEHDxsJDvwCak3xSR2Pi4QTbbcFbumYkI9vml3TNwf3BVrmgG_Htgz1Qn6kofptuDM2F4jHI--1qHIBN1QZmXhIjsbBHEuN0RlqjM1bKufoK3eL1yhZD5zuiLzT4FOPLc_1Pt0sYGweUJBpD3ex8k51GvUvsXZxcees2DwX7kpc3FCUdeuyGNy3ODLQ0XHZ_SKp1yFGkgA7F6cs-_nj5Z0U2GhBphOTjkCOJ2mpgW5IO8ZKs4-PkBbgX-EUrElB21DmghaAOucXR1fJE_CFLEgWJmY0eyba6IjriN7TEAr4kziSR211gygsd1DDdofPwhT6v9MV12wyr2oyUawgqOQYLspWtulJenMlqLp_iSk2nU7RzGy_3jMnqdtPP9YN9L4GjKKgn08OAetuQN8UaR3z0lUX2YFd9H4z3pV5YTW5rRuvNVFdKsiz2vmSuC28Oh3n5ZKr0k33-TWfC7NPcAs24qJeDf_3ItAWWEq6UWCey7KW_KOOgGYGWDg17iKctsiiIbKHCDn5NLXLeJXxb3tumYDrL9FuxmonsvLMZR7K99M-vQcNWAslF2MNK0fSWsj7zCXPQE4SSV6npnqhEwMSw2J_xcdQaJ_NzSXcPNzq4FiK_eUtfqBMtzRQmo0ROv-o3WGVXn_GzpR_PbMG7FQ5ZC5FG8urMyqRnkzK5q_J8FmgU9LHOIxsTU4lu30pSHRGUsA2i8sNtg7y0Tx_sVoYNnbUOf_kWPw0SrhupQkZnt4vaIen0y4rkVqeP8Btu5LDoYCRATZt2geqNVfYk0A1hIvb4GXtSuEsipv6NdY5xvDXkqjiZcDUFOdjjfpUM5wruVMubpv4a-UoTwrPd6h8crjlk8F-TAiXXdX_qZK9A6-cgS3b5ZUy5fQZi2mMQ6ojsXnOxoMI1MIIhELlHge7ymm23WRnMEnkKcrfHeSMM9jq01rgx-Je6t2Qu09fvgF9SfFaeF0DpDaUcBG0DHrMUYgBjq0XJg_QDguILTBcyKEeyChUMrgS1N8I5pkUHMIzgD6T0X0YT1ofgRgEKWwDV9aRlalhIS58x0JlijPXsKGXF0XkGtDlsNsQ1e8a7oLIYwEBliGvep-UQsPuiQgJjrf0RxCDxnJsIri-Bffpwnxb_xGRSISdkUucxdd1gkzCpcBmuOq6T-Zi0K-wvBuARQOXNIl4O9-r_ya_ibM1gaYyMK1-XI7LyZDuzljpNUwSyvVOVHmexAvyWs2ajJqs3nlUjT4LhULYFHwxGL-RXpkTAjDpdq9reqGhglRjXlMXQuHj4JT4oV_HN2a8KD-Lyl7JOis0FBooTPRq4RV0raJWwfE-xCsEHqXeAL4Rh9MQ2WcjXzBLFAjgckyb3wphLAlz6JqqMFF03KJ0lEUyays-FllPpsQryxdPhG8kJ8WZduK5i_9nH77jAUt351w2LcJ4kkCZFQRbp9vafV8Ew33pssLhNc1bniPiomFEXJirc-TND1RKFMnzj-ugGNDphsSaVK-e7HNYTOF0jgmKx0oF71sOONiUC0YmFUcywZk90d9rzzrx71MCmAa-_Yg5trCTEpmt-G14Qs7dNjAuFpU-AEkfCksZ7t2GDUACmqapANMPJKGM3B_C8dO9boscEBhDsDAdCWHdsLeop5tzCYWaSTSy09DFdyU4u44qfke52m8fhhV5flvfIL8KzzfJ-LdQu_IViKUAxQs7u7CE4PwcHB7DRQFN-vBPatoCp4JKT4LS51i5fkkDJQTcTa-TGjuXnWzAurzVrsAcw8wFhVD3NsUdSFTpXyA6xqYH0gtToWuvEdKPMuEwK7-peDY9feB8dtXQ2nejTg_FSAPObZnHTworQFze9kdyNBCqG3szLethk-ftqbdMUSvxKduET-qifoTmXtVbcGPDZAo07pWn3cZ9xIAvGpK9PUVd8HeV3jp4qFLuKyt0AVRggM_pFoKUdwHx6LF1pX0qDCgDXgZs6OeOlg2gJ8GppHP-9TtUkbUjJwdaGmdJTXYRiAGDxA97xfX2IPIm70-4To12qocfyh39r3kqVRaGpUqlBNNk09w8tXLVTfyJvWgvIdcW-1u3Z_9-nM1LzauMZcMM-Hw5BzMvdi_UXnPRnlbNv-E1ehkXKNi5W2W08CXjbeJQAo4Z3rQLPl_b_s4hoLPxRnWE0oEwz4NYhhLUdFjGrFxwx77sWdIqNkXJa_gBh2Rd2vz0CSEiyQaJPSKjq6oo_JxThYG0LfcXTeu816eXq3oFQLpiborTL-rXkoq5DNnxa2oMsneXG7T6bxNt-8Dd8ZfxIuyuJ1sgPI0n6EZut7antBSPBrWlFopyFXg2U4PDlMU3vstEZ-W5-3wF7u_3fnzs1mjv0FCTYD4DcaXhjYSohw1UMW0fL9qt4UqbZxsZuP_ausBAs48ruCJVOGYB7uOHs4Uy78jn9wPGXmUev2pM6ryAlXkGrchzZBh3QMR86Tl5PwomKImFvCnv3egdC_hYQM8XWXtUPRC6NSw5t6MIKJRTjDVd0fH0w7rJ2-3g2M-4X1jCbMqXxRBGaf1jcTn16qm_0iZ7wNNpRtHV5TGsxkVuol0ElNT1Z6dDa-FNowfOXHHrhiWRaLzx8crlMQqWiXZhjBQrnDkGeQ7Rc4YEollP6XVW29Gy7UbILoeJa3w9xukqvSWxk9MLqa271dxHgjRUWXHsa2iIeL7REh-lugn0GwsSle9Qefy3AlwLJOF--vFN9X_GI6VtdxCrNyPnhyMDBFbUUlhei-vO8RqAChyIahu5GZh5zxLpdghtZtERx2L4d1iJD-XkPINbSEtvzT0bRVggOTGshCF7rk-7y3P2RNbDxCYeoE0TbrTWex-pc_zZalW7aen8cy-0grjFuXPJq3b0BKPdLWks4Vbu_90NLXPzA46CDvBDHhIXGGgfSCmiHePukEmdz28ivNwglzKTyohxwo5F4p9cClKhQ_ShyffQk4cymoKGqIkCezqBQw-jhkNUkgBs-2616kaxoApQfP2yqUOatkTAKfRXIcjN6iQdZlaQunWYWA8uCuvgPxQeJsV6e4t31X64BHk5_8pB3tno0m8vHMDsVgx56pYm5fEGM3lcTtn2KBQUzBQL8l6FZWxv3AxzT5SI=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_07a1186b031de5be016a7b0ca98e2c8194aadd4a0fe5927364",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 396,
+        "completion_tokens": 490,
+        "total_tokens": 886,
+        "cost": 0.01668,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01668,
+          "upstream_inference_prompt_cost": 0.00198,
+          "upstream_inference_completions_cost": 0.0147
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 373,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_05",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "raw_response": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "tokens_in": 388,
+    "tokens_out": 39,
+    "cost_usd": 0.00311,
+    "latency_ms": 1730.2,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449075-WDC1NjukorGcbI1nAXGN",
+      "object": "chat.completion",
+      "created": 1786449075,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 388,
+        "completion_tokens": 39,
+        "total_tokens": 427,
+        "cost": 0.00311,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00311,
+          "upstream_inference_prompt_cost": 0.00194,
+          "upstream_inference_completions_cost": 0.00117
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_05",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "raw_response": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "tokens_in": 388,
+    "tokens_out": 39,
+    "cost_usd": 0.00311,
+    "latency_ms": 1396.0,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449077-TpPckaxqjniMwHkblpzn",
+      "object": "chat.completion",
+      "created": 1786449077,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 388,
+        "completion_tokens": 39,
+        "total_tokens": 427,
+        "cost": 0.00311,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00311,
+          "upstream_inference_prompt_cost": 0.00194,
+          "upstream_inference_completions_cost": 0.00117
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_05",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "raw_response": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+    "tokens_in": 388,
+    "tokens_out": 39,
+    "cost_usd": 0.00311,
+    "latency_ms": 1400.5,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449079-MwbePhSa3qQdflDiLDR1",
+      "object": "chat.completion",
+      "created": 1786449079,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    event_type,\n    event_id,\n    timestamp\nFROM events\nORDER BY\n    event_type ASC,\n    timestamp DESC\nLIMIT 2 BY event_type;",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 388,
+        "completion_tokens": 39,
+        "total_tokens": 427,
+        "cost": 0.00311,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00311,
+          "upstream_inference_prompt_cost": 0.00194,
+          "upstream_inference_completions_cost": 0.00117
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_06",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL\n    FROM toDate('2024-01-01')\n    TO toDate('2024-02-01')\n    STEP INTERVAL 1 DAY\nINTERPOLATE (revenue)",
+    "raw_response": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL\n    FROM toDate('2024-01-01')\n    TO toDate('2024-02-01')\n    STEP INTERVAL 1 DAY\nINTERPOLATE (revenue)",
+    "tokens_in": 424,
+    "tokens_out": 410,
+    "cost_usd": 0.01442,
+    "latency_ms": 12944.5,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449086-I9VI6rbMIZF4Hodt7rbx",
+      "object": "chat.completion",
+      "created": 1786449086,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL\n    FROM toDate('2024-01-01')\n    TO toDate('2024-02-01')\n    STEP INTERVAL 1 DAY\nINTERPOLATE (revenue)",
+            "refusal": null,
+            "reasoning": "**Crafting ClickHouse Query**\n\nI need to create a ClickHouse query using the WITH FILL INTERPOLATE syntax to aggregate daily revenue sums, ensuring the range is inclusive through January 31. I should order by day and fill from January 1 to February 1, with a daily step and interpolate based on revenue values. However, I need to consider how INTERPOLATE handles missing initial days, possibly defaulting to zero. I should also ensure total revenue is summed correctly, accounting for nullable values and specific date filtering.",
+            "reasoning_details": [
+              {
+                "type": "reasoning.summary",
+                "summary": "**Crafting ClickHouse Query**\n\nI need to create a ClickHouse query using the WITH FILL INTERPOLATE syntax to aggregate daily revenue sums, ensuring the range is inclusive through January 31. I should order by day and fill from January 1 to February 1, with a daily step and interpolate based on revenue values. However, I need to consider how INTERPOLATE handles missing initial days, possibly defaulting to zero. I should also ensure total revenue is summed correctly, accounting for nullable values and specific date filtering.",
+                "format": "openai-responses-v1",
+                "index": 0
+              },
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewzFdQJwag7sNvuBBmf51JyfAaYW2FOj1qshP_dtgKLqBQVZDr9LDZHaonRNrja41L3rlALpP1DIx13CX_EpCF6bMLv7tTTG3UN_1vWZmUK4XqeXEhXhm23-LOeXgY6O8NWRLE9lNKWd7pkZdA-ohnlbu6DFnK8vDrGsqSFKqXHhVYBulRY0JJA2b6fa1Q8oaR0VboVQ0ebO2-6GsMyWDta-1UeNbtWi9BEIlWn9iWcXTDM9kXew2rNXfS1ufJkRbrhkwrImHoPFTodBUo3zr-2OQhJXorkHAc57aXZr8MbRnr5-kkn7XAcVu6WcGlvjvWsMfjnkVBDM9x81_j7pPwv1lLWqTba95MQ18EaaWzpHMFWml3IZHgaUn1S3rX8iFC5ym4cmm3mkTL48sdDn1SvLBI1mduAYd-CflkS_V8Zo2TOVqehPPVQ5bBjaU8e4dxbFfjlccty_NtfCyp8fk6HJiyqwPrYznLfjmBoMJ4plC7M7QHzFscu2E3nvXqhVftJpunCnFG0xR_13Kwpc_7ZfCZ7T1M7dyqNewoIDtD8eiUDfYNjhoZgSN4pr-JvPMeZi4v1RttaqMsAaVcNPi81jdp2ca1ccNXClf2pAv_TuWuWHCc3ggNWAABU-0Kh-WdNwnIhr0oxneq4aacgADouj8qFIM605o-6NAuiw-1x0XI2Jb5m_E3cEYPhzJWNUkO4FGGhYrhi4XhuLfZAvTQL53BodxPdRxtzUKG8XCqXbC_AjBw8I9xHWnhBNTQ0P4M5_v4LZP0u9NSrEa_i-ZxuLA-nS9GIiSujjT01TnCSG5Q0RcsDdE2QSWjE2Qrfe4tYaPsJtnnKxC6vHE8Qw88mPpuymehNe6imPgIJju7VFd6SD344eRlBj4E-sBTY_ZB5BUvI6slNGD_7HPTyb4pSEs5zK7XppNfMW3UPb3YbF5S04oLsGT09VsPGTKsaac0FsqfF_kvHfyRDygHOXpD9-bhve5f87kJZsdX_zWvIhFGTsyFkrBelDEgXGSBSa6LG3BVPc4UCAD714ixA25jllyaC0XyfMDqjkk4Nq11nQ5RrpFaRSgvu-FtxRCu4GQ64xaOqaW58OznQh5T_KiXIMb9rMbztCSxRI3QugDg0xMRqiXVfDBzC8RcrDYGHNx8mWjkMtEo88ns1w5h1Ke0Oo8C_oUVtYfst1gosNAeEJB3dbFpu3pW0WtnkpUNpdya2ZcIaqsZBSMBDBxAR8xnyUkWelfRerMq2JkQnHSXv8N1txeIVqEr5uMYVmKSsWdQPpXnXfl1mNS2-JBfePGj4AY4KzqwiIrShsc6PES4rHwDbITKyN8jqsSIixGbHP1sX3OSQpLHQ36ycR87T7mZyFYfvlcSX6GUVPq2dE2TvVH1qVzTvQhfY9YuTtaPVuNpWhW7RcvzYFuyhu0r8tsspzQq8bUfHMn0pCgFSHCLHHpW5LYvtUpxvc9btGE8BiY0eXSiOcjwDUC5Bg99AFbU7QWwif7kT6H38d6NEA-ako436kejQO-ccnMWVp_UqhUc2JNST7M8wAVdd1xfdRnDa_jr71-wMb5K9C968CTgFnhV_QC9tWh-hDpU4GMsA4sqLKDXc_YtDHtivyyCM357RVoK1-t5aO8ftDPGg0WRW2QcV_XgqTPbiU3Jh_YUOIodGn1JlrHDWprhTs2JGwlKBMJb7_Aee1ur22LRq1d0AttGsI5tc70cWYh8BtGlod9V_ZHrOzur4mIqIT7xR7C6cO0EaJti7wx66_9M_65pxmbQWZmtav4n8T3EqLptFOCECKLFHCld-KvYCnUQjzDLV6bOUHZDqB6iaemZ1mS29GOqr5CUAdFgBez1b5JmTCPrsw3uPPRxpDqq3dm-RW4QjmZtaGVYjXLedDVHAKzJmpONOQJW1n98jl21qiD1wRDKGRu1wPIx7_dQh-32DrxmAhyBCIufFVaCtuFFXeAZ18OutG9Ou-zHXW2SV_U0rt9GY4312fTvjVYpMfp0exStjL77SiBiz8x8G2AOPb9aiaJE3BH3TKKXUiaNfUMtYEf8sZogRGhjf0QoS2iy_ujM29aipvuP1GwWGrj962zsGzFrFABQxjMONrlV8ULrZJwhlk3i3xOWoXKlwQlLYjMYkJTVIHVCPquWOEa1jlFippKT1E4j7WnHAyYtWi45g_27ZNw1NLdErR605Gt3q5jV7OvDjRWBDZJSlyuvbUGI_ODikycOrKAuDRSyEUsLeMpMOO2R29ZHBl0DQ6ocLQf5sxUt-SZ7DPGDKcgGsWSdMJnaXn-_hdvZGCKP9hf9CVm1Bn9ptZCrIAsQagyLAg4jWe1F1g83eW7SJF6ORYe_1kwinWdPKmeZyLHinZMU7Pne3D.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0e802f2e537f1af8016a7b0cbf7f58819091c7b525ce247263",
+                "index": 1
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 424,
+        "completion_tokens": 410,
+        "total_tokens": 834,
+        "cost": 0.01442,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01442,
+          "upstream_inference_prompt_cost": 0.00212,
+          "upstream_inference_completions_cost": 0.0123
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 256,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_06",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL\n    FROM toDate('2024-01-01')\n    TO toDate('2024-02-01')\n    STEP INTERVAL 1 DAY\nINTERPOLATE (revenue);",
+    "raw_response": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL\n    FROM toDate('2024-01-01')\n    TO toDate('2024-02-01')\n    STEP INTERVAL 1 DAY\nINTERPOLATE (revenue);",
+    "tokens_in": 424,
+    "tokens_out": 404,
+    "cost_usd": 0.01424,
+    "latency_ms": 9438.7,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449094-boc1zp4kvDMjKgulHkbh",
+      "object": "chat.completion",
+      "created": 1786449094,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL\n    FROM toDate('2024-01-01')\n    TO toDate('2024-02-01')\n    STEP INTERVAL 1 DAY\nINTERPOLATE (revenue);",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewzNe7DWn1pmfQn2YN0nXRfbL8eDQ8CiJuUPwUB1SrjqrMAD3GHcHzr3FpBYdF6aslIkn2r3FwBRt01b2zkAJybEbWddcWh9MH4iGSx10gjOL9OB3_824sQbOrTkAy7sNsCeMn__HdIQt9kuIyImNIq5QIkT9i74QrjEnDInZcQwNmfs5ilwX9avVXewaoFWvpzNaqUhsQcqd2MUIH1l-lXsT0cip13XmX7FkBwR5_tpj-HHjY3AEr6xzckbCIQ0z5kjbBzT3FsOt73-nebKau6rmbBFT2OYwio43H8NFXuCEa6QBaw7iho2nnCL8JtPOb1ie-ggiDcpEufgzRAWGgy1BUhxKdPdIaqRn23E7BEYlny0Zi7ov81IbMng_dlac_8W8edmazoK78d_BfRuOl21ypqRGImdEaQbkLeG9hT6B03A-8eIbnimx5ZdMShCLKgi0SuE7JYiW1ovo-QZwDFoQ8Hu6u_WiRI-ni9ZtfStCVurAqvgzzhW2LufwFN3DRgMGV-wzhd225JuRzWDd46yzr3KXY8m_AemQYBbRv6GJ6Anb6WAhgrK3a-L5Tn9jUQH9uRLLaXDtKaO2yzj4WJj3qD_3f0YjNlgvVpBywiR_VUyFI-V-ZsdW_pJJfMpmtNc-6LG_SHdpYbTnIfHseVZsSDt9tK5EpD3VseZJ3xjXXkjWTemJ2N1IqE5w_t7CZ-O4jBQfO0Jv6QMGTOJcrVxp0EYyQZK4A0DUlhRdrpONt5n6FKzH7kUOylogCPjAl-yge_LIPlWJmbOCoVfEOT9oi_jLXNerWXVQCn7D5LhLaYlAo7KeCSueHAp1Djho8uSIBsPdE34OiO_zTLF_r0dBONM4gGQij-HIWb44EarOSAgpdWRYafJnNBMsf7zHi5X3zVazymEK4B-sAJkaCpE0sDGkq0ic3eZbc_KEqZDvFaQvfFBOoILbFFFgE1ev03u22S7CefNVDX9TwwRnCb6R3MD9NKjttzboBDgJoaUSqj6QSeQCYuSocrf6GYiSPE0iqRIM9_mLwHlbHUSDTlS0vElCCO0-9SsqIVu0yr9inMYMDm4TVQ4EnlzZnW_0j6zmmEF7RZj91mo3VkaYzh5_HU9k2SoVzPMPo0HvvQrNS-xjfPJKeNIR3uIVfC2RwZe_qwiRcEGtg2ZtV8UuG4fXmSU6ROhdz2p_p9nHFAUo789IH67gD_ba9xwx4PKTzAacZPYLSt5PR6J73MQssKKtNlhrstr5lt2d0p2XfATg9V4u18su5z1_jXKPYQCvulyckn4ADz9L1hZl5uQfmEl8-biptA_DSJR2erjopems8wuXrFdBsw4pyjXug9MvEGbBBge1XTIVvOQlo0ML2EsgrD85OqvIGEj8fQtulCa2BTbLpa6F14DX7ngu1gvK89G5URLelH2vSZrJh-HUXFvfcehCS3l0snlIpw2As6PqIPib720NvJq15YXBfmhZcPu0NJTvmtmHoAa_FbvQkfsKnHSUTXOYIyG1SOb423EXUVqvvUGBoLBHANR2YvS-2e8ZhcffUeq0TdocpR1AnaHwT9XCj-OjCsoyNN51cDtZ9Q_2j8AEKQoHAytsfQEWdmbVrxeUOHKc0Zse7VSkRCDETNh4jW4yOjGsEIX7PB8xflRA9u4kzvee0hEhS-zAPjZh-h7Lvue-NPOC3UVgBelFx724byifkrHwXiXse_hvNtfNbQz58hvAsYtrynbtL0I0s89HO1OsM_zwIhp66b5ud1JWfJFbl2TOxSrcjrDdgF9-qRdBb57zsTdqVQ5zpX-OXORisyMAur3k15DoJi5EAII4LNKGt-HYl2xD8gIQljAQbP0-NPWYn9iI5A5gMDUtLV-prA3xNe1JAn9ALuVF8ob-CeuBD1b_9NBdspuoy7lEpfBDTZ7_ZG5fcz1dbXqDiC5MdGzS8Pt-wwm5ijlgpBW3PjOXfSuDtEIRxdG427xDhf8RZXlbZURfzY3YA0HRfiHIUryEPNhxc8itRTt2S8kUfmWQmvL413ZVxpQTRrlUtKsgEWIDGOpqjn84WJ19R_gi0zzPklkyavY88ZhmjgHq_N9LxrYKdpRXxWCW5Nh98s2p5WBvTxRASALJLHb_OzANf71Hgn2og2hX0Hb65N_-zNbCFePnGpe7Cq7Lq3qqxZRHbeN4ibzcjnd0VpbkfSxI3RXhMItsuimUTd2JFdLQKAEuoOmCpPDJ3rMuGBMlvsBcPxd30JsoX3PpsyMOaN0YHYeskCOAQ4eUczgnYRsGyb9ABC9Z1RehtxFFygmqSBfuEkBKWrFNafOG1SP.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0914bb71e0cb750d016a7b0cc9f2888194816ba65b46852eb0",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 424,
+        "completion_tokens": 404,
+        "total_tokens": 828,
+        "cost": 0.01424,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01424,
+          "upstream_inference_prompt_cost": 0.00212,
+          "upstream_inference_completions_cost": 0.01212
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 250,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_06",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL\n    FROM toDate('2024-01-01')\n    TO toDate('2024-02-01')\n    STEP INTERVAL 1 DAY\nINTERPOLATE (revenue);",
+    "raw_response": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL\n    FROM toDate('2024-01-01')\n    TO toDate('2024-02-01')\n    STEP INTERVAL 1 DAY\nINTERPOLATE (revenue);",
+    "tokens_in": 424,
+    "tokens_out": 447,
+    "cost_usd": 0.01553,
+    "latency_ms": 11014.4,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449104-lZbLUsQLNiQjADhr40Ra",
+      "object": "chat.completion",
+      "created": 1786449104,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    toDate(timestamp) AS day,\n    sum(revenue_cents) AS revenue\nFROM events\nWHERE event_type = 'purchase'\n  AND revenue_cents > 9950\n  AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\nGROUP BY day\nORDER BY day ASC\nWITH FILL\n    FROM toDate('2024-01-01')\n    TO toDate('2024-02-01')\n    STEP INTERVAL 1 DAY\nINTERPOLATE (revenue);",
+            "refusal": null,
+            "reasoning": "**Analyzing data requirements**\n\nI\u2019m thinking about a potential issue regarding the first day of data. Since there\u2019s no previous data to reference, it defaults to zero revenue likely. I was asked to carry over the previous revenue. It seems like making DateTime64 comparisons is possible with string formats. They insist there must be exactly two columns involved, which makes me focus on structuring the SQL query properly. I need to ensure I get this right!",
+            "reasoning_details": [
+              {
+                "type": "reasoning.summary",
+                "summary": "**Analyzing data requirements**\n\nI\u2019m thinking about a potential issue regarding the first day of data. Since there\u2019s no previous data to reference, it defaults to zero revenue likely. I was asked to carry over the previous revenue. It seems like making DateTime64 comparisons is possible with string formats. They insist there must be exactly two columns involved, which makes me focus on structuring the SQL query properly. I need to ensure I get this right!",
+                "format": "openai-responses-v1",
+                "index": 0
+              },
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewzasmoZ4rkFumlWNOhHS2ykUQxghk2PkbnPaG3wyoZhxiCRRlw9sWqmh-qyFdR1nClvpR86HaT9Mc3IG9uH3kowa-fh9ysTHJNb5kOkBRXhiCk2vaIU5LgPy5UheVkZsn0ZK4RGSZFFOHYIXUaCDJt20t9GD1Nnr0ubkR_Ckph-agaZNKXrfge7WqE_SVapfguD6JZhYZCKMfX7b7oGHr6BIDLOSqRKeGewvXicJtQ6ZQ0moPbb73B_lBsmxHHAhPMLLBH9M5xfQXt79pCd3bPd1h2ylWl2YS-9UPuI2Nr5NtBXDhH47oiCE1C8gFZqIYhIxa-1evQ-7GfLANcjJZu6nXF0mx6erjoFOWzMQhedPIYwue369wKcHAndpjSlaghjSDNEtK45LCJJzU2PT_DjR3unzHtHx_nq0u0kLXxG6PZKL5oGYL3HGcgsEHOtAcOQpgA4qGFhqY8FwJ8Iws5f6vCLpHMtTAmEsu-t-0AVHaEYK84NUMDwskLEwQLRsAqKq_VhNTv12lQE0rQjQVLyEUOc8Dec8aN3nSvKZdoGlkh3xnyx5lOaWpbNXFkm9pNKBsMNIQXcZqw65sd8pMQHIGxe0X9pALt_KkAJiKiIwhfDq_i75fQpRT325fAAa-nQ-0amNCbARMXhihQVGKajMLOnlB_J_ON7Zh--jdCfAxW8QnILUXopnKEXpF0lMqlwuuZLiStmCLOKPfifvP8HPNWzlMYTf17XCExGlmuugr6YOBxogURsw0Wsre0o03yg3iaG2-jqSXI-4qhnabzuqHHqA00IhZHPkMMsaUL-ub4eVjePsS8WAYZ6vezVu5aaWdNzMDiaexwYPMYC_Cg7n_LSTOJ_HOeho6EcIa8ZuhoyiNRN4_Pp2RaacI_uAB3Ao04uvMu7lO_wo22kWJ8p80_Voy6jC8YvthcusMPUMkqzFd4CVl4VqvrQvJGSh8T_s9nv0BrwzCZNGClER1ZMbbi_lmcWcJ2EBkD9hJ8vH1r8jTO05zuQh7mEuE5DFzJkNhJ8yaKtknhSCd5O80MsQpHfecaCVRgOziUoTpxTreVZVfwHW_RYCWKlidSJy6s5wJaBBZTGqVNkmd4xjVAQbR8KlPHFNLV9tJ9C9N5rLzrSo-5lKQVMaxWpvhe7ePIelG75e00shpJddbBk7X_qYE1KLETe42djkMWdcb-twFe7mWmGxgNREsAw6Qv1Qw1wYfI4Z5XBaPYr6JIpZBsoOY6fQ1XRVJkWxwhvJBe0vhpBs2Nv8QcuiaFnPH1yr0-DT4nYlEHYozoAH5M2uJeiPAUSwdStnkeyq9Ru08geWOo9P5s7nHqJ7TpposHJx_T_MORvCwVCOHZ0H3jSt-GKwGA7hsuFlwJSM7tUzMq0gUa3SwY52yc_d_a937CsOo6IA9Z3CVpJS5J3spa5MOTYFFhO7OlnwOfkvFmGkLJS3-g6phj1Sfqa7-oOuaZ6OD08pQjbB8dv_shLzIq9s6nlJH_c3YZcrAIPXh06eOd8Wvg2PHHaHRn3selPPbhBoPdAE0v7oG2SIeMYmBTOWObePM2-HX2dOE9ZhqDTRisauwBfyvcDdwCLgJWJKq350p0pYOxc3s4c5boJHlLoTY21orqL7STfCeDSoir42M1TKVGxSmPoU2G42ud-Syphq-0gH572eYqCxfiOjWH6k-sPp8G9ryKDw8dnU8UWXQSOS_TzVBDKCBdYAyW1kiM-Bep8KxfON5_EAwCelTuFee5EI331eqt5m8EjA57VS4kqqvXa_R8Rhl6j9x4P1Kd0PSHjeadfBskQl0jl9WlfrNd_dD2MpcT8bmGextmwu2-3w4AH5Ni_xkJm_YGfABHG-ushFkdrHFpHOkOmFxnkshe4vVAFYhsWh8FpaExBRqZ0ctHhqCu9Eygx02Bf5_PMxqGMjFt1-BvZr7IZnytuTOx-T3JdiaIfo3f456Y-gd3G5wzeYNABEq8qd7_qhD5ric0KjKOD_ndSHpHru7M0uCOKPnAs0c4vAnrGaXP5ytMjic0c8RAez_uPYL1-sec7aXb-MJYtO9InOSBlJ3FAvc18nfKr4RDJyEjmtwVaJajaw47x3h7iVVIUrh1uqhwO8R2TF_EnWSLmbjODasONahtEQQGmClVsW7b1R1vbC7TPkBtY281x3-VDP0S9d4bYXZrgN8H_CcOXjm3f_Y2IkfTA6ahF2yRZlqAZpsSyLM1FyXcZn5CtCjaUl0dVVs1pAHDtG6ZasPjBy4xyiDvU0pvOocpUHro-TKO-NzgT6iUgQKAEYJAUkkeMWVJIeENty3oDDRNSnkoNqioGDCCVLTCpBAs1lz2iehTEKnIrDrOAlr9oxlbF7mtT5xnFxb0KbwFmlkpaQYlLZzxpKPbrYlNKPF5cQYQ-6uniTQmXvQCwk5r7bbXdx_ZFW7Nazmekp0pAkeFWymsKkw9Kty6839Ep7pRvxQiF2dRhl0WKwnNOyVhPw80AcZeBV0x7REd13iEWs4eV5hBrjY_x1zYPR2DiNA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0fe9b79a846489cc016a7b0cd3455c8194817ea990cf83beae",
+                "index": 1
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 424,
+        "completion_tokens": 447,
+        "total_tokens": 871,
+        "cost": 0.01553,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01553,
+          "upstream_inference_prompt_cost": 0.00212,
+          "upstream_inference_completions_cost": 0.01341
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 293,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_07",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts\nFROM events;",
+    "raw_response": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts\nFROM events;",
+    "tokens_in": 405,
+    "tokens_out": 112,
+    "cost_usd": 0.005385,
+    "latency_ms": 4017.5,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449116-UZR4rj3h6w82j9Mhoqik",
+      "object": "chat.completion",
+      "created": 1786449116,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts\nFROM events;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewzfYHhW37oWqf8KZ9vD2rJnwbxBqpqN_EwU4-4BZOWZ-3QlT8ltcL7OmjDSMEFvG-A_1u8ZnXWK7mQrSD__6Ik3sJtqlxbo1fRdUrfd2jEWClwYpkwXfdOx4mET-1Frnuet2tWj5lzvb19y3RVFqjOYbO9BGTXMywqOuu6U58ppL5Fge9ayVyelHiTNTlBujjINky3fqGJh8jjhoQp3kQOZh1fD-mWktDuORtiYzotL5GJuKauW8BljXLddKfvltYoEhSUNEQSGtVBU6-wNCxRaOjFj94LQSTyQfOB-6SwYlquAVCJQqhQH65-pNpXBWy53FX-IbfyZ5y-XwDCLKt7iEUxC8tsQnY1kMwp7mTgANlHffsyWLq6uYqHb_2Qw0iGajbIg3YkaEprf2B465LwTKdJruqZabvZoP27xiZCTdtecOS5R0uH1-dYpal7ily5E84pbmU8H8GT7e32raF6B5mRpzuy4Fqk_z6gCQhoI0aBInNVnw3A7nJ7CvRk41Vp4_UGN8F9OPPIs585mVeLnKEeXnStidrN0ntRmtCroBtcKzfrBiwIEAH4rLnqG25tM6wPSsn4tD-Bp6GG1x62012xW77Okc9baxrVuVkzgSbTSpRmloX1CM414oyKSUn7I-dSXFgsGvPeyAg77Vxnn2i3zMpIIu3oaMQFlvHfs3uF_OqAftht92hpGrqIyJKxy1Odxf6e1A_Ors6imkdAc9LUoA9guZScZ9RjfiYWdRi_JVibTfwJIDOwnJEVVgADf6lXveT5jgdvYcKt4Dpc_isSmlUVR9pBSiz7yfP80sa6B4WPcgYXzNlsc-fmqDfphvdQpyyEvWvnaZXi9IRw_2beYv3nOjT9FlWo1U3bCSLqiEbObFYuXI0J9RrbkStom8ffm5Mh46KFIJECVVDlMjdJwQEPKrcsz2q1beOcwbZm0uiJ35oYtsgTrj-xQBBPDOsmvmCpa_VzOePI2h7MFuoR2Eye4a08-rLXQ6cL7Ci8qJwdG6E0-tvOG2Y8qLGL1Z3aPRrtR4DIvW1Jk4fIypC6P0X-q6SFY0m1d2githqAFh6iOQpu0mVeJ7kExLwdE9_l7zVvtoc4Xgz5NFnGO-SFzqIjLGb34T9-pn4tLGN_m06aM_wA83tb3ly1MwaXeisWB5f6bhZmx68S3jBvvwpinK1DqUHJABZQg34OAIL5uOJPcSNAP5ju5tq95X3fsRAd8-4HyuiD-zyzLh2GNlCMkLpDlOzCsHw8zBeaVamE9hX8VGp_A_LdhSwPI6euaqX82_JT8QwckPIHGEpJ3Bjdf9aesLpVm4rOHNN9-vg92HE414yWLDsKQanHX3tOV.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_02b5a9e9ae32391c016a7b0cdd6e648193b9a9c3890b2cbbe6",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 405,
+        "completion_tokens": 112,
+        "total_tokens": 517,
+        "cost": 0.005385,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.005385,
+          "upstream_inference_prompt_cost": 0.002025,
+          "upstream_inference_completions_cost": 0.00336
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 83,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_07",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts\nFROM events;",
+    "raw_response": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts\nFROM events;",
+    "tokens_in": 405,
+    "tokens_out": 147,
+    "cost_usd": 0.006435,
+    "latency_ms": 11075.4,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449120-IBpECb0c3FNZ9s1JGHFx",
+      "object": "chat.completion",
+      "created": 1786449120,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts\nFROM events;",
+            "refusal": null,
+            "reasoning": "**Exploring SQL syntax**\n\nI'm considering the syntax for the countResample function, which takes parameters like start, stop, and step. It seems that in ClickHouse, the countResample might require a resampling key as the last argument, while the count itself may not need any arguments. If I look at the documentation examples, they support this. So, I\u2019ll construct a query like: SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts FROM events. I also note that the end excludes 24.",
+            "reasoning_details": [
+              {
+                "type": "reasoning.summary",
+                "summary": "**Exploring SQL syntax**\n\nI'm considering the syntax for the countResample function, which takes parameters like start, stop, and step. It seems that in ClickHouse, the countResample might require a resampling key as the last argument, while the count itself may not need any arguments. If I look at the documentation examples, they support this. So, I\u2019ll construct a query like: SELECT countResample(0, 24, 6)(toHour(timestamp)) AS counts FROM events. I also note that the end excludes 24.",
+                "format": "openai-responses-v1",
+                "index": 0
+              },
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewzrssLx6CXWbWF2ATOOf6W0sJooPfU1mL6FAc9_UNWQ8jzmQyl6zBNS3SXbeoDr196A_ch13_jy6xAy4P5Wa_AD2PwW7vNMOYM2uxeCVdq1b5DxlWZk5lDoUjOteQ01PlAX3uG6UsSACStycBsNFUNDx9MCAiWYGetIPp7vF1INhFK-Cd7s54hW-RmDk_96xQN_UIYtZ2apZZbUzndLi0lOL5-Mun9lxg8Lnm8ufBf3c8nhKgj6nqs5k3q4TweR1_Mn0PcJsfWREWThR_FolURPKNNX_n7sgT3KkSygM-XgpYgHsNg6BL7VQehHAMd6Aq1PTOc7SefNTRx6Go-At5t583zS-v2phZbpnMNf9cV92PgjByNRtuapNAiGusjlUpx85R-RQd8ZKg5QYX0joxxRtPzHzrk4nJyM0fbKcaWuwNieEBqpTHShwefdNHharCOUSBFLoHg4VBA8WjUrJt6dJQO1y7iq10RImMbINwaGCLrr9cjDxR4OUOldQNECC5aHe5eljd10IZFHE1VZ8PU-fE4heyog0tysM42MeLhvUaR60ttpGQZsYSHrOhyhuw0dIrhavrZ3UtRd9ZfdPp5usJM4f1m2eScy0rV4sJu1EiGjKr6Rx7htM8Cb-1B1rMTK3seesWiG9XUnxw841WZnf6xObgeQ-VSKwQ68a0mSIJwTLJveVWEnJx6eykP9k5QmytVJx5cqTw_UN9kcjMv5OJgPQa8RdDSLqrKGCgKpoHC_qwRBcJHOekpPdngJ5MMcKo3imqXLzi4MrDA4ajV_j-yqmRGxFhO0DzDuyyTeOeSkoqSx4tx1mJPEwL6E4Sl41GRJvLSwk2oPJPTRoKs4rOzzlNn76UjKpVsbkrAvW_YfG_DwsP2fvgi7ZPdKpqanYZsonPiFTX28Wu-XPGMGheXmGRjZUQUXmpU7iISYFUs0clK4n4ybgym3q_fjDpwxC2cJA_xxXRf0UBESSuCo_bzhWrtmy9CygbSFF_JN9fZgEIImEgOFriOikcGrmW3CJ-16xPL5iGpojFF61gpSs5L_0Tj_a8rv5WWaZYYirfy1jmOzKjG18awidd9QkUK8urilB3Y6r7fyhs-8jRVmIsiJsNbtesgvhU4r9ap2ZD8LZ_NmWs8v9YIuYBNh6cotMM_Qkv0A6IVa4eVQjg1nX4vY2Txe9UgRD4KPvqJ1mP_xDUC9xdnXvb6da-Q8HjXDNLcv1jzUHZIqxIQ0NGs7VakP8QlWlF2Z9ysN5PkVkTXiCef383bCz7msIg6G9jyCe5YUWqdTDmwIsJpZugW6RRRWIiFx9UQv5K1hl1Oq7uf0K7dXbLHlPwVma9IAceym5Y-727NbVeCClESaDLV1wbIHr9mzHSjrs84PjsckaoMO2CEyuRV-AeehugwxeIn_6MUI69G7a2VDq8AF7rVoyLjmzrs9t864ewjdatx1abW8-qOz8LAZT2Q1EBed9LrGy23y8o-0-hKEKd2XAeqc0Q==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_04ccb1a19ba437df016a7b0ce41f648194b21a5934d9cf7e4c",
+                "index": 1
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 405,
+        "completion_tokens": 147,
+        "total_tokens": 552,
+        "cost": 0.006435,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.006435,
+          "upstream_inference_prompt_cost": 0.002025,
+          "upstream_inference_completions_cost": 0.00441
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 118,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_07",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS event_counts\nFROM events;",
+    "raw_response": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS event_counts\nFROM events;",
+    "tokens_in": 405,
+    "tokens_out": 127,
+    "cost_usd": 0.005835,
+    "latency_ms": 6903.7,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449132-vO3wGGbeXOqf5Vh416Gc",
+      "object": "chat.completion",
+      "created": 1786449132,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS event_counts\nFROM events;",
+            "refusal": null,
+            "reasoning": null,
+            "reasoning_details": [
+              {
+                "type": "reasoning.encrypted",
+                "data": "gAAAAABqewzyPNY5RXJOXkBHzWokonnqLsf7sByhj92s0xX6LXNEh_rV3JaeTnt1qvPUe_r11x6woucjUrMKXZ-Sd1JTFPwoWigjolBLyI6ouDJVKVLe_dt_Y5bwBn6NTn0aZefvBYjuFL_qRz83ISNRA-j9qhfM9fK9D9T-5YAT6x_c7VmllxjN5N7tki2i5qGASkVI3gvI0d-YEa9hOOwayrQfc2bWEzrNf8X_HDwptQFAL5qeQc79XAgcoHyk7Tdtr9TYwtk-PA6-gNZFzthHo2NEUsB9k4XfzMfv6Jo_IyoRQzZlWwbN5EeDWmGr2QM8XMiq5eRQDHuz4s4EQoLomsdQ8UryXpewsxmJ5POfwTi0s2ptq2YC0ZewojJ7qms1J0-bkk9nv3G5iPkora57NqzgTdGqZvbr_trV0E56uURAPaQyDAmxoc89pa5oKTw53ZEGnuAw5k1v4n1URqTG3WuSY7kVk2M77uJJMVyHrZGyHXd9zjbGYVZB8Lh9xVGBhCYwYxNjG7QOsESoCtzCYwoVuL_ztzIMSJM7qL2ooHC5lmcT5PwE8hmY8pqD6FOW23fyJT0l2-pCCkwZKU3WhHp6XYvZ-jd1dXK2VaOuh8oFcQs76OE9hS3fDlnQmRl3WyAbRJkKUhRT3Z2YCzumr5KU3A6dCstNqLSDlIUsCwJHSU6R5Aj2y21NYLLGlPa04QpGsW-VssTsqOaS7-Oj5gwuuOQlN4Vh5fkFr0JM8jzKthy4uxkSKNZ9426lNo2oQjTVg9-OrpL8YNij3IdGI4Sk4x-w3vevb3hMvIHdI_VnXgEiEM56TIdPu47Wq4iScWFVoMKlGqYQkrieUD-hGV4Y7UEP4_zli3PInEJrkQi8J5EKEgpQVF_zbJjidTT-Ak_vUcP6kpCpXfpBkhwEWtFjxWmyxW9B-GA8--Dbb1-mOoDNmwzc7zmgMu-E_zwkTsoD-BZ5cWKnX187xAegqkU6owOTrHVgS0oL5jKJ3JC3247rl1YU2UncPrq3cVn2nZhCqV45Fh3xGfARxTAdmvJJcMyI7PEBxnQToVeeMLB11n-gz0uT-UQELXRuUfNVQexC831cn-RiK3VIhDiDqe0EimzJ9xre6IWcLji6YnMoTu6zdeBlMZAdKKIru3Q_WEBs8eVrgehy92zyX6RAf-X6mOvhr5Udp2SvWe6HP6YGuV_kaAlUpONoT05_SbCDpIV85z86JSXY_pQmky8XOMkZWNhTfAD7uGXhpdiJpyxca83ySYM6mXRZzOgu2dg5vFWkccNAZQykw45H_q-K-2dpDscRfPxrAuqMTbbfCFn7PBtnN259EBKzNxnmgCcBdN3-DWhRVgVhhGkca6MCnW67C-MGpa3MkIs8iMzT9KBnJAS4Z-sm3Bp2TDCLF4rE7W8tVTUqaklorQIu2DEP4CLE-60vHw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtc29sLTIwMjYwNzA5fG9wZW5haSJ9",
+                "format": "openai-responses-v1",
+                "id": "rs_0836961abc93d373016a7b0cef34c881959594d0bfcbd986b0",
+                "index": 0
+              }
+            ]
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 405,
+        "completion_tokens": 127,
+        "total_tokens": 532,
+        "cost": 0.005835,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.005835,
+          "upstream_inference_prompt_cost": 0.002025,
+          "upstream_inference_completions_cost": 0.00381
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 97,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_08",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(purchase_count ORDER BY day)) AS cumulative_purchase_counts\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n);",
+    "raw_response": "SELECT arrayCumSum(groupArray(purchase_count ORDER BY day)) AS cumulative_purchase_counts\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n);",
+    "tokens_in": 389,
+    "tokens_out": 117,
+    "cost_usd": 0.005455,
+    "latency_ms": 3743.1,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449139-lWzA3A91Lx4TKwKoB2ZD",
+      "object": "chat.completion",
+      "created": 1786449139,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT arrayCumSum(groupArray(purchase_count ORDER BY day)) AS cumulative_purchase_counts\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n);",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 389,
+        "completion_tokens": 117,
+        "total_tokens": 506,
+        "cost": 0.005455,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.005455,
+          "upstream_inference_prompt_cost": 0.001945,
+          "upstream_inference_completions_cost": 0.00351
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_08",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(purchase_count ORDER BY day)) AS cumulative_purchase_counts\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n);",
+    "raw_response": "SELECT arrayCumSum(groupArray(purchase_count ORDER BY day)) AS cumulative_purchase_counts\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n);",
+    "tokens_in": 389,
+    "tokens_out": 117,
+    "cost_usd": 0.005455,
+    "latency_ms": 3150.0,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449143-HQI7KwiPmCei7oCBkdmB",
+      "object": "chat.completion",
+      "created": 1786449143,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT arrayCumSum(groupArray(purchase_count ORDER BY day)) AS cumulative_purchase_counts\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n);",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 389,
+        "completion_tokens": 117,
+        "total_tokens": 506,
+        "cost": 0.005455,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.005455,
+          "upstream_inference_prompt_cost": 0.001945,
+          "upstream_inference_completions_cost": 0.00351
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_08",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT arrayCumSum(groupArray(purchase_count ORDER BY day)) AS cumulative_purchase_counts\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n);",
+    "raw_response": "SELECT arrayCumSum(groupArray(purchase_count ORDER BY day)) AS cumulative_purchase_counts\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n);",
+    "tokens_in": 389,
+    "tokens_out": 117,
+    "cost_usd": 0.005455,
+    "latency_ms": 2975.6,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449147-LClXvGQfuDqAPY0D77pJ",
+      "object": "chat.completion",
+      "created": 1786449147,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT arrayCumSum(groupArray(purchase_count ORDER BY day)) AS cumulative_purchase_counts\nFROM\n(\n    SELECT\n        toDate(timestamp) AS day,\n        count() AS purchase_count\n    FROM events\n    WHERE event_type = 'purchase'\n      AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')\n      AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')\n    GROUP BY day\n);",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 389,
+        "completion_tokens": 117,
+        "total_tokens": 506,
+        "cost": 0.005455,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.005455,
+          "upstream_inference_prompt_cost": 0.001945,
+          "upstream_inference_completions_cost": 0.00351
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_09",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC;",
+    "raw_response": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC;",
+    "tokens_in": 387,
+    "tokens_out": 52,
+    "cost_usd": 0.003495,
+    "latency_ms": 2015.6,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449151-8enYONBtkP58BkTAFO7C",
+      "object": "chat.completion",
+      "created": 1786449151,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC;",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 387,
+        "completion_tokens": 52,
+        "total_tokens": 439,
+        "cost": 0.003495,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003495,
+          "upstream_inference_prompt_cost": 0.001935,
+          "upstream_inference_completions_cost": 0.00156
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_09",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC;",
+    "raw_response": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC;",
+    "tokens_in": 387,
+    "tokens_out": 52,
+    "cost_usd": 0.003495,
+    "latency_ms": 2416.1,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449153-BKxTeKtpSjTA9GRNQjGW",
+      "object": "chat.completion",
+      "created": 1786449153,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC;",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 387,
+        "completion_tokens": 52,
+        "total_tokens": 439,
+        "cost": 0.003495,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003495,
+          "upstream_inference_prompt_cost": 0.001935,
+          "upstream_inference_completions_cost": 0.00156
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_09",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC;",
+    "raw_response": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC;",
+    "tokens_in": 387,
+    "tokens_out": 52,
+    "cost_usd": 0.003495,
+    "latency_ms": 1621.1,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449156-Gv43zJSDmEWxwQroUIwq",
+      "object": "chat.completion",
+      "created": 1786449156,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT\n    country,\n    argMaxIf(page, timestamp, event_type = 'purchase') AS page\nFROM events\nGROUP BY country\nHAVING countIf(event_type = 'purchase') > 0\nORDER BY country ASC;",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 387,
+        "completion_tokens": 52,
+        "total_tokens": 439,
+        "cost": 0.003495,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.003495,
+          "upstream_inference_prompt_cost": 0.001935,
+          "upstream_inference_completions_cost": 0.00156
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_10",
+    "run": 1,
+    "tier": 6,
+    "extracted_sql": "SELECT uniqExact(property_key)\nFROM events\nARRAY JOIN mapKeys(properties) AS property_key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-03-02 00:00:00', 3, 'UTC');",
+    "raw_response": "SELECT uniqExact(property_key)\nFROM events\nARRAY JOIN mapKeys(properties) AS property_key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-03-02 00:00:00', 3, 'UTC');",
+    "tokens_in": 388,
+    "tokens_out": 87,
+    "cost_usd": 0.00455,
+    "latency_ms": 2200.1,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449158-MQMVl0tsjNiRZfcA9FHT",
+      "object": "chat.completion",
+      "created": 1786449158,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT uniqExact(property_key)\nFROM events\nARRAY JOIN mapKeys(properties) AS property_key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp <  toDateTime64('2024-03-02 00:00:00', 3, 'UTC');",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 388,
+        "completion_tokens": 87,
+        "total_tokens": 475,
+        "cost": 0.00455,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00455,
+          "upstream_inference_prompt_cost": 0.00194,
+          "upstream_inference_completions_cost": 0.00261
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_10",
+    "run": 2,
+    "tier": 6,
+    "extracted_sql": "SELECT uniqExact(property_key)\nFROM events\nARRAY JOIN mapKeys(properties) AS property_key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-03-02 00:00:00', 3, 'UTC');",
+    "raw_response": "SELECT uniqExact(property_key)\nFROM events\nARRAY JOIN mapKeys(properties) AS property_key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-03-02 00:00:00', 3, 'UTC');",
+    "tokens_in": 388,
+    "tokens_out": 86,
+    "cost_usd": 0.00452,
+    "latency_ms": 2575.0,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449161-bFJFNuQIXxZEKBDsakGr",
+      "object": "chat.completion",
+      "created": 1786449161,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT uniqExact(property_key)\nFROM events\nARRAY JOIN mapKeys(properties) AS property_key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-03-02 00:00:00', 3, 'UTC');",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 388,
+        "completion_tokens": 86,
+        "total_tokens": 474,
+        "cost": 0.00452,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00452,
+          "upstream_inference_prompt_cost": 0.00194,
+          "upstream_inference_completions_cost": 0.00258
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "model": "gpt-5.6-sol",
+    "model_id": "openai/gpt-5.6-sol",
+    "question_id": "t6_10",
+    "run": 3,
+    "tier": 6,
+    "extracted_sql": "SELECT uniqExact(property_key)\nFROM events\nARRAY JOIN mapKeys(properties) AS property_key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-03-02 00:00:00', 3, 'UTC');",
+    "raw_response": "SELECT uniqExact(property_key)\nFROM events\nARRAY JOIN mapKeys(properties) AS property_key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-03-02 00:00:00', 3, 'UTC');",
+    "tokens_in": 388,
+    "tokens_out": 86,
+    "cost_usd": 0.00452,
+    "latency_ms": 2079.1,
+    "model_id_returned": "openai/gpt-5.6-sol",
+    "error": null,
+    "raw_api_response": {
+      "id": "gen-1786449164-SUgQIWZfPRbrkorOImxn",
+      "object": "chat.completion",
+      "created": 1786449164,
+      "model": "openai/gpt-5.6-sol",
+      "provider": "OpenAI",
+      "system_fingerprint": null,
+      "service_tier": "default",
+      "choices": [
+        {
+          "index": 0,
+          "logprobs": null,
+          "finish_reason": "stop",
+          "native_finish_reason": "completed",
+          "message": {
+            "role": "assistant",
+            "content": "SELECT uniqExact(property_key)\nFROM events\nARRAY JOIN mapKeys(properties) AS property_key\nWHERE event_type = 'purchase'\n  AND timestamp >= toDateTime64('2024-03-01 00:00:00', 3, 'UTC')\n  AND timestamp < toDateTime64('2024-03-02 00:00:00', 3, 'UTC');",
+            "refusal": null,
+            "reasoning": null
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 388,
+        "completion_tokens": 86,
+        "total_tokens": 474,
+        "cost": 0.00452,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00452,
+          "upstream_inference_prompt_cost": 0.00194,
+          "upstream_inference_completions_cost": 0.00258
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      }
+    }
+  }
+]

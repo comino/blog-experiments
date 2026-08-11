@@ -111,11 +111,11 @@ def classify(ref_rows, llm_rows):
 def main():
     scores_csv, out_csv = sys.argv[1], sys.argv[2]
 
-    with open(DATA / "questions.json") as f:
+    with open(DATA / "questions_t6.json") as f:
         questions = {q["id"]: q for q in json.load(f)}
 
     full_sql = {}
-    for rf in (DATA / "responses").glob("*.json"):
+    for rf in (DATA / "responses_t6").glob("*.json"):
         for r in json.load(open(rf)):
             full_sql[(r["model"], r["question_id"], r["run"])] = r.get("extracted_sql", "")
 

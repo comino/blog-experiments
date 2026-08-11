@@ -87,3 +87,91 @@
 - [2026-08-11 07:03:59] gpt-5.6-sol-pro: 145 already done
 - [2026-08-11 07:05:32] gpt-5.6-sol-pro done: 150 responses
 - [2026-08-11 07:05:32] All complete!
+- [2026-08-11 11:48:54] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:54] claude-sonnet-4.5: 0 already done
+- [2026-08-11 11:48:54] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:54] claude-opus-4.6: 0 already done
+- [2026-08-11 11:48:54] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:54] claude-opus-4: 0 already done
+- [2026-08-11 11:48:55] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:55] gpt-5.2: 0 already done
+- [2026-08-11 11:48:55] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:55] minimax-m2.5: 0 already done
+- [2026-08-11 11:48:55] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:55] kimi-k2.5: 0 already done
+- [2026-08-11 11:48:56] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:56] gemini-3-flash: 0 already done
+- [2026-08-11 11:48:56] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:56] deepseek-v3.2: 0 already done
+- [2026-08-11 11:48:57] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:57] claude-sonnet-5: 0 already done
+- [2026-08-11 11:48:57] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:57] claude-opus-5: 0 already done
+- [2026-08-11 11:48:58] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:58] gpt-5.5: 0 already done
+- [2026-08-11 11:48:58] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:58] gemini-3.5-flash: 0 already done
+- [2026-08-11 11:48:58] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:58] deepseek-v4-pro: 0 already done
+- [2026-08-11 11:48:59] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:59] kimi-k3: 0 already done
+- [2026-08-11 11:48:59] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:48:59] minimax-m3: 0 already done
+- [2026-08-11 11:49:00] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:49:00] deepseek-v4-flash: 0 already done
+- [2026-08-11 11:49:00] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:49:00] gpt-5.6-luna: 0 already done
+- [2026-08-11 11:49:00] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:49:00] gpt-5.6-luna-pro: 0 already done
+- [2026-08-11 11:49:01] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:49:01] gpt-5.6-sol: 0 already done
+- [2026-08-11 11:49:01] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:49:01] gpt-5.6-sol-pro: 0 already done
+- [2026-08-11 11:49:02] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:49:02] gpt-5.6-terra: 0 already done
+- [2026-08-11 11:49:02] Starting: 22 models × 10 Qs × 3 runs = 660
+- [2026-08-11 11:49:02] gpt-5.6-terra-pro: 0 already done
+- [2026-08-11 11:50:01] gemini-3-flash done: 30 responses
+- [2026-08-11 11:50:01] All complete!
+- [2026-08-11 11:50:44] deepseek-v3.2 done: 30 responses
+- [2026-08-11 11:50:44] All complete!
+- [2026-08-11 11:50:46] claude-sonnet-4.5 done: 30 responses
+- [2026-08-11 11:50:46] All complete!
+- [2026-08-11 11:50:55] claude-opus-4 done: 30 responses
+- [2026-08-11 11:50:55] All complete!
+- [2026-08-11 11:51:09] claude-sonnet-5 done: 30 responses
+- [2026-08-11 11:51:09] All complete!
+- [2026-08-11 11:51:15] claude-opus-4.6 done: 30 responses
+- [2026-08-11 11:51:15] All complete!
+- [2026-08-11 11:51:28] gpt-5.6-terra done: 30 responses
+- [2026-08-11 11:51:28] All complete!
+- [2026-08-11 11:52:09] minimax-m2.5 done: 30 responses
+- [2026-08-11 11:52:09] All complete!
+- [2026-08-11 11:52:11] claude-opus-5 done: 30 responses
+- [2026-08-11 11:52:11] All complete!
+- [2026-08-11 11:52:46] gpt-5.6-sol done: 30 responses
+- [2026-08-11 11:52:46] All complete!
+- [2026-08-11 11:52:51] gpt-5.6-luna done: 30 responses
+- [2026-08-11 11:52:51] All complete!
+- [2026-08-11 11:53:30] gemini-3.5-flash done: 30 responses
+- [2026-08-11 11:53:30] All complete!
+- [2026-08-11 11:54:04] gpt-5.6-terra-pro done: 30 responses
+- [2026-08-11 11:54:04] All complete!
+- [2026-08-11 11:54:25] gpt-5.5 done: 30 responses
+- [2026-08-11 11:54:25] All complete!
+- [2026-08-11 11:56:28] gpt-5.2 done: 30 responses
+- [2026-08-11 11:56:28] All complete!
+- [2026-08-11 11:57:00] gpt-5.6-sol-pro done: 30 responses
+- [2026-08-11 11:57:00] All complete!
+- [2026-08-11 11:58:05] gpt-5.6-luna-pro done: 30 responses
+- [2026-08-11 11:58:05] All complete!
+- [2026-08-11 12:00:00] minimax-m3 done: 30 responses
+- [2026-08-11 12:00:00] All complete!
+- [2026-08-11 12:01:52] deepseek-v4-pro done: 30 responses
+- [2026-08-11 12:01:52] All complete!
+- [2026-08-11 12:04:43] kimi-k3 done: 30 responses
+- [2026-08-11 12:04:43] All complete!
+- [2026-08-11 12:14:27] kimi-k2.5 done: 30 responses
+- [2026-08-11 12:14:27] All complete!
+- [2026-08-11 12:31:02] deepseek-v4-flash done: 30 responses
+- [2026-08-11 12:31:02] All complete!
