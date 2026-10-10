@@ -1,0 +1,8 @@
+{
+  "verified_at": "2026-10-07T14:38:45.291500+00:00",
+  "all_remote_artifacts_verified": true,
+  "artifact_count": 86,
+  "total_verified_bytes": 80063381,
+  "manifest_sha256": "acedfa862fe69e01201fc9d209ef713e73e1bfc40813f66f5cecc798932855eb",
+  "openrouter_credential_absent": true
+}

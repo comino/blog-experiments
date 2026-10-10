@@ -1,0 +1,9 @@
+recommended_configuration,other_configuration,metric,difference_percentage_points,ci95_low_percentage_points,ci95_high_percentage_points
+deepseek/deepseek-v4.1-flash@sail-research/fp4,deepseek/deepseek-v4-flash@parasail/fp8,accuracy,3.3333333333333335,-2.6666666666666665,10.0
+deepseek/deepseek-v4.1-flash@sail-research/fp4,deepseek/deepseek-v4-flash@relace/fp4,accuracy,2.9999999999999996,-9.251858538542972e-17,7.333333333333333
+deepseek/deepseek-v4.1-flash@sail-research/fp4,deepseek/deepseek-v4.1-flash@inference-net/fp8,accuracy,2.0,-0.9999999999999999,5.999999999999999
+deepseek/deepseek-v4.1-flash@sail-research/fp4,deepseek/deepseek-v4.1-flash@parasail/fp8,accuracy,2.0,-0.33333333333333354,5.999999999999999
+deepseek/deepseek-v4.1-flash@sail-research/fp4,deepseek/deepseek-v4-flash@parasail/fp8,correct_within_5s,2.333333333333333,-4.666666666666666,9.666666666666666
+deepseek/deepseek-v4.1-flash@sail-research/fp4,deepseek/deepseek-v4-flash@relace/fp4,correct_within_5s,4.666666666666666,-1.8503717077085943e-16,10.0
+deepseek/deepseek-v4.1-flash@sail-research/fp4,deepseek/deepseek-v4.1-flash@inference-net/fp8,correct_within_5s,-0.6666666666666662,-4.333333333333333,3.3333333333333335
+deepseek/deepseek-v4.1-flash@sail-research/fp4,deepseek/deepseek-v4.1-flash@parasail/fp8,correct_within_5s,2.6666666666666665,-1.6666666666666667,7.666666666666666

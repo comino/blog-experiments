@@ -1,0 +1,17 @@
+{
+  "status": "five_model_measurement_complete_two_models_pending_access",
+  "active_models": [
+    "openai/gpt-6-luna",
+    "upstage/solar-mini4",
+    "deepseek/deepseek-v4.1-flash",
+    "inception/mercury-2.5",
+    "ibm-granite/granite-4.2-8b"
+  ],
+  "pending_models": [
+    "mistralai/mistral-large-4-0",
+    "qwen/qwen3.8-flash"
+  ],
+  "reason": "OpenRouter account-level zero-data-retention restrictions; user decision to allow providers or retain five-model cohort is pending. Five-model measurements are independently authorized by the benchmark request.",
+  "scope": "No seven-model conclusion may be claimed from this run.",
+  "completed_main_requests": 1500
+}

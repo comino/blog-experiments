@@ -1,0 +1,18 @@
+.dataset-heading{flex:1;min-width:0}
+.dataset-label{display:block;color:#6c919c;font-size:9px;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:7px}
+#dataset-select{display:block;max-width:100%;width:auto;background:#101f2b;color:#d7ece7;border:0;border-radius:5px;padding:2px 20px 2px 0;margin-left:-2px;font:500 17px/1.4 Inter,system-ui,sans-serif;letter-spacing:-.3px;cursor:pointer}
+#dataset-select:focus-visible{outline:2px solid #55c6ae;outline-offset:4px}
+#dataset-select option{background:#132634;color:#d7ece7}
+#dataset-select:disabled{opacity:.55;cursor:wait}
+.conversation-heading #dataset-caption{font-size:10px;line-height:1.5;color:#7796a4;letter-spacing:0;margin-top:6px}
+#dataset-details{font-size:11px;color:#a8cbd0;text-align:left;padding:7px 0;margin-top:4px}
+#dataset-details:hover{color:#a3edcf}
+body[data-dataset=maritime] #dataset-select{color:#c2dfff}
+body[data-dataset=maritime] .dataset-label{color:#799fbe}
+body[data-dataset=maritime] #viewport{background-image:radial-gradient(#28435e80 .75px,transparent .75px)}
+.dataset-source{display:block;font-size:11px;color:#8bc7d8;margin:10px 0;text-decoration:none}
+.dataset-source:hover{text-decoration:underline}
+.dataset-example{display:block;width:100%;padding:11px 12px;margin:9px 0;background:#122c39;border:1px solid #2b4a55;border-radius:8px;text-align:left;font-size:11px;color:#a9d2cf;line-height:1.5}
+.dataset-example:hover{background:#1c3e48;border-color:#4b9c8c}
+.data-card .view-select{max-width:125px}
+@media(max-width:640px){#dataset-select{font-size:16px}.dataset-label{font-size:8px;margin-bottom:5px}.conversation-heading #dataset-caption{font-size:9px}}

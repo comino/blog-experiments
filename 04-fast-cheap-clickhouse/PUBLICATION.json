@@ -1,0 +1,2302 @@
+{
+  "source_commit": "55cec81d39380105b8fed69523137977f5b75e9f",
+  "source_repository": "comino/clickhouse-data-canvas",
+  "selected_files": [
+    {
+      "path": ".gitignore",
+      "source_sha256": "be0662cefddd39dfb99f364c67c17110fede093c5269ef4bccc3623ec8020f09",
+      "source_bytes": 1932,
+      "published_sha256": "be0662cefddd39dfb99f364c67c17110fede093c5269ef4bccc3623ec8020f09",
+      "published_bytes": 1932,
+      "byte_identical": true
+    },
+    {
+      "path": "analyze_subsecond.py",
+      "source_sha256": "30c50c56500392fd2cf22301dd6afd6210a2daed2ba589310ef12eaae0da94bc",
+      "source_bytes": 2769,
+      "published_sha256": "30c50c56500392fd2cf22301dd6afd6210a2daed2ba589310ef12eaae0da94bc",
+      "published_bytes": 2769,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/README.md",
+      "source_sha256": "7694abbbf322e851001b4c6e2d7c93eafc00a67a70db53598bf894d62f7e3768",
+      "source_bytes": 2145,
+      "published_sha256": "7694abbbf322e851001b4c6e2d7c93eafc00a67a70db53598bf894d62f7e3768",
+      "published_bytes": 2145,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/METHODOLOGY.md",
+      "source_sha256": "e5dd8ee0431d0e4f3231ab0940a0a89ea6cdfbce5409a8863b306e40ad6815f0",
+      "source_bytes": 8786,
+      "published_sha256": "e5dd8ee0431d0e4f3231ab0940a0a89ea6cdfbce5409a8863b306e40ad6815f0",
+      "published_bytes": 8786,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/NOTES.md",
+      "source_sha256": "3bf7aee8e75fa1cda64a09c7961bf7389ca1a84e80cd764c87d79fd2ae9d8707",
+      "source_bytes": 4528,
+      "published_sha256": "4e5422cb3df973a0654b5a708c7c66729fef687f9e7f3d7f15aee1a95038e743",
+      "published_bytes": 4559,
+      "byte_identical": false
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/README.md",
+      "source_sha256": "46605a59903a08215ef92d2c719541057cfa601d52b436302a04d9aa792ac12d",
+      "source_bytes": 3545,
+      "published_sha256": "1014915fda157159775aac70ef4bb7aee269fc3039eb12324a220756ef07b919",
+      "published_bytes": 3575,
+      "byte_identical": false
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/analyse.py",
+      "source_sha256": "8983d5f1a213129cecb0f4881b120c08b094f5c7132f23303a96a21da46e78d6",
+      "source_bytes": 20305,
+      "published_sha256": "8983d5f1a213129cecb0f4881b120c08b094f5c7132f23303a96a21da46e78d6",
+      "published_bytes": 20305,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/artifacts-sha256.json",
+      "source_sha256": "acedfa862fe69e01201fc9d209ef713e73e1bfc40813f66f5cecc798932855eb",
+      "source_bytes": 11975,
+      "published_sha256": "acedfa862fe69e01201fc9d209ef713e73e1bfc40813f66f5cecc798932855eb",
+      "published_bytes": 11975,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/audit.py",
+      "source_sha256": "3c33b93da4ab91e6633c8fa8c9806c75c3317b8cea57e3bdd004e56471fe639f",
+      "source_bytes": 6800,
+      "published_sha256": "3c33b93da4ab91e6633c8fa8c9806c75c3317b8cea57e3bdd004e56471fe639f",
+      "published_bytes": 6800,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/benchmark.py",
+      "source_sha256": "8a3cc97825ea7f11966780dacc6dd739ee33d4bfe59809aa941fdf8e21106191",
+      "source_bytes": 22721,
+      "published_sha256": "8a3cc97825ea7f11966780dacc6dd739ee33d4bfe59809aa941fdf8e21106191",
+      "published_bytes": 22721,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/bootstrap.sh",
+      "source_sha256": "ef33c131175ed6323860b18d6bb10af9741253d3db10dffb7562625c887496c8",
+      "source_bytes": 1731,
+      "published_sha256": "ef33c131175ed6323860b18d6bb10af9741253d3db10dffb7562625c887496c8",
+      "published_bytes": 1731,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/build-options.tsv",
+      "source_sha256": "1ea36996935192584a6ec209a9fb7b1e0514ccce7aa60e7c3ffe9d7c088989f0",
+      "source_bytes": 4613,
+      "published_sha256": "1ea36996935192584a6ec209a9fb7b1e0514ccce7aa60e7c3ffe9d7c088989f0",
+      "published_bytes": 4613,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/candidate-routes.json",
+      "source_sha256": "705bb944fa591a014e8e213adca432237fb6268707eed0705aa010c0ae755853",
+      "source_bytes": 9558,
+      "published_sha256": "705bb944fa591a014e8e213adca432237fb6268707eed0705aa010c0ae755853",
+      "published_bytes": 9558,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/clickhouse-binary.json",
+      "source_sha256": "115ea0307acd8ba013cb4e3c405bbb31b4534be2e1d6c575472e150da55fd283",
+      "source_bytes": 315,
+      "published_sha256": "115ea0307acd8ba013cb4e3c405bbb31b4534be2e1d6c575472e150da55fd283",
+      "published_bytes": 315,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/cloud-init.yml",
+      "source_sha256": "b5373c6d34eb519cca0f4c2e283037f8b9dcb9523a7f98ce4cc89ffd38a80ce8",
+      "source_bytes": 145,
+      "published_sha256": "b5373c6d34eb519cca0f4c2e283037f8b9dcb9523a7f98ce4cc89ffd38a80ce8",
+      "published_bytes": 145,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/cohort-notes.json",
+      "source_sha256": "12dbfa047bbd50a4859a5ff834b6e0b3eb4a3d9916271a66076955d5c5d550a5",
+      "source_bytes": 670,
+      "published_sha256": "12dbfa047bbd50a4859a5ff834b6e0b3eb4a3d9916271a66076955d5c5d550a5",
+      "published_bytes": 670,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/data-fingerprints-after.jsonl",
+      "source_sha256": "5765b7361da254697e4c4fbd94b964d520595deb0cf1ec9700238e40e61e8d66",
+      "source_bytes": 130,
+      "published_sha256": "5765b7361da254697e4c4fbd94b964d520595deb0cf1ec9700238e40e61e8d66",
+      "published_bytes": 130,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/data-fingerprints.jsonl",
+      "source_sha256": "5765b7361da254697e4c4fbd94b964d520595deb0cf1ec9700238e40e61e8d66",
+      "source_bytes": 130,
+      "published_sha256": "5765b7361da254697e4c4fbd94b964d520595deb0cf1ec9700238e40e61e8d66",
+      "published_bytes": 130,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/database-metadata.json",
+      "source_sha256": "1105f7ca6297c289da90e5acd6019a9ea1252e54198100025a21282f575defce",
+      "source_bytes": 72,
+      "published_sha256": "1105f7ca6297c289da90e5acd6019a9ea1252e54198100025a21282f575defce",
+      "published_bytes": 72,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/dataset-verification.json",
+      "source_sha256": "15d5e6d58234c747de2601d312bb195996ec68270f5c2168d3b8679b706d8243",
+      "source_bytes": 455,
+      "published_sha256": "15d5e6d58234c747de2601d312bb195996ec68270f5c2168d3b8679b706d8243",
+      "published_bytes": 455,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/decision-rule.json",
+      "source_sha256": "c4d55b29425e3372d2f4b39c5eadbdcfef975e787eded53cfc53c22158dc1c55",
+      "source_bytes": 1261,
+      "published_sha256": "c4d55b29425e3372d2f4b39c5eadbdcfef975e787eded53cfc53c22158dc1c55",
+      "published_bytes": 1261,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/environment.json",
+      "source_sha256": "af421b516b2862489666120f94ed1ee810e5301865dab4cb2662ea2e8b04f6df",
+      "source_bytes": 8635,
+      "published_sha256": "af421b516b2862489666120f94ed1ee810e5301865dab4cb2662ea2e8b04f6df",
+      "published_bytes": 8635,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/evaluation.py",
+      "source_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "source_bytes": 2553,
+      "published_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "published_bytes": 2553,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/finalize.py",
+      "source_sha256": "bf197a535039ff0c7f190479418a7368adb0b9ccf5dfedea1db952826be74761",
+      "source_bytes": 3806,
+      "published_sha256": "bf197a535039ff0c7f190479418a7368adb0b9ccf5dfedea1db952826be74761",
+      "published_bytes": 3806,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/fixture.sql",
+      "source_sha256": "a3ee035f9de03a8ec7d05c17a79828a4ea010f0ee735a782aac19ded38ffb490",
+      "source_bytes": 2565,
+      "published_sha256": "a3ee035f9de03a8ec7d05c17a79828a4ea010f0ee735a782aac19ded38ffb490",
+      "published_bytes": 2565,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/local-verification.json",
+      "source_sha256": "6809df5bf0b51ddf821682c3b11b1643db180493a45abab733c16d8a4d774fbc",
+      "source_bytes": 286,
+      "published_sha256": "6809df5bf0b51ddf821682c3b11b1643db180493a45abab733c16d8a4d774fbc",
+      "published_bytes": 286,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/model-shortlist.json",
+      "source_sha256": "52249f505592ea596e38137f5bbf707c5862c44e2731e002a5e1e59028dc5ecf",
+      "source_bytes": 12399,
+      "published_sha256": "52249f505592ea596e38137f5bbf707c5862c44e2731e002a5e1e59028dc5ecf",
+      "published_bytes": 12399,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/openrouter-endpoints-2026-10-07.json",
+      "source_sha256": "cdade6cdc6101ae735b4af8ddc64444048bf02e24af37a0addde97292114b5a4",
+      "source_bytes": 89066,
+      "published_sha256": "cdade6cdc6101ae735b4af8ddc64444048bf02e24af37a0addde97292114b5a4",
+      "published_bytes": 89066,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/prepare.py",
+      "source_sha256": "49c28de3fe813e94644e4526bb0b911b3ba507f7dafffbfd5cbae2f46c0b535a",
+      "source_bytes": 14966,
+      "published_sha256": "49c28de3fe813e94644e4526bb0b911b3ba507f7dafffbfd5cbae2f46c0b535a",
+      "published_bytes": 14966,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/questions.json",
+      "source_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "source_bytes": 68341,
+      "published_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "published_bytes": 68341,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/reference-checks.json",
+      "source_sha256": "ced7c95b0dfee2761d27605d7e2823012a831fa83d7381f9fa6e6b143704037e",
+      "source_bytes": 5427,
+      "published_sha256": "ced7c95b0dfee2761d27605d7e2823012a831fa83d7381f9fa6e6b143704037e",
+      "published_bytes": 5427,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/references.json",
+      "source_sha256": "820c7814b92d8d02624fd8ebf04f1e5ffb3ef9d626f1046d92d260625459f870",
+      "source_bytes": 960151,
+      "published_sha256": "820c7814b92d8d02624fd8ebf04f1e5ffb3ef9d626f1046d92d260625459f870",
+      "published_bytes": 960151,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/remote.py",
+      "source_sha256": "f8af5e2eb9c5e2f60c5def40059b97b5ed0adc092ce5c9166f7442b2c0dd6df3",
+      "source_bytes": 3469,
+      "published_sha256": "f8af5e2eb9c5e2f60c5def40059b97b5ed0adc092ce5c9166f7442b2c0dd6df3",
+      "published_bytes": 3469,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/audit.json",
+      "source_sha256": "252d4a077414d0e4f7df3755e4d0d593e5b14b330262e12228c3bcc6a3b160a5",
+      "source_bytes": 657,
+      "published_sha256": "252d4a077414d0e4f7df3755e4d0d593e5b14b330262e12228c3bcc6a3b160a5",
+      "published_bytes": 657,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/blocked-models.json",
+      "source_sha256": "882e6ea5632745ae193fecbd5dcc8ef3bd20f3c91b87b0493bf50146a1166c48",
+      "source_bytes": 481,
+      "published_sha256": "882e6ea5632745ae193fecbd5dcc8ef3bd20f3c91b87b0493bf50146a1166c48",
+      "published_bytes": 481,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/RESULTS.md",
+      "source_sha256": "97edd9957ab4068d504589c47e1406d66ccde32c91130d6d6d30a439366a4774",
+      "source_bytes": 4726,
+      "published_sha256": "97edd9957ab4068d504589c47e1406d66ccde32c91130d6d6d30a439366a4774",
+      "published_bytes": 4726,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/accuracy-vs-cost.png",
+      "source_sha256": "bdacf20d38482917870e8e8685ea0bc66c618b2f334c4da3d4fff333f0e7bdca",
+      "source_bytes": 94702,
+      "published_sha256": "bdacf20d38482917870e8e8685ea0bc66c618b2f334c4da3d4fff333f0e7bdca",
+      "published_bytes": 94702,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/accuracy-vs-cost.svg",
+      "source_sha256": "0b0ddde616b2b2b96ed2fe175f5354a2a88079a3e85f3413411ed41b91ebba7f",
+      "source_bytes": 58476,
+      "published_sha256": "0b0ddde616b2b2b96ed2fe175f5354a2a88079a3e85f3413411ed41b91ebba7f",
+      "published_bytes": 58476,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/accuracy-vs-delay.png",
+      "source_sha256": "5bc6e92c3c35a48dcb9feb007e60654aaaf263cc3ba55f35c5d94aa74c401dc7",
+      "source_bytes": 94500,
+      "published_sha256": "5bc6e92c3c35a48dcb9feb007e60654aaaf263cc3ba55f35c5d94aa74c401dc7",
+      "published_bytes": 94500,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/accuracy-vs-delay.svg",
+      "source_sha256": "44c064b951f383de8900cb29eff3519c1360e498ea467a414fce868d7d4dbc87",
+      "source_bytes": 60498,
+      "published_sha256": "44c064b951f383de8900cb29eff3519c1360e498ea467a414fce868d7d4dbc87",
+      "published_bytes": 60498,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/by-question.csv",
+      "source_sha256": "1d403a67235517effdccd99303d9e3155adcf8f081560444a19512fb9d3371f3",
+      "source_bytes": 11522,
+      "published_sha256": "1d403a67235517effdccd99303d9e3155adcf8f081560444a19512fb9d3371f3",
+      "published_bytes": 11522,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/by-repetition.csv",
+      "source_sha256": "714f87ba5c48cc1e743be3d61faab95a9b00666988330e7ac83aab8520e2fd2a",
+      "source_bytes": 4060,
+      "published_sha256": "714f87ba5c48cc1e743be3d61faab95a9b00666988330e7ac83aab8520e2fd2a",
+      "published_bytes": 4060,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/by-tier.csv",
+      "source_sha256": "4b54aec8e2a502b150e19ad5ca63b59bc8b99b4cead488da0dde9b4e879a01e8",
+      "source_bytes": 1249,
+      "published_sha256": "4b54aec8e2a502b150e19ad5ca63b59bc8b99b4cead488da0dde9b4e879a01e8",
+      "published_bytes": 1249,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/correct-within-deadline.png",
+      "source_sha256": "c002f7dada14c8a662e33ccc7223b7d5ba24b67b07c9031097c4304121bd5d33",
+      "source_bytes": 92328,
+      "published_sha256": "c002f7dada14c8a662e33ccc7223b7d5ba24b67b07c9031097c4304121bd5d33",
+      "published_bytes": 92328,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/correct-within-deadline.svg",
+      "source_sha256": "86d7e1accdb32fd0780ac49899925b7f0d384a812df394d3a78744c3eebe8f34",
+      "source_bytes": 39250,
+      "published_sha256": "86d7e1accdb32fd0780ac49899925b7f0d384a812df394d3a78744c3eebe8f34",
+      "published_bytes": 39250,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/failures.csv",
+      "source_sha256": "f696662d8e9f482c5947ef70aaf354237f3dfadfd0c6b57c2b429a7adf4cf5f6",
+      "source_bytes": 294870,
+      "published_sha256": "f696662d8e9f482c5947ef70aaf354237f3dfadfd0c6b57c2b429a7adf4cf5f6",
+      "published_bytes": 294870,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/paired-comparisons.csv",
+      "source_sha256": "3284dac38773c4cce7009bf83ca6c1bc69e6a8b4da64b78a80ecf4e197b7e07b",
+      "source_bytes": 1053,
+      "published_sha256": "3284dac38773c4cce7009bf83ca6c1bc69e6a8b4da64b78a80ecf4e197b7e07b",
+      "published_bytes": 1053,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/summary.csv",
+      "source_sha256": "0f0fbb649dea96f96a6e11eccfdde314c7a9290d233f53e090d530c6ebd1c934",
+      "source_bytes": 3037,
+      "published_sha256": "0f0fbb649dea96f96a6e11eccfdde314c7a9290d233f53e090d530c6ebd1c934",
+      "published_bytes": 3037,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full-analysis/summary.json",
+      "source_sha256": "9314a8fd87e7c34e15cbb4ee63ff29b8fb3143b1cc3cce4c1ff9a31b9b71d296",
+      "source_bytes": 13197,
+      "published_sha256": "9314a8fd87e7c34e15cbb4ee63ff29b8fb3143b1cc3cce4c1ff9a31b9b71d296",
+      "published_bytes": 13197,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/full.jsonl.gz",
+      "source_sha256": "a4b9ac42a76ad01c1d796fe0accf530bb872747e456edc164be8d5ad1429ee7f",
+      "source_bytes": 3764721,
+      "published_sha256": "a4b9ac42a76ad01c1d796fe0accf530bb872747e456edc164be8d5ad1429ee7f",
+      "published_bytes": 3764721,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/manifest-full.json",
+      "source_sha256": "ee86391f9f1aa24f9c2038e2bb80919be496db61fe25d52eec26d63277e4f688",
+      "source_bytes": 1457439,
+      "published_sha256": "ee86391f9f1aa24f9c2038e2bb80919be496db61fe25d52eec26d63277e4f688",
+      "published_bytes": 1457439,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/manifest-pilot.json",
+      "source_sha256": "8d2e2e3658c935d0d30b3c7fddb2b85f766fcc54a9b42d9e5ff5bc6578ba1ac7",
+      "source_bytes": 58972,
+      "published_sha256": "8d2e2e3658c935d0d30b3c7fddb2b85f766fcc54a9b42d9e5ff5bc6578ba1ac7",
+      "published_bytes": 58972,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/manifest-screen.json",
+      "source_sha256": "b87ac4529103c39af27a4744b36e09f9b2d71d9ff8beef2977fd8c9b7189d0c5",
+      "source_bytes": 64891,
+      "published_sha256": "b87ac4529103c39af27a4744b36e09f9b2d71d9ff8beef2977fd8c9b7189d0c5",
+      "published_bytes": 64891,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/pilot-analysis/RESULTS.md",
+      "source_sha256": "5214eec1f980c11965abfe4d8834f54f0015f5402065f5a917b0fcfeb2696c22",
+      "source_bytes": 4176,
+      "published_sha256": "5214eec1f980c11965abfe4d8834f54f0015f5402065f5a917b0fcfeb2696c22",
+      "published_bytes": 4176,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/pilot-analysis/by-question.csv",
+      "source_sha256": "95dee2d5b88b17eed20201213d635341c96db89e7ea198b360d2d77dce30a276",
+      "source_bytes": 2354,
+      "published_sha256": "95dee2d5b88b17eed20201213d635341c96db89e7ea198b360d2d77dce30a276",
+      "published_bytes": 2354,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/pilot-analysis/by-repetition.csv",
+      "source_sha256": "e5f2daa167b98ebba60156bc621e409d47e145cc620290ef7fc58e9ab6dc52e2",
+      "source_bytes": 984,
+      "published_sha256": "e5f2daa167b98ebba60156bc621e409d47e145cc620290ef7fc58e9ab6dc52e2",
+      "published_bytes": 984,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/pilot-analysis/by-tier.csv",
+      "source_sha256": "aa1d592a20e7da3d55b325b7fffa72ee179f1d97861e18daf414703acb766954",
+      "source_bytes": 1145,
+      "published_sha256": "aa1d592a20e7da3d55b325b7fffa72ee179f1d97861e18daf414703acb766954",
+      "published_bytes": 1145,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/pilot-analysis/failures.csv",
+      "source_sha256": "78e6c2a0b23006f2edf1705b1633f714433536ec9f947131e9e839173c37070e",
+      "source_bytes": 12385,
+      "published_sha256": "78e6c2a0b23006f2edf1705b1633f714433536ec9f947131e9e839173c37070e",
+      "published_bytes": 12385,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/pilot-analysis/summary.csv",
+      "source_sha256": "346a64e89de155f290a7593db522734a03a78a51960b63a8c1649b7d8f22770a",
+      "source_bytes": 3075,
+      "published_sha256": "346a64e89de155f290a7593db522734a03a78a51960b63a8c1649b7d8f22770a",
+      "published_bytes": 3075,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/pilot-analysis/summary.json",
+      "source_sha256": "cf1bbdcf4de84330ee5eabdff067562dfa9af71c1be2cfbcc044125f50e50746",
+      "source_bytes": 11270,
+      "published_sha256": "cf1bbdcf4de84330ee5eabdff067562dfa9af71c1be2cfbcc044125f50e50746",
+      "published_bytes": 11270,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/pilot.jsonl",
+      "source_sha256": "aaceecc48dca04ba44428ae03889796a522f58c39c07e126b644fbed5c5174fe",
+      "source_bytes": 988756,
+      "published_sha256": "aaceecc48dca04ba44428ae03889796a522f58c39c07e126b644fbed5c5174fe",
+      "published_bytes": 988756,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/preflight-full-1.json",
+      "source_sha256": "c91e08f3154c19545d78d2d2ed99f24bbc21a8dcabf3db5b07e744a3a9ad4959",
+      "source_bytes": 83176,
+      "published_sha256": "c91e08f3154c19545d78d2d2ed99f24bbc21a8dcabf3db5b07e744a3a9ad4959",
+      "published_bytes": 83176,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/preflight-full-2.json",
+      "source_sha256": "dbd5367b94b2d7177c30b937eb3a937a5df7dcd78a128ad1c5280e6168dc45ff",
+      "source_bytes": 83192,
+      "published_sha256": "dbd5367b94b2d7177c30b937eb3a937a5df7dcd78a128ad1c5280e6168dc45ff",
+      "published_bytes": 83192,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/preflight-full-3.json",
+      "source_sha256": "d52ccf02df5fe45ecde23566a69bec80e4e3299ee8190291afbe1994eefaa976",
+      "source_bytes": 83167,
+      "published_sha256": "d52ccf02df5fe45ecde23566a69bec80e4e3299ee8190291afbe1994eefaa976",
+      "published_bytes": 83167,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/preflight-full-4.json",
+      "source_sha256": "883907bebb9304f9581ccdf79e17fc0a61f019e04fa76aa9af30e65b14c40475",
+      "source_bytes": 83171,
+      "published_sha256": "883907bebb9304f9581ccdf79e17fc0a61f019e04fa76aa9af30e65b14c40475",
+      "published_bytes": 83171,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/preflight-full-5.json",
+      "source_sha256": "648b94ded30276b07c76d7425142b055347c0587b08be68c25645d687a3263d9",
+      "source_bytes": 83135,
+      "published_sha256": "648b94ded30276b07c76d7425142b055347c0587b08be68c25645d687a3263d9",
+      "published_bytes": 83135,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/preflight-pilot-1.json",
+      "source_sha256": "41231b3413b3ce4d55dfd591b6cf0766e335fc6a62bdd812b92d14f9d2b16872",
+      "source_bytes": 83189,
+      "published_sha256": "41231b3413b3ce4d55dfd591b6cf0766e335fc6a62bdd812b92d14f9d2b16872",
+      "published_bytes": 83189,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/preflight-screen-1.json",
+      "source_sha256": "137731e0c6957b89de248066e30da4e9ce970da665efe68a62c43490b7852bc2",
+      "source_bytes": 88502,
+      "published_sha256": "137731e0c6957b89de248066e30da4e9ce970da665efe68a62c43490b7852bc2",
+      "published_bytes": 88502,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/query-log.jsonl",
+      "source_sha256": "99c60c7cd3d33bba9b969f8fee8b2446c07d7549b78f6d1fc11c6be0847a5fac",
+      "source_bytes": 3452501,
+      "published_sha256": "99c60c7cd3d33bba9b969f8fee8b2446c07d7549b78f6d1fc11c6be0847a5fac",
+      "published_bytes": 3452501,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/route-selection.json",
+      "source_sha256": "86b9ba08d2d3f7f11f7b65295af0b82778ffead2b3b2b48ed6853fcb84a1dfe3",
+      "source_bytes": 3220,
+      "published_sha256": "86b9ba08d2d3f7f11f7b65295af0b82778ffead2b3b2b48ed6853fcb84a1dfe3",
+      "published_bytes": 3220,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/screen.jsonl",
+      "source_sha256": "cefb3406c6935b755daa2e2be7d8bb9251a8cbf053e36d741ec4a99f614ffa87",
+      "source_bytes": 1290762,
+      "published_sha256": "cefb3406c6935b755daa2e2be7d8bb9251a8cbf053e36d741ec4a99f614ffa87",
+      "published_bytes": 1290762,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/source-full/benchmark.py",
+      "source_sha256": "8a3cc97825ea7f11966780dacc6dd739ee33d4bfe59809aa941fdf8e21106191",
+      "source_bytes": 22721,
+      "published_sha256": "8a3cc97825ea7f11966780dacc6dd739ee33d4bfe59809aa941fdf8e21106191",
+      "published_bytes": 22721,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/source-full/decision-rule.json",
+      "source_sha256": "c4d55b29425e3372d2f4b39c5eadbdcfef975e787eded53cfc53c22158dc1c55",
+      "source_bytes": 1261,
+      "published_sha256": "c4d55b29425e3372d2f4b39c5eadbdcfef975e787eded53cfc53c22158dc1c55",
+      "published_bytes": 1261,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/source-full/evaluation.py",
+      "source_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "source_bytes": 2553,
+      "published_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "published_bytes": 2553,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/source-full/prepare.py",
+      "source_sha256": "49c28de3fe813e94644e4526bb0b911b3ba507f7dafffbfd5cbae2f46c0b535a",
+      "source_bytes": 14966,
+      "published_sha256": "49c28de3fe813e94644e4526bb0b911b3ba507f7dafffbfd5cbae2f46c0b535a",
+      "published_bytes": 14966,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/source-full/questions.json",
+      "source_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "source_bytes": 68341,
+      "published_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "published_bytes": 68341,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/source-full/schema.sql",
+      "source_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "source_bytes": 895,
+      "published_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "published_bytes": 895,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/source-full/selected-routes.json",
+      "source_sha256": "f215daab7d6e99d3f444c53fcf8477a930f8d077ea4f4eabe5b77c92077d0943",
+      "source_bytes": 3609,
+      "published_sha256": "f215daab7d6e99d3f444c53fcf8477a930f8d077ea4f4eabe5b77c92077d0943",
+      "published_bytes": 3609,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/results/started.jsonl",
+      "source_sha256": "9fde803c3ac62863691b7a14e8301cfb4fc1cfc68b2e29ccc11e7378faf53aa0",
+      "source_bytes": 236288,
+      "published_sha256": "9fde803c3ac62863691b7a14e8301cfb4fc1cfc68b2e29ccc11e7378faf53aa0",
+      "published_bytes": 236288,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/run-model-metadata.json",
+      "source_sha256": "4e88995d5ed5f3c12b8d2c7e410a4ff5a9c63a14dd0f3ea3f531474a83694f0e",
+      "source_bytes": 13958,
+      "published_sha256": "4e88995d5ed5f3c12b8d2c7e410a4ff5a9c63a14dd0f3ea3f531474a83694f0e",
+      "published_bytes": 13958,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/schema.sql",
+      "source_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "source_bytes": 895,
+      "published_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "published_bytes": 895,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/selected-routes.json",
+      "source_sha256": "f215daab7d6e99d3f444c53fcf8477a930f8d077ea4f4eabe5b77c92077d0943",
+      "source_bytes": 3609,
+      "published_sha256": "f215daab7d6e99d3f444c53fcf8477a930f8d077ea4f4eabe5b77c92077d0943",
+      "published_bytes": 3609,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/server-config.xml",
+      "source_sha256": "b210cf43afba58130a7b95635bb11354c72417d2aa355eeacf7b2205664a103e",
+      "source_bytes": 1980,
+      "published_sha256": "b210cf43afba58130a7b95635bb11354c72417d2aa355eeacf7b2205664a103e",
+      "published_bytes": 1980,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/server-users.xml",
+      "source_sha256": "b4ef3d319b6e87976fb397e7c0a9f9387f7e13c7915f4f279ee0ba1e7e5a37ad",
+      "source_bytes": 615,
+      "published_sha256": "b4ef3d319b6e87976fb397e7c0a9f9387f7e13c7915f4f279ee0ba1e7e5a37ad",
+      "published_bytes": 615,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-budget/test_evaluation.py",
+      "source_sha256": "47cbfbd692174b01200247e5b294c5d79164dcd3751046efc5afa56dd19e4341",
+      "source_bytes": 1792,
+      "published_sha256": "47cbfbd692174b01200247e5b294c5d79164dcd3751046efc5afa56dd19e4341",
+      "published_bytes": 1792,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/NOTES.md",
+      "source_sha256": "432f7417b14575c914d67017159807de3cacd59bdb0741f53b354b667fa1b8f4",
+      "source_bytes": 5891,
+      "published_sha256": "7ed165103873299b75d638fecff49ad203cb84f02393e6ed2afb4dc76b4ded7e",
+      "published_bytes": 5936,
+      "byte_identical": false
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/README.md",
+      "source_sha256": "649ddcd0a617eeb2fda9e288e728494b1c9817f7f3acfdc3863b2e0b831e5030",
+      "source_bytes": 6626,
+      "published_sha256": "47f8942281e0c2b4e7dd79bc7bfcde1a9690bd287335fb190dd6405da2a91869",
+      "published_bytes": 6702,
+      "byte_identical": false
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/analyse.py",
+      "source_sha256": "3ad37a20604fe9e15b94df66082d43c3b25382245325fb1e62c8ca89a27308e3",
+      "source_bytes": 22681,
+      "published_sha256": "3ad37a20604fe9e15b94df66082d43c3b25382245325fb1e62c8ca89a27308e3",
+      "published_bytes": 22681,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/artifacts-sha256.json",
+      "source_sha256": "0d62457ea1ee21be447198d7bce7157dec275f5fadbc959b8744b36e03a06372",
+      "source_bytes": 14895,
+      "published_sha256": "0d62457ea1ee21be447198d7bce7157dec275f5fadbc959b8744b36e03a06372",
+      "published_bytes": 14895,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/audit.py",
+      "source_sha256": "19d85627bbfdbba4859e7c967305829ea734ada7e310aee10c59f5d7aa40f7c4",
+      "source_bytes": 6990,
+      "published_sha256": "19d85627bbfdbba4859e7c967305829ea734ada7e310aee10c59f5d7aa40f7c4",
+      "published_bytes": 6990,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/benchmark.py",
+      "source_sha256": "3a6919863f62bba7aa77e9c56759cfcf67cdffe6e3857dfd5419298526e364f3",
+      "source_bytes": 18942,
+      "published_sha256": "3a6919863f62bba7aa77e9c56759cfcf67cdffe6e3857dfd5419298526e364f3",
+      "published_bytes": 18942,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/bootstrap.sh",
+      "source_sha256": "ef33c131175ed6323860b18d6bb10af9741253d3db10dffb7562625c887496c8",
+      "source_bytes": 1731,
+      "published_sha256": "ef33c131175ed6323860b18d6bb10af9741253d3db10dffb7562625c887496c8",
+      "published_bytes": 1731,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/build-options.tsv",
+      "source_sha256": "1ea36996935192584a6ec209a9fb7b1e0514ccce7aa60e7c3ffe9d7c088989f0",
+      "source_bytes": 4613,
+      "published_sha256": "1ea36996935192584a6ec209a9fb7b1e0514ccce7aa60e7c3ffe9d7c088989f0",
+      "published_bytes": 4613,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/candidate-routes.json",
+      "source_sha256": "27e0f92a3a749acbb7f363d309cd3eb041e9a0bc53137a76140cdb67635d9973",
+      "source_bytes": 9680,
+      "published_sha256": "27e0f92a3a749acbb7f363d309cd3eb041e9a0bc53137a76140cdb67635d9973",
+      "published_bytes": 9680,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/clickhouse-binary.json",
+      "source_sha256": "115ea0307acd8ba013cb4e3c405bbb31b4534be2e1d6c575472e150da55fd283",
+      "source_bytes": 315,
+      "published_sha256": "115ea0307acd8ba013cb4e3c405bbb31b4534be2e1d6c575472e150da55fd283",
+      "published_bytes": 315,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/cloud-init.yml",
+      "source_sha256": "b5373c6d34eb519cca0f4c2e283037f8b9dcb9523a7f98ce4cc89ffd38a80ce8",
+      "source_bytes": 145,
+      "published_sha256": "b5373c6d34eb519cca0f4c2e283037f8b9dcb9523a7f98ce4cc89ffd38a80ce8",
+      "published_bytes": 145,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/data-fingerprints-after.jsonl",
+      "source_sha256": "5765b7361da254697e4c4fbd94b964d520595deb0cf1ec9700238e40e61e8d66",
+      "source_bytes": 130,
+      "published_sha256": "5765b7361da254697e4c4fbd94b964d520595deb0cf1ec9700238e40e61e8d66",
+      "published_bytes": 130,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/data-fingerprints.jsonl",
+      "source_sha256": "5765b7361da254697e4c4fbd94b964d520595deb0cf1ec9700238e40e61e8d66",
+      "source_bytes": 130,
+      "published_sha256": "5765b7361da254697e4c4fbd94b964d520595deb0cf1ec9700238e40e61e8d66",
+      "published_bytes": 130,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/database-metadata.json",
+      "source_sha256": "1105f7ca6297c289da90e5acd6019a9ea1252e54198100025a21282f575defce",
+      "source_bytes": 72,
+      "published_sha256": "1105f7ca6297c289da90e5acd6019a9ea1252e54198100025a21282f575defce",
+      "published_bytes": 72,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/dataset-verification.json",
+      "source_sha256": "15d5e6d58234c747de2601d312bb195996ec68270f5c2168d3b8679b706d8243",
+      "source_bytes": 455,
+      "published_sha256": "15d5e6d58234c747de2601d312bb195996ec68270f5c2168d3b8679b706d8243",
+      "published_bytes": 455,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/decision-rule.json",
+      "source_sha256": "ca2770485990f7a8c0f47b8f2ac4122e3f2b7e7e6b336b84202dfb15b5a8ae41",
+      "source_bytes": 1343,
+      "published_sha256": "ca2770485990f7a8c0f47b8f2ac4122e3f2b7e7e6b336b84202dfb15b5a8ae41",
+      "published_bytes": 1343,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/environment.json",
+      "source_sha256": "253f6b6f7a4ea39548e0f2be63e0be699e121113de3bf43ec0ed02cf2ac02009",
+      "source_bytes": 8635,
+      "published_sha256": "253f6b6f7a4ea39548e0f2be63e0be699e121113de3bf43ec0ed02cf2ac02009",
+      "published_bytes": 8635,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/evaluation.py",
+      "source_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "source_bytes": 2553,
+      "published_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "published_bytes": 2553,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/expected-data-fingerprints.jsonl",
+      "source_sha256": "5765b7361da254697e4c4fbd94b964d520595deb0cf1ec9700238e40e61e8d66",
+      "source_bytes": 130,
+      "published_sha256": "5765b7361da254697e4c4fbd94b964d520595deb0cf1ec9700238e40e61e8d66",
+      "published_bytes": 130,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/expected-references.json",
+      "source_sha256": "820c7814b92d8d02624fd8ebf04f1e5ffb3ef9d626f1046d92d260625459f870",
+      "source_bytes": 960151,
+      "published_sha256": "820c7814b92d8d02624fd8ebf04f1e5ffb3ef9d626f1046d92d260625459f870",
+      "published_bytes": 960151,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/finalize.py",
+      "source_sha256": "bf197a535039ff0c7f190479418a7368adb0b9ccf5dfedea1db952826be74761",
+      "source_bytes": 3806,
+      "published_sha256": "bf197a535039ff0c7f190479418a7368adb0b9ccf5dfedea1db952826be74761",
+      "published_bytes": 3806,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/fixture.sql",
+      "source_sha256": "a3ee035f9de03a8ec7d05c17a79828a4ea010f0ee735a782aac19ded38ffb490",
+      "source_bytes": 2565,
+      "published_sha256": "a3ee035f9de03a8ec7d05c17a79828a4ea010f0ee735a782aac19ded38ffb490",
+      "published_bytes": 2565,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/local-verification.json",
+      "source_sha256": "6338ba27c4bfa11e46393cf46ada011ed42fe964cd423af56e4149274a5350e9",
+      "source_bytes": 622,
+      "published_sha256": "6338ba27c4bfa11e46393cf46ada011ed42fe964cd423af56e4149274a5350e9",
+      "published_bytes": 622,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/openrouter-endpoints-2026-10-07.json",
+      "source_sha256": "b99b02764bf4f65561a6fcbbe5bab9fbdf0c8ed25e1678142e8708611a44090f",
+      "source_bytes": 85335,
+      "published_sha256": "b99b02764bf4f65561a6fcbbe5bab9fbdf0c8ed25e1678142e8708611a44090f",
+      "published_bytes": 85335,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/prepare.py",
+      "source_sha256": "49c28de3fe813e94644e4526bb0b911b3ba507f7dafffbfd5cbae2f46c0b535a",
+      "source_bytes": 14966,
+      "published_sha256": "49c28de3fe813e94644e4526bb0b911b3ba507f7dafffbfd5cbae2f46c0b535a",
+      "published_bytes": 14966,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/previous-winner.json",
+      "source_sha256": "5d66fa598934266932cf40e5f7e676182fd97038fe90abe9f20be44a70a0fdff",
+      "source_bytes": 2298,
+      "published_sha256": "5d66fa598934266932cf40e5f7e676182fd97038fe90abe9f20be44a70a0fdff",
+      "published_bytes": 2298,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/quantization-context.json",
+      "source_sha256": "cc051fb81804410e51ab192de3a14ebea441213efd1c4113c2b0ecfc8e52084f",
+      "source_bytes": 504,
+      "published_sha256": "cc051fb81804410e51ab192de3a14ebea441213efd1c4113c2b0ecfc8e52084f",
+      "published_bytes": 504,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/questions.json",
+      "source_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "source_bytes": 68341,
+      "published_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "published_bytes": 68341,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/reference-checks.json",
+      "source_sha256": "34a16d607ae218d70beeb358223332b1c28b6bb6e54d1a2ecf24e8cc5fb0b356",
+      "source_bytes": 5427,
+      "published_sha256": "34a16d607ae218d70beeb358223332b1c28b6bb6e54d1a2ecf24e8cc5fb0b356",
+      "published_bytes": 5427,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/references.json",
+      "source_sha256": "b91acafb5a4eb8fe93914c10dcc7ed8be104fe40636c2e20b438d601f2b7af77",
+      "source_bytes": 960149,
+      "published_sha256": "b91acafb5a4eb8fe93914c10dcc7ed8be104fe40636c2e20b438d601f2b7af77",
+      "published_bytes": 960149,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/remote.py",
+      "source_sha256": "aa06030428ec23efd5cd8eb939b25e40aa137df194c82151429392c04df414ba",
+      "source_bytes": 3481,
+      "published_sha256": "aa06030428ec23efd5cd8eb939b25e40aa137df194c82151429392c04df414ba",
+      "published_bytes": 3481,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/audit.json",
+      "source_sha256": "a1b78a7a4659557559c9d2a583c4d42927ea2a7aea21f0b23c656a79826eb018",
+      "source_bytes": 736,
+      "published_sha256": "a1b78a7a4659557559c9d2a583c4d42927ea2a7aea21f0b23c656a79826eb018",
+      "published_bytes": 736,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/RESULTS.md",
+      "source_sha256": "322a101873c126df44003fa8c9ce9224144e7fb00c2e73aca8e19e629cb2998c",
+      "source_bytes": 5772,
+      "published_sha256": "322a101873c126df44003fa8c9ce9224144e7fb00c2e73aca8e19e629cb2998c",
+      "published_bytes": 5772,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/accuracy-vs-cost.png",
+      "source_sha256": "20da1b6df47e40a6bb4f5599e8c5cfba8e3b885cb06d69fcf37b2aaaa14b1d35",
+      "source_bytes": 97832,
+      "published_sha256": "20da1b6df47e40a6bb4f5599e8c5cfba8e3b885cb06d69fcf37b2aaaa14b1d35",
+      "published_bytes": 97832,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/accuracy-vs-cost.svg",
+      "source_sha256": "35f614aa4d52ec613f085074061ebf9d5fd1c89a4e1f15e90e251ca684d452df",
+      "source_bytes": 61434,
+      "published_sha256": "35f614aa4d52ec613f085074061ebf9d5fd1c89a4e1f15e90e251ca684d452df",
+      "published_bytes": 61434,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/accuracy-vs-delay.png",
+      "source_sha256": "30150608460ecbe28dbb14713e62648ea2e3521d6f375b261b581e266553648c",
+      "source_bytes": 97575,
+      "published_sha256": "30150608460ecbe28dbb14713e62648ea2e3521d6f375b261b581e266553648c",
+      "published_bytes": 97575,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/accuracy-vs-delay.svg",
+      "source_sha256": "c9794f6f8b368ce403372ecd4c752d31603ce044cd40e62bd98766f1973e5cc3",
+      "source_bytes": 61026,
+      "published_sha256": "c9794f6f8b368ce403372ecd4c752d31603ce044cd40e62bd98766f1973e5cc3",
+      "published_bytes": 61026,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/by-question.csv",
+      "source_sha256": "794a2be3c5d1f7c2fd215f21f28da1a9fce45906085c4066ebe1c75b81637e08",
+      "source_bytes": 17402,
+      "published_sha256": "794a2be3c5d1f7c2fd215f21f28da1a9fce45906085c4066ebe1c75b81637e08",
+      "published_bytes": 17402,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/by-repetition.csv",
+      "source_sha256": "ed9f82f9713c46b0a9c818993e0962804d70a8e9d9620c2da658dbc43ca34dce",
+      "source_bytes": 4456,
+      "published_sha256": "ed9f82f9713c46b0a9c818993e0962804d70a8e9d9620c2da658dbc43ca34dce",
+      "published_bytes": 4456,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/by-tier.csv",
+      "source_sha256": "5ed1606afb4975ffda7a10663e0b47ecb4097ff9d5f3ed013663a41577e9ee50",
+      "source_bytes": 1836,
+      "published_sha256": "5ed1606afb4975ffda7a10663e0b47ecb4097ff9d5f3ed013663a41577e9ee50",
+      "published_bytes": 1836,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/correct-within-deadline.png",
+      "source_sha256": "d0b380d8e55a6813b1a5662cea98eec11204f5cf38b62f6ceffd66bb6e2e04e4",
+      "source_bytes": 95794,
+      "published_sha256": "d0b380d8e55a6813b1a5662cea98eec11204f5cf38b62f6ceffd66bb6e2e04e4",
+      "published_bytes": 95794,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/correct-within-deadline.svg",
+      "source_sha256": "4f95a24e3b5d2ab6c28181852440c4a5fdd8a48e1f08e3f7b825e0da9f7a0972",
+      "source_bytes": 40396,
+      "published_sha256": "4f95a24e3b5d2ab6c28181852440c4a5fdd8a48e1f08e3f7b825e0da9f7a0972",
+      "published_bytes": 40396,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/failures.csv",
+      "source_sha256": "005c89e07743fb6db823f650639802462a3dbaa5691d9ce39894397f86289646",
+      "source_bytes": 98704,
+      "published_sha256": "005c89e07743fb6db823f650639802462a3dbaa5691d9ce39894397f86289646",
+      "published_bytes": 98704,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/focused-comparisons.csv",
+      "source_sha256": "4b50ad2a95fde546d964fb09cb4098b4e703bc1bd87a0eac766f8a061424d486",
+      "source_bytes": 1785,
+      "published_sha256": "4b50ad2a95fde546d964fb09cb4098b4e703bc1bd87a0eac766f8a061424d486",
+      "published_bytes": 1785,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/paired-comparisons.csv",
+      "source_sha256": "e8250442d069caaea3ee2c9411b6a7518ea81b1d0ca06cdbd8df9f139daf9e4a",
+      "source_bytes": 1370,
+      "published_sha256": "e8250442d069caaea3ee2c9411b6a7518ea81b1d0ca06cdbd8df9f139daf9e4a",
+      "published_bytes": 1370,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/summary.csv",
+      "source_sha256": "98c98f9baea4017b7173f37613a05fea98f068edbe762f806ca900a0c0d69d6e",
+      "source_bytes": 3513,
+      "published_sha256": "98c98f9baea4017b7173f37613a05fea98f068edbe762f806ca900a0c0d69d6e",
+      "published_bytes": 3513,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full-analysis/summary.json",
+      "source_sha256": "7f7e1c76748a58113a8ab74d3bb3f4f33606ecaf9f33425741c9f98fa4eadbe2",
+      "source_bytes": 16958,
+      "published_sha256": "7f7e1c76748a58113a8ab74d3bb3f4f33606ecaf9f33425741c9f98fa4eadbe2",
+      "published_bytes": 16958,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/full.jsonl.gz",
+      "source_sha256": "4b3deb1cfef2358254497a94ca66e3ef911771344b02061e2656389dcf769f47",
+      "source_bytes": 2878681,
+      "published_sha256": "4b3deb1cfef2358254497a94ca66e3ef911771344b02061e2656389dcf769f47",
+      "published_bytes": 2878681,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/manifest-full.json",
+      "source_sha256": "0ffa58ff599a851b4f1548f96a5e1790d1cb035d62e8da7f353f54ea339ee191",
+      "source_bytes": 1606117,
+      "published_sha256": "0ffa58ff599a851b4f1548f96a5e1790d1cb035d62e8da7f353f54ea339ee191",
+      "published_bytes": 1606117,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/manifest-pilot.json",
+      "source_sha256": "020ffd1bbbbac48b86e174667fa7e00b18645cf624624c0566dd832c7ff0f289",
+      "source_bytes": 65090,
+      "published_sha256": "020ffd1bbbbac48b86e174667fa7e00b18645cf624624c0566dd832c7ff0f289",
+      "published_bytes": 65090,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/manifest-screen.json",
+      "source_sha256": "d2d9525de551e0a510c4d4c1bdb72bc1f60e0ff6843ed2086b5a4d5dcf90a997",
+      "source_bytes": 65209,
+      "published_sha256": "d2d9525de551e0a510c4d4c1bdb72bc1f60e0ff6843ed2086b5a4d5dcf90a997",
+      "published_bytes": 65209,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/pilot-analysis/RESULTS.md",
+      "source_sha256": "610e0243b14763e7fdbf83820558885f571ffc6ae348a5fb082fb7bfbadc0c46",
+      "source_bytes": 4435,
+      "published_sha256": "610e0243b14763e7fdbf83820558885f571ffc6ae348a5fb082fb7bfbadc0c46",
+      "published_bytes": 4435,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/pilot-analysis/by-question.csv",
+      "source_sha256": "064c4e6c3026a1542b0a895aade2fe5d9673b31576b9495ae8dbcfeb0018d295",
+      "source_bytes": 3530,
+      "published_sha256": "064c4e6c3026a1542b0a895aade2fe5d9673b31576b9495ae8dbcfeb0018d295",
+      "published_bytes": 3530,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/pilot-analysis/by-repetition.csv",
+      "source_sha256": "f3adba91f7a6b37a14e93916d3c5d4027ff810d7f949fa7938316811723dc2db",
+      "source_bytes": 1074,
+      "published_sha256": "f3adba91f7a6b37a14e93916d3c5d4027ff810d7f949fa7938316811723dc2db",
+      "published_bytes": 1074,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/pilot-analysis/by-tier.csv",
+      "source_sha256": "55d45d33f0d2bd1a3ee77f438d324f12c66da8832aaeaaa5218624ec1a385f22",
+      "source_bytes": 1733,
+      "published_sha256": "55d45d33f0d2bd1a3ee77f438d324f12c66da8832aaeaaa5218624ec1a385f22",
+      "published_bytes": 1733,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/pilot-analysis/failures.csv",
+      "source_sha256": "f805cc57aea4bf54551908e354eacac23f496d9d6b3ae8368c30e705c1499143",
+      "source_bytes": 5478,
+      "published_sha256": "f805cc57aea4bf54551908e354eacac23f496d9d6b3ae8368c30e705c1499143",
+      "published_bytes": 5478,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/pilot-analysis/summary.csv",
+      "source_sha256": "71e30c76b2e251295f7db13211f87896cf6d1264728d1226f2380b96cc58dba5",
+      "source_bytes": 3416,
+      "published_sha256": "71e30c76b2e251295f7db13211f87896cf6d1264728d1226f2380b96cc58dba5",
+      "published_bytes": 3416,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/pilot-analysis/summary.json",
+      "source_sha256": "3e226fa3f3c6e69592da886b6868b740e23c708b14f70ecdedaef20d457af8b2",
+      "source_bytes": 14640,
+      "published_sha256": "3e226fa3f3c6e69592da886b6868b740e23c708b14f70ecdedaef20d457af8b2",
+      "published_bytes": 14640,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/pilot.jsonl",
+      "source_sha256": "45cf9eb0a1c4a3cbeace8512ad11dda9e846a88338c4daf3e32a6ae09244a039",
+      "source_bytes": 668896,
+      "published_sha256": "45cf9eb0a1c4a3cbeace8512ad11dda9e846a88338c4daf3e32a6ae09244a039",
+      "published_bytes": 668896,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/preflight-full-1.json",
+      "source_sha256": "04e68633abcacd46b0a2f8ad13752e63672e0e1f88eca5d4af7fcf289fb8a115",
+      "source_bytes": 85430,
+      "published_sha256": "04e68633abcacd46b0a2f8ad13752e63672e0e1f88eca5d4af7fcf289fb8a115",
+      "published_bytes": 85430,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/preflight-full-2.json",
+      "source_sha256": "c7204b42ee5e5b52b0d299bf80a0e37f2ccfd5f7ff7266ea978241d249dead92",
+      "source_bytes": 85357,
+      "published_sha256": "c7204b42ee5e5b52b0d299bf80a0e37f2ccfd5f7ff7266ea978241d249dead92",
+      "published_bytes": 85357,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/preflight-full-3.json",
+      "source_sha256": "d86fb6b047f423292a250063d93fdb5bc0d61048319f1cac33e4059692351739",
+      "source_bytes": 85324,
+      "published_sha256": "d86fb6b047f423292a250063d93fdb5bc0d61048319f1cac33e4059692351739",
+      "published_bytes": 85324,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/preflight-full-4.json",
+      "source_sha256": "6aae5277c046622c5fa35b037469716ac967b8a252913cb99b959bc43c9ab1b4",
+      "source_bytes": 85322,
+      "published_sha256": "6aae5277c046622c5fa35b037469716ac967b8a252913cb99b959bc43c9ab1b4",
+      "published_bytes": 85322,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/preflight-full-5.json",
+      "source_sha256": "4fc7f163fcafc8ae3192bac2d5e582302fff03dbbea7a96e7882f9e81b676907",
+      "source_bytes": 85349,
+      "published_sha256": "4fc7f163fcafc8ae3192bac2d5e582302fff03dbbea7a96e7882f9e81b676907",
+      "published_bytes": 85349,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/preflight-pilot-1.json",
+      "source_sha256": "4acb78134f861e860298acf478234e74c60157a7df68750a53fb50965fd4c905",
+      "source_bytes": 85384,
+      "published_sha256": "4acb78134f861e860298acf478234e74c60157a7df68750a53fb50965fd4c905",
+      "published_bytes": 85384,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/preflight-screen-1.json",
+      "source_sha256": "c03a3b2d1d678430f4708a84b3beca9aface02f03cbf53ec3ae4be9548077d8d",
+      "source_bytes": 85406,
+      "published_sha256": "c03a3b2d1d678430f4708a84b3beca9aface02f03cbf53ec3ae4be9548077d8d",
+      "published_bytes": 85406,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/query-log.jsonl",
+      "source_sha256": "e2a375cc11f09d68173689f8ac78811fb5291555b2e5fe31abba692c1ef1c16d",
+      "source_bytes": 3852481,
+      "published_sha256": "e2a375cc11f09d68173689f8ac78811fb5291555b2e5fe31abba692c1ef1c16d",
+      "published_bytes": 3852481,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/route-selection.json",
+      "source_sha256": "dcddf15c85a7af3d1c830fad6d1edf1db8722e258e59006e8b7c038617a04aa7",
+      "source_bytes": 4110,
+      "published_sha256": "dcddf15c85a7af3d1c830fad6d1edf1db8722e258e59006e8b7c038617a04aa7",
+      "published_bytes": 4110,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/screen.jsonl",
+      "source_sha256": "0ca269ad8a04c9fd80a7e4e9aedba4ffd43297ccb3062e5bd7ef32204228d30a",
+      "source_bytes": 561281,
+      "published_sha256": "0ca269ad8a04c9fd80a7e4e9aedba4ffd43297ccb3062e5bd7ef32204228d30a",
+      "published_bytes": 561281,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-full/benchmark.py",
+      "source_sha256": "3a6919863f62bba7aa77e9c56759cfcf67cdffe6e3857dfd5419298526e364f3",
+      "source_bytes": 18942,
+      "published_sha256": "3a6919863f62bba7aa77e9c56759cfcf67cdffe6e3857dfd5419298526e364f3",
+      "published_bytes": 18942,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-full/decision-rule.json",
+      "source_sha256": "ca2770485990f7a8c0f47b8f2ac4122e3f2b7e7e6b336b84202dfb15b5a8ae41",
+      "source_bytes": 1343,
+      "published_sha256": "ca2770485990f7a8c0f47b8f2ac4122e3f2b7e7e6b336b84202dfb15b5a8ae41",
+      "published_bytes": 1343,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-full/evaluation.py",
+      "source_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "source_bytes": 2553,
+      "published_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "published_bytes": 2553,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-full/questions.json",
+      "source_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "source_bytes": 68341,
+      "published_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "published_bytes": 68341,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-full/references.json",
+      "source_sha256": "b91acafb5a4eb8fe93914c10dcc7ed8be104fe40636c2e20b438d601f2b7af77",
+      "source_bytes": 960149,
+      "published_sha256": "b91acafb5a4eb8fe93914c10dcc7ed8be104fe40636c2e20b438d601f2b7af77",
+      "published_bytes": 960149,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-full/schema.sql",
+      "source_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "source_bytes": 895,
+      "published_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "published_bytes": 895,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-full/selected-routes.json",
+      "source_sha256": "ac060e2077c63128ddc0642b19009afdbdcecf3a565dc5a0c3898df3d44eff47",
+      "source_bytes": 4029,
+      "published_sha256": "ac060e2077c63128ddc0642b19009afdbdcecf3a565dc5a0c3898df3d44eff47",
+      "published_bytes": 4029,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-full/study.py",
+      "source_sha256": "fb90046ce0a7b9f3bfbecffdcf4bb27b56d54c2cba95b98263d24a4ff31cb995",
+      "source_bytes": 7109,
+      "published_sha256": "fb90046ce0a7b9f3bfbecffdcf4bb27b56d54c2cba95b98263d24a4ff31cb995",
+      "published_bytes": 7109,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-pilot/benchmark.py",
+      "source_sha256": "cb32f6c7c6ffc7dfba5a4932837336fc1722242f9578fa9aa1b6a4be6f62cb8b",
+      "source_bytes": 18865,
+      "published_sha256": "cb32f6c7c6ffc7dfba5a4932837336fc1722242f9578fa9aa1b6a4be6f62cb8b",
+      "published_bytes": 18865,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-pilot/decision-rule.json",
+      "source_sha256": "ca2770485990f7a8c0f47b8f2ac4122e3f2b7e7e6b336b84202dfb15b5a8ae41",
+      "source_bytes": 1343,
+      "published_sha256": "ca2770485990f7a8c0f47b8f2ac4122e3f2b7e7e6b336b84202dfb15b5a8ae41",
+      "published_bytes": 1343,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-pilot/evaluation.py",
+      "source_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "source_bytes": 2553,
+      "published_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "published_bytes": 2553,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-pilot/questions.json",
+      "source_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "source_bytes": 68341,
+      "published_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "published_bytes": 68341,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-pilot/references.json",
+      "source_sha256": "b91acafb5a4eb8fe93914c10dcc7ed8be104fe40636c2e20b438d601f2b7af77",
+      "source_bytes": 960149,
+      "published_sha256": "b91acafb5a4eb8fe93914c10dcc7ed8be104fe40636c2e20b438d601f2b7af77",
+      "published_bytes": 960149,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-pilot/schema.sql",
+      "source_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "source_bytes": 895,
+      "published_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "published_bytes": 895,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-pilot/selected-routes.json",
+      "source_sha256": "ac060e2077c63128ddc0642b19009afdbdcecf3a565dc5a0c3898df3d44eff47",
+      "source_bytes": 4029,
+      "published_sha256": "ac060e2077c63128ddc0642b19009afdbdcecf3a565dc5a0c3898df3d44eff47",
+      "published_bytes": 4029,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-pilot/study.py",
+      "source_sha256": "fb90046ce0a7b9f3bfbecffdcf4bb27b56d54c2cba95b98263d24a4ff31cb995",
+      "source_bytes": 7109,
+      "published_sha256": "fb90046ce0a7b9f3bfbecffdcf4bb27b56d54c2cba95b98263d24a4ff31cb995",
+      "published_bytes": 7109,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-screen/benchmark.py",
+      "source_sha256": "cb32f6c7c6ffc7dfba5a4932837336fc1722242f9578fa9aa1b6a4be6f62cb8b",
+      "source_bytes": 18865,
+      "published_sha256": "cb32f6c7c6ffc7dfba5a4932837336fc1722242f9578fa9aa1b6a4be6f62cb8b",
+      "published_bytes": 18865,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-screen/candidate-routes.json",
+      "source_sha256": "27e0f92a3a749acbb7f363d309cd3eb041e9a0bc53137a76140cdb67635d9973",
+      "source_bytes": 9680,
+      "published_sha256": "27e0f92a3a749acbb7f363d309cd3eb041e9a0bc53137a76140cdb67635d9973",
+      "published_bytes": 9680,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-screen/decision-rule.json",
+      "source_sha256": "ca2770485990f7a8c0f47b8f2ac4122e3f2b7e7e6b336b84202dfb15b5a8ae41",
+      "source_bytes": 1343,
+      "published_sha256": "ca2770485990f7a8c0f47b8f2ac4122e3f2b7e7e6b336b84202dfb15b5a8ae41",
+      "published_bytes": 1343,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-screen/evaluation.py",
+      "source_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "source_bytes": 2553,
+      "published_sha256": "4f4cb00c17eabd1573f4a0e7906afb4f49752853b2404d215fe3fce2ea178e40",
+      "published_bytes": 2553,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-screen/questions.json",
+      "source_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "source_bytes": 68341,
+      "published_sha256": "23e7b801002be97c57cd3b76666f596e1c4d72b41d7a361a9ebc6a4c51574849",
+      "published_bytes": 68341,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-screen/references.json",
+      "source_sha256": "b91acafb5a4eb8fe93914c10dcc7ed8be104fe40636c2e20b438d601f2b7af77",
+      "source_bytes": 960149,
+      "published_sha256": "b91acafb5a4eb8fe93914c10dcc7ed8be104fe40636c2e20b438d601f2b7af77",
+      "published_bytes": 960149,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-screen/schema.sql",
+      "source_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "source_bytes": 895,
+      "published_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "published_bytes": 895,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/source-screen/study.py",
+      "source_sha256": "fb90046ce0a7b9f3bfbecffdcf4bb27b56d54c2cba95b98263d24a4ff31cb995",
+      "source_bytes": 7109,
+      "published_sha256": "fb90046ce0a7b9f3bfbecffdcf4bb27b56d54c2cba95b98263d24a4ff31cb995",
+      "published_bytes": 7109,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/results/started.jsonl",
+      "source_sha256": "8fdd9b96e7937f9b5af77b9cd55181680d814904f519ac045ece2e2bb1fcee23",
+      "source_bytes": 246683,
+      "published_sha256": "8fdd9b96e7937f9b5af77b9cd55181680d814904f519ac045ece2e2bb1fcee23",
+      "published_bytes": 246683,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/run-model-metadata.json",
+      "source_sha256": "0b26b849188de22e8e7a728707b8ca429fcb388991ff6885e607156d991106b2",
+      "source_bytes": 5429,
+      "published_sha256": "0b26b849188de22e8e7a728707b8ca429fcb388991ff6885e607156d991106b2",
+      "published_bytes": 5429,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/schema.sql",
+      "source_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "source_bytes": 895,
+      "published_sha256": "d1b5aa5651d2fb0364e909b43017cf41f6714727949b08e1abcfb5f5753bf19e",
+      "published_bytes": 895,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/selected-routes.json",
+      "source_sha256": "ac060e2077c63128ddc0642b19009afdbdcecf3a565dc5a0c3898df3d44eff47",
+      "source_bytes": 4029,
+      "published_sha256": "ac060e2077c63128ddc0642b19009afdbdcecf3a565dc5a0c3898df3d44eff47",
+      "published_bytes": 4029,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/server-config.xml",
+      "source_sha256": "b210cf43afba58130a7b95635bb11354c72417d2aa355eeacf7b2205664a103e",
+      "source_bytes": 1980,
+      "published_sha256": "b210cf43afba58130a7b95635bb11354c72417d2aa355eeacf7b2205664a103e",
+      "published_bytes": 1980,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/server-users.xml",
+      "source_sha256": "b4ef3d319b6e87976fb397e7c0a9f9387f7e13c7915f4f279ee0ba1e7e5a37ad",
+      "source_bytes": 615,
+      "published_sha256": "b4ef3d319b6e87976fb397e7c0a9f9387f7e13c7915f4f279ee0ba1e7e5a37ad",
+      "published_bytes": 615,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/study-plan.json",
+      "source_sha256": "bdd71b3ad9f524ee0b9082596a350b17bafa5a4bc0154fd02322317e9f477cd3",
+      "source_bytes": 1291,
+      "published_sha256": "bdd71b3ad9f524ee0b9082596a350b17bafa5a4bc0154fd02322317e9f477cd3",
+      "published_bytes": 1291,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/study.py",
+      "source_sha256": "fb90046ce0a7b9f3bfbecffdcf4bb27b56d54c2cba95b98263d24a4ff31cb995",
+      "source_bytes": 7109,
+      "published_sha256": "fb90046ce0a7b9f3bfbecffdcf4bb27b56d54c2cba95b98263d24a4ff31cb995",
+      "published_bytes": 7109,
+      "byte_identical": true
+    },
+    {
+      "path": "benchmarks/llm-clickhouse-deepseek-quant/test_evaluation.py",
+      "source_sha256": "47cbfbd692174b01200247e5b294c5d79164dcd3751046efc5afa56dd19e4341",
+      "source_bytes": 1792,
+      "published_sha256": "47cbfbd692174b01200247e5b294c5d79164dcd3751046efc5afa56dd19e4341",
+      "published_bytes": 1792,
+      "byte_identical": true
+    },
+    {
+      "path": "browser_driver.py",
+      "source_sha256": "5b84246bba7987e9ac59cf7e3d8de731ef76de26ea8a1f3f3dd2b33567ba1ddc",
+      "source_bytes": 1513,
+      "published_sha256": "5b84246bba7987e9ac59cf7e3d8de731ef76de26ea8a1f3f3dd2b33567ba1ddc",
+      "published_bytes": 1513,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/Dockerfile",
+      "source_sha256": "46368b4762863ec66ff60144515f3ff62522c5afe4569d64419b111b5f826edf",
+      "source_bytes": 409,
+      "published_sha256": "46368b4762863ec66ff60144515f3ff62522c5afe4569d64419b111b5f826edf",
+      "published_bytes": 409,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/app.py",
+      "source_sha256": "260cd9ecbc586b8e792f6d3c21c84d35db37422a2f8e5153808459201a37b5a8",
+      "source_bytes": 30390,
+      "published_sha256": "260cd9ecbc586b8e792f6d3c21c84d35db37422a2f8e5153808459201a37b5a8",
+      "published_bytes": 30390,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/datasets.py",
+      "source_sha256": "ddcdea01fa1b9ee2e3c385ec33c2cda1ce037d08977382bb73eaff9f355f90cc",
+      "source_bytes": 12468,
+      "published_sha256": "ddcdea01fa1b9ee2e3c385ec33c2cda1ce037d08977382bb73eaff9f355f90cc",
+      "published_bytes": 12468,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/domain.py",
+      "source_sha256": "d42a509f3d89d0fa722347fc37f522a6e65cf658caf2a3dd89c2e9c8e60facea",
+      "source_bytes": 9247,
+      "published_sha256": "d42a509f3d89d0fa722347fc37f522a6e65cf658caf2a3dd89c2e9c8e60facea",
+      "published_bytes": 9247,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/prompt-maritime.txt",
+      "source_sha256": "06e04c7722201209264c7b63d4aafb8227d4b4bf376b6906c6f4f9e49515f8fa",
+      "source_bytes": 7837,
+      "published_sha256": "06e04c7722201209264c7b63d4aafb8227d4b4bf376b6906c6f4f9e49515f8fa",
+      "published_bytes": 7837,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/prompt.txt",
+      "source_sha256": "a52d2f33602d1c7bef56a95d5a020444cdd3ed4454901cefb07332c787141fbb",
+      "source_bytes": 8266,
+      "published_sha256": "a52d2f33602d1c7bef56a95d5a020444cdd3ed4454901cefb07332c787141fbb",
+      "published_bytes": 8266,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/requirements.lock.txt",
+      "source_sha256": "8226712ba96e92a4c1a70a38a418eee3a3dd8f12cdd415f07dcb050670ea41c6",
+      "source_bytes": 1483,
+      "published_sha256": "8226712ba96e92a4c1a70a38a418eee3a3dd8f12cdd415f07dcb050670ea41c6",
+      "published_bytes": 1483,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/selection.py",
+      "source_sha256": "9ed14ad308c8cf907da6e6e8fdecda7a0cbd63677aaeb2b779f7a1279932fd81",
+      "source_bytes": 9766,
+      "published_sha256": "9ed14ad308c8cf907da6e6e8fdecda7a0cbd63677aaeb2b779f7a1279932fd81",
+      "published_bytes": 9766,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/app.js",
+      "source_sha256": "7de67824f49e0ea8406fd02680437d670dd40548a20203e3b9b3ab6e8b8d3f62",
+      "source_bytes": 45080,
+      "published_sha256": "7de67824f49e0ea8406fd02680437d670dd40548a20203e3b9b3ab6e8b8d3f62",
+      "published_bytes": 45080,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/camera.js",
+      "source_sha256": "8ad588e0e5c74d08d281032905bd6a1a8aca9b90d0cb1e6de62baf6aef30d4c7",
+      "source_bytes": 7067,
+      "published_sha256": "8ad588e0e5c74d08d281032905bd6a1a8aca9b90d0cb1e6de62baf6aef30d4c7",
+      "published_bytes": 7067,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/datasets.css",
+      "source_sha256": "e4ec66c05ae5193d8306dc302d5724cb100b782d6a2ec3592dbc5bb807a7815c",
+      "source_bytes": 1654,
+      "published_sha256": "e4ec66c05ae5193d8306dc302d5724cb100b782d6a2ec3592dbc5bb807a7815c",
+      "published_bytes": 1654,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/explore-viz.css",
+      "source_sha256": "ddc84aadb1fc1be610217eb2ee6db34ab4867dbfa8fe628a0b04c7b8b989cbea",
+      "source_bytes": 7992,
+      "published_sha256": "ddc84aadb1fc1be610217eb2ee6db34ab4867dbfa8fe628a0b04c7b8b989cbea",
+      "published_bytes": 7992,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/explore-viz.js",
+      "source_sha256": "f20f5d95ee15f13f9c75e976f28cfaa682b216e572fd35aa13537b260c1f11d2",
+      "source_bytes": 37083,
+      "published_sha256": "f20f5d95ee15f13f9c75e976f28cfaa682b216e572fd35aa13537b260c1f11d2",
+      "published_bytes": 37083,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/gif-worker.js",
+      "source_sha256": "491807077c805364e88ebd46a93c65ad94f558fbb59d63a2c7ea9b787e9aa3e8",
+      "source_bytes": 648,
+      "published_sha256": "491807077c805364e88ebd46a93c65ad94f558fbb59d63a2c7ea9b787e9aa3e8",
+      "published_bytes": 648,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/index.html",
+      "source_sha256": "6017b22c93fabfebe2411076514cf165a65529f50c2de2fa8f21b30677d20403",
+      "source_bytes": 5310,
+      "published_sha256": "6017b22c93fabfebe2411076514cf165a65529f50c2de2fa8f21b30677d20403",
+      "published_bytes": 5310,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/marks.js",
+      "source_sha256": "2f11973cc9d111386647a04b4e00ab79c6111507b4d7b3fd0c197cfaa4b9df01",
+      "source_bytes": 3976,
+      "published_sha256": "2f11973cc9d111386647a04b4e00ab79c6111507b4d7b3fd0c197cfaa4b9df01",
+      "published_bytes": 3976,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/media.js",
+      "source_sha256": "df3a348206241a37c7e658f4737fede725be4960d23d3a62a081ecc9b14c8f40",
+      "source_bytes": 7562,
+      "published_sha256": "df3a348206241a37c7e658f4737fede725be4960d23d3a62a081ecc9b14c8f40",
+      "published_bytes": 7562,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/motion.js",
+      "source_sha256": "b95110d951e9eaa70657e67b3ec7115824d36c9d55499bad705454aae6857cca",
+      "source_bytes": 4257,
+      "published_sha256": "b95110d951e9eaa70657e67b3ec7115824d36c9d55499bad705454aae6857cca",
+      "published_bytes": 4257,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/scifi.css",
+      "source_sha256": "5f19099f7887f13309203843401ace04fb7a6e52fe7a2e79814c3182a78a9743",
+      "source_bytes": 20180,
+      "published_sha256": "5f19099f7887f13309203843401ace04fb7a6e52fe7a2e79814c3182a78a9743",
+      "published_bytes": 20180,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/style.css",
+      "source_sha256": "b249339236cdf96abe2d7fe880239fe420d1f16760bf81b426308936972c21d7",
+      "source_bytes": 21013,
+      "published_sha256": "b249339236cdf96abe2d7fe880239fe420d1f16760bf81b426308936972c21d7",
+      "published_bytes": 21013,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/surface.js",
+      "source_sha256": "73e61f20e9a33b38fac0073e44a690df227914920e8faed376feb993482ed66f",
+      "source_bytes": 7161,
+      "published_sha256": "73e61f20e9a33b38fac0073e44a690df227914920e8faed376feb993482ed66f",
+      "published_bytes": 7161,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/LICENSE",
+      "source_sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
+      "source_bytes": 1395,
+      "published_sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb",
+      "published_bytes": 1395,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/gifenc-LICENSE.md",
+      "source_sha256": "47bc590c39d8ccccfc544875a9faebf44bafa828ef20315b396b5d0629f0cfd6",
+      "source_bytes": 1083,
+      "published_sha256": "47bc590c39d8ccccfc544875a9faebf44bafa828ef20315b396b5d0629f0cfd6",
+      "published_bytes": 1083,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/gifenc-source.json",
+      "source_sha256": "f76ce5f3a3d6857ffbfb51e3a3c522381fef5ab60b61af7cb870be5a21fd3786",
+      "source_bytes": 178,
+      "published_sha256": "f76ce5f3a3d6857ffbfb51e3a3c522381fef5ab60b61af7cb870be5a21fd3786",
+      "published_bytes": 178,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/gifenc.js",
+      "source_sha256": "217761244379253ba5815510d3048a4fb1f4c4dbe9fb51a5cfbfe26f34eec093",
+      "source_bytes": 9098,
+      "published_sha256": "217761244379253ba5815510d3048a4fb1f4c4dbe9fb51a5cfbfe26f34eec093",
+      "published_bytes": 9098,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/images/layers-2x.png",
+      "source_sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "source_bytes": 1259,
+      "published_sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "published_bytes": 1259,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/images/layers.png",
+      "source_sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "source_bytes": 696,
+      "published_sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "published_bytes": 696,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/images/marker-icon-2x.png",
+      "source_sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "source_bytes": 2464,
+      "published_sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "published_bytes": 2464,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/images/marker-icon.png",
+      "source_sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "source_bytes": 1466,
+      "published_sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "published_bytes": 1466,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/images/marker-shadow.png",
+      "source_sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "source_bytes": 618,
+      "published_sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "published_bytes": 618,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/leaflet.css",
+      "source_sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "source_bytes": 14806,
+      "published_sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "published_bytes": 14806,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/leaflet.js",
+      "source_sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "source_bytes": 147552,
+      "published_sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "published_bytes": 147552,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/sources.json",
+      "source_sha256": "c7222dc4b95b4f17f74b9731a877845c2c47496ff0d4ef1ae514e818529eb0f9",
+      "source_bytes": 1367,
+      "published_sha256": "c7222dc4b95b4f17f74b9731a877845c2c47496ff0d4ef1ae514e818529eb0f9",
+      "published_bytes": 1367,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/world-source.json",
+      "source_sha256": "a0d8ed8286cc72bfe89512aeb45619b5f0a0fcfcc4e28965f4126e087e2ba7df",
+      "source_bytes": 368,
+      "published_sha256": "a0d8ed8286cc72bfe89512aeb45619b5f0a0fcfcc4e28965f4126e087e2ba7df",
+      "published_bytes": 368,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/static/vendor/world.json",
+      "source_sha256": "dff7691b8e86e52263d804c4bcd3dcf28239e078a52152a1c0ecb14570150113",
+      "source_bytes": 251585,
+      "published_sha256": "dff7691b8e86e52263d804c4bcd3dcf28239e078a52152a1c0ecb14570150113",
+      "published_bytes": 251585,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/tests/test_api.py",
+      "source_sha256": "dc5be78110406bcd290a52fde9e3b7086a7fe7cc5307fcab12c90e099ef49bdd",
+      "source_bytes": 31220,
+      "published_sha256": "dc5be78110406bcd290a52fde9e3b7086a7fe7cc5307fcab12c90e099ef49bdd",
+      "published_bytes": 31220,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/tests/test_datasets.py",
+      "source_sha256": "abc1079d812ada3c5aa52f9619bf33aba24c4ec601f95eb786e936b9999b42af",
+      "source_bytes": 12495,
+      "published_sha256": "abc1079d812ada3c5aa52f9619bf33aba24c4ec601f95eb786e936b9999b42af",
+      "published_bytes": 12495,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/tests/test_domain.py",
+      "source_sha256": "b06ac8ad608817c98b2211528c0a1e02fa8c61db53dabab16609783ead85cdb2",
+      "source_bytes": 5481,
+      "published_sha256": "b06ac8ad608817c98b2211528c0a1e02fa8c61db53dabab16609783ead85cdb2",
+      "published_bytes": 5481,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas/tests/test_selection.py",
+      "source_sha256": "b45cde6adb2280bbf12389b212ef06fc1a3fdd3eeb448d0126a707e4af3dc24c",
+      "source_bytes": 3325,
+      "published_sha256": "b45cde6adb2280bbf12389b212ef06fc1a3fdd3eeb448d0126a707e4af3dc24c",
+      "published_bytes": 3325,
+      "byte_identical": true
+    },
+    {
+      "path": "canvas_browser.py",
+      "source_sha256": "29228bbc07e3cf90f02eb215e27d4a0b8ab5b657408dd50b4772a5288c81519c",
+      "source_bytes": 1331,
+      "published_sha256": "29228bbc07e3cf90f02eb215e27d4a0b8ab5b657408dd50b4772a5288c81519c",
+      "published_bytes": 1331,
+      "byte_identical": true
+    },
+    {
+      "path": "clickhouse-config.xml",
+      "source_sha256": "690703673097faba8ba12c93cb1a72134fdc857f0191a179a0ee9332fd29eb00",
+      "source_bytes": 301,
+      "published_sha256": "690703673097faba8ba12c93cb1a72134fdc857f0191a179a0ee9332fd29eb00",
+      "published_bytes": 301,
+      "byte_identical": true
+    },
+    {
+      "path": "compose.canvas.yaml",
+      "source_sha256": "36f3562cc80c1dfcd37d53818e724ee18da7ffce1ecb190af5189a0fc47762d6",
+      "source_bytes": 313,
+      "published_sha256": "36f3562cc80c1dfcd37d53818e724ee18da7ffce1ecb190af5189a0fc47762d6",
+      "published_bytes": 313,
+      "byte_identical": true
+    },
+    {
+      "path": "compose.yaml",
+      "source_sha256": "6fd447e230e2c3cf1e4c625e7bc183c2bf83a8cad5c638e824a89cdd4036193e",
+      "source_bytes": 1655,
+      "published_sha256": "6fd447e230e2c3cf1e4c625e7bc183c2bf83a8cad5c638e824a89cdd4036193e",
+      "published_bytes": 1655,
+      "byte_identical": true
+    },
+    {
+      "path": "demos/README.md",
+      "source_sha256": "9f31af207eac35ccfe466f81b9b7a1e110bc7c3f40499f85444d78dd8b969387",
+      "source_bytes": 17741,
+      "published_sha256": "1fa8063e115f0e922b0851adfae3011de67ca77d353a2dca902b7b2816d07a10",
+      "published_bytes": 17538,
+      "byte_identical": false
+    },
+    {
+      "path": "demos/reference-data.json.gz",
+      "source_sha256": "7ed8533deac69e2d367523211ed71c1f7ab2d85988649319b2c526e6fe453da2",
+      "source_bytes": 205887,
+      "published_sha256": "7ed8533deac69e2d367523211ed71c1f7ab2d85988649319b2c526e6fe453da2",
+      "published_bytes": 205887,
+      "byte_identical": true
+    },
+    {
+      "path": "demos/rehearsal-evidence.json.gz",
+      "source_sha256": "b360ebaf7c0f415f5d3584b0086d3beeefd1b696350dd8f11d8609170ac05861",
+      "source_bytes": 66065,
+      "published_sha256": "b360ebaf7c0f415f5d3584b0086d3beeefd1b696350dd8f11d8609170ac05861",
+      "published_bytes": 66065,
+      "byte_identical": true
+    },
+    {
+      "path": "demos/stories.json",
+      "source_sha256": "8bece55855ec32821e97cf179ce164d6db96cb32186804c3db7b8bd8158f650b",
+      "source_bytes": 21919,
+      "published_sha256": "8bece55855ec32821e97cf179ce164d6db96cb32186804c3db7b8bd8158f650b",
+      "published_bytes": 21919,
+      "byte_identical": true
+    },
+    {
+      "path": "evidence/plotly-source.json",
+      "source_sha256": "5736760713ba2173bfa9f94b09771df474048b806341a53518cd2b63c3b45f99",
+      "source_bytes": 177,
+      "published_sha256": "5736760713ba2173bfa9f94b09771df474048b806341a53518cd2b63c3b45f99",
+      "published_bytes": 177,
+      "byte_identical": true
+    },
+    {
+      "path": "gateway/Dockerfile",
+      "source_sha256": "0a13d04ba16f8615422132f7b7ef4ba84743938adf91c1670af84305f8789aad",
+      "source_bytes": 338,
+      "published_sha256": "0a13d04ba16f8615422132f7b7ef4ba84743938adf91c1670af84305f8789aad",
+      "published_bytes": 338,
+      "byte_identical": true
+    },
+    {
+      "path": "gateway/app.py",
+      "source_sha256": "2793bf5a66ffd535b14b76aaa287261ea165dbca412d420bac1f0ac82426aac8",
+      "source_bytes": 8175,
+      "published_sha256": "2793bf5a66ffd535b14b76aaa287261ea165dbca412d420bac1f0ac82426aac8",
+      "published_bytes": 8175,
+      "byte_identical": true
+    },
+    {
+      "path": "gateway/fast_mode.py",
+      "source_sha256": "15ee8b6b7fb4902b044ec8830ee39e1037f6143ea291aa050941cac797c4f614",
+      "source_bytes": 3529,
+      "published_sha256": "15ee8b6b7fb4902b044ec8830ee39e1037f6143ea291aa050941cac797c4f614",
+      "published_bytes": 3529,
+      "byte_identical": true
+    },
+    {
+      "path": "gateway/fixtures/successful-round.json",
+      "source_sha256": "3b836536c0c18a0af6c49cf08673bc702bf4835074bf73bfad8b65be471b6e97",
+      "source_bytes": 2372,
+      "published_sha256": "3b836536c0c18a0af6c49cf08673bc702bf4835074bf73bfad8b65be471b6e97",
+      "published_bytes": 2372,
+      "byte_identical": true
+    },
+    {
+      "path": "gateway/requirements.lock.txt",
+      "source_sha256": "7a24c1a7b9ea01d4c154d2d2bd4175809f0f4e9dc2bf74a3ae7a84d63873d41b",
+      "source_bytes": 309,
+      "published_sha256": "7a24c1a7b9ea01d4c154d2d2bd4175809f0f4e9dc2bf74a3ae7a84d63873d41b",
+      "published_bytes": 309,
+      "byte_identical": true
+    },
+    {
+      "path": "gateway/test_fast_mode.py",
+      "source_sha256": "d427494427c4c4eae2b9896de73a595b5f4ed028db277d024dae8fd8e7bd9db3",
+      "source_bytes": 3444,
+      "published_sha256": "d427494427c4c4eae2b9896de73a595b5f4ed028db277d024dae8fd8e7bd9db3",
+      "published_bytes": 3444,
+      "byte_identical": true
+    },
+    {
+      "path": "librechat.yaml",
+      "source_sha256": "caa3127a93e2d9e569b15dc83c04b5a30cedd0016c1ef55ca9e39b9f5b71727f",
+      "source_bytes": 4625,
+      "published_sha256": "caa3127a93e2d9e569b15dc83c04b5a30cedd0016c1ef55ca9e39b9f5b71727f",
+      "published_bytes": 4625,
+      "byte_identical": true
+    },
+    {
+      "path": "load_data.py",
+      "source_sha256": "844f99fadd7bd53b146c66c6fd38e655f43ed2e244f000c43a67406d651858fd",
+      "source_bytes": 5016,
+      "published_sha256": "844f99fadd7bd53b146c66c6fd38e655f43ed2e244f000c43a67406d651858fd",
+      "published_bytes": 5016,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/.gitignore",
+      "source_sha256": "686973c36400d32297f38d02611f9ba83eb0cc8ed1995d676dcefeb9173166f8",
+      "source_bytes": 70,
+      "published_sha256": "686973c36400d32297f38d02611f9ba83eb0cc8ed1995d676dcefeb9173166f8",
+      "published_bytes": 70,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/README.md",
+      "source_sha256": "6dbb183abb9c15784bc93eabb70ab41f2bcc48e470e731abb2be5586d3aeb5d0",
+      "source_bytes": 6632,
+      "published_sha256": "6dbb183abb9c15784bc93eabb70ab41f2bcc48e470e731abb2be5586d3aeb5d0",
+      "published_bytes": 6632,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/dataset.json",
+      "source_sha256": "48e320a1c6bd6f04bac747c69ad5ca3553890d3b6592b0479f96376d9737d297",
+      "source_bytes": 14732,
+      "published_sha256": "48e320a1c6bd6f04bac747c69ad5ca3553890d3b6592b0479f96376d9737d297",
+      "published_bytes": 14732,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/example-queries.json",
+      "source_sha256": "6e85ee1ae43efb5a2007650f3b125782e06c8ce4512c24a7f1303965337d93ad",
+      "source_bytes": 6362,
+      "published_sha256": "6e85ee1ae43efb5a2007650f3b125782e06c8ce4512c24a7f1303965337d93ad",
+      "published_bytes": 6362,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/ingest-validation.json",
+      "source_sha256": "c717055529349fc9b74f5a7db3a1121ad59c5c7521df9ed2df4a052151d0930d",
+      "source_bytes": 8467,
+      "published_sha256": "c717055529349fc9b74f5a7db3a1121ad59c5c7521df9ed2df4a052151d0930d",
+      "published_bytes": 8467,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/load.py",
+      "source_sha256": "0c31665e361a4f81a3f68426c41d89cd7ba4a3288f1a70e634566e4f405ae9e7",
+      "source_bytes": 20516,
+      "published_sha256": "0c31665e361a4f81a3f68426c41d89cd7ba4a3288f1a70e634566e4f405ae9e7",
+      "published_bytes": 20516,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/query-validation.json",
+      "source_sha256": "24f750a1c69c5713353a16dd14527c9efe5b57820391638a23f9251a9da7021f",
+      "source_bytes": 14819,
+      "published_sha256": "24f750a1c69c5713353a16dd14527c9efe5b57820391638a23f9251a9da7021f",
+      "published_bytes": 14819,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/schema.sql",
+      "source_sha256": "4a0a11f5430cf1c4a0d15f9c3c6635b3acb149bb52ed3c7486747bf6383a66d5",
+      "source_bytes": 1382,
+      "published_sha256": "4a0a11f5430cf1c4a0d15f9c3c6635b3acb149bb52ed3c7486747bf6383a66d5",
+      "published_bytes": 1382,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/source-manifest.json",
+      "source_sha256": "a683f80e4358f8148371b748d7bfe161003547b26274f45a350a290034f3e8f5",
+      "source_bytes": 14747,
+      "published_sha256": "a683f80e4358f8148371b748d7bfe161003547b26274f45a350a290034f3e8f5",
+      "published_bytes": 14747,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/test_load.py",
+      "source_sha256": "7dbf7fd9aacb1abb0a5cbea4d5a02478bc95bb35f0a1bf2d8566c92f3ba8af96",
+      "source_bytes": 2489,
+      "published_sha256": "7dbf7fd9aacb1abb0a5cbea4d5a02478bc95bb35f0a1bf2d8566c92f3ba8af96",
+      "published_bytes": 2489,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/verify_ingest.py",
+      "source_sha256": "956bc6040711b8d47d23cf0156a1c0b1d25045de9cad0a3416971209d13d9c5f",
+      "source_bytes": 4664,
+      "published_sha256": "956bc6040711b8d47d23cf0156a1c0b1d25045de9cad0a3416971209d13d9c5f",
+      "published_bytes": 4664,
+      "byte_identical": true
+    },
+    {
+      "path": "maritime/verify_queries.py",
+      "source_sha256": "7d77e50c2a842c68defb47d6103decc10890fad09e5b2db46c627248e3dc67e8",
+      "source_bytes": 1471,
+      "published_sha256": "7d77e50c2a842c68defb47d6103decc10890fad09e5b2db46c627248e3dc67e8",
+      "published_bytes": 1471,
+      "byte_identical": true
+    },
+    {
+      "path": "performance/chart-asset.json",
+      "source_sha256": "815658552449867d8969c6f02c93f326569cd09df0bec9e2df980f36476205b2",
+      "source_bytes": 219,
+      "published_sha256": "815658552449867d8969c6f02c93f326569cd09df0bec9e2df980f36476205b2",
+      "published_bytes": 219,
+      "byte_identical": true
+    },
+    {
+      "path": "performance/demo-stories-01/checks.json",
+      "source_sha256": "94afe70109ae81a9d57c1ef448bfcd2e4f9b819ae7d6a5967e7e67855b3fa0e6",
+      "source_bytes": 1091,
+      "published_sha256": "94afe70109ae81a9d57c1ef448bfcd2e4f9b819ae7d6a5967e7e67855b3fa0e6",
+      "published_bytes": 1091,
+      "byte_identical": true
+    },
+    {
+      "path": "performance/demo-stories-01/media-validation.json",
+      "source_sha256": "e89b7092656de4fd6a8ace0e26f55abe656742ec2877f7f89a6e702cbdfed65a",
+      "source_bytes": 3684,
+      "published_sha256": "e89b7092656de4fd6a8ace0e26f55abe656742ec2877f7f89a6e702cbdfed65a",
+      "published_bytes": 3684,
+      "byte_identical": true
+    },
+    {
+      "path": "performance/demo-stories-01/summary.json",
+      "source_sha256": "5adc19eac6e9b80fa78b2279c9bb50946c62aaeccb6649cb3737685fadfefee8",
+      "source_bytes": 14646,
+      "published_sha256": "5adc19eac6e9b80fa78b2279c9bb50946c62aaeccb6649cb3737685fadfefee8",
+      "published_bytes": 14646,
+      "byte_identical": true
+    },
+    {
+      "path": "performance/demo-stories-01/unit-tests.txt",
+      "source_sha256": "2c133f78cc57db51c81582e9fea6bc1ef891d26bf7bf4a30d8b21450c106c68f",
+      "source_bytes": 10256,
+      "published_sha256": "2c133f78cc57db51c81582e9fea6bc1ef891d26bf7bf4a30d8b21450c106c68f",
+      "published_bytes": 10256,
+      "byte_identical": true
+    },
+    {
+      "path": "performance/demo-stories-01/validation.json",
+      "source_sha256": "8a790d2efd5228d0f9ff8ce377eae2d9fa502c75808d66d5cd5c29b08d087fa4",
+      "source_bytes": 24252,
+      "published_sha256": "8a790d2efd5228d0f9ff8ce377eae2d9fa502c75808d66d5cd5c29b08d087fa4",
+      "published_bytes": 24252,
+      "byte_identical": true
+    },
+    {
+      "path": "performance/story-presentation-01/checks.json",
+      "source_sha256": "2a19f2bc3d7139b7de0e8c6ad0cfef4e7928f27082f7af0d375487884bebb491",
+      "source_bytes": 2893,
+      "published_sha256": "2a19f2bc3d7139b7de0e8c6ad0cfef4e7928f27082f7af0d375487884bebb491",
+      "published_bytes": 2893,
+      "byte_identical": true
+    },
+    {
+      "path": "performance/story-presentation-01/media-validation.json",
+      "source_sha256": "8e733d120f3e0e6ba7ee0b703617e3c7e9ce8db17e624acb3179cea565f91a51",
+      "source_bytes": 694,
+      "published_sha256": "8e733d120f3e0e6ba7ee0b703617e3c7e9ce8db17e624acb3179cea565f91a51",
+      "published_bytes": 694,
+      "byte_identical": true
+    },
+    {
+      "path": "performance/story-presentation-01/summary.json",
+      "source_sha256": "06716a4bfd439c2e42d59efb42916f599274241a3804581846caaefcf3a04578",
+      "source_bytes": 6331,
+      "published_sha256": "06716a4bfd439c2e42d59efb42916f599274241a3804581846caaefcf3a04578",
+      "published_bytes": 6331,
+      "byte_identical": true
+    },
+    {
+      "path": "prepare_private.py",
+      "source_sha256": "819014f374ceb4350ec4604aabafcac07aded90a336bfba465d4b821d6f83c40",
+      "source_bytes": 2629,
+      "published_sha256": "819014f374ceb4350ec4604aabafcac07aded90a336bfba465d4b821d6f83c40",
+      "published_bytes": 2629,
+      "byte_identical": true
+    },
+    {
+      "path": "record_canvas.py",
+      "source_sha256": "5092314a5392273bf9f40d55c3d01835bc4faa2f13b0089e659a4831b988c90a",
+      "source_bytes": 6466,
+      "published_sha256": "5092314a5392273bf9f40d55c3d01835bc4faa2f13b0089e659a4831b988c90a",
+      "published_bytes": 6466,
+      "byte_identical": true
+    },
+    {
+      "path": "record_demo.py",
+      "source_sha256": "c04020db99dd12540d69291c012aa34742b0d40b1432b62e7ab341a571dd369a",
+      "source_bytes": 7038,
+      "published_sha256": "c04020db99dd12540d69291c012aa34742b0d40b1432b62e7ab341a571dd369a",
+      "published_bytes": 7038,
+      "byte_identical": true
+    },
+    {
+      "path": "rehearse_stories.py",
+      "source_sha256": "17ca64354836c9e872f2e61e9b9cc4063d83ab901f7a1b5883477fea566f4e07",
+      "source_bytes": 19994,
+      "published_sha256": "17ca64354836c9e872f2e61e9b9cc4063d83ab901f7a1b5883477fea566f4e07",
+      "published_bytes": 19994,
+      "byte_identical": true
+    },
+    {
+      "path": "remote.py",
+      "source_sha256": "dcf307efc58b401c5267be94d426d9857c8ab959da05e5d6e85d3287ddfe61d2",
+      "source_bytes": 1988,
+      "published_sha256": "dcf307efc58b401c5267be94d426d9857c8ab959da05e5d6e85d3287ddfe61d2",
+      "published_bytes": 1988,
+      "byte_identical": true
+    },
+    {
+      "path": "schema.sql",
+      "source_sha256": "4576cb1cd4835469f49d9c1aff11c67ee681aefb4d18d0cef596f6dd4e725fb1",
+      "source_bytes": 1565,
+      "published_sha256": "4576cb1cd4835469f49d9c1aff11c67ee681aefb4d18d0cef596f6dd4e725fb1",
+      "published_bytes": 1565,
+      "byte_identical": true
+    },
+    {
+      "path": "source_manifest.py",
+      "source_sha256": "183d3a78d96077757c463d378907c4505fd2ade4221c20f2f8ed2b87ff106346",
+      "source_bytes": 2089,
+      "published_sha256": "183d3a78d96077757c463d378907c4505fd2ade4221c20f2f8ed2b87ff106346",
+      "published_bytes": 2089,
+      "byte_identical": true
+    },
+    {
+      "path": "tests/test_demo_stories.py",
+      "source_sha256": "66880646809da186a087e36755c5d06825e232f5225990f0cc733fdf3525fa24",
+      "source_bytes": 8039,
+      "published_sha256": "66880646809da186a087e36755c5d06825e232f5225990f0cc733fdf3525fa24",
+      "published_bytes": 8039,
+      "byte_identical": true
+    },
+    {
+      "path": "verify_demo_stories.py",
+      "source_sha256": "37f3610b1f051ff1ab4e1740a5e305b783fdaf03691e6a6325dc636dc9593ab1",
+      "source_bytes": 46649,
+      "published_sha256": "37f3610b1f051ff1ab4e1740a5e305b783fdaf03691e6a6325dc636dc9593ab1",
+      "published_bytes": 46649,
+      "byte_identical": true
+    },
+    {
+      "path": "visual-mcp/Dockerfile",
+      "source_sha256": "2c9bba9e1cbd81e0dbd2aafc2a29734a02647d3394f1da0db8c7f88117b159ad",
+      "source_bytes": 273,
+      "published_sha256": "2c9bba9e1cbd81e0dbd2aafc2a29734a02647d3394f1da0db8c7f88117b159ad",
+      "published_bytes": 273,
+      "byte_identical": true
+    },
+    {
+      "path": "visual-mcp/app.py",
+      "source_sha256": "68313185a0db0e78dc828c15de91edc526af5ffac85b5972d337a6b70d807e41",
+      "source_bytes": 4931,
+      "published_sha256": "68313185a0db0e78dc828c15de91edc526af5ffac85b5972d337a6b70d807e41",
+      "published_bytes": 4931,
+      "byte_identical": true
+    },
+    {
+      "path": "visual-mcp/chart.html",
+      "source_sha256": "e39e6614369d483eb6517bdc7508d86118234d2b45fb40d9be08bd50943573bb",
+      "source_bytes": 7412,
+      "published_sha256": "e39e6614369d483eb6517bdc7508d86118234d2b45fb40d9be08bd50943573bb",
+      "published_bytes": 7412,
+      "byte_identical": true
+    },
+    {
+      "path": "visual-mcp/requirements.lock.txt",
+      "source_sha256": "31d83d8854b3706c50e01c7f6af0e63a031d49536850fb2038fc3cfe3184a709",
+      "source_bytes": 1398,
+      "published_sha256": "31d83d8854b3706c50e01c7f6af0e63a031d49536850fb2038fc3cfe3184a709",
+      "published_bytes": 1398,
+      "byte_identical": true
+    },
+    {
+      "path": "wildlife/dataset.json",
+      "source_sha256": "78e2ec1231251b0c882d87c28c0c271069ff1544acdabd9a09afa839fe571f16",
+      "source_bytes": 1069,
+      "published_sha256": "78e2ec1231251b0c882d87c28c0c271069ff1544acdabd9a09afa839fe571f16",
+      "published_bytes": 1069,
+      "byte_identical": true
+    },
+    {
+      "path": "wildlife/gallery.json",
+      "source_sha256": "adc214362a642610e69dca904bda16b1791c3069f51e82f6a9b73d019f958d66",
+      "source_bytes": 239,
+      "published_sha256": "adc214362a642610e69dca904bda16b1791c3069f51e82f6a9b73d019f958d66",
+      "published_bytes": 239,
+      "byte_identical": true
+    },
+    {
+      "path": "wildlife/load.jsonl",
+      "source_sha256": "466ed71d8e59d9cac091bc4da149dfd74289615d19df52a560770cfd3f9a1645",
+      "source_bytes": 918,
+      "published_sha256": "466ed71d8e59d9cac091bc4da149dfd74289615d19df52a560770cfd3f9a1645",
+      "published_bytes": 918,
+      "byte_identical": true
+    },
+    {
+      "path": "wildlife/load.py",
+      "source_sha256": "dfe8d749c6e10e67837b29a70954747009df857d478f780f7e309b0bd64a8438",
+      "source_bytes": 6669,
+      "published_sha256": "dfe8d749c6e10e67837b29a70954747009df857d478f780f7e309b0bd64a8438",
+      "published_bytes": 6669,
+      "byte_identical": true
+    },
+    {
+      "path": "wildlife/prepare_gallery.py",
+      "source_sha256": "0a73e4733b09f140b668032b4e26e696cd726c0ce2f03726af1e9f9a5582d652",
+      "source_bytes": 2489,
+      "published_sha256": "0a73e4733b09f140b668032b4e26e696cd726c0ce2f03726af1e9f9a5582d652",
+      "published_bytes": 2489,
+      "byte_identical": true
+    },
+    {
+      "path": "wildlife/source-manifest.json",
+      "source_sha256": "e6153874c5262ac55067ed1a6840ad1339b36ef419da5725b21ec5c7bbf0a5c0",
+      "source_bytes": 1103,
+      "published_sha256": "e6153874c5262ac55067ed1a6840ad1339b36ef419da5725b21ec5c7bbf0a5c0",
+      "published_bytes": 1103,
+      "byte_identical": true
+    }
+  ],
+  "published_at": "2026-10-10",
+  "article": "https://sveneliasson.de/clickhouse-fast-cheap-exploration/",
+  "documentation_changes": [
+    "benchmarks/llm-clickhouse-budget/NOTES.md",
+    "benchmarks/llm-clickhouse-budget/README.md",
+    "benchmarks/llm-clickhouse-deepseek-quant/README.md",
+    "demos/README.md",
+    "benchmarks/llm-clickhouse-deepseek-quant/NOTES.md"
+  ],
+  "omitted": "Credentials, runtime state, accounts, user workspaces, host/TLS configuration, private deployment reports, large recordings and raw source datasets.",
+  "validation": {
+    "budget_attempts_audited": 1500,
+    "provider_attempts_audited": 1500,
+    "demo_checks": 76,
+    "demo_failed_checks": 0,
+    "new_model_calls": 0,
+    "archive_secret_scan_passed": true
+  },
+  "added_files": [
+    {
+      "path": "README.md",
+      "sha256": "49fb973bbf605275d3256ff46fc92508d638fcab7ee1c19896dca1596a82823d"
+    }
+  ]
+}

@@ -1,0 +1,1858 @@
+route_id,question_id,repetition,kind,sql,error,task_id
+deepseek/deepseek-v4-flash@relace/fp4,t5_09,1,sql_error,"SELECT
+    toStartOfHour(toDateTime('2024-06-15 00:00:00') + toIntervalHour(number)) AS hour,
+    count(e.event_id) AS event_count
+FROM
+    (SELECT number FROM system.numbers LIMIT 24) AS n
+LEFT JOIN events AS e
+    ON toStartOfHour(e.timestamp) = toStartOfHour(toDateTime('2024-06-15 00:00:00') + toIntervalHour(n.number))
+    AND e.timestamp >= '2024-06-15 00:00:00'
+    AND e.timestamp < '2024-06-16 00:00:00'
+GROUP BY hour
+ORDER BY hour ASC","Code: 497. DB::Exception: budget_reader: Not enough privileges. To execute this query, it's necessary to have the grant SELECT ON system.numbers. (ACCESS_DENIED) (version 26.8.19.9 (official build))
+",full:1:t5_09:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t5_09,1,row_0_values_or_order,"SELECT
+    toStartOfHour(toDateTime('2024-06-15 00:00:00') + toIntervalHour(hour_num)) AS hour,
+    count(e.event_id) AS event_count
+FROM numbers(24) AS n
+CROSS JOIN (
+    SELECT number AS hour_num FROM numbers(24)
+) AS h
+LEFT JOIN events AS e
+    ON toDate(e.timestamp) = toDate('2024-06-15')
+    AND toHour(e.timestamp) = h.hour_num
+GROUP BY hour
+ORDER BY hour ASC",,full:1:t5_09:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:1:t6_01:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:1:t6_01:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:1:t6_01:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:1:t6_01:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_01,1,sql_error,"SELECT
+    uniqExactIf(user_id, level >= 1) AS users_l1,
+    uniqExactIf(user_id, level >= 2) AS users_l2,
+    uniqExactIf(user_id, level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:1:t6_01:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t5_05,1,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+) AS t
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:1:t5_05:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t5_05,1,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+) AS t
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:1:t5_05:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t5_05,1,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY event_type, user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:1:t5_05:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t5_05,1,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:1:t5_05:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t5_05,1,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:1:t5_05:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_06,1,row_count,"SELECT
+    toDate(timestamp) AS day,
+    sum(revenue_cents) AS revenue
+FROM events
+WHERE event_type = 'purchase'
+  AND revenue_cents > 9950
+  AND timestamp >= '2024-01-01 00:00:00'
+  AND timestamp < '2024-02-01 00:00:00'
+GROUP BY day
+ORDER BY day ASC
+WITH FILL
+    FROM toDate('2024-01-01')
+    TO toDate('2024-01-31')
+    STEP 1
+INTERPOLATE (revenue AS revenue)",,full:1:t6_06:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_06,1,row_count,"SELECT
+    toDate(timestamp) AS day,
+    sum(revenue_cents) AS revenue
+FROM events
+WHERE event_type = 'purchase'
+  AND revenue_cents > 9950
+  AND timestamp >= '2024-01-01 00:00:00'
+  AND timestamp < '2024-02-01 00:00:00'
+GROUP BY day
+ORDER BY day ASC
+WITH FILL
+    FROM toDate('2024-01-01')
+    TO toDate('2024-01-31')
+    STEP 1
+INTERPOLATE (revenue AS revenue)",,full:1:t6_06:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t3_01,1,sql_error,"median duration
+0",Not a SELECT/WITH query,full:1:t3_01:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t4_03,1,row_count,"SELECT u.user_id, u.email
+FROM users u
+LEFT JOIN events e ON u.user_id = e.user_id
+WHERE e.user_id IS NULL
+ORDER BY u.user_id ASC",,full:1:t4_03:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t4_03,1,row_count,"SELECT u.user_id, u.email
+FROM users u
+LEFT JOIN events e ON u.user_id = e.user_id
+WHERE e.user_id IS NULL
+ORDER BY u.user_id ASC",,full:1:t4_03:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t4_02,1,row_0_values_or_order,"SELECT
+    u.plan,
+    count(e.event_id) AS event_count
+FROM users AS u
+LEFT JOIN events AS e ON u.user_id = e.user_id
+GROUP BY u.plan
+ORDER BY event_count DESC, u.plan ASC",,full:1:t4_02:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t5_10,1,sql_error,"SELECT 
+    e.user_id,
+    arraySort(arrayDistinct(arrayFilter(x -> x LIKE '%premium%', e.tags))) AS premium_tags
+FROM events e
+WHERE arrayExists(x -> x LIKE '%premium%', e.tags)
+GROUP BY e.user_id
+ORDER BY e.user_id ASC
+LIMIT 50","Code: 215. DB::Exception: Column 'e.tags' is not under aggregate function and not in GROUP BY keys. In query SELECT e.user_id, arraySort(arrayDistinct(arrayFilter(x -> (x LIKE '%premium%'), e.tags))) AS premium_tags FROM events AS e WHERE arrayExists(x -> (x LIKE '%premium%'), e.tags) GROUP BY e.user_id ORDER BY e.user_id ASC LIMIT 50. (NOT_AN_AGGREGATE) (version 26.8.19.9 (official build))
+",full:1:t5_10:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t4_10,1,sql_error,"SELECT
+    device,
+    user_id,
+    count() AS event_count
+FROM events
+GROUP BY device, user_id
+HAVING event_count = max(event_count) OVER (PARTITION BY device)
+ORDER BY device ASC, user_id ASC","Code: 184. DB::Exception: Window function max(event_count) OVER (PARTITION BY device) is found in HAVING in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:1:t4_10:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_08,1,column_count,"SELECT groupArray(cnt) AS daily_counts,
+       arrayCumSum(daily_counts) AS cumulative_counts
+FROM (
+    SELECT toDate(timestamp) AS day,
+           count() AS cnt
+    FROM events
+    WHERE event_type = 'purchase'
+      AND timestamp >= '2024-01-01' AND timestamp < '2024-02-01'
+    GROUP BY day
+    ORDER BY day ASC
+)",,full:1:t6_08:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_07,1,sql_error,"SELECT countResample(0, 6, 12, 18)(timestamp) AS counts FROM events","Code: 133. DB::Exception: Aggregate function count cannot have parameters. (AGGREGATE_FUNCTION_DOESNT_ALLOW_PARAMETERS) (version 26.8.19.9 (official build))
+",full:1:t6_07:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t6_07,1,sql_error,"SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:1:t6_07:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t6_07,1,sql_error,"SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:1:t6_07:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_07,1,sql_error,"SELECT countResample(6, 0, 24)(timestamp) AS counts FROM events","Code: 48. DB::Exception: Method getUInt is not supported for DateTime64: While executing AggregatingTransform. (NOT_IMPLEMENTED) (version 26.8.19.9 (official build))
+",full:1:t6_07:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_07,1,sql_error,"SELECT countResample(6, 0, 24)(timestamp) AS counts FROM events","Code: 48. DB::Exception: Method getUInt is not supported for DateTime64: While executing AggregatingTransform. (NOT_IMPLEMENTED) (version 26.8.19.9 (official build))
+",full:1:t6_07:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_02,1,sql_error,"SELECT
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ) AS r
+FROM (
+    SELECT
+        user_id,
+        toDate(timestamp) AS date
+    FROM events
+    WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')
+    GROUP BY user_id, date
+)
+ARRAY JOIN r AS r1, r2, r3","Code: 47. DB::Exception: Unknown expression identifier `r2` in scope SELECT retention(date = '2024-01-01', date = '2024-01-02', date = '2024-01-03') AS r FROM (SELECT user_id, toDate(timestamp) AS date FROM events WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03') GROUP BY user_id, date) ARRAY JOIN r AS r1, r2, r3. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:1:t6_02:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_02,1,row_0_values_or_order,"SELECT
+    countIf(has(day_conditions, toDate('2024-01-01'))) AS r1,
+    countIf(has(day_conditions, toDate('2024-01-02'))) AS r2,
+    countIf(has(day_conditions, toDate('2024-01-03'))) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        groupUniqArray(toDate(timestamp)) AS day_conditions
+    FROM events
+    WHERE toDate(timestamp) IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))
+    GROUP BY user_id
+)",,full:1:t6_02:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_02,1,sql_error,"SELECT
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ) AS r
+FROM events
+WHERE date >= '2024-01-01' AND date <= '2024-01-03'
+```","Code: 62. DB::Exception: Back quoted string is not closed: Syntax error: failed at position 184 (```
+FORMAT JSONCompact) (line 9, col 1): ```
+FORMAT JSONCompact. . (SYNTAX_ERROR) (version 26.8.19.9 (official build))
+",full:1:t6_02:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_02,1,row_0_values_or_order,"SELECT
+    countIf(has(day_retention, 1)) AS r1,
+    countIf(has(day_retention, 2)) AS r2,
+    countIf(has(day_retention, 3)) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        retention(
+            (event_date = toDate('2024-01-01')),
+            (event_date = toDate('2024-01-02')),
+            (event_date = toDate('2024-01-03'))
+        ) AS day_retention
+    FROM
+    (
+        SELECT
+            user_id,
+            toDate(timestamp) AS event_date
+        FROM events
+        WHERE event_date IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))
+        GROUP BY user_id, event_date
+    )
+    GROUP BY user_id
+)",,full:1:t6_02:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_02,1,sql_error,"SELECT
+    countIf(has(flags, 1)) AS r1,
+    countIf(has(flags, 1) AND has(flags, 2)) AS r2,
+    countIf(has(flags, 1) AND has(flags, 2) AND has(flags, 3)) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        groupArray(day) AS flags
+    FROM
+    (
+        SELECT DISTINCT
+            user_id,
+            toDate(timestamp) AS day
+        FROM events
+        WHERE toDate(timestamp) IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))
+    )
+    GROUP BY user_id
+)","Code: 386. DB::Exception: There is no supertype for types Date, UInt8 because some of them are Date/Date32/DateTime/DateTime64/Time/Time64 and some of them are not: In scope SELECT countIf(has(flags, 1)) AS r1, countIf(has(flags, 1) AND has(flags, 2)) AS r2, countIf(has(flags, 1) AND has(flags, 2) AND has(flags, 3)) AS r3 FROM (SELECT user_id, groupArray(day) AS flags FROM (SELECT DISTINCT user_id, toDate(timestamp) AS day FROM events WHERE toDate(timestamp) IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))) GROUP BY user_id). (NO_COMMON_TYPE) (version 26.8.19.9 (official build))
+",full:1:t6_02:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t6_03,1,sql_error,"SELECT countDistinct(user_id) AS user_count
+FROM
+(
+    SELECT user_id
+    FROM events
+    WHERE event_type IN ('signup', 'purchase')
+    GROUP BY user_id
+    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(toUnixTimestamp64Milli(timestamp), event_type = 'signup', event_type = 'purchase')
+)","Code: 43. DB::Exception: Illegal type Int64 of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:1:t6_03:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_03,1,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase' AND timestamp - timestamp <= 60))","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:1:t6_03:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t6_03,1,row_count,"SELECT count(DISTINCT user_id) AS ""user count""
+FROM events
+WHERE event_type IN ('signup', 'purchase')
+GROUP BY user_id
+HAVING sequenceMatch('(?1)(?t<=60)(?2)')(toDateTime(timestamp), event_type = 'signup', event_type = 'purchase') > 0",,full:1:t6_03:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_03,1,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:1:t6_03:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_03,1,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:1:t6_03:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_02,2,column_count,"SELECT
+    retention(
+        (toDate(timestamp) = toDate('2024-01-01')),
+        (toDate(timestamp) = toDate('2024-01-02')),
+        (toDate(timestamp) = toDate('2024-01-03'))
+    ) AS r
+FROM events",,full:2:t6_02:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_02,2,row_0_values_or_order,"SELECT
+    countIf(has(day_retention, 1)) AS r1,
+    countIf(has(day_retention, 2)) AS r2,
+    countIf(has(day_retention, 3)) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        retention(
+            (event_date = toDate('2024-01-01')),
+            (event_date = toDate('2024-01-02')),
+            (event_date = toDate('2024-01-03'))
+        ) AS day_retention
+    FROM
+    (
+        SELECT
+            user_id,
+            toDate(timestamp) AS event_date
+        FROM events
+        WHERE event_date IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))
+        GROUP BY user_id, event_date
+    )
+    GROUP BY user_id
+)",,full:2:t6_02:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_02,2,sql_error,"SELECT
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ) AS r
+FROM events
+WHERE date >= '2024-01-01' AND date <= '2024-01-03'","Code: 47. DB::Exception: Unknown expression or function identifier `date` in scope SELECT retention(date = '2024-01-01', date = '2024-01-02', date = '2024-01-03') AS r FROM events WHERE (date >= '2024-01-01') AND (date <= '2024-01-03'). Maybe you meant: ['page']. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:2:t6_02:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_02,2,sql_error,"SELECT
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ) AS retention_result,
+    retention_result[1] AS r1,
+    retention_result[2] AS r2,
+    retention_result[3] AS r3
+FROM events
+WHERE date >= '2024-01-01' AND date <= '2024-01-03'","Code: 47. DB::Exception: Unknown expression or function identifier `date` in scope SELECT retention(date = '2024-01-01', date = '2024-01-02', date = '2024-01-03') AS retention_result, retention_result[1] AS r1, retention_result[2] AS r2, retention_result[3] AS r3 FROM events WHERE (date >= '2024-01-01') AND (date <= '2024-01-03'). Maybe you meant: ['page']. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:2:t6_02:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t4_10,2,sql_error,"SELECT
+    device,
+    user_id,
+    count() AS event_count
+FROM events
+GROUP BY device, user_id
+HAVING event_count = max(event_count) OVER (PARTITION BY device)
+ORDER BY device ASC, user_id ASC","Code: 184. DB::Exception: Window function max(event_count) OVER (PARTITION BY device) is found in HAVING in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:2:t4_10:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_03,2,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:2:t6_03:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_03,2,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:2:t6_03:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_03,2,sql_error,"SELECT countDistinct(user_id) AS ""user count""
+FROM
+(
+    SELECT user_id
+    FROM events
+    GROUP BY user_id
+    HAVING sequenceMatch('(?1)(?t<=60)(?2)')(toUnixTimestamp64Milli(timestamp), event_type = 'signup', event_type = 'purchase') > 0
+)","Code: 43. DB::Exception: Illegal type Int64 of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:2:t6_03:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_03,2,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase' AND timestamp - timestamp <= 60))","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:2:t6_03:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t6_03,2,row_count,"SELECT count(DISTINCT user_id) AS ""user count""
+FROM events
+WHERE event_type IN ('signup', 'purchase')
+GROUP BY user_id
+HAVING sequenceMatch('(?1)(?t<=60)(?2)')(toUnixTimestamp(timestamp), event_type = 'signup', event_type = 'purchase') > 0",,full:2:t6_03:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t4_02,2,row_0_values_or_order,"SELECT
+    u.plan,
+    count(e.event_id) AS event_count
+FROM users AS u
+LEFT JOIN events AS e ON u.user_id = e.user_id
+GROUP BY u.plan
+ORDER BY event_count DESC, u.plan ASC",,full:2:t4_02:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t4_02,2,row_0_values_or_order,"SELECT
+    u.plan,
+    count(e.event_id) AS event_count
+FROM users AS u
+LEFT JOIN events AS e ON u.user_id = e.user_id
+GROUP BY u.plan
+ORDER BY event_count DESC, u.plan ASC",,full:2:t4_02:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t3_03,2,api_error,,Model request exceeded the 60 second wall-clock limit,full:2:t3_03:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t4_03,2,row_count,"SELECT u.user_id, u.email
+FROM users u
+LEFT JOIN events e ON u.user_id = e.user_id
+WHERE e.event_id IS NULL
+ORDER BY u.user_id ASC",,full:2:t4_03:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t4_03,2,row_count,"SELECT u.user_id, u.email
+FROM users u
+LEFT JOIN events e ON u.user_id = e.user_id
+WHERE e.user_id IS NULL
+ORDER BY u.user_id ASC",,full:2:t4_03:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t5_05,2,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+) AS t
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:2:t5_05:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t5_05,2,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY event_type, user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:2:t5_05:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t5_05,2,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+) AS t
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:2:t5_05:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t5_05,2,sql_error,"SELECT
+    event_type,
+    argMax(user_id, (total_duration, -user_id)) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:2:t5_05:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t5_05,2,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:2:t5_05:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t5_09,2,sql_error,"SELECT 
+    toStartOfHour(toDateTime('2024-06-15 00:00:00') + INTERVAL number HOUR) AS hour,
+    count(e.event_id) AS event_count
+FROM 
+    (SELECT number FROM system.numbers LIMIT 24) AS n
+LEFT JOIN events AS e 
+    ON toHour(e.timestamp) = n.number 
+    AND toDate(e.timestamp) = '2024-06-15'
+GROUP BY hour
+ORDER BY hour ASC","Code: 497. DB::Exception: budget_reader: Not enough privileges. To execute this query, it's necessary to have the grant SELECT ON system.numbers. (ACCESS_DENIED) (version 26.8.19.9 (official build))
+",full:2:t5_09:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t5_09,2,sql_error,"SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(hour_num) AS hour, count(e.event_id) AS event_count
+FROM numbers(24) AS n
+LEFT JOIN events AS e
+    ON toDate(e.timestamp) = toDate('2024-06-15')
+    AND toHour(e.timestamp) = n.number
+GROUP BY hour_num
+ORDER BY hour ASC","Code: 47. DB::Exception: Unknown expression or function identifier `hour_num` in scope SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(hour_num) AS hour, count(e.event_id) AS event_count FROM numbers(24) AS n LEFT JOIN events AS e ON (toDate(e.timestamp) = toDate('2024-06-15')) AND (toHour(e.timestamp) = n.number) GROUP BY hour_num ORDER BY hour ASC. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:2:t5_09:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t5_09,2,row_0_values_or_order,"SELECT
+    toStartOfHour(toDateTime('2024-06-15 00:00:00') + toIntervalHour(hour_num)) AS hour,
+    count(e.event_id) AS event_count
+FROM numbers(24) AS n
+CROSS JOIN (
+    SELECT number AS hour_num FROM numbers(24)
+) AS h
+LEFT JOIN events AS e
+    ON toDate(e.timestamp) = toDate('2024-06-15')
+    AND toHour(e.timestamp) = h.hour_num
+GROUP BY hour
+ORDER BY hour ASC",,full:2:t5_09:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_07,2,sql_error,"SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:2:t6_07:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_07,2,sql_error,"SELECT countResample(0, 6, 12, 18)(toHour(timestamp)) AS counts FROM events","Code: 133. DB::Exception: Aggregate function count cannot have parameters. (AGGREGATE_FUNCTION_DOESNT_ALLOW_PARAMETERS) (version 26.8.19.9 (official build))
+",full:2:t6_07:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_07,2,row_0_values_or_order,"SELECT countResample(6, 0, 24)(toHour(timestamp)) AS counts FROM events",,full:2:t6_07:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_07,2,sql_error,"SELECT countResample(6, 0, 24)(timestamp) AS counts FROM events","Code: 48. DB::Exception: Method getUInt is not supported for DateTime64: While executing AggregatingTransform. (NOT_IMPLEMENTED) (version 26.8.19.9 (official build))
+",full:2:t6_07:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_07,2,sql_error,"SELECT countResample(0, 24, 4)(toHour(timestamp)) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(0, 24, 4)(toHour(timestamp)) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:2:t6_07:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_06,2,row_count,"SELECT
+    toDate(timestamp) AS day,
+    sum(revenue_cents) AS revenue
+FROM events
+WHERE event_type = 'purchase'
+  AND revenue_cents > 9950
+  AND timestamp >= toDateTime64('2024-01-01 00:00:00', 3, 'UTC')
+  AND timestamp < toDateTime64('2024-02-01 00:00:00', 3, 'UTC')
+GROUP BY day
+ORDER BY day ASC
+WITH FILL
+    FROM toDate('2024-01-01')
+    TO toDate('2024-01-31')
+    STEP 1
+INTERPOLATE (revenue)",,full:2:t6_06:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_06,2,row_count,"SELECT
+    toDate(timestamp) AS day,
+    sum(revenue_cents) AS revenue
+FROM events
+WHERE event_type = 'purchase'
+  AND revenue_cents > 9950
+  AND timestamp >= '2024-01-01 00:00:00'
+  AND timestamp < '2024-02-01 00:00:00'
+GROUP BY day
+ORDER BY day ASC
+WITH FILL
+    FROM toDate('2024-01-01')
+    TO toDate('2024-01-31')
+    STEP 1
+INTERPOLATE (revenue AS revenue)",,full:2:t6_06:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_08,2,column_count,"SELECT groupArray(cnt) AS daily_counts,
+       arrayCumSum(daily_counts) AS cumulative_counts
+FROM (
+    SELECT toDate(timestamp) AS day, count() AS cnt
+    FROM events
+    WHERE event_type = 'purchase'
+      AND timestamp >= '2024-01-01' AND timestamp < '2024-02-01'
+    GROUP BY day
+    ORDER BY day ASC
+)",,full:2:t6_08:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_01,2,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:2:t6_01:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_01,2,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:2:t6_01:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t6_01,2,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:2:t6_01:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_01,2,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:2:t6_01:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_01,2,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:2:t6_01:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t4_02,3,row_0_values_or_order,"SELECT
+    u.plan,
+    count(e.event_id) AS event_count
+FROM users AS u
+LEFT JOIN events AS e ON u.user_id = e.user_id
+GROUP BY u.plan
+ORDER BY event_count DESC, u.plan ASC",,full:3:t4_02:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t4_02,3,row_0_values_or_order,"SELECT
+    u.plan,
+    count(e.event_id) AS event_count
+FROM users AS u
+LEFT JOIN events AS e ON u.user_id = e.user_id
+GROUP BY u.plan
+ORDER BY event_count DESC, u.plan ASC",,full:3:t4_02:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_07,3,sql_error,"SELECT countResample(0, 6, 12, 18)(toHour(timestamp)) AS counts
+FROM events","Code: 133. DB::Exception: Aggregate function count cannot have parameters. (AGGREGATE_FUNCTION_DOESNT_ALLOW_PARAMETERS) (version 26.8.19.9 (official build))
+",full:3:t6_07:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_07,3,sql_error,"SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:3:t6_07:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_07,3,sql_error,"SELECT countResample(0, 6, 12, 18)(toHour(timestamp)) AS counts
+FROM events","Code: 133. DB::Exception: Aggregate function count cannot have parameters. (AGGREGATE_FUNCTION_DOESNT_ALLOW_PARAMETERS) (version 26.8.19.9 (official build))
+",full:3:t6_07:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t6_07,3,sql_error,"SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:3:t6_07:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_07,3,sql_error,"SELECT countResample(6, 0, 24)(timestamp) AS counts FROM events","Code: 48. DB::Exception: Method getUInt is not supported for DateTime64: While executing AggregatingTransform. (NOT_IMPLEMENTED) (version 26.8.19.9 (official build))
+",full:3:t6_07:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_06,3,row_count,"SELECT
+    toDate(timestamp) AS day,
+    sum(revenue_cents) AS revenue
+FROM events
+WHERE event_type = 'purchase'
+  AND revenue_cents > 9950
+  AND timestamp >= '2024-01-01 00:00:00'
+  AND timestamp < '2024-02-01 00:00:00'
+GROUP BY day
+ORDER BY day ASC
+WITH FILL
+    FROM toDate('2024-01-01')
+    TO toDate('2024-01-31')
+    STEP 1
+INTERPOLATE (revenue AS revenue)",,full:3:t6_06:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_06,3,row_count,"SELECT
+    toDate(timestamp) AS day,
+    sum(revenue_cents) AS revenue
+FROM events
+WHERE event_type = 'purchase'
+  AND revenue_cents > 9950
+  AND timestamp >= '2024-01-01 00:00:00'
+  AND timestamp < '2024-02-01 00:00:00'
+GROUP BY day
+ORDER BY day ASC
+WITH FILL
+    FROM toDate('2024-01-01')
+    TO toDate('2024-01-31')
+    STEP 1
+INTERPOLATE (revenue AS revenue)",,full:3:t6_06:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t5_09,3,sql_error,"SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number) AS hour, count(e.event_id) AS event_count
+FROM numbers(24)
+LEFT JOIN events AS e
+    ON toStartOfHour(e.timestamp) = toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number)
+    AND e.timestamp >= toDateTime('2024-06-15 00:00:00')
+    AND e.timestamp < toDateTime('2024-06-16 00:00:00')
+GROUP BY hour
+ORDER BY hour ASC","Code: 206. DB::Exception: JOIN  LEFT JOIN ... ON (toStartOfHour(e.timestamp) = (toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number))) AND (e.timestamp >= toDateTime('2024-06-15 00:00:00')) AND (e.timestamp < toDateTime('2024-06-16 00:00:00')) no alias for subquery or table function numbers(24). In scope SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number) AS hour, count(e.event_id) AS event_count FROM numbers(24) LEFT JOIN events AS e ON (toStartOfHour(e.timestamp) = (toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number))) AND (e.timestamp >= toDateTime('2024-06-15 00:00:00')) AND (e.timestamp < toDateTime('2024-06-16 00:00:00')) GROUP BY hour ORDER BY hour ASC (set joined_subquery_requires_alias = 0 to disable restriction). (ALIAS_REQUIRED) (version 26.8.19.9 (official build))
+",full:3:t5_09:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t5_09,3,sql_error,"SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number) AS hour, count(e.event_id) AS event_count
+FROM numbers(24)
+LEFT JOIN events AS e
+    ON toStartOfHour(e.timestamp) = toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number)
+    AND e.timestamp >= toDateTime('2024-06-15 00:00:00')
+    AND e.timestamp < toDateTime('2024-06-16 00:00:00')
+GROUP BY hour
+ORDER BY hour ASC","Code: 206. DB::Exception: JOIN  LEFT JOIN ... ON (toStartOfHour(e.timestamp) = (toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number))) AND (e.timestamp >= toDateTime('2024-06-15 00:00:00')) AND (e.timestamp < toDateTime('2024-06-16 00:00:00')) no alias for subquery or table function numbers(24). In scope SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number) AS hour, count(e.event_id) AS event_count FROM numbers(24) LEFT JOIN events AS e ON (toStartOfHour(e.timestamp) = (toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number))) AND (e.timestamp >= toDateTime('2024-06-15 00:00:00')) AND (e.timestamp < toDateTime('2024-06-16 00:00:00')) GROUP BY hour ORDER BY hour ASC (set joined_subquery_requires_alias = 0 to disable restriction). (ALIAS_REQUIRED) (version 26.8.19.9 (official build))
+",full:3:t5_09:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t5_05,3,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:3:t5_05:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t5_05,3,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+) AS t
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:3:t5_05:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t5_05,3,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY event_type, user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:3:t5_05:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t5_05,3,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY event_type, user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:3:t5_05:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t5_10,3,sql_error,"SELECT
+    e.user_id,
+    arraySort(arrayDistinct(arrayFilter(x -> x LIKE '%premium%', e.tags))) AS premium_tags
+FROM events e
+WHERE arrayExists(x -> x LIKE '%premium%', e.tags)
+GROUP BY e.user_id
+ORDER BY e.user_id ASC
+LIMIT 50","Code: 215. DB::Exception: Column 'e.tags' is not under aggregate function and not in GROUP BY keys. In query SELECT e.user_id, arraySort(arrayDistinct(arrayFilter(x -> (x LIKE '%premium%'), e.tags))) AS premium_tags FROM events AS e WHERE arrayExists(x -> (x LIKE '%premium%'), e.tags) GROUP BY e.user_id ORDER BY e.user_id ASC LIMIT 50. (NOT_AN_AGGREGATE) (version 26.8.19.9 (official build))
+",full:3:t5_10:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t4_03,3,row_count,"SELECT u.user_id, u.email
+FROM users u
+LEFT JOIN events e ON u.user_id = e.user_id
+WHERE e.user_id IS NULL
+ORDER BY u.user_id ASC",,full:3:t4_03:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t4_03,3,row_count,"SELECT u.user_id, u.email
+FROM users u
+LEFT JOIN events e ON u.user_id = e.user_id
+WHERE e.user_id IS NULL
+ORDER BY u.user_id ASC",,full:3:t4_03:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_01,3,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:3:t6_01:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_01,3,sql_error,"SELECT
+    uniqExactIf(user_id, level >= 1) AS users_l1,
+    uniqExactIf(user_id, level >= 2) AS users_l2,
+    uniqExactIf(user_id, level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:3:t6_01:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_01,3,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:3:t6_01:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_01,3,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:3:t6_01:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_01,3,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:3:t6_01:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_03,3,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:3:t6_03:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_03,3,sql_error,"SELECT count() AS user_count
+FROM
+(
+    SELECT user_id
+    FROM events
+    WHERE event_type IN ('signup', 'purchase')
+    GROUP BY user_id
+    HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase')
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:3:t6_03:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_03,3,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:3:t6_03:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_03,3,row_count,"SELECT countDistinct(user_id) AS user_count
+FROM events
+WHERE event_type IN ('signup', 'purchase')
+GROUP BY user_id
+HAVING sequenceMatch('(?1)(?2)')(toUnixTimestamp(timestamp), event_type = 'signup', event_type = 'purchase') = 1
+   AND sequenceMatch('(?1)(?2)')(toUnixTimestamp(timestamp), event_type = 'signup', event_type = 'purchase') = 1
+   AND sequenceMatch('(?1)(?2)')(toUnixTimestamp(timestamp), event_type = 'signup', event_type = 'purchase') = 1",,full:3:t6_03:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_02,3,row_0_values_or_order,"SELECT
+    countIf(has(day_conditions, toDate('2024-01-01'))) AS r1,
+    countIf(has(day_conditions, toDate('2024-01-02'))) AS r2,
+    countIf(has(day_conditions, toDate('2024-01-03'))) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        groupUniqArray(toDate(timestamp)) AS day_conditions
+    FROM events
+    WHERE toDate(timestamp) IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))
+    GROUP BY user_id
+)",,full:3:t6_02:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_02,3,sql_error,"SELECT
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ) AS r
+FROM
+(
+    SELECT
+        user_id,
+        toDate(timestamp) AS date
+    FROM events
+    WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')
+    GROUP BY user_id, date
+) AS t
+GROUP BY user_id
+) AS t2
+SELECT
+    sum(r[1]) AS r1,
+    sum(r[2]) AS r2,
+    sum(r[3]) AS r3
+FROM t2","Code: 62. DB::Exception: Syntax error: failed at position 330 ()) (line 17, col 1): ) AS t2
+SELECT
+    sum(r[1]) AS r1,
+    sum(r[2]) AS r2,
+    sum(r[3]) AS r3
+FROM t2
+FORMAT JSONCompact. Unmatched parentheses: ). (SYNTAX_ERROR) (version 26.8.19.9 (official build))
+",full:3:t6_02:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_02,3,sql_error,"SELECT
+    countIf(has(flags, 1)) AS r1,
+    countIf(has(flags, 1) AND has(flags, 2)) AS r2,
+    countIf(has(flags, 1) AND has(flags, 2) AND has(flags, 3)) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        groupArray(day) AS flags
+    FROM
+    (
+        SELECT DISTINCT
+            user_id,
+            toDate(timestamp) AS day
+        FROM events
+        WHERE toDate(timestamp) IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))
+    )
+    GROUP BY user_id
+)","Code: 386. DB::Exception: There is no supertype for types Date, UInt8 because some of them are Date/Date32/DateTime/DateTime64/Time/Time64 and some of them are not: In scope SELECT countIf(has(flags, 1)) AS r1, countIf(has(flags, 1) AND has(flags, 2)) AS r2, countIf(has(flags, 1) AND has(flags, 2) AND has(flags, 3)) AS r3 FROM (SELECT user_id, groupArray(day) AS flags FROM (SELECT DISTINCT user_id, toDate(timestamp) AS day FROM events WHERE toDate(timestamp) IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))) GROUP BY user_id). (NO_COMMON_TYPE) (version 26.8.19.9 (official build))
+",full:3:t6_02:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_02,3,row_0_values_or_order,"SELECT
+    countIf(has(day_retention, 1)) AS r1,
+    countIf(has(day_retention, 2)) AS r2,
+    countIf(has(day_retention, 3)) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        retention(
+            (toDate(timestamp) = toDate('2024-01-01')),
+            (toDate(timestamp) = toDate('2024-01-02')),
+            (toDate(timestamp) = toDate('2024-01-03'))
+        ) AS day_retention
+    FROM events
+    GROUP BY user_id
+)",,full:3:t6_02:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_02,3,sql_error,"SELECT
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ).1 AS r1,
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ).2 AS r2,
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ).3 AS r3
+FROM events
+WHERE date >= '2024-01-01' AND date <= '2024-01-03'","Code: 47. DB::Exception: Unknown expression or function identifier `date` in scope SELECT (retention(date = '2024-01-01', date = '2024-01-02', date = '2024-01-03')).1 AS r1, (retention(date = '2024-01-01', date = '2024-01-02', date = '2024-01-03')).2 AS r2, (retention(date = '2024-01-01', date = '2024-01-02', date = '2024-01-03')).3 AS r3 FROM events WHERE (date >= '2024-01-01') AND (date <= '2024-01-03'). Maybe you meant: ['page']. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:3:t6_02:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_01,4,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:4:t6_01:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_01,4,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:4:t6_01:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_01,4,sql_error,"SELECT
+    uniqExactIf(user_id, level >= 1) AS users_l1,
+    uniqExactIf(user_id, level >= 2) AS users_l2,
+    uniqExactIf(user_id, level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:4:t6_01:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_01,4,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:4:t6_01:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_01,4,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:4:t6_01:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_06,4,row_count,"SELECT
+    toDate(timestamp) AS day,
+    sum(revenue_cents) AS revenue
+FROM events
+WHERE event_type = 'purchase'
+  AND revenue_cents > 9950
+  AND timestamp >= '2024-01-01 00:00:00'
+  AND timestamp < '2024-02-01 00:00:00'
+GROUP BY day
+ORDER BY day ASC
+WITH FILL
+    FROM toDate('2024-01-01')
+    TO toDate('2024-01-31')
+    STEP 1
+INTERPOLATE (revenue AS revenue)",,full:4:t6_06:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_06,4,row_count,"SELECT
+    toDate(timestamp) AS day,
+    sum(revenue_cents) AS revenue
+FROM events
+WHERE event_type = 'purchase'
+  AND revenue_cents > 9950
+  AND timestamp >= '2024-01-01 00:00:00'
+  AND timestamp < '2024-02-01 00:00:00'
+GROUP BY day
+ORDER BY day ASC
+WITH FILL
+    FROM toDate('2024-01-01')
+    TO toDate('2024-01-31')
+    STEP 1
+INTERPOLATE (revenue AS revenue)",,full:4:t6_06:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_07,4,sql_error,"SELECT countResample(0, 6, 12, 18)(toHour(timestamp)) AS counts
+FROM events","Code: 133. DB::Exception: Aggregate function count cannot have parameters. (AGGREGATE_FUNCTION_DOESNT_ALLOW_PARAMETERS) (version 26.8.19.9 (official build))
+",full:4:t6_07:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t6_07,4,sql_error,"SELECT countResample(0, 24, 4)(toHour(timestamp)) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(0, 24, 4)(toHour(timestamp)) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:4:t6_07:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_07,4,sql_error,"SELECT countResample(6, 0, 24)(timestamp) AS counts FROM events","Code: 48. DB::Exception: Method getUInt is not supported for DateTime64: While executing AggregatingTransform. (NOT_IMPLEMENTED) (version 26.8.19.9 (official build))
+",full:4:t6_07:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_07,4,sql_error,"SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:4:t6_07:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_07,4,sql_error,"SELECT countResample(6, 0, 24)(timestamp) AS counts FROM events","Code: 48. DB::Exception: Method getUInt is not supported for DateTime64: While executing AggregatingTransform. (NOT_IMPLEMENTED) (version 26.8.19.9 (official build))
+",full:4:t6_07:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t4_10,4,sql_error,"SELECT
+    device,
+    user_id,
+    count() AS event_count
+FROM events
+GROUP BY device, user_id
+HAVING event_count = max(event_count) OVER (PARTITION BY device)
+ORDER BY device ASC, user_id ASC","Code: 184. DB::Exception: Window function max(event_count) OVER (PARTITION BY device) is found in HAVING in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:4:t4_10:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t4_03,4,row_count,"SELECT u.user_id, u.email
+FROM users u
+LEFT JOIN events e ON u.user_id = e.user_id
+WHERE e.user_id IS NULL
+ORDER BY u.user_id ASC",,full:4:t4_03:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t4_03,4,row_count,"SELECT
+  u.user_id,
+  u.email
+FROM users AS u
+LEFT JOIN events AS e ON u.user_id = e.user_id
+WHERE e.user_id IS NULL
+ORDER BY u.user_id ASC",,full:4:t4_03:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t6_08,4,column_count,"SELECT groupArray(c) AS counts, arrayCumSum(counts) AS `cumulative counts array`
+FROM (
+    SELECT toDate(timestamp) AS day, count() AS c
+    FROM events
+    WHERE event_type = 'purchase'
+      AND timestamp >= '2024-01-01' AND timestamp < '2024-02-01'
+    GROUP BY day
+    ORDER BY day ASC
+)",,full:4:t6_08:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_08,4,column_count,"SELECT groupArray(day_count) AS daily_counts, arrayCumSum(groupArray(day_count)) AS cumulative_counts
+FROM (
+    SELECT toDate(timestamp) AS day, count() AS day_count
+    FROM events
+    WHERE event_type = 'purchase'
+      AND timestamp >= '2024-01-01' AND timestamp < '2024-02-01'
+    GROUP BY day
+    ORDER BY day ASC
+)",,full:4:t6_08:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t5_09,4,sql_error,"SELECT
+    toStartOfHour(toDateTime('2024-06-15 00:00:00') + toIntervalHour(hour_num)) AS hour,
+    count(e.event_id) AS event_count
+FROM numbers(24) AS n
+LEFT JOIN events AS e
+    ON toStartOfHour(e.timestamp) = toStartOfHour(toDateTime('2024-06-15 00:00:00') + toIntervalHour(n.number))
+WHERE toDate(toDateTime('2024-06-15 00:00:00') + toIntervalHour(n.number)) = toDate('2024-06-15')
+GROUP BY hour
+ORDER BY hour ASC","Code: 47. DB::Exception: Unknown expression or function identifier `hour_num` in scope SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00') + toIntervalHour(hour_num)) AS hour, count(e.event_id) AS event_count FROM numbers(24) AS n LEFT JOIN events AS e ON toStartOfHour(e.timestamp) = toStartOfHour(toDateTime('2024-06-15 00:00:00') + toIntervalHour(n.number)) WHERE toDate(toDateTime('2024-06-15 00:00:00') + toIntervalHour(n.number)) = toDate('2024-06-15') GROUP BY hour ORDER BY hour ASC. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:4:t5_09:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t5_09,4,sql_error,"SELECT
+    toStartOfHour(toDateTime('2024-06-15 00:00:00') + INTERVAL number HOUR) AS hour,
+    count(e.event_id) AS event_count
+FROM
+    (SELECT number FROM system.numbers LIMIT 24) AS n
+LEFT JOIN events AS e
+    ON toStartOfHour(e.timestamp) = toStartOfHour(toDateTime('2024-06-15 00:00:00') + INTERVAL n.number HOUR)
+    AND e.timestamp >= '2024-06-15 00:00:00'
+    AND e.timestamp < '2024-06-16 00:00:00'
+GROUP BY hour
+ORDER BY hour ASC","Code: 497. DB::Exception: budget_reader: Not enough privileges. To execute this query, it's necessary to have the grant SELECT ON system.numbers. (ACCESS_DENIED) (version 26.8.19.9 (official build))
+",full:4:t5_09:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t5_09,4,sql_error,"SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number) AS hour, count(e.event_id) AS event_count
+FROM numbers(24)
+LEFT JOIN events AS e
+    ON toStartOfHour(e.timestamp) = toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number)
+    AND e.timestamp >= toDateTime('2024-06-15 00:00:00')
+    AND e.timestamp < toDateTime('2024-06-16 00:00:00')
+GROUP BY hour
+ORDER BY hour ASC","Code: 206. DB::Exception: JOIN  LEFT JOIN ... ON (toStartOfHour(e.timestamp) = (toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number))) AND (e.timestamp >= toDateTime('2024-06-15 00:00:00')) AND (e.timestamp < toDateTime('2024-06-16 00:00:00')) no alias for subquery or table function numbers(24). In scope SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number) AS hour, count(e.event_id) AS event_count FROM numbers(24) LEFT JOIN events AS e ON (toStartOfHour(e.timestamp) = (toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(number))) AND (e.timestamp >= toDateTime('2024-06-15 00:00:00')) AND (e.timestamp < toDateTime('2024-06-16 00:00:00')) GROUP BY hour ORDER BY hour ASC (set joined_subquery_requires_alias = 0 to disable restriction). (ALIAS_REQUIRED) (version 26.8.19.9 (official build))
+",full:4:t5_09:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t5_09,4,sql_error,"SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(hour_num) AS hour, count(e.event_id) AS event_count
+FROM numbers(24) AS n
+LEFT JOIN events AS e
+    ON toDate(e.timestamp) = toDate('2024-06-15')
+    AND toHour(e.timestamp) = n.number
+GROUP BY hour_num
+ORDER BY hour ASC","Code: 47. DB::Exception: Unknown expression or function identifier `hour_num` in scope SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00')) + toIntervalHour(hour_num) AS hour, count(e.event_id) AS event_count FROM numbers(24) AS n LEFT JOIN events AS e ON (toDate(e.timestamp) = toDate('2024-06-15')) AND (toHour(e.timestamp) = n.number) GROUP BY hour_num ORDER BY hour ASC. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:4:t5_09:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_02,4,row_0_values_or_order,"SELECT
+    countIf(has(day_conditions, 1)) AS r1,
+    countIf(has(day_conditions, 2)) AS r2,
+    countIf(has(day_conditions, 3)) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        retention(
+            toDate(timestamp) = toDate('2024-01-01'),
+            toDate(timestamp) = toDate('2024-01-02'),
+            toDate(timestamp) = toDate('2024-01-03')
+        ) AS day_conditions
+    FROM events
+    GROUP BY user_id
+)",,full:4:t6_02:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_02,4,row_0_values_or_order,"SELECT
+    countIf(has(r, 1)) AS r1,
+    countIf(has(r, 2)) AS r2,
+    countIf(has(r, 3)) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        retention(
+            toDate(timestamp) = toDate('2024-01-01'),
+            toDate(timestamp) = toDate('2024-01-02'),
+            toDate(timestamp) = toDate('2024-01-03')
+        ) AS r
+    FROM events
+    GROUP BY user_id
+)",,full:4:t6_02:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t6_02,4,sql_error,"SELECT
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ) AS r
+FROM events
+WHERE date >= '2024-01-01' AND date <= '2024-01-03'","Code: 47. DB::Exception: Unknown expression or function identifier `date` in scope SELECT retention(date = '2024-01-01', date = '2024-01-02', date = '2024-01-03') AS r FROM events WHERE (date >= '2024-01-01') AND (date <= '2024-01-03'). Maybe you meant: ['page']. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:4:t6_02:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_02,4,sql_error,"SELECT
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ) AS r1,
+    r2,
+    r3
+FROM
+(
+    SELECT
+        user_id,
+        toDate(timestamp) AS date
+    FROM events
+    WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')
+    GROUP BY user_id, date
+)","Code: 47. DB::Exception: Unknown expression identifier `r2` in scope SELECT retention(date = '2024-01-01', date = '2024-01-02', date = '2024-01-03') AS r1, r2, r3 FROM (SELECT user_id, toDate(timestamp) AS date FROM events WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03') GROUP BY user_id, date). Maybe you meant: ['r1']. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:4:t6_02:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_02,4,row_0_values_or_order,"SELECT
+    countIf(has(flags, 1)) AS r1,
+    countIf(has(flags, 2)) AS r2,
+    countIf(has(flags, 3)) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        groupArray(day) AS days,
+        arrayMap(d -> has(days, d), [toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03')]) AS flags
+    FROM
+    (
+        SELECT DISTINCT
+            user_id,
+            toDate(timestamp) AS day
+        FROM events
+        WHERE toDate(timestamp) IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))
+    )
+    GROUP BY user_id
+)",,full:4:t6_02:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_03,4,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:4:t6_03:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_03,4,sql_error,"SELECT 
+    countDistinct(user_id) AS user_count
+FROM 
+(
+    SELECT 
+        user_id,
+        sequenceMatch('(?1)(?t<=60)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AS match
+    FROM events
+    GROUP BY user_id
+)
+WHERE match = 1","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:4:t6_03:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_03,4,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:4:t6_03:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_03,4,sql_error,"SELECT count() AS user_count
+FROM
+(
+    SELECT user_id
+    FROM events
+    GROUP BY user_id
+    HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase' AND timestamp - timestamp > 0 AND timestamp - timestamp <= 60)
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:4:t6_03:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t5_05,4,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY event_type, user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:4:t5_05:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t5_05,4,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:4:t5_05:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t5_05,4,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+) AS t
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:4:t5_05:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t5_05,4,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY event_type, user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:4:t5_05:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t5_05,4,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+) AS t
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:4:t5_05:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t4_03,5,row_count,"SELECT 
+    u.user_id,
+    u.email
+FROM users AS u
+LEFT JOIN events AS e ON u.user_id = e.user_id
+WHERE e.user_id IS NULL
+ORDER BY u.user_id ASC",,full:5:t4_03:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t4_03,5,row_count,"SELECT u.user_id, u.email
+FROM users u
+LEFT JOIN events e ON u.user_id = e.user_id
+WHERE e.user_id IS NULL
+ORDER BY u.user_id ASC",,full:5:t4_03:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_06,5,row_count,"SELECT
+    toDate(timestamp) AS day,
+    sum(revenue_cents) AS revenue
+FROM events
+WHERE event_type = 'purchase'
+  AND revenue_cents > 9950
+  AND timestamp >= toDateTime('2024-01-01 00:00:00', 'UTC')
+  AND timestamp < toDateTime('2024-02-01 00:00:00', 'UTC')
+GROUP BY day
+ORDER BY day ASC
+WITH FILL
+    FROM toDate('2024-01-01')
+    TO toDate('2024-01-31')
+    STEP 1
+INTERPOLATE (revenue AS revenue)",,full:5:t6_06:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t4_02,5,row_0_values_or_order,"SELECT
+    u.plan,
+    count(e.event_id) AS event_count
+FROM users AS u
+LEFT JOIN events AS e ON u.user_id = e.user_id
+GROUP BY u.plan
+ORDER BY event_count DESC, u.plan ASC",,full:5:t4_02:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t5_05,5,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+) AS t
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:5:t5_05:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t5_05,5,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY event_type, user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:5:t5_05:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t5_05,5,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+) AS t
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:5:t5_05:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t5_05,5,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY event_type, user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:5:t5_05:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t5_05,5,sql_error,"SELECT
+    event_type,
+    argMax(user_id, total_duration) AS user_id,
+    max(total_duration) AS total_duration
+FROM
+(
+    SELECT
+        event_type,
+        user_id,
+        sum(duration_ms) AS total_duration
+    FROM events
+    WHERE duration_ms IS NOT NULL
+    GROUP BY
+        event_type,
+        user_id
+)
+GROUP BY event_type
+ORDER BY event_type ASC","Code: 184. DB::Exception: Aggregate function max(total_duration) AS total_duration is found inside another aggregate function in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build))
+",full:5:t5_05:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t6_08,5,column_count,"SELECT groupArray(cnt) AS daily_counts,
+       arrayCumSum(daily_counts) AS cumulative_counts
+FROM (
+    SELECT toDate(timestamp) AS day, count() AS cnt
+    FROM events
+    WHERE event_type = 'purchase'
+      AND timestamp >= '2024-01-01' AND timestamp < '2024-02-01'
+    GROUP BY day
+    ORDER BY day ASC
+)",,full:5:t6_08:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_02,5,row_0_values_or_order,"SELECT
+    countIf(has(r, 1)) AS r1,
+    countIf(has(r, 2)) AS r2,
+    countIf(has(r, 3)) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        retention(
+            toDate(timestamp) = toDate('2024-01-01'),
+            toDate(timestamp) = toDate('2024-01-02'),
+            toDate(timestamp) = toDate('2024-01-03')
+        ) AS r
+    FROM events
+    GROUP BY user_id
+)",,full:5:t6_02:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t6_02,5,sql_error,"SELECT
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ) AS r1,
+    r2,
+    r3
+FROM
+(
+    SELECT
+        user_id,
+        toDate(timestamp) AS date
+    FROM events
+    WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03')
+    GROUP BY user_id, date
+)","Code: 47. DB::Exception: Unknown expression identifier `r2` in scope SELECT retention(date = '2024-01-01', date = '2024-01-02', date = '2024-01-03') AS r1, r2, r3 FROM (SELECT user_id, toDate(timestamp) AS date FROM events WHERE toDate(timestamp) IN ('2024-01-01', '2024-01-02', '2024-01-03') GROUP BY user_id, date). Maybe you meant: ['r1']. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:5:t6_02:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t6_02,5,sql_error,"SELECT
+    retention(
+        date = '2024-01-01',
+        date = '2024-01-02',
+        date = '2024-01-03'
+    ) AS r
+FROM events
+WHERE date >= '2024-01-01' AND date <= '2024-01-03'","Code: 47. DB::Exception: Unknown expression or function identifier `date` in scope SELECT retention(date = '2024-01-01', date = '2024-01-02', date = '2024-01-03') AS r FROM events WHERE (date >= '2024-01-01') AND (date <= '2024-01-03'). Maybe you meant: ['page']. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:5:t6_02:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_02,5,row_0_values_or_order,"SELECT
+    countIf(has(retention_days, toDate('2024-01-01'))) AS r1,
+    countIf(has(retention_days, toDate('2024-01-02'))) AS r2,
+    countIf(has(retention_days, toDate('2024-01-03'))) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        groupArray(toDate(timestamp)) AS retention_days
+    FROM events
+    WHERE toDate(timestamp) IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))
+    GROUP BY user_id
+)",,full:5:t6_02:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_02,5,row_0_values_or_order,"SELECT
+    countIf(has(day_retention, 1)) AS r1,
+    countIf(has(day_retention, 2)) AS r2,
+    countIf(has(day_retention, 3)) AS r3
+FROM
+(
+    SELECT
+        user_id,
+        retention(
+            (event_date = toDate('2024-01-01')),
+            (event_date = toDate('2024-01-02')),
+            (event_date = toDate('2024-01-03'))
+        ) AS day_retention
+    FROM
+    (
+        SELECT
+            user_id,
+            toDate(timestamp) AS event_date
+        FROM events
+        WHERE event_date IN (toDate('2024-01-01'), toDate('2024-01-02'), toDate('2024-01-03'))
+        GROUP BY user_id, event_date
+    )
+    GROUP BY user_id
+)",,full:5:t6_02:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t5_10,5,sql_error,"SELECT
+    e.user_id,
+    arraySort(arrayDistinct(arrayFilter(x -> x LIKE '%premium%', e.tags))) AS premium_tags
+FROM events e
+WHERE arrayExists(x -> x LIKE '%premium%', e.tags)
+GROUP BY e.user_id
+ORDER BY e.user_id ASC
+LIMIT 50","Code: 215. DB::Exception: Column 'e.tags' is not under aggregate function and not in GROUP BY keys. In query SELECT e.user_id, arraySort(arrayDistinct(arrayFilter(x -> (x LIKE '%premium%'), e.tags))) AS premium_tags FROM events AS e WHERE arrayExists(x -> (x LIKE '%premium%'), e.tags) GROUP BY e.user_id ORDER BY e.user_id ASC LIMIT 50. (NOT_AN_AGGREGATE) (version 26.8.19.9 (official build))
+",full:5:t5_10:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_07,5,row_0_values_or_order,"SELECT countResample(6, 0, 24)(toHour(timestamp)) AS counts FROM events",,full:5:t6_07:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_07,5,sql_error,"SELECT countResample(6, 0, 24)(timestamp) AS counts FROM events","Code: 48. DB::Exception: Method getUInt is not supported for DateTime64: While executing AggregatingTransform. (NOT_IMPLEMENTED) (version 26.8.19.9 (official build))
+",full:5:t6_07:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_07,5,sql_error,"SELECT countResample(0, 6, 12, 18)(toHour(timestamp)) AS counts
+FROM events","Code: 133. DB::Exception: Aggregate function count cannot have parameters. (AGGREGATE_FUNCTION_DOESNT_ALLOW_PARAMETERS) (version 26.8.19.9 (official build))
+",full:5:t6_07:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_07,5,sql_error,"SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:5:t6_07:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t6_07,5,sql_error,"SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:5:t6_07:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t5_09,5,sql_error,"SELECT 
+    toDateTime(toStartOfHour(toDateTime('2024-06-15 00:00:00')) + INTERVAL number HOUR) AS hour,
+    count(e.event_id) AS event_count
+FROM 
+    (SELECT number FROM system.numbers LIMIT 24) AS n
+LEFT JOIN 
+    events AS e 
+    ON toStartOfHour(e.timestamp) = toDateTime(toStartOfHour(toDateTime('2024-06-15 00:00:00')) + INTERVAL n.number HOUR)
+    AND e.timestamp >= '2024-06-15 00:00:00' 
+    AND e.timestamp < '2024-06-16 00:00:00'
+GROUP BY 
+    hour
+ORDER BY 
+    hour ASC","Code: 497. DB::Exception: budget_reader: Not enough privileges. To execute this query, it's necessary to have the grant SELECT ON system.numbers. (ACCESS_DENIED) (version 26.8.19.9 (official build))
+",full:5:t5_09:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t5_09,5,sql_error,"SELECT
+    toStartOfHour(toDateTime('2024-06-15 00:00:00') + toIntervalHour(hour_num)) AS hour,
+    count(e.event_id) AS event_count
+FROM numbers(24) AS n
+LEFT JOIN events AS e
+    ON toDate(e.timestamp) = toDate('2024-06-15')
+    AND toHour(e.timestamp) = n.number
+GROUP BY hour
+ORDER BY hour ASC","Code: 47. DB::Exception: Unknown expression or function identifier `hour_num` in scope SELECT toStartOfHour(toDateTime('2024-06-15 00:00:00') + toIntervalHour(hour_num)) AS hour, count(e.event_id) AS event_count FROM numbers(24) AS n LEFT JOIN events AS e ON (toDate(e.timestamp) = toDate('2024-06-15')) AND (toHour(e.timestamp) = n.number) GROUP BY hour ORDER BY hour ASC. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",full:5:t5_09:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_03,5,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:5:t6_03:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_03,5,row_count,"SELECT count(DISTINCT user_id) AS ""user count""
+FROM events
+WHERE event_type IN ('signup', 'purchase')
+GROUP BY user_id
+HAVING sequenceMatch('(?1)(?t<=60)(?2)')(toDateTime(timestamp), event_type = 'signup', event_type = 'purchase') > 0",,full:5:t6_03:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_03,5,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:5:t6_03:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_03,5,sql_error,"SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?2)')(timestamp, event_type = 'signup', event_type = 'purchase') AND maxIf(timestamp, event_type = 'purchase') - minIf(timestamp, event_type = 'signup') <= 60)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function sequenceMatch, must be DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:5:t6_03:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_01,5,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:5:t6_01:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_01,5,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:5:t6_01:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_01,5,sql_error,"SELECT
+    uniqExact(user_id) AS users_l1,
+    uniqExactIf(user_id, level >= 2) AS users_l2,
+    uniqExactIf(user_id, level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:5:t6_01:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_01,5,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:5:t6_01:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@relace/fp4,t6_01,5,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",full:5:t6_01:deepseek/deepseek-v4-flash@relace/fp4

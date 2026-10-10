@@ -1,0 +1,562 @@
+{
+  "checked_at": "2026-10-07T22:18:04.487134+00:00",
+  "purpose": "Query execution and semantic smoke checks against imported records, not LLM or production latency benchmarks.",
+  "passed": true,
+  "queries": [
+    {
+      "id": "daily_activity",
+      "purpose": "Distinct vessel activity versus broadcast volume; daily per-type counts are not additive unique totals.",
+      "rows": 651,
+      "passed": true,
+      "elapsed_seconds": 2.6925162829975307,
+      "statistics": {
+        "elapsed": 2.688162968,
+        "rows_read": 109281166,
+        "bytes_read": 1639216697
+      },
+      "columns": [
+        {
+          "name": "day",
+          "type": "Date"
+        },
+        {
+          "name": "vessel_type",
+          "type": "LowCardinality(String)"
+        },
+        {
+          "name": "active_vessels",
+          "type": "UInt64"
+        },
+        {
+          "name": "broadcasts",
+          "type": "UInt64"
+        }
+      ],
+      "sample": [
+        {
+          "day": "2024-09-15",
+          "vessel_type": "Anti-pollution",
+          "active_vessels": 4,
+          "broadcasts": 1431
+        },
+        {
+          "day": "2024-09-15",
+          "vessel_type": "Cargo",
+          "active_vessels": 665,
+          "broadcasts": 329637
+        },
+        {
+          "day": "2024-09-15",
+          "vessel_type": "Diving",
+          "active_vessels": 11,
+          "broadcasts": 4836
+        }
+      ],
+      "sql_sha256": "4ff606e0b7a8a1f0c3f171ee92f6fd04bed6950225f09644cb9179eb5aa1280e"
+    },
+    {
+      "id": "milton_intensity",
+      "purpose": "Full Milton best-track lifecycle with source intensity, radii and interpolation flags.",
+      "rows": 62,
+      "passed": true,
+      "elapsed_seconds": 0.005737665000197012,
+      "statistics": {
+        "elapsed": 0.003252316,
+        "rows_read": 1872,
+        "bytes_read": 58576
+      },
+      "columns": [
+        {
+          "name": "observed_at",
+          "type": "DateTime('UTC')"
+        },
+        {
+          "name": "longitude",
+          "type": "Float64"
+        },
+        {
+          "name": "latitude",
+          "type": "Float64"
+        },
+        {
+          "name": "wind_knots",
+          "type": "Nullable(Float32)"
+        },
+        {
+          "name": "pressure_hpa",
+          "type": "Nullable(Float32)"
+        },
+        {
+          "name": "category",
+          "type": "LowCardinality(String)"
+        },
+        {
+          "name": "radius_34_ne_km",
+          "type": "Nullable(Float32)"
+        },
+        {
+          "name": "radius_34_se_km",
+          "type": "Nullable(Float32)"
+        },
+        {
+          "name": "radius_34_sw_km",
+          "type": "Nullable(Float32)"
+        },
+        {
+          "name": "radius_34_nw_km",
+          "type": "Nullable(Float32)"
+        },
+        {
+          "name": "usa_interpolation",
+          "type": "LowCardinality(String)"
+        },
+        {
+          "name": "usa_record",
+          "type": "LowCardinality(String)"
+        }
+      ],
+      "sample": [
+        {
+          "observed_at": "2024-10-04 18:00:00",
+          "longitude": -94.6,
+          "latitude": 21,
+          "wind_knots": 30,
+          "pressure_hpa": 1009,
+          "category": "Disturbance",
+          "radius_34_ne_km": null,
+          "radius_34_se_km": null,
+          "radius_34_sw_km": null,
+          "radius_34_nw_km": null,
+          "usa_interpolation": "O",
+          "usa_record": ""
+        },
+        {
+          "observed_at": "2024-10-04 21:00:00",
+          "longitude": -94.9,
+          "latitude": 20.8,
+          "wind_knots": 30,
+          "pressure_hpa": 1009,
+          "category": "Disturbance",
+          "radius_34_ne_km": null,
+          "radius_34_se_km": null,
+          "radius_34_sw_km": null,
+          "radius_34_nw_km": null,
+          "usa_interpolation": "P",
+          "usa_record": ""
+        },
+        {
+          "observed_at": "2024-10-05 00:00:00",
+          "longitude": -95.2,
+          "latitude": 20.8,
+          "wind_knots": 30,
+          "pressure_hpa": 1008,
+          "category": "Disturbance",
+          "radius_34_ne_km": null,
+          "radius_34_se_km": null,
+          "radius_34_sw_km": null,
+          "radius_34_nw_km": null,
+          "usa_interpolation": "O",
+          "usa_record": ""
+        }
+      ],
+      "sql_sha256": "54fcea623792c5c7d15bbfdef6eea9ccc31819a48eb439080a6eb1aab627acbc"
+    },
+    {
+      "id": "traffic_heatmap",
+      "purpose": "Hour by date active-vessel heatmap, suitable for linked storm-time exploration.",
+      "rows": 744,
+      "passed": true,
+      "elapsed_seconds": 3.053489415000513,
+      "statistics": {
+        "elapsed": 3.05052358,
+        "rows_read": 109281166,
+        "bytes_read": 1967060988
+      },
+      "columns": [
+        {
+          "name": "day",
+          "type": "Date"
+        },
+        {
+          "name": "hour_utc",
+          "type": "UInt8"
+        },
+        {
+          "name": "active_vessels",
+          "type": "UInt64"
+        }
+      ],
+      "sample": [
+        {
+          "day": "2024-09-15",
+          "hour_utc": 0,
+          "active_vessels": 5939
+        },
+        {
+          "day": "2024-09-15",
+          "hour_utc": 1,
+          "active_vessels": 5913
+        },
+        {
+          "day": "2024-09-15",
+          "hour_utc": 2,
+          "active_vessels": 5872
+        }
+      ],
+      "sql_sha256": "11590a3f2f15b5ab69a7aab4940604f938f59ce8bfbefff3fd685b38c8505d65"
+    },
+    {
+      "id": "cargo_density",
+      "purpose": "One-degree grid centers of distinct cargo vessels, Oct9; the full selected regional grid fits below1000 rows. Counts are not individual locations.",
+      "rows": 126,
+      "passed": true,
+      "elapsed_seconds": 0.03494941500321147,
+      "statistics": {
+        "elapsed": 0.031137278,
+        "rows_read": 278528,
+        "bytes_read": 8634368
+      },
+      "columns": [
+        {
+          "name": "longitude",
+          "type": "Float64"
+        },
+        {
+          "name": "latitude",
+          "type": "Float64"
+        },
+        {
+          "name": "vessels",
+          "type": "UInt64"
+        },
+        {
+          "name": "broadcasts",
+          "type": "UInt64"
+        }
+      ],
+      "sample": [
+        {
+          "longitude": -97.5,
+          "latitude": 22.5,
+          "vessels": 1,
+          "broadcasts": 5
+        },
+        {
+          "longitude": -97.5,
+          "latitude": 25.5,
+          "vessels": 5,
+          "broadcasts": 1333
+        },
+        {
+          "longitude": -97.5,
+          "latitude": 26.5,
+          "vessels": 10,
+          "broadcasts": 2901
+        }
+      ],
+      "sql_sha256": "348f7a12c9557786b38a6210107d40bec93b07e7c919001a97af18bb2c9b8ef2"
+    },
+    {
+      "id": "vessel_replay",
+      "purpose": "Last observed position per 10-minute bin for five cargo vessels on Oct9; no interpolated points.",
+      "rows": 715,
+      "passed": true,
+      "elapsed_seconds": 0.07140622800216079,
+      "statistics": {
+        "elapsed": 0.063480976,
+        "rows_read": 1186677,
+        "bytes_read": 19951399
+      },
+      "columns": [
+        {
+          "name": "vessel_id",
+          "type": "String"
+        },
+        {
+          "name": "frame_at",
+          "type": "DateTime('UTC')"
+        },
+        {
+          "name": "point",
+          "type": "Tuple(DateTime('UTC'), Float64, Float64, Nullable(Float32), String, String)"
+        },
+        {
+          "name": "observed_at",
+          "type": "DateTime('UTC')"
+        },
+        {
+          "name": "longitude",
+          "type": "Float64"
+        },
+        {
+          "name": "latitude",
+          "type": "Float64"
+        },
+        {
+          "name": "speed_knots",
+          "type": "Nullable(Float32)"
+        },
+        {
+          "name": "vessel_name",
+          "type": "String"
+        },
+        {
+          "name": "vessel_type",
+          "type": "String"
+        }
+      ],
+      "sample": [
+        {
+          "vessel_id": "209513000",
+          "frame_at": "2024-10-09 00:00:00",
+          "point": [
+            "2024-10-09 00:09:21",
+            -80.11618,
+            26.08659,
+            0,
+            "JAUME II",
+            "Cargo"
+          ],
+          "observed_at": "2024-10-09 00:09:21",
+          "longitude": -80.11618,
+          "latitude": 26.08659,
+          "speed_knots": 0,
+          "vessel_name": "JAUME II",
+          "vessel_type": "Cargo"
+        },
+        {
+          "vessel_id": "209513000",
+          "frame_at": "2024-10-09 00:10:00",
+          "point": [
+            "2024-10-09 00:19:31",
+            -80.11613,
+            26.08658,
+            0,
+            "JAUME II",
+            "Cargo"
+          ],
+          "observed_at": "2024-10-09 00:19:31",
+          "longitude": -80.11613,
+          "latitude": 26.08658,
+          "speed_knots": 0,
+          "vessel_name": "JAUME II",
+          "vessel_type": "Cargo"
+        },
+        {
+          "vessel_id": "209513000",
+          "frame_at": "2024-10-09 00:20:00",
+          "point": [
+            "2024-10-09 00:29:02",
+            -80.11619,
+            26.08657,
+            0,
+            "JAUME II",
+            "Cargo"
+          ],
+          "observed_at": "2024-10-09 00:29:02",
+          "longitude": -80.11619,
+          "latitude": 26.08657,
+          "speed_knots": 0,
+          "vessel_name": "JAUME II",
+          "vessel_type": "Cargo"
+        }
+      ],
+      "sql_sha256": "dcf8b37921eda3e340afbf2b7780da4ff0786804c2a86f1b573c406c56304244"
+    },
+    {
+      "id": "storm_proximity",
+      "purpose": "Vessel-hour observations within300km of the most recent Milton best-track position, at most3h old. This is proximity, not evidence of impact.",
+      "rows": 118,
+      "passed": true,
+      "elapsed_seconds": 0.13706387099955464,
+      "statistics": {
+        "elapsed": 0.134001834,
+        "rows_read": 3358493,
+        "bytes_read": 117534419
+      },
+      "columns": [
+        {
+          "name": "hour",
+          "type": "DateTime('UTC')"
+        },
+        {
+          "name": "vessel_type",
+          "type": "String"
+        },
+        {
+          "name": "vessels",
+          "type": "UInt64"
+        },
+        {
+          "name": "nearest_km",
+          "type": "Float64"
+        }
+      ],
+      "sample": [
+        {
+          "hour": "2024-10-09 06:00:00",
+          "vessel_type": "Cargo",
+          "vessels": 1,
+          "nearest_km": 131.8
+        },
+        {
+          "hour": "2024-10-09 06:00:00",
+          "vessel_type": "Tanker",
+          "vessels": 1,
+          "nearest_km": 225.6
+        },
+        {
+          "hour": "2024-10-09 07:00:00",
+          "vessel_type": "Cargo",
+          "vessels": 1,
+          "nearest_km": 184.7
+        }
+      ],
+      "sql_sha256": "2893200eb458914ce1e0d023f20164b456027717134e2d665ad1922c3f89f4fa"
+    },
+    {
+      "id": "continuous_low_speed",
+      "purpose": "Find at least6h of sub1kn reports for Cargo/Tanker on Oct9, splitting at report gaps over10min; not a claim of anchoring or waiting.",
+      "rows": 30,
+      "passed": true,
+      "elapsed_seconds": 0.13036994700087234,
+      "statistics": {
+        "elapsed": 0.12754016,
+        "rows_read": 475136,
+        "bytes_read": 18198279
+      },
+      "columns": [
+        {
+          "name": "vessel_id",
+          "type": "String"
+        },
+        {
+          "name": "vessel_name",
+          "type": "String"
+        },
+        {
+          "name": "vessel_type",
+          "type": "String"
+        },
+        {
+          "name": "started_at",
+          "type": "DateTime('UTC')"
+        },
+        {
+          "name": "ended_at",
+          "type": "DateTime('UTC')"
+        },
+        {
+          "name": "duration_hours",
+          "type": "Float64"
+        },
+        {
+          "name": "reports",
+          "type": "UInt64"
+        }
+      ],
+      "sample": [
+        {
+          "vessel_id": "219029620",
+          "vessel_name": "TORM HOUSTON",
+          "vessel_type": "Tanker",
+          "started_at": "2024-10-09 00:02:44",
+          "ended_at": "2024-10-09 23:59:45",
+          "duration_hours": 23.95,
+          "reports": 464
+        },
+        {
+          "vessel_id": "241627000",
+          "vessel_name": "SEA PUMA",
+          "vessel_type": "Tanker",
+          "started_at": "2024-10-09 00:01:53",
+          "ended_at": "2024-10-09 23:58:53",
+          "duration_hours": 23.95,
+          "reports": 471
+        },
+        {
+          "vessel_id": "311001216",
+          "vessel_name": "AFRICAN TEAL",
+          "vessel_type": "Cargo",
+          "started_at": "2024-10-09 00:00:36",
+          "ended_at": "2024-10-09 23:57:36",
+          "duration_hours": 23.95,
+          "reports": 461
+        }
+      ],
+      "sql_sha256": "de4b5f6d9921517d5a92da910a0910690a1c6cbb05f50a69a2bc8efa278889bc"
+    },
+    {
+      "id": "ais_report_gaps",
+      "purpose": "Measured within-day gaps between reports on Oct9; first report for each vessel is excluded. Supports honest replay gap policy.",
+      "rows": 1,
+      "passed": true,
+      "elapsed_seconds": 0.1945645539999532,
+      "statistics": {
+        "elapsed": 0.191660496,
+        "rows_read": 3357557,
+        "bytes_read": 60436026
+      },
+      "columns": [
+        {
+          "name": "gap_quantiles_seconds",
+          "type": "Array(Int64)"
+        },
+        {
+          "name": "gaps_over_10m",
+          "type": "UInt64"
+        },
+        {
+          "name": "max_gap_seconds",
+          "type": "Int64"
+        }
+      ],
+      "sample": [
+        {
+          "gap_quantiles_seconds": [
+            80,
+            200,
+            730
+          ],
+          "gaps_over_10m": 57626,
+          "max_gap_seconds": 84905
+        }
+      ],
+      "sql_sha256": "2e41b629a505dfcc4f88f63caa2ebccd38697a7ddc6367ebbb4da90b94806df7"
+    },
+    {
+      "id": "ais_duplicate_timestamps",
+      "purpose": "Source can contain multiple positions at one vessel/timestamp; these are reported, preserved by the loader and must be reconciled coherently for playback.",
+      "rows": 1,
+      "passed": true,
+      "elapsed_seconds": 0.2820576140002231,
+      "statistics": {
+        "elapsed": 0.279115406,
+        "rows_read": 3357557,
+        "bytes_read": 114156938
+      },
+      "columns": [
+        {
+          "name": "duplicate_vessel_time_groups",
+          "type": "UInt64"
+        },
+        {
+          "name": "excess_rows",
+          "type": "Int64"
+        },
+        {
+          "name": "conflicting_location_groups",
+          "type": "UInt64"
+        }
+      ],
+      "sample": [
+        {
+          "duplicate_vessel_time_groups": 1468,
+          "excess_rows": 1469,
+          "conflicting_location_groups": 840
+        }
+      ],
+      "sql_sha256": "656703f371f162c27029459efe00e7d3084c565f6cad82aa8d026f75aaf1da36"
+    }
+  ]
+}

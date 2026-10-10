@@ -1,0 +1,98 @@
+{
+  "started_at": "2026-10-07T23:25:11.481109+00:00",
+  "checks": [
+    {
+      "id": "elsa-and-milton",
+      "session_id": "5a6a82ea67904158bca85a4e807de1b2",
+      "source_rehearsal": "06",
+      "original_workspace_sha256": "2533d9f205c43db430f6d754d601e1616e53e6747383b70578fc1bdc0cd6559c",
+      "before_axis": {
+        "x_range": [
+          "2024-10-07",
+          "2024-10-12 23:00"
+        ],
+        "y_range": [
+          -96.16611061452514,
+          0
+        ],
+        "rows": 137,
+        "all_original_points_in_range": true,
+        "displayed_points": 137,
+        "gap_separators": 4
+      },
+      "vertical_drag": {
+        "x": 673,
+        "top": 678.0907542293234,
+        "bottom": 719.8932095864661,
+        "low": -91,
+        "high": -81
+      },
+      "after_axis": {
+        "x_range": [
+          "2024-10-07",
+          "2024-10-12 23:00"
+        ],
+        "y_range": [
+          -90.79115464967411,
+          -80.98316824371508
+        ],
+        "rows": 137,
+        "all_original_points_in_range": true,
+        "displayed_points": 137,
+        "gap_separators": 4
+      },
+      "original_plot_values_unchanged": true,
+      "scrub": {
+        "utc_epoch_ms": 1728491864260.7,
+        "linked_cursors": [
+          {
+            "card_id": "6bf94b99b89a41a69a5d94f9b298207f",
+            "time": 1728491864260
+          },
+          {
+            "card_id": "45ea524f48c64026a4c214612abf3099",
+            "time": 1728491864260
+          }
+        ]
+      },
+      "real_gap_observation": {
+        "from": "2024-10-10T01:50:52Z",
+        "to": "2024-10-10T03:16:34Z",
+        "behavior": "The vessel head was correctly hidden inside this long reporting gap in attempt-04."
+      },
+      "satellite": {
+        "dated_tiles_loaded": true,
+        "day": "2024-10-09",
+        "off_for_finale": true
+      },
+      "clean_voyage": {
+        "visible_active_vessels": 1,
+        "satellite_off": true
+      },
+      "linked_cursor": {
+        "utc_epoch_ms": 1728491864260.7,
+        "linked_cursors": [
+          {
+            "card_id": "6bf94b99b89a41a69a5d94f9b298207f",
+            "time": 1728491864260
+          },
+          {
+            "card_id": "45ea524f48c64026a4c214612abf3099",
+            "time": 1728491864260
+          }
+        ]
+      },
+      "saved_sql_data_and_workspace_unchanged": true,
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "method": "UI-only presentation check with retained live query results. Zero inference: model and workspace-write requests are blocked. Real Plotly drag, map pan/zoom, playback, satellite toggle, and photo enlargement, recorded at normal speed.",
+  "blocked_requests": [],
+  "inference_requests": 0,
+  "workspace_writes": 0,
+  "original_session_id": "8b1998bee96d4cf0af8469872393a774",
+  "original_session_restored": true,
+  "ended_at": "2026-10-07T23:25:52.402274+00:00",
+  "passed": true
+}

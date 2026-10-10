@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "scheduled_and_recorded_attempts": 1500,
+  "distinct_models": 2,
+  "distinct_questions": 60,
+  "distinct_configurations": 5,
+  "repetitions_per_configuration_question": 5,
+  "unique_generation_ids": 1499,
+  "unique_database_query_ids": 1499,
+  "recomputed_comparisons_match": true,
+  "source_hashes_match_frozen_copy": true,
+  "identical_prompts_across_models_and_repetitions": true,
+  "all_started_requests_reconciled_once": true,
+  "no_observed_reasoning_tokens": true,
+  "provider_model_precision_scope_and_rates_stable_across_five_blocks": true,
+  "returned_models_and_providers_match_when_exposed": true,
+  "completed_responses_without_returned_service_tier": 1499,
+  "attempts_without_observed_billing": 1
+}

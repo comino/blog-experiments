@@ -1,0 +1,10 @@
+{
+  "frozen_before_full_run": true,
+  "primary_deadline_seconds": 5,
+  "accuracy_margin_percentage_points": 5,
+  "deadline_success_margin_percentage_points": 5,
+  "recommendation_rule": "Keep models within 5 percentage points of the highest overall correctness. Within that group, keep models within 5 percentage points of the highest fraction of all tasks answered correctly within 5 seconds. Recommend the lowest billed cost per correct result within 5 seconds. Show the full accuracy, latency, and cost table and the tradeoffs; this is a declared preference rule, not a universal winner.",
+  "cost_uncertainty": "Do not turn missing cost into zero. Show reported spend and conservative reserved-cost bounds; a recommendation with unknown charges is provisional.",
+  "uncertainty": "Bootstrap 5000 samples of the 60 questions, retaining all five repetitions of each sampled question. Report 95% intervals; screening and pilot requests are excluded from final accuracy and latency.",
+  "latency_population": "SQL-ready quantiles cover completed SQL responses. Result-ready quantiles cover successful database executions, including wrong answers. Also report latency for correct answers. Failures stay in the denominator of correctness and deadline success."
+}

@@ -1,0 +1,7 @@
+{
+  "checked_at": "2026-10-07T15:06:48.531347+00:00",
+  "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash#model-downloads",
+  "source_owner": "deepseek-ai",
+  "model_card_observation": "The V4 Flash instruct checkpoint is described as FP4 for MoE expert parameters and FP8 for most other parameters.",
+  "interpretation_limit": "OpenRouter precision labels do not identify the source checkpoint revision or complete serving pipeline. No pure quantization-causal conclusion is warranted."
+}

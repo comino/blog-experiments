@@ -1,0 +1,41 @@
+{
+  "backend_tests": 60,
+  "verifier_mutation_tests": 15,
+  "all_passed": true,
+  "example_query": {
+    "passed": true,
+    "rows": 30,
+    "minimum_displayed_hours": 20.27
+  },
+  "deployment": {
+    "passed": true,
+    "build": "20261007-stories1",
+    "http_status": 200,
+    "explicit_comparison_edit_resolves_to_update": true,
+    "workspace_and_session_contents_preserved": true,
+    "tables": {
+      "workspaces": {
+        "rows": 2,
+        "sha256": "5cbfd5baa700f5825561fb3da95cb9585eeda2ac5b9112271ec8b6eb700f93f6"
+      },
+      "canvas_sessions": {
+        "rows": 35,
+        "sha256": "f51dca26a5f2491a53f4c6e45b61625db3f74bd734157d1d4715cc4f1a7fea1e"
+      }
+    },
+    "backup": "/data/backups/before-stories1-20261007T230214Z.sqlite"
+  },
+  "decompressed_fixture_secret_scan": {
+    "tool": "gitleaks 8.30.1",
+    "files": [
+      "demos/reference-data.json.gz",
+      "demos/rehearsal-evidence.json.gz"
+    ],
+    "passed": true
+  },
+  "documentation": {
+    "runbook_matches_executable_spec": true,
+    "retained_live_prompts_match_spec": true,
+    "prompts": 21
+  }
+}

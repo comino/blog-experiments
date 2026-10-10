@@ -1,0 +1,40 @@
+{
+  "completed_at": "2026-10-07T18:24:18.951797+00:00",
+  "tables": [
+    {
+      "table": "wildlife_taxa",
+      "rows": 1668467,
+      "bytes_on_disk": 54519429
+    },
+    {
+      "table": "wildlife_photo_index",
+      "rows": 38415503,
+      "bytes_on_disk": 617271555
+    },
+    {
+      "table": "wildlife",
+      "rows": 282933221,
+      "bytes_on_disk": 12314474091
+    },
+    {
+      "table": "wildlife_observers",
+      "rows": 1386240,
+      "bytes_on_disk": 29164583
+    },
+    {
+      "table": "wildlife_gallery",
+      "rows": 38415503,
+      "bytes_on_disk": 1765695841
+    },
+    {
+      "table": "wildlife_photos",
+      "rows": 74945422,
+      "bytes_on_disk": 1314344487
+    }
+  ],
+  "photo_selection": "Only CC0 and CC-BY photo metadata; observations are not filtered by photo license.",
+  "coordinates": "Publicly exported coordinates only; may be obscured. Counts measure reported observations, not animal abundance.",
+  "schema": "wildlife/load.py",
+  "source_manifest": "wildlife/source-manifest.json",
+  "photo_eligible_observations": 38415503
+}

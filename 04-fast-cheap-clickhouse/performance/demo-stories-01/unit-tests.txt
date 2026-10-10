@@ -1,0 +1,86 @@
+test_authentication_and_user_isolation (test_api.ApiBoundaries.test_authentication_and_user_isolation) ... ok
+test_concurrent_playback_reads_queue_without_a_workspace_conflict (test_api.ApiBoundaries.test_concurrent_playback_reads_queue_without_a_workspace_conflict) ... ok
+test_dataset_cannot_be_changed_by_workspace_save_or_stale_paint (test_api.ApiBoundaries.test_dataset_cannot_be_changed_by_workspace_save_or_stale_paint) ... ok
+test_dataset_switch_creates_separate_session_and_new_chat_retains_dataset (test_api.ApiBoundaries.test_dataset_switch_creates_separate_session_and_new_chat_retains_dataset) ... ok
+test_explicit_add_never_overwrites_a_selected_card (test_api.ApiBoundaries.test_explicit_add_never_overwrites_a_selected_card) ... ok
+test_explicit_comparison_edit_cannot_add_a_card_when_model_chooses_add (test_api.ApiBoundaries.test_explicit_comparison_edit_cannot_add_a_card_when_model_chooses_add) ... ok
+test_inflight_result_cannot_leak_into_a_new_session (test_api.ApiBoundaries.test_inflight_result_cannot_leak_into_a_new_session) ... ok
+test_legacy_canvas_is_adopted_without_losing_history (test_api.ApiBoundaries.test_legacy_canvas_is_adopted_without_losing_history) ... ok
+test_mark_filter_is_executed_and_stale_marks_never_call_model (test_api.ApiBoundaries.test_mark_filter_is_executed_and_stale_marks_never_call_model) ... ok
+test_model_cannot_query_other_dataset_or_external_functions (test_api.ApiBoundaries.test_model_cannot_query_other_dataset_or_external_functions) ... ok
+test_new_card_does_not_interrupt_unchanged_track_playback (test_api.ApiBoundaries.test_new_card_does_not_interrupt_unchanged_track_playback) ... ok
+test_new_chat_is_empty_and_previous_chat_can_be_resumed (test_api.ApiBoundaries.test_new_chat_is_empty_and_previous_chat_can_be_resumed) ... ok
+test_new_question_adds_even_if_model_updates_the_selected_card (test_api.ApiBoundaries.test_new_question_adds_even_if_model_updates_the_selected_card) ... ok
+test_playback_auth_foreign_cards_and_stale_versions_never_query (test_api.ApiBoundaries.test_playback_auth_foreign_cards_and_stale_versions_never_query) ... ok
+test_playback_queue_overload_is_retryable_and_does_not_query (test_api.ApiBoundaries.test_playback_queue_overload_is_retryable_and_does_not_query) ... ok
+test_playback_rejects_overlong_windows_and_too_many_tracks (test_api.ApiBoundaries.test_playback_rejects_overlong_windows_and_too_many_tracks) ... ok
+test_playback_result_is_fenced_after_session_switch (test_api.ApiBoundaries.test_playback_result_is_fenced_after_session_switch) ... ok
+test_playback_uses_owned_saved_filters_and_does_not_mutate_workspace (test_api.ApiBoundaries.test_playback_uses_owned_saved_filters_and_does_not_mutate_workspace) ... ok
+test_query_failure_does_not_commit_any_card_or_history (test_api.ApiBoundaries.test_query_failure_does_not_commit_any_card_or_history) ... ok
+test_same_revision_cannot_hide_a_changed_playback_query (test_api.ApiBoundaries.test_same_revision_cannot_hide_a_changed_playback_query) ... ok
+test_sessions_are_private_and_forged_targets_cannot_be_saved (test_api.ApiBoundaries.test_sessions_are_private_and_forged_targets_cannot_be_saved) ... ok
+test_stale_save_cannot_overwrite_newer_work (test_api.ApiBoundaries.test_stale_save_cannot_overwrite_newer_work) ... ok
+test_stale_tab_cannot_change_the_new_chat_or_create_orphan_sessions (test_api.ApiBoundaries.test_stale_tab_cannot_change_the_new_chat_or_create_orphan_sessions) ... ok
+test_true_legacy_session_migrates_dataset_without_resetting_data_or_version (test_api.ApiBoundaries.test_true_legacy_session_migrates_dataset_without_resetting_data_or_version) ... ok
+test_visual_edit_uses_no_database_call (test_api.ApiBoundaries.test_visual_edit_uses_no_database_call) ... ok
+test_catalogue_reports_partial_data_without_claiming_ready (test_datasets.DatasetSql.test_catalogue_reports_partial_data_without_claiming_ready) ... ok
+test_every_source_stays_in_its_dataset (test_datasets.DatasetSql.test_every_source_stays_in_its_dataset) ... ok
+test_new_chart_contracts_and_wrong_dataset_are_validated (test_datasets.DatasetSql.test_new_chart_contracts_and_wrong_dataset_are_validated) ... ok
+test_same_dataset_joins_ctes_and_unions_work (test_datasets.DatasetSql.test_same_dataset_joins_ctes_and_unions_work) ... ok
+test_writes_external_functions_and_settings_are_rejected (test_datasets.DatasetSql.test_writes_external_functions_and_settings_are_rejected) ... ok
+test_correlated_subquery_filter_cannot_lose_its_scope_on_replay (test_datasets.PlaybackBounds.test_correlated_subquery_filter_cannot_lose_its_scope_on_replay) ... ok
+test_empty_selection_and_empty_source_are_safe (test_datasets.PlaybackBounds.test_empty_selection_and_empty_source_are_safe) ... ok
+test_maritime_region_preserves_original_time_and_prewhere (test_datasets.PlaybackBounds.test_maritime_region_preserves_original_time_and_prewhere) ... ok
+test_marked_ships_cannot_broaden_into_storms (test_datasets.PlaybackBounds.test_marked_ships_cannot_broaden_into_storms) ... ok
+test_prewhere_is_preserved_and_sampling_cannot_broaden (test_datasets.PlaybackBounds.test_prewhere_is_preserved_and_sampling_cannot_broaden) ... ok
+test_qualified_source_filter_is_not_confused_with_aggregate_alias (test_datasets.PlaybackBounds.test_qualified_source_filter_is_not_confused_with_aggregate_alias) ... ok
+test_saved_ids_and_exact_filters_survive_playback_sql (test_datasets.PlaybackBounds.test_saved_ids_and_exact_filters_survive_playback_sql) ... ok
+test_storm_replay_preserves_name_and_time_filter (test_datasets.PlaybackBounds.test_storm_replay_preserves_name_and_time_filter) ... ok
+test_too_many_tracks_long_windows_and_complex_sources_fail (test_datasets.PlaybackBounds.test_too_many_tracks_long_windows_and_complex_sources_fail) ... ok
+test_comparison_noun_does_not_override_an_explicit_edit (test_domain.Intent.test_comparison_noun_does_not_override_an_explicit_edit) ... ok
+test_comparisons_forced_add_and_empty_canvas (test_domain.Intent.test_comparisons_forced_add_and_empty_canvas) ... ok
+test_explicit_edits_target_the_selection (test_domain.Intent.test_explicit_edits_target_the_selection) ... ok
+test_new_questions_keep_the_selected_view (test_domain.Intent.test_new_questions_keep_the_selected_view) ... ok
+test_add_keeps_selected_and_links_comparison (test_domain.Transactions.test_add_keeps_selected_and_links_comparison) ... ok
+test_empty_plan_requires_a_question (test_domain.Transactions.test_empty_plan_requires_a_question) ... ok
+test_invalid_second_operation_changes_nothing (test_domain.Transactions.test_invalid_second_operation_changes_nothing) ... ok
+test_iteration_preserves_identity_and_layout_and_old_version (test_domain.Transactions.test_iteration_preserves_identity_and_layout_and_old_version) ... ok
+test_map_requires_real_coordinate_columns (test_domain.Transactions.test_map_requires_real_coordinate_columns) ... ok
+test_photo_view_cannot_relabel_an_aggregate (test_domain.Transactions.test_photo_view_cannot_relabel_an_aggregate) ... ok
+test_visual_change_reuses_query_result (test_domain.Transactions.test_visual_change_reuses_query_result) ... ok
+test_wrong_target_and_duplicate_update_rejected (test_domain.Transactions.test_wrong_target_and_duplicate_update_rejected) ... ok
+test_chained_mark_preserves_prior_scope (test_selection.MarkedData.test_chained_mark_preserves_prior_scope) ... ok
+test_exact_pairs_and_original_filters (test_selection.MarkedData.test_exact_pairs_and_original_filters) ... ok
+test_foreign_stale_invalid_and_empty_marks_rejected (test_selection.MarkedData.test_foreign_stale_invalid_and_empty_marks_rejected) ... ok
+test_gallery_receives_same_scope (test_selection.MarkedData.test_gallery_receives_same_scope) ... ok
+test_map_region_is_raw_bbox (test_selection.MarkedData.test_map_region_is_raw_bbox) ... ok
+test_nested_aggregation_refused (test_selection.MarkedData.test_nested_aggregation_refused) ... ok
+test_null_and_quotes_are_sql_literals (test_selection.MarkedData.test_null_and_quotes_are_sql_literals) ... ok
+test_scope_applied_to_all_join_inputs (test_selection.MarkedData.test_scope_applied_to_all_join_inputs) ... ok
+test_scope_cannot_leave_source (test_selection.MarkedData.test_scope_cannot_leave_source) ... ok
+
+----------------------------------------------------------------------
+Ran 60 tests in 0.621s
+
+OK
+
+test_aggregate_change_rejected (test_demo_stories.DemoReferenceTests.test_aggregate_change_rejected) ... ok
+test_all_four_successful_stories (test_demo_stories.DemoReferenceTests.test_all_four_successful_stories) ... ok
+test_copied_good_data_wrong_year_rejected (test_demo_stories.DemoReferenceTests.test_copied_good_data_wrong_year_rejected) ... ok
+test_elsa_missing_day_rejected_even_one_row (test_demo_stories.DemoReferenceTests.test_elsa_missing_day_rejected_even_one_row) ... ok
+test_fake_playback_position_rejected (test_demo_stories.DemoReferenceTests.test_fake_playback_position_rejected) ... ok
+test_fast_interruptions_must_split (test_demo_stories.DemoReferenceTests.test_fast_interruptions_must_split) ... ok
+test_foreign_storm_rejected (test_demo_stories.DemoReferenceTests.test_foreign_storm_rejected) ... ok
+test_gallery_wrong_photo_rejected (test_demo_stories.DemoReferenceTests.test_gallery_wrong_photo_rejected) ... ok
+test_gap_over_ten_minutes_rejected (test_demo_stories.DemoReferenceTests.test_gap_over_ten_minutes_rejected) ... ok
+test_harmless_alias_and_row_column_order (test_demo_stories.DemoReferenceTests.test_harmless_alias_and_row_column_order) ... ok
+test_plain_and_gzip_json_read_the_same (test_demo_stories.DemoReferenceTests.test_plain_and_gzip_json_read_the_same) ... ok
+test_rounded_six_hour_threshold_rejected (test_demo_stories.DemoReferenceTests.test_rounded_six_hour_threshold_rejected) ... ok
+test_speed_grouping_by_aggregate_rejected (test_demo_stories.DemoReferenceTests.test_speed_grouping_by_aggregate_rejected) ... ok
+test_story_filter_checks_only_requested_and_rejects_missing (test_demo_stories.DemoReferenceTests.test_story_filter_checks_only_requested_and_rejects_missing) ... ok
+test_wrong_raw_threshold_rejected (test_demo_stories.DemoReferenceTests.test_wrong_raw_threshold_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.371s
+
+OK

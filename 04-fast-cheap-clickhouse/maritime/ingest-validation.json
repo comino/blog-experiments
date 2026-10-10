@@ -1,0 +1,306 @@
+{
+  "checked_at": "2026-10-07T22:18:09.144661+00:00",
+  "passed": true,
+  "checks": {
+    "exact_31_day_coverage": true,
+    "all_import_rows_match_table_counts": true,
+    "all_import_rows_match_clickhouse_query_log": true,
+    "no_repeated_successful_imports": true,
+    "no_running_maritime_insert": true,
+    "idempotent_resume": true
+  },
+  "first_date": "2024-09-15",
+  "last_date": "2024-10-15",
+  "ais_source_bytes": 8390071502,
+  "ais_positions": 109281166,
+  "vessel_ids": 14382,
+  "storm_points": 936,
+  "storm_ids": 19,
+  "storage": [
+    {
+      "table": "ais_positions",
+      "rows": 109281166,
+      "bytes_on_disk": 1718672676,
+      "data_compressed_bytes": 1714523280,
+      "data_uncompressed_bytes": 9710959988
+    },
+    {
+      "table": "storm_tracks",
+      "rows": 936,
+      "bytes_on_disk": 33017,
+      "data_compressed_bytes": 21480,
+      "data_uncompressed_bytes": 77281
+    }
+  ],
+  "host_free_bytes_after_import": 119552368640,
+  "completed_imports": [
+    {
+      "query_id": "maritime_import_ais_20240915",
+      "event_time": "2026-10-07 22:17:35",
+      "read_rows": 3501379,
+      "written_rows": 3501379,
+      "query_duration_ms": 98351,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240916",
+      "event_time": "2026-10-07 22:16:10",
+      "read_rows": 3753949,
+      "written_rows": 3753949,
+      "query_duration_ms": 102541,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240917",
+      "event_time": "2026-10-07 22:15:56",
+      "read_rows": 3816771,
+      "written_rows": 3816771,
+      "query_duration_ms": 89262,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240918",
+      "event_time": "2026-10-07 22:14:26",
+      "read_rows": 3816189,
+      "written_rows": 3816189,
+      "query_duration_ms": 80344,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240919",
+      "event_time": "2026-10-07 22:14:26",
+      "read_rows": 3468672,
+      "written_rows": 3468672,
+      "query_duration_ms": 82335,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240920",
+      "event_time": "2026-10-07 22:13:03",
+      "read_rows": 3440972,
+      "written_rows": 3440972,
+      "query_duration_ms": 77155,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240921",
+      "event_time": "2026-10-07 22:13:05",
+      "read_rows": 3579383,
+      "written_rows": 3579383,
+      "query_duration_ms": 97109,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240922",
+      "event_time": "2026-10-07 22:11:45",
+      "read_rows": 3341220,
+      "written_rows": 3341220,
+      "query_duration_ms": 73947,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240923",
+      "event_time": "2026-10-07 22:11:27",
+      "read_rows": 3636194,
+      "written_rows": 3636194,
+      "query_duration_ms": 76313,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240924",
+      "event_time": "2026-10-07 22:10:30",
+      "read_rows": 3217175,
+      "written_rows": 3217175,
+      "query_duration_ms": 63477,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240925",
+      "event_time": "2026-10-07 22:10:10",
+      "read_rows": 3630774,
+      "written_rows": 3630774,
+      "query_duration_ms": 90736,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240926",
+      "event_time": "2026-10-07 22:09:25",
+      "read_rows": 3615328,
+      "written_rows": 3615328,
+      "query_duration_ms": 85541,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240927",
+      "event_time": "2026-10-07 22:08:38",
+      "read_rows": 3413349,
+      "written_rows": 3413349,
+      "query_duration_ms": 102315,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240928",
+      "event_time": "2026-10-07 22:07:59",
+      "read_rows": 3277249,
+      "written_rows": 3277249,
+      "query_duration_ms": 86957,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240929",
+      "event_time": "2026-10-07 22:06:55",
+      "read_rows": 3429662,
+      "written_rows": 3429662,
+      "query_duration_ms": 79782,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20240930",
+      "event_time": "2026-10-07 22:06:31",
+      "read_rows": 3527791,
+      "written_rows": 3527791,
+      "query_duration_ms": 97493,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241001",
+      "event_time": "2026-10-07 22:05:34",
+      "read_rows": 3668338,
+      "written_rows": 3668338,
+      "query_duration_ms": 90208,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241002",
+      "event_time": "2026-10-07 22:04:53",
+      "read_rows": 3818380,
+      "written_rows": 3818380,
+      "query_duration_ms": 134476,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241003",
+      "event_time": "2026-10-07 22:02:37",
+      "read_rows": 3406041,
+      "written_rows": 3406041,
+      "query_duration_ms": 85509,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241004",
+      "event_time": "2026-10-07 22:01:11",
+      "read_rows": 3155628,
+      "written_rows": 3155628,
+      "query_duration_ms": 84096,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241005",
+      "event_time": "2026-10-07 21:59:46",
+      "read_rows": 3303789,
+      "written_rows": 3303789,
+      "query_duration_ms": 69000,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241006",
+      "event_time": "2026-10-07 21:58:36",
+      "read_rows": 3590594,
+      "written_rows": 3590594,
+      "query_duration_ms": 82466,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241007",
+      "event_time": "2026-10-07 21:57:27",
+      "read_rows": 3369664,
+      "written_rows": 3369664,
+      "query_duration_ms": 112708,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241008",
+      "event_time": "2026-10-07 21:55:33",
+      "read_rows": 3631375,
+      "written_rows": 3631375,
+      "query_duration_ms": 64321,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241009",
+      "event_time": "2026-10-07 21:54:23",
+      "read_rows": 3357557,
+      "written_rows": 3357557,
+      "query_duration_ms": 33551,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241010",
+      "event_time": "2026-10-07 21:55:36",
+      "read_rows": 3359725,
+      "written_rows": 3359725,
+      "query_duration_ms": 67317,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241011",
+      "event_time": "2026-10-07 21:57:13",
+      "read_rows": 3359731,
+      "written_rows": 3359731,
+      "query_duration_ms": 95533,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241012",
+      "event_time": "2026-10-07 21:58:57",
+      "read_rows": 3315049,
+      "written_rows": 3315049,
+      "query_duration_ms": 88727,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241013",
+      "event_time": "2026-10-07 22:00:28",
+      "read_rows": 3941862,
+      "written_rows": 3941862,
+      "query_duration_ms": 90393,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241014",
+      "event_time": "2026-10-07 22:02:20",
+      "read_rows": 3953263,
+      "written_rows": 3953263,
+      "query_duration_ms": 110968,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_ais_20241015",
+      "event_time": "2026-10-07 22:04:03",
+      "read_rows": 3584113,
+      "written_rows": 3584113,
+      "query_duration_ms": 102755,
+      "exception_code": 0
+    },
+    {
+      "query_id": "maritime_import_storms_2024",
+      "event_time": "2026-10-07 21:53:49",
+      "read_rows": 936,
+      "written_rows": 936,
+      "query_duration_ms": 67,
+      "exception_code": 0
+    }
+  ],
+  "idempotent_resume": {
+    "passed": true,
+    "rows_before": [
+      109281166,
+      936
+    ],
+    "rows_after": [
+      109281166,
+      936
+    ],
+    "successful_import_ledger_sha256_before_and_after": "dd537d068d58d1e600e7ded49dd213c4014970a1530128771435062caf1e303a"
+  }
+}

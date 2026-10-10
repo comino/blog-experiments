@@ -1,0 +1,146 @@
+[
+  {
+    "route_id": "deepseek/deepseek-v4.1-flash@inference-net/fp8",
+    "model_id": "deepseek/deepseek-v4.1-flash",
+    "name": "DeepSeek: DeepSeek V4.1 Flash",
+    "label": "V4.1 \u00b7 FP8 \u00b7 InferenceNet",
+    "provider_tag": "inference-net/fp8",
+    "provider_name": "InferenceNet",
+    "endpoint_records_matching_tag": 1,
+    "endpoint_model_ids": [
+      "deepseek/deepseek-v4.1-flash"
+    ],
+    "quantization": "fp8",
+    "unknown_precision_accepted_by_user": false,
+    "service_tier": "default",
+    "parameters": {
+      "max_tokens": 4096,
+      "temperature": 0,
+      "reasoning": {
+        "enabled": false
+      },
+      "seed": 42
+    },
+    "pricing_per_token": {
+      "prompt": "0.000000145",
+      "completion": "0.0000003",
+      "input_cache_read": "0.000000035",
+      "discount": 0
+    }
+  },
+  {
+    "route_id": "deepseek/deepseek-v4-flash@relace/fp4",
+    "model_id": "deepseek/deepseek-v4-flash",
+    "name": "DeepSeek: DeepSeek V4 Flash 0423",
+    "label": "V4 \u00b7 FP4 \u00b7 Relace",
+    "provider_tag": "relace/fp4",
+    "provider_name": "Relace",
+    "endpoint_records_matching_tag": 1,
+    "endpoint_model_ids": [
+      "deepseek/deepseek-v4-flash"
+    ],
+    "quantization": "fp4",
+    "unknown_precision_accepted_by_user": false,
+    "service_tier": "default",
+    "parameters": {
+      "max_tokens": 4096,
+      "temperature": 0,
+      "reasoning": {
+        "enabled": false
+      }
+    },
+    "pricing_per_token": {
+      "prompt": "0.00000003",
+      "completion": "0.00000128",
+      "input_cache_read": "0.00000003",
+      "discount": 0
+    }
+  },
+  {
+    "route_id": "deepseek/deepseek-v4.1-flash@sail-research/fp4",
+    "model_id": "deepseek/deepseek-v4.1-flash",
+    "name": "DeepSeek: DeepSeek V4.1 Flash",
+    "label": "V4.1 \u00b7 FP4 \u00b7 Sail Research",
+    "provider_tag": "sail-research/fp4",
+    "provider_name": "Sail Research",
+    "endpoint_records_matching_tag": 1,
+    "endpoint_model_ids": [
+      "deepseek/deepseek-v4.1-flash"
+    ],
+    "quantization": "fp4",
+    "unknown_precision_accepted_by_user": false,
+    "service_tier": "default",
+    "parameters": {
+      "max_tokens": 4096,
+      "temperature": 0,
+      "reasoning": {
+        "enabled": false
+      },
+      "seed": 42
+    },
+    "pricing_per_token": {
+      "prompt": "0.00000008",
+      "completion": "0.0000004",
+      "input_cache_read": "0.00000001",
+      "discount": 0
+    }
+  },
+  {
+    "route_id": "deepseek/deepseek-v4-flash@parasail/fp8",
+    "model_id": "deepseek/deepseek-v4-flash",
+    "name": "DeepSeek: DeepSeek V4 Flash 0423",
+    "label": "V4 \u00b7 FP8 \u00b7 Parasail",
+    "provider_tag": "parasail/fp8",
+    "provider_name": "Parasail",
+    "endpoint_records_matching_tag": 1,
+    "endpoint_model_ids": [
+      "deepseek/deepseek-v4-flash"
+    ],
+    "quantization": "fp8",
+    "unknown_precision_accepted_by_user": false,
+    "service_tier": "default",
+    "parameters": {
+      "max_tokens": 4096,
+      "temperature": 0,
+      "reasoning": {
+        "enabled": false
+      },
+      "seed": 42
+    },
+    "pricing_per_token": {
+      "prompt": "0.00000014",
+      "completion": "0.00000028",
+      "input_cache_read": "0.00000007",
+      "discount": 0
+    }
+  },
+  {
+    "route_id": "deepseek/deepseek-v4.1-flash@parasail/fp8",
+    "model_id": "deepseek/deepseek-v4.1-flash",
+    "name": "DeepSeek: DeepSeek V4.1 Flash",
+    "label": "V4.1 \u00b7 FP8 \u00b7 Parasail",
+    "provider_tag": "parasail/fp8",
+    "provider_name": "Parasail",
+    "endpoint_records_matching_tag": 1,
+    "endpoint_model_ids": [
+      "deepseek/deepseek-v4.1-flash"
+    ],
+    "quantization": "fp8",
+    "unknown_precision_accepted_by_user": false,
+    "service_tier": "default",
+    "parameters": {
+      "max_tokens": 4096,
+      "temperature": 0,
+      "reasoning": {
+        "enabled": false
+      },
+      "seed": 42
+    },
+    "pricing_per_token": {
+      "prompt": "0.0000003",
+      "completion": "0.0000012",
+      "input_cache_read": "0.000000006",
+      "discount": 0
+    }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-10-07T15:52:42.067467+00:00",
+  "all_remote_artifacts_verified": true,
+  "artifact_count": 106,
+  "total_verified_bytes": 41260119,
+  "manifest_sha256": "0d62457ea1ee21be447198d7bce7157dec275f5fadbc959b8744b36e03a06372",
+  "openrouter_credential_absent": true,
+  "executed_attempt_queries_matched_once_in_query_log": 1599,
+  "rejected_before_database_execution": [
+    {
+      "task_id": "full:1:t3_01:deepseek/deepseek-v4-flash@relace/fp4",
+      "allocated_query_id": "budget_1c128034affe420082b15b512a4f8a35",
+      "reason": "Not a SELECT/WITH query"
+    }
+  ],
+  "query_log_outcomes": 1719
+}

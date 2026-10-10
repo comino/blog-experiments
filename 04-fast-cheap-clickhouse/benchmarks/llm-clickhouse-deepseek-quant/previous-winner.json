@@ -1,0 +1,66 @@
+{
+  "source": "../llm-clickhouse-budget/results/full-analysis/summary.json",
+  "first_request_at": "2026-10-07T13:47:19.927985+00:00",
+  "last_request_ended_at": "2026-10-07T14:33:03.559808+00:00",
+  "configuration": {
+    "model_id": "deepseek/deepseek-v4.1-flash",
+    "name": "DeepSeek V4.1 Flash",
+    "provider_tag": "inference-net/fp8",
+    "precision": "fp8",
+    "attempts": 300,
+    "correct": 264,
+    "accuracy": 0.88,
+    "accuracy_ci95": [
+      0.7933333333333333,
+      0.95
+    ],
+    "sql_ready_completed": 300,
+    "database_completed": 275,
+    "sql_ready_median_s": 0.6313905120000527,
+    "sql_ready_p95_s": 1.863608947799776,
+    "result_ready_median_s": 0.6718474839999544,
+    "result_ready_q25_s": 0.5318323190000456,
+    "result_ready_q75_s": 0.9752206130000332,
+    "result_ready_p95_s": 1.8470589937000115,
+    "correct_result_median_s": 0.6559941094999431,
+    "known_billed_cost_usd": 0.01240413,
+    "missing_cost_count": 0,
+    "reserved_or_billed_cost_usd": 0.01240413,
+    "billed_cost_usd": 0.01240413,
+    "usd_per_1000_tasks": 0.0413471,
+    "usd_per_correct_result": 4.6985340909090906e-05,
+    "api_errors": 0,
+    "sql_errors": 25,
+    "wrong_results": 11,
+    "prompt_tokens": 137970,
+    "cached_prompt_tokens": 114432,
+    "cached_prompt_fraction": 0.8293976951511198,
+    "completion_tokens": 16620,
+    "uncached_token_cost_estimate_usd_known_usage": 0.02499165,
+    "uncached_estimate_usd_per_1000_tasks": 0.08330549999999999,
+    "endpoint_discount_fraction": 0,
+    "reasoning_tokens": 0,
+    "median_visible_generation_tps": 755.857199739218,
+    "first_content_median_s": 0.49810086999968917,
+    "correct_within_2s": 255,
+    "correct_within_2s_fraction": 0.85,
+    "correct_within_2s_ci95": [
+      0.7633333333333333,
+      0.9233333333333333
+    ],
+    "correct_within_5s": 263,
+    "correct_within_5s_fraction": 0.8766666666666667,
+    "correct_within_5s_ci95": [
+      0.7900000000000001,
+      0.95
+    ],
+    "correct_within_10s": 264,
+    "correct_within_10s_fraction": 0.88,
+    "correct_within_10s_ci95": [
+      0.7933333333333333,
+      0.95
+    ],
+    "usd_per_correct_within_5s": 4.716399239543726e-05
+  },
+  "note": "Historical reference only; the same model/provider/format is rerun as an interleaved control in this extension."
+}

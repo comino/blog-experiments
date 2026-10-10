@@ -1,0 +1,25 @@
+{
+  "scope": "Supplementary ELSA UI-only check on retained query results; zero inference. Normal speed.",
+  "files": [
+    {
+      "path": "presentation-ui-only.webm",
+      "duration_seconds": 29.08,
+      "codec": "vp8",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 3396153,
+      "sha256": "fab2c7513da1b9034575fda84822aabd3b83d64c7ae331797ca5c86f6d5fd62c"
+    },
+    {
+      "path": "presentation-ui-only.mp4",
+      "duration_seconds": 29.08,
+      "codec": "h264",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 6943210,
+      "sha256": "0743d6f19c95223cb7a1c220906d698183cb34dd481f4b5b1d999a5529324770"
+    }
+  ],
+  "duration_preserved": true,
+  "passed": true
+}

@@ -1,0 +1,132 @@
+{
+  "rule": "Require at least 4/5 completed responses, all request billing known, and no observed reasoning tokens. Favor the highest completion count; among routes within 20% of the fastest median SQL-ready time choose the lowest mean billed cost. For the shared FP8 provider use the minimum completion count and mean latency/cost across the two versions. Preserve the prior InferenceNet FP8 winner as a fixed control. SQL correctness does not select routes.",
+  "route_stats": [
+    {
+      "route_id": "deepseek/deepseek-v4-flash@relace/fp4",
+      "completed": 5,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": 1794.5773679999775,
+      "mean_billed_usd": 0.00011006400000000001,
+      "viable": true
+    },
+    {
+      "route_id": "deepseek/deepseek-v4-flash@open-inference/fp4",
+      "completed": 5,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": 2535.712660999991,
+      "mean_billed_usd": 0.0001078352,
+      "viable": true
+    },
+    {
+      "route_id": "deepseek/deepseek-v4-flash@atlas-cloud/fp4",
+      "completed": 0,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": null,
+      "mean_billed_usd": null,
+      "viable": false
+    },
+    {
+      "route_id": "deepseek/deepseek-v4-flash@deepinfra/fp8",
+      "completed": 4,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": 3550.8149604999917,
+      "mean_billed_usd": null,
+      "viable": false
+    },
+    {
+      "route_id": "deepseek/deepseek-v4-flash@streamlake/fp8",
+      "completed": 0,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": null,
+      "mean_billed_usd": null,
+      "viable": false
+    },
+    {
+      "route_id": "deepseek/deepseek-v4-flash@parasail/fp8",
+      "completed": 5,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": 1085.2273560000185,
+      "mean_billed_usd": 7.5208e-05,
+      "viable": true
+    },
+    {
+      "route_id": "deepseek/deepseek-v4.1-flash@sail-research/fp4",
+      "completed": 5,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": 2243.798916000003,
+      "mean_billed_usd": 5.2448e-05,
+      "viable": true
+    },
+    {
+      "route_id": "deepseek/deepseek-v4.1-flash@decart/fp4",
+      "completed": 2,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": 2663.4168624999857,
+      "mean_billed_usd": null,
+      "viable": false
+    },
+    {
+      "route_id": "deepseek/deepseek-v4.1-flash@inference-net/fp8",
+      "completed": 5,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": 930.2575590000401,
+      "mean_billed_usd": 4.7361e-05,
+      "viable": true
+    },
+    {
+      "route_id": "deepseek/deepseek-v4.1-flash@deepinfra/fp8",
+      "completed": 5,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": 1527.9595200000244,
+      "mean_billed_usd": 6.539568e-05,
+      "viable": true
+    },
+    {
+      "route_id": "deepseek/deepseek-v4.1-flash@streamlake/fp8",
+      "completed": 0,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": null,
+      "mean_billed_usd": null,
+      "viable": false
+    },
+    {
+      "route_id": "deepseek/deepseek-v4.1-flash@parasail/fp8",
+      "completed": 5,
+      "reasoning_tokens": 0,
+      "median_sql_ready_ms": 7507.780333,
+      "mean_billed_usd": 0.0001372632,
+      "viable": true
+    }
+  ],
+  "shared_provider_candidates": [
+    {
+      "route_id": "deepinfra/fp8",
+      "completed": 4,
+      "viable": false,
+      "median_sql_ready_ms": 2539.3872402500083,
+      "mean_billed_usd": null
+    },
+    {
+      "route_id": "streamlake/fp8",
+      "completed": 0,
+      "viable": false,
+      "median_sql_ready_ms": null,
+      "mean_billed_usd": null
+    },
+    {
+      "route_id": "parasail/fp8",
+      "completed": 5,
+      "viable": true,
+      "median_sql_ready_ms": 4296.503844500009,
+      "mean_billed_usd": 0.0001062356
+    }
+  ],
+  "selected_route_ids": [
+    "deepseek/deepseek-v4.1-flash@inference-net/fp8",
+    "deepseek/deepseek-v4-flash@relace/fp4",
+    "deepseek/deepseek-v4.1-flash@sail-research/fp4",
+    "deepseek/deepseek-v4-flash@parasail/fp8",
+    "deepseek/deepseek-v4.1-flash@parasail/fp8"
+  ],
+  "shared_fp8_provider": "parasail/fp8"
+}

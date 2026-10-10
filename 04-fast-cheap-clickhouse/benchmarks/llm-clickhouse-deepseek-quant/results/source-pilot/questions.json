@@ -1,0 +1,1339 @@
+[
+  {
+    "id": "t1_01",
+    "tier": 1,
+    "natural_language": "How many events are in the events table?\nOutput contract: return only these columns, in this order: event count.",
+    "reference_sql": "SELECT count() FROM events",
+    "ch_features": [
+      "count()"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "How many events are in the events table?",
+    "original_reference_sql": "SELECT count() FROM events",
+    "contract": {
+      "columns": "event count",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t1_02",
+    "tier": 1,
+    "natural_language": "Return the 10 most recent events.\nOutput contract: return only these columns, in this order: all events columns in schema order. Order/limit: timestamp descending, then event_id descending; exactly 10 rows.",
+    "reference_sql": "SELECT * FROM events ORDER BY timestamp DESC, event_id DESC LIMIT 10",
+    "ch_features": [
+      "ORDER BY",
+      "LIMIT"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Return the 10 most recent events.",
+    "original_reference_sql": "SELECT * FROM events ORDER BY timestamp DESC LIMIT 10",
+    "contract": {
+      "columns": "all events columns in schema order",
+      "ordered": true,
+      "order": "timestamp descending, then event_id descending; exactly 10 rows",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t1_03",
+    "tier": 1,
+    "natural_language": "How many events occurred in March 2024?\nOutput contract: return only these columns, in this order: event count.",
+    "reference_sql": "SELECT count() FROM events WHERE timestamp >= '2024-03-01' AND timestamp < '2024-04-01'",
+    "ch_features": [
+      "count()",
+      "WHERE",
+      "date range"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "How many events occurred in March 2024?",
+    "original_reference_sql": "SELECT count() FROM events WHERE timestamp >= '2024-03-01' AND timestamp < '2024-04-01'",
+    "contract": {
+      "columns": "event count",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t1_04",
+    "tier": 1,
+    "natural_language": "List all distinct event types.\nOutput contract: return only these columns, in this order: event_type. Order/limit: event_type ascending.",
+    "reference_sql": "SELECT DISTINCT event_type FROM events ORDER BY event_type",
+    "ch_features": [
+      "DISTINCT",
+      "ORDER BY"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "List all distinct event types.",
+    "original_reference_sql": "SELECT DISTINCT event_type FROM events ORDER BY event_type",
+    "contract": {
+      "columns": "event_type",
+      "ordered": true,
+      "order": "event_type ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t1_05",
+    "tier": 1,
+    "natural_language": "How many events came from Germany?\nOutput contract: return only these columns, in this order: event count.",
+    "reference_sql": "SELECT count() FROM events WHERE country = 'DE'",
+    "ch_features": [
+      "count()",
+      "WHERE"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "How many events came from Germany?",
+    "original_reference_sql": "SELECT count() FROM events WHERE country = 'DE'",
+    "contract": {
+      "columns": "event count",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t1_06",
+    "tier": 1,
+    "natural_language": "Show the first 5 events of type 'purchase' ordered by timestamp.\nOutput contract: return only these columns, in this order: all events columns in schema order. Order/limit: timestamp ascending, then event_id ascending; at most 5 rows.",
+    "reference_sql": "SELECT * FROM events WHERE event_type = 'purchase' ORDER BY timestamp, event_id LIMIT 5",
+    "ch_features": [
+      "WHERE",
+      "ORDER BY",
+      "LIMIT"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Show the first 5 events of type 'purchase' ordered by timestamp.",
+    "original_reference_sql": "SELECT * FROM events WHERE event_type = 'purchase' ORDER BY timestamp LIMIT 5",
+    "contract": {
+      "columns": "all events columns in schema order",
+      "ordered": true,
+      "order": "timestamp ascending, then event_id ascending; at most 5 rows",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t1_07",
+    "tier": 1,
+    "natural_language": "How many users are on the 'pro' plan?\nOutput contract: return only these columns, in this order: user count.",
+    "reference_sql": "SELECT count() FROM users WHERE plan = 'pro'",
+    "ch_features": [
+      "count()",
+      "WHERE"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "How many users are on the 'pro' plan?",
+    "original_reference_sql": "SELECT count() FROM users WHERE plan = 'pro'",
+    "contract": {
+      "columns": "user count",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t1_08",
+    "tier": 1,
+    "natural_language": "What is the earliest and latest event timestamp?\nOutput contract: return only these columns, in this order: earliest timestamp, latest timestamp.",
+    "reference_sql": "SELECT min(timestamp) AS earliest, max(timestamp) AS latest FROM events",
+    "ch_features": [
+      "min()",
+      "max()"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "What is the earliest and latest event timestamp?",
+    "original_reference_sql": "SELECT min(timestamp) AS earliest, max(timestamp) AS latest FROM events",
+    "contract": {
+      "columns": "earliest timestamp, latest timestamp",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t1_09",
+    "tier": 1,
+    "natural_language": "List all events from user_id 42 in 2024.\nOutput contract: return only these columns, in this order: all events columns in schema order. Order/limit: timestamp ascending, then event_id ascending.",
+    "reference_sql": "SELECT * FROM events WHERE user_id = 42 AND timestamp >= '2024-01-01' AND timestamp < '2025-01-01' ORDER BY timestamp, event_id",
+    "ch_features": [
+      "WHERE",
+      "AND",
+      "date range"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "List all events from user_id 42 in 2024.",
+    "original_reference_sql": "SELECT * FROM events WHERE user_id = 42 AND timestamp >= '2024-01-01' AND timestamp < '2025-01-01' ORDER BY timestamp",
+    "contract": {
+      "columns": "all events columns in schema order",
+      "ordered": true,
+      "order": "timestamp ascending, then event_id ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t1_10",
+    "tier": 1,
+    "natural_language": "How many events have a non-null duration_ms?\nOutput contract: return only these columns, in this order: event count.",
+    "reference_sql": "SELECT count() FROM events WHERE duration_ms IS NOT NULL",
+    "ch_features": [
+      "count()",
+      "IS NOT NULL",
+      "Nullable"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "How many events have a non-null duration_ms?",
+    "original_reference_sql": "SELECT count() FROM events WHERE duration_ms IS NOT NULL",
+    "contract": {
+      "columns": "event count",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t2_01",
+    "tier": 2,
+    "natural_language": "How many events per event type? Order by count descending.\nOutput contract: return only these columns, in this order: event_type, event count. Order/limit: event count descending, then event_type ascending.",
+    "reference_sql": "SELECT event_type, count() AS cnt FROM events GROUP BY event_type ORDER BY cnt DESC, event_type",
+    "ch_features": [
+      "GROUP BY",
+      "count()",
+      "ORDER BY"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "How many events per event type? Order by count descending.",
+    "original_reference_sql": "SELECT event_type, count() AS cnt FROM events GROUP BY event_type ORDER BY cnt DESC",
+    "contract": {
+      "columns": "event_type, event count",
+      "ordered": true,
+      "order": "event count descending, then event_type ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t2_02",
+    "tier": 2,
+    "natural_language": "What is the average duration_ms per device type?\nOutput contract: return only these columns, in this order: device, average duration. Order/limit: average duration descending, then device ascending.",
+    "reference_sql": "SELECT device, avg(duration_ms) AS avg_duration FROM events GROUP BY device ORDER BY avg_duration DESC, device",
+    "ch_features": [
+      "GROUP BY",
+      "avg()",
+      "Nullable"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "What is the average duration_ms per device type?",
+    "original_reference_sql": "SELECT device, avg(duration_ms) AS avg_duration FROM events GROUP BY device ORDER BY avg_duration DESC",
+    "contract": {
+      "columns": "device, average duration",
+      "ordered": true,
+      "order": "average duration descending, then device ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t2_03",
+    "tier": 2,
+    "natural_language": "Show the number of events per day in January 2024.\nOutput contract: return only these columns, in this order: day as Date, event count. Order/limit: day ascending.",
+    "reference_sql": "SELECT toDate(timestamp) AS day, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2024-02-01' GROUP BY day ORDER BY day",
+    "ch_features": [
+      "toDate()",
+      "GROUP BY",
+      "date range"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Show the number of events per day in January 2024.",
+    "original_reference_sql": "SELECT toDate(timestamp) AS day, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2024-02-01' GROUP BY day ORDER BY day",
+    "contract": {
+      "columns": "day as Date, event count",
+      "ordered": true,
+      "order": "day ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t2_04",
+    "tier": 2,
+    "natural_language": "Which countries have more than 10000 events?\nOutput contract: return only these columns, in this order: country, event count. Order/limit: event count descending, then country ascending.",
+    "reference_sql": "SELECT country, count() AS cnt FROM events GROUP BY country HAVING cnt > 10000 ORDER BY cnt DESC, country",
+    "ch_features": [
+      "GROUP BY",
+      "HAVING"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Which countries have more than 10000 events?",
+    "original_reference_sql": "SELECT country, count() AS cnt FROM events GROUP BY country HAVING cnt > 10000 ORDER BY cnt DESC",
+    "contract": {
+      "columns": "country, event count",
+      "ordered": true,
+      "order": "event count descending, then country ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t2_05",
+    "tier": 2,
+    "natural_language": "Count events per hour of the day across all data.\nOutput contract: return only these columns, in this order: hour number, event count. Order/limit: hour ascending.",
+    "reference_sql": "SELECT toHour(timestamp) AS hour, count() AS cnt FROM events GROUP BY hour ORDER BY hour",
+    "ch_features": [
+      "toHour()",
+      "GROUP BY"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Count events per hour of the day across all data.",
+    "original_reference_sql": "SELECT toHour(timestamp) AS hour, count() AS cnt FROM events GROUP BY hour ORDER BY hour",
+    "contract": {
+      "columns": "hour number, event count",
+      "ordered": true,
+      "order": "hour ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t2_06",
+    "tier": 2,
+    "natural_language": "What is the average duration_ms only for 'pageview' events?\nOutput contract: return only these columns, in this order: average duration.",
+    "reference_sql": "SELECT avgIf(duration_ms, event_type = 'pageview') AS avg_pageview_duration FROM events",
+    "ch_features": [
+      "avgIf()",
+      "-If combinator"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "What is the average duration_ms only for 'pageview' events?",
+    "original_reference_sql": "SELECT avgIf(duration_ms, event_type = 'pageview') AS avg_pageview_duration FROM events",
+    "contract": {
+      "columns": "average duration",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t2_07",
+    "tier": 2,
+    "natural_language": "How many events per month in 2024?\nOutput contract: return only these columns, in this order: month as Date, event count. Order/limit: month ascending.",
+    "reference_sql": "SELECT toStartOfMonth(timestamp) AS month, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2025-01-01' GROUP BY month ORDER BY month",
+    "ch_features": [
+      "toStartOfMonth()",
+      "GROUP BY"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "How many events per month in 2024?",
+    "original_reference_sql": "SELECT toStartOfMonth(timestamp) AS month, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2025-01-01' GROUP BY month ORDER BY month",
+    "contract": {
+      "columns": "month as Date, event count",
+      "ordered": true,
+      "order": "month ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t2_08",
+    "tier": 2,
+    "natural_language": "For each event type, count the number of distinct countries.\nOutput contract: return only these columns, in this order: event_type, distinct country count. Order/limit: distinct country count descending, then event_type ascending.",
+    "reference_sql": "SELECT event_type, uniqExact(country) AS country_count FROM events GROUP BY event_type ORDER BY country_count DESC, event_type",
+    "ch_features": [
+      "uniq()",
+      "GROUP BY"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "For each event type, count the number of distinct countries.",
+    "original_reference_sql": "SELECT event_type, uniq(country) AS country_count FROM events GROUP BY event_type ORDER BY country_count DESC",
+    "contract": {
+      "columns": "event_type, distinct country count",
+      "ordered": true,
+      "order": "distinct country count descending, then event_type ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t2_09",
+    "tier": 2,
+    "natural_language": "What is the total revenue_cents per country, excluding nulls?\nOutput contract: return only these columns, in this order: country, total revenue. Order/limit: total revenue descending, then country ascending.",
+    "reference_sql": "SELECT country, sum(revenue_cents) AS total_revenue FROM events WHERE revenue_cents IS NOT NULL GROUP BY country ORDER BY total_revenue DESC, country",
+    "ch_features": [
+      "sum()",
+      "GROUP BY",
+      "Nullable",
+      "IS NOT NULL"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "What is the total revenue_cents per country, excluding nulls?",
+    "original_reference_sql": "SELECT country, sum(revenue_cents) AS total_revenue FROM events WHERE revenue_cents IS NOT NULL GROUP BY country ORDER BY total_revenue DESC",
+    "contract": {
+      "columns": "country, total revenue",
+      "ordered": true,
+      "order": "total revenue descending, then country ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t2_10",
+    "tier": 2,
+    "natural_language": "Count how many purchase events and how many pageview events there are.\nOutput contract: return only these columns, in this order: purchase count, pageview count.",
+    "reference_sql": "SELECT countIf(event_type = 'purchase') AS purchases, countIf(event_type = 'pageview') AS pageviews FROM events",
+    "ch_features": [
+      "countIf()",
+      "-If combinator"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "Count how many purchase events and how many pageview events there are.",
+    "original_reference_sql": "SELECT countIf(event_type = 'purchase') AS purchases, countIf(event_type = 'pageview') AS pageviews FROM events",
+    "contract": {
+      "columns": "purchase count, pageview count",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t3_01",
+    "tier": 3,
+    "natural_language": "What is the median duration_ms across all events?\nOutput contract: return only these columns, in this order: median duration. Use exact quantiles with ClickHouse quantileExact semantics, not approximate sampling.",
+    "reference_sql": "SELECT quantileExact(0.5)(duration_ms) AS median_duration FROM events",
+    "ch_features": [
+      "quantile()"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "What is the median duration_ms across all events?",
+    "original_reference_sql": "SELECT quantile(0.5)(duration_ms) AS median_duration FROM events",
+    "contract": {
+      "columns": "median duration",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t3_02",
+    "tier": 3,
+    "natural_language": "How many exact distinct users are there in the events table?\nOutput contract: return only these columns, in this order: exact distinct user count.",
+    "reference_sql": "SELECT uniqExact(user_id) AS exact_unique_users FROM events",
+    "ch_features": [
+      "uniqExact()"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "How many exact distinct users are there in the events table?",
+    "original_reference_sql": "SELECT uniqExact(user_id) AS exact_unique_users FROM events",
+    "contract": {
+      "columns": "exact distinct user count",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t3_03",
+    "tier": 3,
+    "natural_language": "List all events where the properties map contains the key 'campaign'.\nOutput contract: return only these columns, in this order: all events columns in schema order. Order/limit: timestamp ascending, then event_id ascending; at most 100 rows.",
+    "reference_sql": "SELECT * FROM events WHERE mapContains(properties, 'campaign') ORDER BY timestamp, event_id LIMIT 100",
+    "ch_features": [
+      "Map",
+      "mapContains()"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "List all events where the properties map contains the key 'campaign'.",
+    "original_reference_sql": "SELECT * FROM events WHERE mapContains(properties, 'campaign') ORDER BY timestamp LIMIT 100",
+    "contract": {
+      "columns": "all events columns in schema order",
+      "ordered": true,
+      "order": "timestamp ascending, then event_id ascending; at most 100 rows",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t3_04",
+    "tier": 3,
+    "natural_language": "Get the value of the 'source' key from the properties map for the first 10 purchase events.\nOutput contract: return only these columns, in this order: event_id, source. Order/limit: timestamp ascending, then event_id ascending; at most 10 rows.",
+    "reference_sql": "SELECT event_id, properties['source'] AS source FROM events WHERE event_type = 'purchase' ORDER BY timestamp, event_id LIMIT 10",
+    "ch_features": [
+      "Map",
+      "map['key'] access"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Get the value of the 'source' key from the properties map for the first 10 purchase events.",
+    "original_reference_sql": "SELECT event_id, properties['source'] AS source FROM events WHERE event_type = 'purchase' ORDER BY timestamp LIMIT 10",
+    "contract": {
+      "columns": "event_id, source",
+      "ordered": true,
+      "order": "timestamp ascending, then event_id ascending; at most 10 rows",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t3_05",
+    "tier": 3,
+    "natural_language": "Explode the tags array so each tag gets its own row, and count occurrences of each tag.\nOutput contract: return only these columns, in this order: tag, occurrence count. Order/limit: occurrence count descending, then tag ascending.",
+    "reference_sql": "SELECT tag, count() AS cnt FROM events ARRAY JOIN tags AS tag GROUP BY tag ORDER BY cnt DESC, tag",
+    "ch_features": [
+      "ARRAY JOIN",
+      "arrayJoin"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Explode the tags array so each tag gets its own row, and count occurrences of each tag.",
+    "original_reference_sql": "SELECT tag, count() AS cnt FROM events ARRAY JOIN tags AS tag GROUP BY tag ORDER BY cnt DESC",
+    "contract": {
+      "columns": "tag, occurrence count",
+      "ordered": true,
+      "order": "occurrence count descending, then tag ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t3_06",
+    "tier": 3,
+    "natural_language": "Find events that have the tag 'promo' in their tags array.\nOutput contract: return only these columns, in this order: all events columns in schema order. Order/limit: timestamp ascending, then event_id ascending; at most 100 rows.",
+    "reference_sql": "SELECT * FROM events WHERE has(tags, 'promo') ORDER BY timestamp, event_id LIMIT 100",
+    "ch_features": [
+      "Array",
+      "has()"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Find events that have the tag 'promo' in their tags array.",
+    "original_reference_sql": "SELECT * FROM events WHERE has(tags, 'promo') ORDER BY timestamp LIMIT 100",
+    "contract": {
+      "columns": "all events columns in schema order",
+      "ordered": true,
+      "order": "timestamp ascending, then event_id ascending; at most 100 rows",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t3_07",
+    "tier": 3,
+    "natural_language": "What are the p90 and p99 of duration_ms for each event type?\nOutput contract: return only these columns, in this order: event_type, p90, p99. Order/limit: event_type ascending. Use exact quantiles with ClickHouse quantileExact semantics, not approximate sampling.",
+    "reference_sql": "SELECT event_type, quantileExact(0.9)(duration_ms) AS p90, quantileExact(0.99)(duration_ms) AS p99 FROM events GROUP BY event_type ORDER BY event_type",
+    "ch_features": [
+      "quantile()",
+      "GROUP BY"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "What are the p90 and p99 of duration_ms for each event type?",
+    "original_reference_sql": "SELECT event_type, quantile(0.9)(duration_ms) AS p90, quantile(0.99)(duration_ms) AS p99 FROM events GROUP BY event_type ORDER BY event_type",
+    "contract": {
+      "columns": "event_type, p90, p99",
+      "ordered": true,
+      "order": "event_type ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t3_08",
+    "tier": 3,
+    "natural_language": "Sum revenue_cents only for events from mobile devices using the sumIf combinator.\nOutput contract: return only these columns, in this order: mobile revenue.",
+    "reference_sql": "SELECT sumIf(revenue_cents, device = 'mobile') AS mobile_revenue FROM events",
+    "ch_features": [
+      "sumIf()",
+      "-If combinator"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "Sum revenue_cents only for events from mobile devices using the sumIf combinator.",
+    "original_reference_sql": "SELECT sumIf(revenue_cents, device = 'mobile') AS mobile_revenue FROM events",
+    "contract": {
+      "columns": "mobile revenue",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t3_09",
+    "tier": 3,
+    "natural_language": "List all unique keys that appear in the properties map across all events.\nOutput contract: return only these columns, in this order: property key. Order/limit: property key ascending.",
+    "reference_sql": "SELECT DISTINCT arrayJoin(mapKeys(properties)) AS key FROM events ORDER BY key",
+    "ch_features": [
+      "Map",
+      "mapKeys()",
+      "arrayJoin()"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "List all unique keys that appear in the properties map across all events.",
+    "original_reference_sql": "SELECT DISTINCT arrayJoin(mapKeys(properties)) AS key FROM events ORDER BY key",
+    "contract": {
+      "columns": "property key",
+      "ordered": true,
+      "order": "property key ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t3_10",
+    "tier": 3,
+    "natural_language": "Filter events to only those whose tags array contains at least one tag starting with 'vip'.\nOutput contract: return only these columns, in this order: all events columns in schema order. Order/limit: timestamp ascending, then event_id ascending; at most 100 rows.",
+    "reference_sql": "SELECT * FROM events WHERE notEmpty(arrayFilter(x -> x LIKE 'vip%', tags)) ORDER BY timestamp, event_id LIMIT 100",
+    "ch_features": [
+      "Array",
+      "arrayFilter()",
+      "lambda"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Filter events to only those whose tags array contains at least one tag starting with 'vip'.",
+    "original_reference_sql": "SELECT * FROM events WHERE notEmpty(arrayFilter(x -> x LIKE 'vip%', tags)) ORDER BY timestamp LIMIT 100",
+    "contract": {
+      "columns": "all events columns in schema order",
+      "ordered": true,
+      "order": "timestamp ascending, then event_id ascending; at most 100 rows",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t4_01",
+    "tier": 4,
+    "natural_language": "For each event, show the event details along with the user's plan. Use a JOIN.\nOutput contract: return only these columns, in this order: event_id, timestamp, event_type, plan. Order/limit: timestamp ascending, then event_id ascending; at most 100 rows.",
+    "reference_sql": "SELECT e.event_id, e.timestamp, e.event_type, u.plan FROM events AS e INNER JOIN users AS u ON e.user_id = u.user_id ORDER BY e.timestamp, e.event_id LIMIT 100",
+    "ch_features": [
+      "INNER JOIN"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "For each event, show the event details along with the user's plan. Use a JOIN.",
+    "original_reference_sql": "SELECT e.event_id, e.timestamp, e.event_type, u.plan FROM events AS e INNER JOIN users AS u ON e.user_id = u.user_id ORDER BY e.timestamp LIMIT 100",
+    "contract": {
+      "columns": "event_id, timestamp, event_type, plan",
+      "ordered": true,
+      "order": "timestamp ascending, then event_id ascending; at most 100 rows",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t4_02",
+    "tier": 4,
+    "natural_language": "Count events per user plan type.\nOutput contract: return only these columns, in this order: plan, event count. Order/limit: event count descending, then plan ascending.",
+    "reference_sql": "SELECT u.plan, count() AS cnt FROM events AS e INNER JOIN users AS u ON e.user_id = u.user_id GROUP BY u.plan ORDER BY cnt DESC, u.plan",
+    "ch_features": [
+      "INNER JOIN",
+      "GROUP BY"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Count events per user plan type.",
+    "original_reference_sql": "SELECT u.plan, count() AS cnt FROM events AS e INNER JOIN users AS u ON e.user_id = u.user_id GROUP BY u.plan ORDER BY cnt DESC",
+    "contract": {
+      "columns": "plan, event count",
+      "ordered": true,
+      "order": "event count descending, then plan ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t4_03",
+    "tier": 4,
+    "natural_language": "Find users who have never generated any events.\nOutput contract: return only these columns, in this order: user_id, email. Order/limit: user_id ascending.",
+    "reference_sql": "SELECT user_id, email FROM users WHERE user_id NOT IN (SELECT user_id FROM events) ORDER BY user_id",
+    "ch_features": [
+      "LEFT JOIN",
+      "IS NULL anti-join"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Find users who have never generated any events.",
+    "original_reference_sql": "SELECT u.user_id, u.email FROM users AS u LEFT JOIN events AS e ON u.user_id = e.user_id WHERE e.user_id IS NULL",
+    "contract": {
+      "columns": "user_id, email",
+      "ordered": true,
+      "order": "user_id ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t4_04",
+    "tier": 4,
+    "natural_language": "Using a CTE, find the top 10 users by event count, then show their plan.\nOutput contract: return only these columns, in this order: user_id, event count, plan. Order/limit: event count descending, then user_id ascending; at most 10 users.",
+    "reference_sql": "WITH top_users AS (SELECT user_id, count() AS cnt FROM events GROUP BY user_id ORDER BY cnt DESC, user_id LIMIT 10) SELECT t.user_id, t.cnt, u.plan FROM top_users AS t INNER JOIN users AS u ON t.user_id = u.user_id ORDER BY t.cnt DESC, t.user_id",
+    "ch_features": [
+      "WITH CTE",
+      "INNER JOIN",
+      "subquery"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Using a CTE, find the top 10 users by event count, then show their plan.",
+    "original_reference_sql": "WITH top_users AS (SELECT user_id, count() AS cnt FROM events GROUP BY user_id ORDER BY cnt DESC LIMIT 10) SELECT t.user_id, t.cnt, u.plan FROM top_users AS t INNER JOIN users AS u ON t.user_id = u.user_id ORDER BY t.cnt DESC",
+    "contract": {
+      "columns": "user_id, event count, plan",
+      "ordered": true,
+      "order": "event count descending, then user_id ascending; at most 10 users",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t4_05",
+    "tier": 4,
+    "natural_language": "Find users whose total event count is above the average event count per user.\nOutput contract: return only these columns, in this order: user_id, event count. Order/limit: user_id ascending. The average considers only users with at least one event.",
+    "reference_sql": "SELECT user_id, count() AS cnt FROM events GROUP BY user_id HAVING cnt > (SELECT avg(c) FROM (SELECT count() AS c FROM events GROUP BY user_id)) ORDER BY user_id",
+    "ch_features": [
+      "HAVING",
+      "subquery",
+      "nested subquery"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Find users whose total event count is above the average event count per user.",
+    "original_reference_sql": "SELECT user_id, count() AS cnt FROM events GROUP BY user_id HAVING cnt > (SELECT avg(c) FROM (SELECT count() AS c FROM events GROUP BY user_id))",
+    "contract": {
+      "columns": "user_id, event count",
+      "ordered": true,
+      "order": "user_id ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t4_06",
+    "tier": 4,
+    "natural_language": "List events from users who are on the 'enterprise' plan using an IN subquery.\nOutput contract: return only these columns, in this order: all events columns in schema order. Order/limit: timestamp ascending, then event_id ascending; at most 100 rows.",
+    "reference_sql": "SELECT * FROM events WHERE user_id IN (SELECT user_id FROM users WHERE plan = 'enterprise') ORDER BY timestamp, event_id LIMIT 100",
+    "ch_features": [
+      "IN subquery"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "List events from users who are on the 'enterprise' plan using an IN subquery.",
+    "original_reference_sql": "SELECT * FROM events WHERE user_id IN (SELECT user_id FROM users WHERE plan = 'enterprise') ORDER BY timestamp LIMIT 100",
+    "contract": {
+      "columns": "all events columns in schema order",
+      "ordered": true,
+      "order": "timestamp ascending, then event_id ascending; at most 100 rows",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t4_07",
+    "tier": 4,
+    "natural_language": "For each user plan, calculate the average number of events per user.\nOutput contract: return only these columns, in this order: plan, average events per active user. Order/limit: average events per active user descending, then plan ascending. The average considers only users with at least one event.",
+    "reference_sql": "WITH user_counts AS (SELECT e.user_id, u.plan, count() AS cnt FROM events AS e INNER JOIN users AS u ON e.user_id = u.user_id GROUP BY e.user_id, u.plan) SELECT plan, avg(cnt) AS avg_events_per_user FROM user_counts GROUP BY plan ORDER BY avg_events_per_user DESC, plan",
+    "ch_features": [
+      "WITH CTE",
+      "INNER JOIN",
+      "nested aggregation"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "For each user plan, calculate the average number of events per user.",
+    "original_reference_sql": "WITH user_counts AS (SELECT e.user_id, u.plan, count() AS cnt FROM events AS e INNER JOIN users AS u ON e.user_id = u.user_id GROUP BY e.user_id, u.plan) SELECT plan, avg(cnt) AS avg_events_per_user FROM user_counts GROUP BY plan ORDER BY avg_events_per_user DESC",
+    "contract": {
+      "columns": "plan, average events per active user",
+      "ordered": true,
+      "order": "average events per active user descending, then plan ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t4_08",
+    "tier": 4,
+    "natural_language": "Show users who signed up in 2024 and had at least one purchase event.\nOutput contract: return only these columns, in this order: user_id, email, created_at. Order/limit: user_id ascending.",
+    "reference_sql": "SELECT DISTINCT u.user_id, u.email, u.created_at FROM users AS u INNER JOIN events AS e ON u.user_id = e.user_id WHERE u.created_at >= '2024-01-01' AND u.created_at < '2025-01-01' AND e.event_type = 'purchase' ORDER BY user_id",
+    "ch_features": [
+      "INNER JOIN",
+      "DISTINCT",
+      "WHERE"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Show users who signed up in 2024 and had at least one purchase event.",
+    "original_reference_sql": "SELECT DISTINCT u.user_id, u.email, u.created_at FROM users AS u INNER JOIN events AS e ON u.user_id = e.user_id WHERE u.created_at >= '2024-01-01' AND u.created_at < '2025-01-01' AND e.event_type = 'purchase'",
+    "contract": {
+      "columns": "user_id, email, created_at",
+      "ordered": true,
+      "order": "user_id ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t4_09",
+    "tier": 4,
+    "natural_language": "Find the country with the highest number of 'pro' plan users.\nOutput contract: return only these columns, in this order: country, pro user count. Order/limit: pro user count descending, then country ascending; exactly 1 row.",
+    "reference_sql": "SELECT country, count() AS cnt FROM users WHERE plan = 'pro' GROUP BY country ORDER BY cnt DESC, country LIMIT 1",
+    "ch_features": [
+      "GROUP BY",
+      "ORDER BY",
+      "LIMIT"
+    ],
+    "expected_result_type": "scalar",
+    "original_natural_language": "Find the country with the highest number of 'pro' plan users.",
+    "original_reference_sql": "SELECT country, count() AS cnt FROM users WHERE plan = 'pro' GROUP BY country ORDER BY cnt DESC LIMIT 1",
+    "contract": {
+      "columns": "country, pro user count",
+      "ordered": true,
+      "order": "pro user count descending, then country ascending; exactly 1 row",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t4_10",
+    "tier": 4,
+    "natural_language": "For each device type, find the user with the most events.\nOutput contract: return only these columns, in this order: device, user_id, event count. Order/limit: device ascending, then user_id ascending; include all users tied for the maximum.",
+    "reference_sql": "WITH device_user_counts AS (SELECT device, user_id, count() AS cnt FROM events GROUP BY device, user_id) SELECT device, user_id, cnt FROM device_user_counts WHERE (device, cnt) IN (SELECT device, max(cnt) FROM device_user_counts GROUP BY device) ORDER BY device, user_id",
+    "ch_features": [
+      "WITH CTE",
+      "tuple IN subquery"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "For each device type, find the user with the most events.",
+    "original_reference_sql": "WITH device_user_counts AS (SELECT device, user_id, count() AS cnt FROM events GROUP BY device, user_id) SELECT device, user_id, cnt FROM device_user_counts WHERE (device, cnt) IN (SELECT device, max(cnt) FROM device_user_counts GROUP BY device) ORDER BY device",
+    "contract": {
+      "columns": "device, user_id, event count",
+      "ordered": true,
+      "order": "device ascending, then user_id ascending; include all users tied for the maximum",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t5_01",
+    "tier": 5,
+    "natural_language": "For each user, number their events sequentially by timestamp using a window function.\nOutput contract: return only these columns, in this order: user_id, event_id, timestamp, row number. Order/limit: user_id ascending, then row number ascending; at most 100 rows. Within each user, break timestamp ties by event_id ascending.",
+    "reference_sql": "SELECT user_id, event_id, timestamp, row_number() OVER (PARTITION BY user_id ORDER BY timestamp, event_id) AS rn FROM events ORDER BY user_id, rn LIMIT 100",
+    "ch_features": [
+      "window function",
+      "row_number()",
+      "OVER PARTITION BY"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "For each user, number their events sequentially by timestamp using a window function.",
+    "original_reference_sql": "SELECT user_id, event_id, timestamp, row_number() OVER (PARTITION BY user_id ORDER BY timestamp) AS rn FROM events ORDER BY user_id, rn LIMIT 100",
+    "contract": {
+      "columns": "user_id, event_id, timestamp, row number",
+      "ordered": true,
+      "order": "user_id ascending, then row number ascending; at most 100 rows",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t5_02",
+    "tier": 5,
+    "natural_language": "Calculate a running total of events per day throughout 2024.\nOutput contract: return only these columns, in this order: day as Date, daily event count, running total. Order/limit: day ascending.",
+    "reference_sql": "SELECT day, daily_cnt, sum(daily_cnt) OVER (ORDER BY day) AS running_total FROM (SELECT toDate(timestamp) AS day, count() AS daily_cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2025-01-01' GROUP BY day) ORDER BY day",
+    "ch_features": [
+      "window function",
+      "running total",
+      "sum() OVER"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Calculate a running total of events per day throughout 2024.",
+    "original_reference_sql": "SELECT day, daily_cnt, sum(daily_cnt) OVER (ORDER BY day) AS running_total FROM (SELECT toDate(timestamp) AS day, count() AS daily_cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2025-01-01' GROUP BY day) ORDER BY day",
+    "contract": {
+      "columns": "day as Date, daily event count, running total",
+      "ordered": true,
+      "order": "day ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t5_03",
+    "tier": 5,
+    "natural_language": "For each day, show the event count and the previous day's event count using lag().\nOutput contract: return only these columns, in this order: day as Date, event count, previous-day count. Order/limit: day ascending. Use zero as the previous count for the first day.",
+    "reference_sql": "SELECT day, cnt, lag(cnt, 1) OVER (ORDER BY day) AS prev_day_cnt FROM (SELECT toDate(timestamp) AS day, count() AS cnt FROM events GROUP BY day) ORDER BY day",
+    "ch_features": [
+      "window function",
+      "lag()"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "For each day, show the event count and the previous day's event count using lag().",
+    "original_reference_sql": "SELECT day, cnt, lag(cnt, 1) OVER (ORDER BY day) AS prev_day_cnt FROM (SELECT toDate(timestamp) AS day, count() AS cnt FROM events GROUP BY day) ORDER BY day",
+    "contract": {
+      "columns": "day as Date, event count, previous-day count",
+      "ordered": true,
+      "order": "day ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t5_04",
+    "tier": 5,
+    "natural_language": "Transform the tags array to uppercase for each event using arrayMap.\nOutput contract: return only these columns, in this order: event_id, uppercase tags array. Order/limit: event_id ascending; exactly 20 rows.",
+    "reference_sql": "SELECT event_id, arrayMap(x -> upper(x), tags) AS upper_tags FROM events ORDER BY event_id LIMIT 20",
+    "ch_features": [
+      "arrayMap()",
+      "lambda"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Transform the tags array to uppercase for each event using arrayMap.",
+    "original_reference_sql": "SELECT event_id, arrayMap(x -> upper(x), tags) AS upper_tags FROM events LIMIT 20",
+    "contract": {
+      "columns": "event_id, uppercase tags array",
+      "ordered": true,
+      "order": "event_id ascending; exactly 20 rows",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t5_05",
+    "tier": 5,
+    "natural_language": "For each event type, find the user_id with the longest total duration using argMax.\nOutput contract: return only these columns, in this order: event_type, user_id, total duration. Order/limit: event_type ascending. Exclude null durations. Break total-duration ties by the smallest user_id.",
+    "reference_sql": "SELECT event_type, argMax(user_id, tuple(total_dur, -toInt64(user_id))) AS top_user, max(total_dur) AS max_duration FROM (SELECT event_type, user_id, sum(duration_ms) AS total_dur FROM events WHERE duration_ms IS NOT NULL GROUP BY event_type, user_id) GROUP BY event_type ORDER BY event_type",
+    "ch_features": [
+      "argMax()",
+      "nested aggregation"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "For each event type, find the user_id with the longest total duration using argMax.",
+    "original_reference_sql": "SELECT event_type, argMax(user_id, total_dur) AS top_user, max(total_dur) AS max_duration FROM (SELECT event_type, user_id, sum(duration_ms) AS total_dur FROM events WHERE duration_ms IS NOT NULL GROUP BY event_type, user_id) GROUP BY event_type ORDER BY event_type",
+    "contract": {
+      "columns": "event_type, user_id, total duration",
+      "ordered": true,
+      "order": "event_type ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t5_06",
+    "tier": 5,
+    "natural_language": "Show daily event counts for January 2024, filling missing days with zero using WITH FILL.\nOutput contract: return only these columns, in this order: day as Date, event count. Order/limit: day ascending.",
+    "reference_sql": "SELECT toDate(timestamp) AS day, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2024-02-01' GROUP BY day ORDER BY day WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP INTERVAL 1 DAY",
+    "ch_features": [
+      "WITH FILL",
+      "STEP INTERVAL"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Show daily event counts for January 2024, filling missing days with zero using WITH FILL.",
+    "original_reference_sql": "SELECT toDate(timestamp) AS day, count() AS cnt FROM events WHERE timestamp >= '2024-01-01' AND timestamp < '2024-02-01' GROUP BY day ORDER BY day WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') STEP INTERVAL 1 DAY",
+    "contract": {
+      "columns": "day as Date, event count",
+      "ordered": true,
+      "order": "day ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t5_07",
+    "tier": 5,
+    "natural_language": "For each user, collect all their event types into a sorted array.\nOutput contract: return only these columns, in this order: user_id, sorted distinct event types array. Order/limit: user_id ascending; at most 50 users. Deduplicate event types within each user's array.",
+    "reference_sql": "SELECT user_id, arraySort(groupArray(DISTINCT event_type)) AS event_types FROM events GROUP BY user_id ORDER BY user_id LIMIT 50",
+    "ch_features": [
+      "groupArray()",
+      "arraySort()",
+      "DISTINCT inside aggregate"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "For each user, collect all their event types into a sorted array.",
+    "original_reference_sql": "SELECT user_id, arraySort(groupArray(DISTINCT event_type)) AS event_types FROM events GROUP BY user_id ORDER BY user_id LIMIT 50",
+    "contract": {
+      "columns": "user_id, sorted distinct event types array",
+      "ordered": true,
+      "order": "user_id ascending; at most 50 users",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t5_08",
+    "tier": 5,
+    "natural_language": "Find the most recent event per user using argMax.\nOutput contract: return only these columns, in this order: user_id, last event_id, last timestamp. Order/limit: user_id ascending; at most 50 users. Break timestamp ties by choosing the greatest event_id.",
+    "reference_sql": "SELECT user_id, argMax(event_id, tuple(timestamp, event_id)) AS last_event_id, max(timestamp) AS last_event_time FROM events GROUP BY user_id ORDER BY user_id LIMIT 50",
+    "ch_features": [
+      "argMax()"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Find the most recent event per user using argMax.",
+    "original_reference_sql": "SELECT user_id, argMax(event_id, timestamp) AS last_event_id, max(timestamp) AS last_event_time FROM events GROUP BY user_id ORDER BY user_id LIMIT 50",
+    "contract": {
+      "columns": "user_id, last event_id, last timestamp",
+      "ordered": true,
+      "order": "user_id ascending; at most 50 users",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t5_09",
+    "tier": 5,
+    "natural_language": "Show hourly event counts for 2024-06-15, filling all 24 hours even if there are no events.\nOutput contract: return only these columns, in this order: hour as DateTime, event count. Order/limit: hour ascending.",
+    "reference_sql": "SELECT toStartOfHour(timestamp) AS hour, count() AS cnt FROM events WHERE toDate(timestamp) = '2024-06-15' GROUP BY hour ORDER BY hour WITH FILL FROM toDateTime('2024-06-15 00:00:00') TO toDateTime('2024-06-16 00:00:00') STEP INTERVAL 1 HOUR",
+    "ch_features": [
+      "toStartOfHour()",
+      "WITH FILL",
+      "STEP INTERVAL"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "Show hourly event counts for 2024-06-15, filling all 24 hours even if there are no events.",
+    "original_reference_sql": "SELECT toStartOfHour(timestamp) AS hour, count() AS cnt FROM events WHERE toDate(timestamp) = '2024-06-15' GROUP BY hour ORDER BY hour WITH FILL FROM toDateTime('2024-06-15 00:00:00') TO toDateTime('2024-06-16 00:00:00') STEP INTERVAL 1 HOUR",
+    "contract": {
+      "columns": "hour as DateTime, event count",
+      "ordered": true,
+      "order": "hour ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t5_10",
+    "tier": 5,
+    "natural_language": "For each user, filter their tags to only those containing 'premium' and return users who have at least one such tag across all their events.\nOutput contract: return only these columns, in this order: user_id, sorted distinct premium tags array. Order/limit: user_id ascending; at most 50 users. Match the case-sensitive substring 'premium' anywhere in a tag; flatten, deduplicate, and sort each user's matching tags.",
+    "reference_sql": "SELECT user_id, arraySort(arrayDistinct(arrayFlatten(groupArray(arrayFilter(x -> position(x, 'premium') > 0, tags))))) AS premium_tags FROM events GROUP BY user_id HAVING notEmpty(premium_tags) ORDER BY user_id LIMIT 50",
+    "ch_features": [
+      "arrayFilter()",
+      "lambda",
+      "groupArray()",
+      "notEmpty()"
+    ],
+    "expected_result_type": "table",
+    "original_natural_language": "For each user, filter their tags to only those containing 'premium' and return users who have at least one such tag across all their events.",
+    "original_reference_sql": "SELECT user_id, groupArray(filtered_tags) AS all_premium_tags FROM (SELECT user_id, arrayFilter(x -> x LIKE '%premium%', tags) AS filtered_tags FROM events WHERE notEmpty(arrayFilter(x -> x LIKE '%premium%', tags))) GROUP BY user_id ORDER BY user_id LIMIT 50",
+    "contract": {
+      "columns": "user_id, sorted distinct premium tags array",
+      "ordered": true,
+      "order": "user_id ascending; at most 50 users",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t6_01",
+    "tier": 6,
+    "natural_language": "Using windowFunnel with a 24-hour window, compute how many users reach each stage of the funnel pageview -> click -> purchase. Return exactly one row with three columns named users_l1, users_l2, users_l3: the number of users reaching at least stage 1, at least stage 2, and all 3 stages.\nOutput contract: return only these columns, in this order: users_l1, users_l2, users_l3.",
+    "reference_sql": "SELECT countIf(lvl >= 1) AS users_l1, countIf(lvl >= 2) AS users_l2, countIf(lvl >= 3) AS users_l3 FROM (SELECT user_id, windowFunnel(86400)(toDateTime(timestamp), event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS lvl FROM events GROUP BY user_id)",
+    "expected_result_type": "scalar",
+    "ch_features": [
+      "windowFunnel",
+      "DateTime64 cast",
+      "countIf"
+    ],
+    "original_natural_language": "Using windowFunnel with a 24-hour window, compute how many users reach each stage of the funnel pageview -> click -> purchase. Return exactly one row with three columns named users_l1, users_l2, users_l3: the number of users reaching at least stage 1, at least stage 2, and all 3 stages.",
+    "original_reference_sql": "SELECT countIf(lvl >= 1) AS users_l1, countIf(lvl >= 2) AS users_l2, countIf(lvl >= 3) AS users_l3 FROM (SELECT user_id, windowFunnel(86400)(toDateTime(timestamp), event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS lvl FROM events GROUP BY user_id)",
+    "contract": {
+      "columns": "users_l1, users_l2, users_l3",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t6_02",
+    "tier": 6,
+    "natural_language": "Using the retention aggregate function with the daily conditions date = 2024-01-01, date = 2024-01-02, date = 2024-01-03, count how many users satisfy each retention condition. Return exactly one row with three columns named r1, r2, r3.\nOutput contract: return only these columns, in this order: r1, r2, r3.",
+    "reference_sql": "SELECT countIf(r[1]) AS r1, countIf(r[2]) AS r2, countIf(r[3]) AS r3 FROM (SELECT user_id, retention(toDate(timestamp) = '2024-01-01', toDate(timestamp) = '2024-01-02', toDate(timestamp) = '2024-01-03') AS r FROM events GROUP BY user_id)",
+    "expected_result_type": "scalar",
+    "ch_features": [
+      "retention",
+      "countIf"
+    ],
+    "original_natural_language": "Using the retention aggregate function with the daily conditions date = 2024-01-01, date = 2024-01-02, date = 2024-01-03, count how many users satisfy each retention condition. Return exactly one row with three columns named r1, r2, r3.",
+    "original_reference_sql": "SELECT countIf(r[1]) AS r1, countIf(r[2]) AS r2, countIf(r[3]) AS r3 FROM (SELECT user_id, retention(toDate(timestamp) = '2024-01-01', toDate(timestamp) = '2024-01-02', toDate(timestamp) = '2024-01-03') AS r FROM events GROUP BY user_id)",
+    "contract": {
+      "columns": "r1, r2, r3",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t6_03",
+    "tier": 6,
+    "natural_language": "Count how many users performed a signup event followed by a purchase event within 60 seconds, using sequenceMatch with a time condition. Return a single number.\nOutput contract: return only these columns, in this order: user count.",
+    "reference_sql": "SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?t<=60)(?2)')(toDateTime(timestamp), event_type = 'signup', event_type = 'purchase'))",
+    "expected_result_type": "scalar",
+    "ch_features": [
+      "sequenceMatch",
+      "time condition",
+      "DateTime64 cast"
+    ],
+    "original_natural_language": "Count how many users performed a signup event followed by a purchase event within 60 seconds, using sequenceMatch with a time condition. Return a single number.",
+    "original_reference_sql": "SELECT count() FROM (SELECT user_id FROM events GROUP BY user_id HAVING sequenceMatch('(?1)(?t<=60)(?2)')(toDateTime(timestamp), event_type = 'signup', event_type = 'purchase'))",
+    "contract": {
+      "columns": "user count",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t6_04",
+    "tier": 6,
+    "natural_language": "For users with user_id 1 to 20, find the timestamp of their earliest event at or after their created_at, using ASOF JOIN. Return two columns named user_id and first_event_time, ordered by user_id ascending.\nOutput contract: return only these columns, in this order: user_id, first_event_time. Order/limit: user_id ascending.",
+    "reference_sql": "SELECT u.user_id AS user_id, e.timestamp AS first_event_time FROM users AS u ASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at WHERE u.user_id <= 20 ORDER BY u.user_id",
+    "expected_result_type": "table",
+    "ch_features": [
+      "ASOF JOIN"
+    ],
+    "original_natural_language": "For users with user_id 1 to 20, find the timestamp of their earliest event at or after their created_at, using ASOF JOIN. Return two columns named user_id and first_event_time, ordered by user_id ascending.",
+    "original_reference_sql": "SELECT u.user_id AS user_id, e.timestamp AS first_event_time FROM users AS u ASOF JOIN events AS e ON u.user_id = e.user_id AND e.timestamp >= u.created_at WHERE u.user_id <= 20 ORDER BY u.user_id",
+    "contract": {
+      "columns": "user_id, first_event_time",
+      "ordered": true,
+      "order": "user_id ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t6_05",
+    "tier": 6,
+    "natural_language": "For each event_type, return its 2 most recent events using the LIMIT BY clause. Return three columns named event_type, event_id, timestamp, ordered by event_type ascending and timestamp descending.\nOutput contract: return only these columns, in this order: event_type, event_id, timestamp. Order/limit: event_type ascending, timestamp descending, event_id descending.",
+    "reference_sql": "SELECT event_type, event_id, timestamp FROM events ORDER BY event_type ASC, timestamp DESC, event_id DESC LIMIT 2 BY event_type",
+    "expected_result_type": "table",
+    "ch_features": [
+      "LIMIT BY"
+    ],
+    "original_natural_language": "For each event_type, return its 2 most recent events using the LIMIT BY clause. Return three columns named event_type, event_id, timestamp, ordered by event_type ascending and timestamp descending.",
+    "original_reference_sql": "SELECT event_type, event_id, timestamp FROM events ORDER BY event_type ASC, timestamp DESC LIMIT 2 BY event_type",
+    "contract": {
+      "columns": "event_type, event_id, timestamp",
+      "ordered": true,
+      "order": "event_type ascending, timestamp descending, event_id descending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t6_06",
+    "tier": 6,
+    "natural_language": "Show daily total revenue_cents from purchase events with revenue_cents > 9950 for January 2024. Fill missing days with WITH FILL and carry the previous day's revenue forward on filled days using INTERPOLATE. Return two columns named day and revenue, ordered by day ascending, covering 2024-01-01 through 2024-01-31.\nOutput contract: return only these columns, in this order: day as Date, revenue. Order/limit: day ascending.",
+    "reference_sql": "SELECT toDate(timestamp) AS day, sum(revenue_cents) AS revenue FROM events WHERE event_type = 'purchase' AND revenue_cents > 9950 AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31' GROUP BY day ORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') INTERPOLATE (revenue AS revenue)",
+    "expected_result_type": "table",
+    "ch_features": [
+      "WITH FILL",
+      "INTERPOLATE"
+    ],
+    "original_natural_language": "Show daily total revenue_cents from purchase events with revenue_cents > 9950 for January 2024. Fill missing days with WITH FILL and carry the previous day's revenue forward on filled days using INTERPOLATE. Return two columns named day and revenue, ordered by day ascending, covering 2024-01-01 through 2024-01-31.",
+    "original_reference_sql": "SELECT toDate(timestamp) AS day, sum(revenue_cents) AS revenue FROM events WHERE event_type = 'purchase' AND revenue_cents > 9950 AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31' GROUP BY day ORDER BY day ASC WITH FILL FROM toDate('2024-01-01') TO toDate('2024-02-01') INTERPOLATE (revenue AS revenue)",
+    "contract": {
+      "columns": "day as Date, revenue",
+      "ordered": true,
+      "order": "day ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t6_07",
+    "tier": 6,
+    "natural_language": "Using the countResample aggregate function combinator, count events in four 6-hour buckets of the hour of day (0-5, 6-11, 12-17, 18-23). Return a single row with one array column of the four counts.\nOutput contract: return only these columns, in this order: array of four counts.",
+    "reference_sql": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS buckets FROM events",
+    "expected_result_type": "scalar",
+    "ch_features": [
+      "-Resample combinator",
+      "toHour"
+    ],
+    "original_natural_language": "Using the countResample aggregate function combinator, count events in four 6-hour buckets of the hour of day (0-5, 6-11, 12-17, 18-23). Return a single row with one array column of the four counts.",
+    "original_reference_sql": "SELECT countResample(0, 24, 6)(toHour(timestamp)) AS buckets FROM events",
+    "contract": {
+      "columns": "array of four counts",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t6_08",
+    "tier": 6,
+    "natural_language": "Compute the cumulative sum of daily purchase-event counts for January 2024 as an array, with days ordered ascending, using groupArray and arrayCumSum. Return a single row with one array column.\nOutput contract: return only these columns, in this order: cumulative counts array.",
+    "reference_sql": "SELECT arrayCumSum(groupArray(c)) AS cumulative FROM (SELECT toDate(timestamp) AS d, count() AS c FROM events WHERE event_type = 'purchase' AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31' GROUP BY d ORDER BY d ASC)",
+    "expected_result_type": "scalar",
+    "ch_features": [
+      "arrayCumSum",
+      "groupArray"
+    ],
+    "original_natural_language": "Compute the cumulative sum of daily purchase-event counts for January 2024 as an array, with days ordered ascending, using groupArray and arrayCumSum. Return a single row with one array column.",
+    "original_reference_sql": "SELECT arrayCumSum(groupArray(c)) AS cumulative FROM (SELECT toDate(timestamp) AS d, count() AS c FROM events WHERE event_type = 'purchase' AND toDate(timestamp) BETWEEN '2024-01-01' AND '2024-01-31' GROUP BY d ORDER BY d ASC)",
+    "contract": {
+      "columns": "cumulative counts array",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t6_09",
+    "tier": 6,
+    "natural_language": "For each country, find the page of that country's most recent purchase event, using argMax with the -If combinator. Return two columns named country and page, ordered by country ascending.\nOutput contract: return only these columns, in this order: country, page. Order/limit: country ascending. Break timestamp ties by choosing the greatest event_id.",
+    "reference_sql": "SELECT country, argMaxIf(page, tuple(timestamp, event_id), event_type = 'purchase') AS page FROM events GROUP BY country ORDER BY country ASC",
+    "expected_result_type": "table",
+    "ch_features": [
+      "argMaxIf",
+      "combinator stacking"
+    ],
+    "original_natural_language": "For each country, find the page of that country's most recent purchase event, using argMax with the -If combinator. Return two columns named country and page, ordered by country ascending.",
+    "original_reference_sql": "SELECT country, argMaxIf(page, timestamp, event_type = 'purchase') AS page FROM events GROUP BY country ORDER BY country ASC",
+    "contract": {
+      "columns": "country, page",
+      "ordered": true,
+      "order": "country ascending",
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  },
+  {
+    "id": "t6_10",
+    "tier": 6,
+    "natural_language": "Count the number of distinct property keys that occur across the properties maps of all purchase events on 2024-03-01, by combining mapKeys with ARRAY JOIN. Return a single number.\nOutput contract: return only these columns, in this order: exact distinct property key count.",
+    "reference_sql": "SELECT uniqExact(k) FROM events ARRAY JOIN mapKeys(properties) AS k WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01'",
+    "expected_result_type": "scalar",
+    "ch_features": [
+      "mapKeys",
+      "ARRAY JOIN",
+      "uniqExact"
+    ],
+    "original_natural_language": "Count the number of distinct property keys that occur across the properties maps of all purchase events on 2024-03-01, by combining mapKeys with ARRAY JOIN. Return a single number.",
+    "original_reference_sql": "SELECT uniqExact(k) FROM events ARRAY JOIN mapKeys(properties) AS k WHERE event_type = 'purchase' AND toDate(timestamp) = '2024-03-01'",
+    "contract": {
+      "columns": "exact distinct property key count",
+      "ordered": false,
+      "order": null,
+      "column_aliases_scored": false,
+      "float_rtol": 1e-06,
+      "float_atol": 1e-06
+    },
+    "protocol_version": "budget-sql-v1"
+  }
+]

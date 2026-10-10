@@ -1,0 +1,110 @@
+{
+  "method": "Original-speed WebM recordings transcoded to H.264 MP4 with libx264, CRF 22, one thread, yuv420p and faststart. No frame-rate or timestamp/speed filter. Source and output durations independently probed.",
+  "videos": [
+    {
+      "story": "monarch-seasonal-footprint",
+      "files": [
+        {
+          "path": "performance/story-rehearsal-01/monarch-seasonal-footprint.webm",
+          "bytes": 8758886,
+          "sha256": "e5573da5bb159f0c384449bcfa124a080ed578b4f65141099ccd1a6edd150bbf",
+          "duration_seconds": 86.84,
+          "codec": "vp8",
+          "width": 1600,
+          "height": 1000,
+          "frame_rate": "25/1"
+        },
+        {
+          "path": "performance/story-rehearsal-01/monarch-seasonal-footprint.mp4",
+          "bytes": 10706568,
+          "sha256": "04585e0dc9e8924aac7be5ac303889d55bf864a3095b30df4c8ec3a8dae07413",
+          "duration_seconds": 86.84,
+          "codec": "h264",
+          "width": 1600,
+          "height": 1000,
+          "frame_rate": "25/1"
+        }
+      ],
+      "original_speed_duration_matches": true
+    },
+    {
+      "story": "fungi-opposite-seasons",
+      "files": [
+        {
+          "path": "performance/story-rehearsal-02/fungi-opposite-seasons.webm",
+          "bytes": 9751623,
+          "sha256": "b5702337326155f42c1bbada8b56377137ccc8e72f59b1283f090120d4eb4dbc",
+          "duration_seconds": 95.56,
+          "codec": "vp8",
+          "width": 1600,
+          "height": 1000,
+          "frame_rate": "25/1"
+        },
+        {
+          "path": "performance/story-rehearsal-02/fungi-opposite-seasons.mp4",
+          "bytes": 13861903,
+          "sha256": "ffff9def17626e06aa854d515333896511f0c6cf803bf1ad25472d1b8563cde8",
+          "duration_seconds": 95.56,
+          "codec": "h264",
+          "width": 1600,
+          "height": 1000,
+          "frame_rate": "25/1"
+        }
+      ],
+      "original_speed_duration_matches": true
+    },
+    {
+      "story": "mississippi-motion-and-stillness",
+      "files": [
+        {
+          "path": "performance/story-rehearsal-03/mississippi-motion-and-stillness.webm",
+          "bytes": 10834822,
+          "sha256": "be6a65d18a297466fe769489f9b2a517770553781b4c92e620110c14d3500554",
+          "duration_seconds": 102.44,
+          "codec": "vp8",
+          "width": 1600,
+          "height": 1000,
+          "frame_rate": "25/1"
+        },
+        {
+          "path": "performance/story-rehearsal-03/mississippi-motion-and-stillness.mp4",
+          "bytes": 11841514,
+          "sha256": "fe51a61147a586376ea441f3201eda715c8f0db06e2bad21ca7ad1f95b8ce409",
+          "duration_seconds": 102.44,
+          "codec": "h264",
+          "width": 1600,
+          "height": 1000,
+          "frame_rate": "25/1"
+        }
+      ],
+      "original_speed_duration_matches": true
+    },
+    {
+      "story": "elsa-and-milton",
+      "files": [
+        {
+          "path": "performance/story-rehearsal-06/elsa-and-milton.webm",
+          "bytes": 14049143,
+          "sha256": "12e885636b6682be02ca6e529288142e996be38fd3602e550f58be7e26f7b651",
+          "duration_seconds": 131.44,
+          "codec": "vp8",
+          "width": 1600,
+          "height": 1000,
+          "frame_rate": "25/1"
+        },
+        {
+          "path": "performance/story-rehearsal-06/elsa-and-milton.mp4",
+          "bytes": 12538221,
+          "sha256": "594018418bdc72e1152a5ba8e36818794deafe909013759835bb7366057e0762",
+          "duration_seconds": 131.44,
+          "codec": "h264",
+          "width": 1600,
+          "height": 1000,
+          "frame_rate": "25/1"
+        }
+      ],
+      "original_speed_duration_matches": true
+    }
+  ],
+  "passed": true
+}

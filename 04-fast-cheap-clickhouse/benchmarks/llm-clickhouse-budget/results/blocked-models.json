@@ -1,0 +1,24 @@
+[
+  {
+    "model_id": "mistralai/mistral-large-4-0",
+    "candidates": [
+      {
+        "route_id": "mistralai/mistral-large-4-0@mistral",
+        "completed": 0,
+        "median_sql_ready_ms": null,
+        "mean_cost_usd": null
+      }
+    ]
+  },
+  {
+    "model_id": "qwen/qwen3.8-flash",
+    "candidates": [
+      {
+        "route_id": "qwen/qwen3.8-flash@alibaba",
+        "completed": 0,
+        "median_sql_ready_ms": null,
+        "mean_cost_usd": null
+      }
+    ]
+  }
+]

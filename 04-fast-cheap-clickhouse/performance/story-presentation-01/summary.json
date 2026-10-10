@@ -1,0 +1,119 @@
+{
+  "passed": true,
+  "method": "Supplementary UI-only checks on retained live-query results in the separate QA account. Zero model inference. Actual vertical Plotly drag, Leaflet pan and zoom-button clicks, satellite toggle, measured-track playback, and real photograph enlargement. Successful cases come from separate explicitly identified attempts. No application source changes.",
+  "normal_speed": true,
+  "original_qa_session_restored": true,
+  "saved_sql_data_and_workspace_unchanged": true,
+  "inference_requests": 0,
+  "workspace_writes": 0,
+  "checks": [
+    {
+      "id": "elsa-and-milton",
+      "passed": true,
+      "report": "checks.json",
+      "recording": "presentation-ui-only.mp4",
+      "before": "elsa-before.png",
+      "after": "elsa-after.png",
+      "zoom_before": "elsa-longitude-before.png",
+      "zoom_after": "elsa-longitude-after.png",
+      "retained_rows": 137,
+      "retained_gap_separators": 4,
+      "all_original_points_in_range": true,
+      "x_range": [
+        "2024-10-07",
+        "2024-10-12 23:00"
+      ],
+      "y_range": [
+        -90.79115464967411,
+        -80.98316824371508
+      ],
+      "satellite_day": "2024-10-09",
+      "satellite_off_for_finale": true,
+      "visible_active_vessels": 1,
+      "linked_cursors_verified": 2
+    },
+    {
+      "id": "mississippi-motion-and-stillness",
+      "passed": true,
+      "report": "attempt-04-river-fungi-pass/checks.json",
+      "recording": "attempt-04-river-fungi-pass/presentation-ui-only.webm",
+      "before": "attempt-04-river-fungi-pass/river-before.png",
+      "after": "attempt-04-river-fungi-pass/river-after.png",
+      "storms_hidden": true,
+      "actual_map_pan_verified": true,
+      "actual_map_plus_clicks": 4,
+      "playback": {
+        "from": "09 Oct, 10:16 UTC",
+        "to": "09 Oct, 11:53 UTC",
+        "pixels_changed": true,
+        "paused_after": true,
+        "final_director_cue": "After pause, nudge the time slider one tick to align the plot cursor exactly."
+      },
+      "linked_cursor_verified_after_one_tick_scrub": true
+    },
+    {
+      "id": "fungi-opposite-seasons",
+      "passed": true,
+      "report": "attempt-04-river-fungi-pass/checks.json",
+      "recording": "attempt-04-river-fungi-pass/presentation-ui-only.webm",
+      "enlarged_photo": "attempt-04-river-fungi-pass/fungi-red-photo.png",
+      "photo": {
+        "alt": "Aseroe rubra, observed 2025-05-01",
+        "width": 768,
+        "height": 1024
+      },
+      "photo_dialog_closed_after": true
+    }
+  ],
+  "recordings": [
+    {
+      "path": "presentation-ui-only.mp4",
+      "duration_seconds": 29.08,
+      "source_webm_duration_seconds": 29.08,
+      "scope": "Successful ELSA supplementary presentation check only; retained live results; zero inference; no speed change."
+    },
+    {
+      "path": "attempt-04-river-fungi-pass/presentation-ui-only.webm",
+      "duration_seconds": 88.6,
+      "scope": "Earlier ELSA gap observation followed by successful River and Fungi presentation checks; retained live results; zero inference; original speed."
+    }
+  ],
+  "real_gap_observation": {
+    "from": "2024-10-10T01:50:52Z",
+    "to": "2024-10-10T03:16:34Z",
+    "behavior": "The vessel head was correctly hidden inside this long reporting gap in attempt-04."
+  },
+  "director_cues": [
+    "ELSA: focus longitude, drag vertically to roughly -91 to -81 without narrowing the horizontal axis, then Fit. All 137 real points and four explicit gaps stay visible across six days.",
+    "ELSA: use Oct 9 afternoon to show a visible measured-position interpolation; briefly show the dated NASA layer, then switch it off so the vessel and Milton remain legible.",
+    "River: hide storms, drag the Louisiana vessel cluster toward the map centre, then click the map plus four times. Outer-canvas wheel zoom changes card size, not geography.",
+    "River: pause playback and nudge the time slider one tick for an exact linked comparison frame. The final static River evidence still contains a hover tooltip over part of the map; it is functional gesture evidence rather than a polished hero still.",
+    "Fungi: enlarge the red Aseroe rubra photograph, preserve its credit, close it before changing sessions, then Fit."
+  ],
+  "limitations": [
+    "During playback, Plotly time cursors are throttled. Pausing can retain the preceding cursor frame; one subsequent time-slider tick realigns it exactly.",
+    "The coarse coastline does not show Mississippi river detail. This check verifies map navigation and genuine playback without changing application code.",
+    "The River hover tooltip remains visible in its final supplementary still. The successful ELSA MP4 is the clean supplemental clip to link."
+  ],
+  "retained_attempt_context": [
+    {
+      "path": "attempt-01-auth-context",
+      "outcome": "Harness authentication failure before gestures. Separate browser cookie jars diverged after refresh-token rotation. The stalled attempt was stopped; explicit recovery restored and verified the original QA workspace. No inference or workspace writes."
+    },
+    {
+      "path": "attempt-02-assertions",
+      "outcome": "Harness assertions corrected: count 137 real Plotly points separately from four null gap separators; an unchanged midpoint slider click emits no time event; wait for the photo dialog close event. Original QA session restored."
+    },
+    {
+      "path": "attempt-03-director-cues",
+      "outcome": "ELSA scrub fell in a real AIS reporting gap; a hover search could not find a nonexistent head. River gestures and playback worked but the strict cursor check exposed the throttled pause frame. Fungi passed. Original QA session restored."
+    },
+    {
+      "path": "attempt-04-river-fungi-pass",
+      "outcome": "River and Fungi passed. ELSA deliberately failed the visible-head assertion inside the real Oct 10 gap. The final ELSA-only attempt moved the cursor to a densely reported Oct 9 period; no data or interpolation policy changed. Original QA session restored."
+    }
+  ],
+  "qa_script": "check_demo_presentation.py",
+  "repeat_command": "python3 check_demo_presentation.py --name story-presentation-02 --stories elsa-and-milton",
+  "repeat_note": "Choose a new output number. The script refuses to overwrite an existing checks.json and restores the original QA workspace in finally."
+}

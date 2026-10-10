@@ -1,0 +1,8 @@
+#cloud-config
+ssh_pwauth: false
+package_update: true
+packages:
+  - python3-requests
+  - python3-numpy
+  - python3-matplotlib
+  - ca-certificates

@@ -1,0 +1,101 @@
+{
+  "rule": "Prefer the highest screening completion count (at least 4/5); among routes within 20% of the fastest median SQL-ready delay, choose the lowest observed mean billed cost. SQL correctness is not used for route selection. Five screening prompts are not a definitive provider ranking.",
+  "decisions": [
+    {
+      "model_id": "openai/gpt-6-luna",
+      "selected": "openai/gpt-6-luna@openai/fast",
+      "candidates": [
+        {
+          "route_id": "openai/gpt-6-luna@openai",
+          "completed": 5,
+          "median_sql_ready_ms": 1593.4682239999347,
+          "mean_cost_usd": 8.496e-05
+        },
+        {
+          "route_id": "openai/gpt-6-luna@openai/fast",
+          "completed": 5,
+          "median_sql_ready_ms": 1071.4508739999928,
+          "mean_cost_usd": 0.00017312
+        },
+        {
+          "route_id": "openai/gpt-6-luna@azure/eu",
+          "completed": 5,
+          "median_sql_ready_ms": 1390.3941329999725,
+          "mean_cost_usd": 9.3236e-05
+        }
+      ]
+    },
+    {
+      "model_id": "upstage/solar-mini4",
+      "selected": "upstage/solar-mini4@upstage/zdr",
+      "candidates": [
+        {
+          "route_id": "upstage/solar-mini4@upstage/zdr",
+          "completed": 5,
+          "median_sql_ready_ms": 6505.803811999954,
+          "mean_cost_usd": 4.242e-05
+        }
+      ]
+    },
+    {
+      "model_id": "deepseek/deepseek-v4.1-flash",
+      "selected": "deepseek/deepseek-v4.1-flash@inference-net/fp8",
+      "candidates": [
+        {
+          "route_id": "deepseek/deepseek-v4.1-flash@coreweave/fp8",
+          "completed": 5,
+          "median_sql_ready_ms": 922.7206330000399,
+          "mean_cost_usd": 0.000121792
+        },
+        {
+          "route_id": "deepseek/deepseek-v4.1-flash@inference-net/fp8",
+          "completed": 5,
+          "median_sql_ready_ms": 537.4186650000183,
+          "mean_cost_usd": 5.6169e-05
+        },
+        {
+          "route_id": "deepseek/deepseek-v4.1-flash@baseten/fp8",
+          "completed": 2,
+          "median_sql_ready_ms": 1053.6008699999684,
+          "mean_cost_usd": null
+        },
+        {
+          "route_id": "deepseek/deepseek-v4.1-flash@parasail/fp8",
+          "completed": 5,
+          "median_sql_ready_ms": 930.9957670000131,
+          "mean_cost_usd": 0.0001382232
+        }
+      ]
+    },
+    {
+      "model_id": "inception/mercury-2.5",
+      "selected": "inception/mercury-2.5@inception",
+      "candidates": [
+        {
+          "route_id": "inception/mercury-2.5@inception",
+          "completed": 5,
+          "median_sql_ready_ms": 723.6838599999373,
+          "mean_cost_usd": 3.1402e-05
+        }
+      ]
+    },
+    {
+      "model_id": "ibm-granite/granite-4.2-8b",
+      "selected": "ibm-granite/granite-4.2-8b@coreweave/bf16",
+      "candidates": [
+        {
+          "route_id": "ibm-granite/granite-4.2-8b@coreweave/bf16",
+          "completed": 5,
+          "median_sql_ready_ms": 896.6747860000623,
+          "mean_cost_usd": 5.165e-05
+        },
+        {
+          "route_id": "ibm-granite/granite-4.2-8b@deepinfra/bf16",
+          "completed": 5,
+          "median_sql_ready_ms": 1757.2819519999712,
+          "mean_cost_usd": 7.027e-05
+        }
+      ]
+    }
+  ]
+}

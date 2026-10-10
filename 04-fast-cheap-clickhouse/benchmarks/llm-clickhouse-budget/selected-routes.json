@@ -1,0 +1,135 @@
+[
+  {
+    "route_id": "openai/gpt-6-luna@openai/fast",
+    "model_id": "openai/gpt-6-luna",
+    "name": "OpenAI: GPT-6 Luna",
+    "provider_tag": "openai/fast",
+    "provider_name": "OpenAI",
+    "endpoint_records_matching_tag": 1,
+    "quantization": "unknown",
+    "unknown_precision_accepted_by_user": true,
+    "service_tier": "priority",
+    "parameters": {
+      "max_tokens": 4096,
+      "seed": 42,
+      "reasoning": {
+        "effort": "none"
+      }
+    },
+    "pricing_per_token": {
+      "prompt": "0.0000002",
+      "completion": "0.000001",
+      "web_search": "0.01",
+      "input_cache_read": "0.00000002",
+      "input_cache_write": "0.00000025",
+      "discount": 0,
+      "overrides": [
+        {
+          "min_prompt_tokens": 272000,
+          "prompt": "0.0000004",
+          "completion": "0.0000015",
+          "input_cache_read": "0.00000004",
+          "input_cache_write": "0.0000005"
+        }
+      ]
+    }
+  },
+  {
+    "route_id": "upstage/solar-mini4@upstage/zdr",
+    "model_id": "upstage/solar-mini4",
+    "name": "Upstage: Solar Mini 4",
+    "provider_tag": "upstage/zdr",
+    "provider_name": "Upstage",
+    "endpoint_records_matching_tag": 1,
+    "quantization": "unknown",
+    "unknown_precision_accepted_by_user": true,
+    "service_tier": "default",
+    "parameters": {
+      "max_tokens": 4096,
+      "temperature": 0,
+      "reasoning": {
+        "effort": "none"
+      }
+    },
+    "pricing_per_token": {
+      "prompt": "0.00000005",
+      "completion": "0.0000002",
+      "input_cache_read": "0.000000005",
+      "discount": 0.5
+    }
+  },
+  {
+    "route_id": "deepseek/deepseek-v4.1-flash@inference-net/fp8",
+    "model_id": "deepseek/deepseek-v4.1-flash",
+    "name": "DeepSeek: DeepSeek V4.1 Flash",
+    "provider_tag": "inference-net/fp8",
+    "provider_name": "InferenceNet",
+    "endpoint_records_matching_tag": 1,
+    "quantization": "fp8",
+    "unknown_precision_accepted_by_user": false,
+    "service_tier": "default",
+    "parameters": {
+      "max_tokens": 4096,
+      "temperature": 0,
+      "seed": 42,
+      "reasoning": {
+        "enabled": false
+      }
+    },
+    "pricing_per_token": {
+      "prompt": "0.000000145",
+      "completion": "0.0000003",
+      "input_cache_read": "0.000000035",
+      "discount": 0
+    }
+  },
+  {
+    "route_id": "inception/mercury-2.5@inception",
+    "model_id": "inception/mercury-2.5",
+    "name": "Inception: Mercury 2.5",
+    "provider_tag": "inception",
+    "provider_name": "Inception",
+    "endpoint_records_matching_tag": 1,
+    "quantization": "unknown",
+    "unknown_precision_accepted_by_user": true,
+    "service_tier": "default",
+    "parameters": {
+      "max_tokens": 4096,
+      "temperature": 0,
+      "reasoning": {
+        "effort": "none"
+      }
+    },
+    "pricing_per_token": {
+      "prompt": "0.00000004",
+      "completion": "0.00000015",
+      "input_cache_read": "0.000000004",
+      "discount": 0.8
+    }
+  },
+  {
+    "route_id": "ibm-granite/granite-4.2-8b@coreweave/bf16",
+    "model_id": "ibm-granite/granite-4.2-8b",
+    "name": "IBM: Granite 4.2 8B",
+    "provider_tag": "coreweave/bf16",
+    "provider_name": "CoreWeave",
+    "endpoint_records_matching_tag": 1,
+    "quantization": "bf16",
+    "unknown_precision_accepted_by_user": false,
+    "service_tier": "default",
+    "parameters": {
+      "max_tokens": 4096,
+      "temperature": 0,
+      "seed": 42,
+      "reasoning": {
+        "effort": "none"
+      }
+    },
+    "pricing_per_token": {
+      "prompt": "0.0000001",
+      "completion": "0.00000015",
+      "input_cache_read": "0.00000005",
+      "discount": 0
+    }
+  }
+]

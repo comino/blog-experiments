@@ -1,0 +1,4 @@
+{"file": "taxa", "table": "wildlife_taxa", "rows": 1668467, "seconds": 2.0661249300001145, "completed_at": "2026-10-07T18:13:50.762841+00:00", "sql_sha256": "4ca597029106f1db71cf129b9e4484c853ce979093906d04d711fa8cb788685a"}
+{"file": "observers", "table": "wildlife_observers", "rows": 1386240, "seconds": 0.9186854160006988, "completed_at": "2026-10-07T18:13:51.795696+00:00", "sql_sha256": "2b7414a63ce3a75e9edf558c1deed0b176b27c7fd2331b7ec469af0e40818865"}
+{"file": "observations", "table": "wildlife", "rows": 282933221, "seconds": 302.0882309060007, "completed_at": "2026-10-07T18:18:54.003601+00:00", "sql_sha256": "b263a0a164cead2cf582868576e0f39cda7c0f028fb0a7888aed61ad66252d94"}
+{"file": "photos", "table": "wildlife_photos", "rows": 74945422, "seconds": 324.5873515629992, "completed_at": "2026-10-07T18:24:18.945855+00:00", "sql_sha256": "9856577918436a31697edf9ea92d6d4e8326b83b6c74ca142146b76ba6e1954a"}

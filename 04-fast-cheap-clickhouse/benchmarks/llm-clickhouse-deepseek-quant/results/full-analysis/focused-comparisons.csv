@@ -1,0 +1,9 @@
+contrast,left_configuration,right_configuration,metric,difference_percentage_points,ci95_low_percentage_points,ci95_high_percentage_points
+V4.1 FP4 route minus original FP8 route; provider confounded,deepseek/deepseek-v4.1-flash@sail-research/fp4,deepseek/deepseek-v4.1-flash@inference-net/fp8,accuracy,2.0,-0.9999999999999999,5.999999999999999
+V4.1 FP4 route minus original FP8 route; provider confounded,deepseek/deepseek-v4.1-flash@sail-research/fp4,deepseek/deepseek-v4.1-flash@inference-net/fp8,correct_within_5s,-0.6666666666666662,-4.333333333333333,3.3333333333333335
+V4 FP4 route minus FP8 route; provider confounded,deepseek/deepseek-v4-flash@relace/fp4,deepseek/deepseek-v4-flash@parasail/fp8,accuracy,0.33333333333333337,-4.0,4.666666666666666
+V4 FP4 route minus FP8 route; provider confounded,deepseek/deepseek-v4-flash@relace/fp4,deepseek/deepseek-v4-flash@parasail/fp8,correct_within_5s,-2.333333333333333,-7.666666666666668,2.666666666666667
+V4.1 minus V4 at the shared FP8 provider,deepseek/deepseek-v4.1-flash@parasail/fp8,deepseek/deepseek-v4-flash@parasail/fp8,accuracy,1.3333333333333335,-5.333333333333334,8.333333333333332
+V4.1 minus V4 at the shared FP8 provider,deepseek/deepseek-v4.1-flash@parasail/fp8,deepseek/deepseek-v4-flash@parasail/fp8,correct_within_5s,-0.33333333333333287,-6.999999999999999,6.333333333333332
+"Shared provider minus InferenceNet, both V4.1 FP8",deepseek/deepseek-v4.1-flash@parasail/fp8,deepseek/deepseek-v4.1-flash@inference-net/fp8,accuracy,9.251858538542972e-17,-1.9999999999999998,2.666666666666667
+"Shared provider minus InferenceNet, both V4.1 FP8",deepseek/deepseek-v4.1-flash@parasail/fp8,deepseek/deepseek-v4.1-flash@inference-net/fp8,correct_within_5s,-3.3333333333333326,-6.333333333333332,3.7007434154171886e-16

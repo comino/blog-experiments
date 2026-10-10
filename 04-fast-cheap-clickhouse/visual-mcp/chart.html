@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#111923;color:#e8f0f5;font:14px system-ui,sans-serif}.card{border:1px solid #2d4050;border-radius:16px;padding:22px;background:radial-gradient(ellipse at top right,#193340,transparent 60%);min-height:510px}.eyebrow{font-size:11px;letter-spacing:.14em;color:#6ce8c0;font-weight:650}h2{margin:8px 0 7px;font-size:22px;letter-spacing:-.03em}header p{color:#9ab0bf;margin:0;font-size:12px}.toolbar{display:flex;gap:6px;margin:18px 0 4px}button{border:1px solid #334757;background:#172735;color:#b5c6d0;padding:7px 14px;border-radius:20px;cursor:pointer;font:inherit;font-size:12px}button[aria-pressed=true]{background:#6ce8c0;color:#0d2225;border-color:#6ce8c0}#plot{height:360px;width:100%}#table-wrap{max-height:360px;overflow:auto;display:none}table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:10px 12px;text-align:right;border-bottom:1px solid #2a3a48}th:first-child,td:first-child{text-align:left}th{position:sticky;top:0;background:#172735;cursor:pointer;color:#6ce8c0}.foot{display:flex;justify-content:space-between;color:#8ca5b4;font-size:11px;gap:10px;margin-top:12px}details{margin-top:12px;color:#9ab0bf;font-size:11px}pre{white-space:pre-wrap;max-height:160px;overflow:auto;color:#c8d9e5}#error{color:#f4b899;padding:20px;display:none}
+</style>
+<script>window.htmlStartedAt=Date.now()</script>
+</head><body><article class="card"><header><div class="eyebrow">NYC TAXI EXPLORER · 2023–2025</div><h2 id="title"></h2><p>128.2 million source trips · NYC TLC yellow taxis</p></header><div class="toolbar"><button id="chart-button" aria-pressed="true">Chart</button><button id="table-button" aria-pressed="false">Table</button><button id="3d-button" aria-pressed="false" hidden>3D view</button></div><div id="plot"></div><div id="table-wrap"><table><thead id="head"></thead><tbody id="rows"></tbody></table></div><div id="error"></div><div class="foot"><span id="caption"></span><span id="timing"></span></div><details><summary>View generated SQL</summary><pre id="sql"></pre></details></article>
+<script type="application/json" id="payload">__PAYLOAD__</script>
+<script>
+window.libraryReadyAt=null;
+let loadedLibrary=0, libraryQueue=Promise.resolve(), drawSerial=0;
+function ensurePlotly(surface){
+  const needed=surface?2:1;
+  libraryQueue=libraryQueue.catch(()=>{}).then(()=>{
+    if(loadedLibrary>=needed)return;
+    return new Promise((resolve,reject)=>{
+      const script=document.createElement('script');
+      script.src='http://localhost:3081/assets/'+(surface?'plotly-3.1.0.min.js':'plotly-cartesian-3.1.0.min.js');
+      script.onload=()=>{loadedLibrary=needed;window.libraryReadyAt=Date.now();resolve()};
+      script.onerror=()=>{script.remove();reject(Error('Could not load chart library'))};
+      document.head.appendChild(script);
+    });
+  });
+  return libraryQueue;
+}
+document.addEventListener('click',e=>{if(e.target.closest('button'))parent.postMessage({type:'taxi-local-action',action:e.target.closest('button').id,epoch_at_click:Date.now()},'*')},true);
+const d=JSON.parse(document.getElementById('payload').textContent),el=id=>document.getElementById(id),fmt=v=>typeof v==='number'?v.toLocaleString('en-US',{maximumFractionDigits:2}):String(v??'');
+document.title=d.title;el('title').textContent=d.title;el('sql').textContent=d.sql;el('caption').textContent=`${d.rows.length} result rows · Query result cache off`;el('timing').textContent=`Query tool ${d.query_ms} ms`;
+const ix=d.columns.indexOf(d.x),iy=d.columns.indexOf(d.y),iz=d.columns.indexOf(d.z),isGrid=['heatmap','surface'].includes(d.chart);let sorted=[...d.rows],sortCol=-1,asc=true;
+const hr=document.createElement('tr');d.columns.forEach((c,i)=>{const th=document.createElement('th');th.textContent=c;th.onclick=()=>{asc=sortCol===i?!asc:true;sortCol=i;sorted.sort((a,b)=>(typeof a[i]==='number'?a[i]-b[i]:String(a[i]).localeCompare(String(b[i])))*(asc?1:-1));table();};hr.appendChild(th)});el('head').appendChild(hr);
+function table(){el('rows').replaceChildren();sorted.forEach(r=>{const tr=document.createElement('tr');r.forEach(v=>{const td=document.createElement('td');td.textContent=fmt(v);tr.appendChild(td)});el('rows').appendChild(tr)})}table();
+const colors=[[0,'#132b3a'],[.3,'#226782'],[.6,'#46baa5'],[1,'#e9fa9c']];
+function trace(surface=false){if(isGrid){const xs=[...new Set(d.rows.map(r=>r[ix]))],ys=[...new Set(d.rows.map(r=>r[iy]))],values=ys.map(y=>xs.map(x=>d.rows.find(r=>r[ix]===x&&r[iy]===y)?.[iz]??null));return {type:surface?'surface':'heatmap',x:xs,y:ys,z:values,colorscale:colors,colorbar:{title:{text:d.z},thickness:10},hoverongaps:false}}return {type:d.chart==='bar'?'bar':'scatter',orientation:d.chart==='bar'?'h':undefined,mode:'lines+markers',x:d.rows.map(r=>r[d.chart==='bar'?iy:ix]),y:d.rows.map(r=>r[d.chart==='bar'?ix:iy]),marker:{color:'#6ce8c0',size:6},line:{color:'#6ce8c0',width:3,shape:'linear'},fill:d.chart==='line'?'tozeroy':undefined,fillcolor:'rgba(108,232,192,.07)'}}
+async function draw(surface=false){const serial=++drawSerial;let drawStartedAt;const layout={paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{color:'#a9c0ce',family:'system-ui'},margin:{l:d.chart==='bar'?180:58,r:30,t:14,b:55},xaxis:{title:{text:d.chart==='bar'?d.y:d.x},gridcolor:'#253745',zeroline:false},yaxis:{title:{text:d.chart==='bar'?'':d.y},autorange:d.chart==='bar'?'reversed':true,gridcolor:'#253745',zeroline:false},scene:{xaxis:{title:{text:d.x}},yaxis:{title:{text:d.y}},zaxis:{title:{text:d.z}},bgcolor:'rgba(0,0,0,0)',camera:{eye:{x:1.45,y:1.45,z:1.05}}},showlegend:false};try{await ensurePlotly(surface);if(serial!==drawSerial)return;drawStartedAt=Date.now();await Plotly.react('plot',[trace(surface)],layout,{responsive:true,displaylogo:false,modeBarButtonsToRemove:['sendDataToCloud']});document.body.dataset.chartReady=d.id;requestAnimationFrame(()=>requestAnimationFrame(()=>{resize();parent.postMessage({type:'taxi-chart-ready',id:d.id,mode:surface?'3d':'chart',html_started_epoch:window.htmlStartedAt,library_ready_epoch:window.libraryReadyAt,draw_started_epoch:drawStartedAt,chart_ready_epoch:Date.now(),assets:performance.getEntriesByType('resource').map(r=>({name:r.name,duration_ms:r.duration,bytes:r.transferSize}))},'*')}))}catch(e){el('error').style.display='block';el('error').textContent='Chart rendering failed: '+e.message;document.body.dataset.chartError=e.message}}
+function resize(){parent.postMessage({type:'ui-size-change',payload:{height:document.querySelector('.card').getBoundingClientRect().height}},'*')}
+new ResizeObserver(resize).observe(document.querySelector('.card'));
+function mode(which){if(which==='table')drawSerial++;el('plot').style.display=which==='table'?'none':'block';el('table-wrap').style.display=which==='table'?'block':'none';['chart','table','3d'].forEach(x=>el(x+'-button').setAttribute('aria-pressed',String(x===which)));if(which!=='table')draw(which==='3d');else requestAnimationFrame(()=>{resize();parent.postMessage({type:'taxi-table-ready',id:d.id},'*')})}
+el('chart-button').onclick=()=>mode('chart');el('table-button').onclick=()=>mode('table');el('3d-button').onclick=()=>mode('3d');el('3d-button').hidden=!isGrid;
+if(d.chart==='table')mode('table');else draw(d.chart==='surface');
+</script></body></html>

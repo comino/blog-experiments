@@ -1,0 +1,457 @@
+{
+  "method": "First complete correct prepared rehearsal per story. Seventeen live data requests plus four local presentation changes. Pinned OpenRouter route; ClickHouse MCP; normal-speed recordings; no response replay. These individual timings are not benchmark percentiles. Prior failures/incomplete attempts remain recorded.",
+  "build": "20261007-stories1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider_route": "inference-net/fp8",
+  "quantization": "fp8",
+  "fallback": false,
+  "stories": [
+    {
+      "id": "monarch-seasonal-footprint",
+      "title": "A monarch year, rising northward",
+      "rehearsal": "story-rehearsal-01",
+      "original_build": "20261007-worlds1",
+      "steps": [
+        {
+          "id": "map",
+          "passed": true,
+          "chart": "density",
+          "rows": 90,
+          "elapsed_ms": 2640.4,
+          "model_ms": 1920.69,
+          "query_ms": 46.197,
+          "request_id": "fb7237d1c0e144c0b8a4f055a103aa7f",
+          "inference_cost_usd": 0.000401934
+        },
+        {
+          "id": "wheel",
+          "passed": true,
+          "chart": "seasons",
+          "rows": 12,
+          "elapsed_ms": 1750.6,
+          "model_ms": 1287.723,
+          "query_ms": 36.975,
+          "request_id": "a2d9327223fd450595805d5f8ebf5cbe",
+          "inference_cost_usd": 0.000397531
+        },
+        {
+          "id": "latitude",
+          "passed": true,
+          "chart": "heatmap",
+          "rows": 119,
+          "elapsed_ms": 3234.1,
+          "model_ms": 2799.287,
+          "query_ms": 39.816,
+          "request_id": "a83cba22ea4d4ad19a15034141a12304",
+          "inference_cost_usd": 0.000450165
+        },
+        {
+          "id": "surface",
+          "passed": true,
+          "chart": "surface",
+          "rows": 119,
+          "local_ms": 256.5
+        },
+        {
+          "id": "photos",
+          "passed": true,
+          "chart": "gallery",
+          "rows": 12,
+          "elapsed_ms": 2028.1,
+          "model_ms": 1469.844,
+          "query_ms": 172.66,
+          "request_id": "d14acb916b924c75b90feb6338ff685c",
+          "inference_cost_usd": 0.000468761
+        }
+      ],
+      "model_calls": 4,
+      "inference_cost_usd": 0.001718391
+    },
+    {
+      "id": "fungi-opposite-seasons",
+      "title": "Two hemispheres, two fungal calendars",
+      "rehearsal": "story-rehearsal-02",
+      "original_build": "20261007-worlds1",
+      "steps": [
+        {
+          "id": "map",
+          "passed": true,
+          "chart": "density",
+          "rows": 142,
+          "elapsed_ms": 1932.5,
+          "model_ms": 1277.844,
+          "query_ms": 101.035,
+          "request_id": "a88f66b9f61346e09393dcdbbbd6d574",
+          "inference_cost_usd": 0.000429992
+        },
+        {
+          "id": "months",
+          "passed": true,
+          "chart": "line",
+          "rows": 24,
+          "elapsed_ms": 1874.6,
+          "model_ms": 1418.983,
+          "query_ms": 106.138,
+          "request_id": "096ff12902424c17a856ee564168988d",
+          "inference_cost_usd": 0.00050688
+        },
+        {
+          "id": "wheel",
+          "passed": true,
+          "chart": "seasons",
+          "rows": 24,
+          "local_ms": 224
+        },
+        {
+          "id": "australia",
+          "passed": true,
+          "chart": "density",
+          "rows": 70,
+          "elapsed_ms": 1965.9,
+          "model_ms": 1286.191,
+          "query_ms": 78.06,
+          "request_id": "64e0b5cece664b17b592df7fae7b6d4c",
+          "inference_cost_usd": 0.000454943
+        },
+        {
+          "id": "photos",
+          "passed": true,
+          "chart": "gallery",
+          "rows": 12,
+          "elapsed_ms": 2352.1,
+          "model_ms": 1924.057,
+          "query_ms": 159.459,
+          "request_id": "1cf3e5ac8d7e44f78a0f777c1540f5ed",
+          "inference_cost_usd": 0.000544609
+        }
+      ],
+      "model_calls": 4,
+      "inference_cost_usd": 0.001936424
+    },
+    {
+      "id": "mississippi-motion-and-stillness",
+      "title": "The busy map that barely moves",
+      "rehearsal": "story-rehearsal-03",
+      "original_build": "20261007-worlds1",
+      "steps": [
+        {
+          "id": "replay",
+          "passed": true,
+          "chart": "tracks",
+          "rows": 6,
+          "elapsed_ms": 4114,
+          "model_ms": 3305.259,
+          "query_ms": 38.827,
+          "request_id": "55dd8f9e7b954d72810fc6620fd246cc",
+          "inference_cost_usd": 0.000436608
+        },
+        {
+          "id": "speeds",
+          "passed": true,
+          "chart": "line",
+          "rows": 139,
+          "elapsed_ms": 2012.1,
+          "model_ms": 1485.474,
+          "query_ms": 35.45,
+          "request_id": "ec4c1c641b5e452b8b4f8a753a071dc8",
+          "inference_cost_usd": 0.000439906
+        },
+        {
+          "id": "scrub",
+          "passed": true
+        },
+        {
+          "id": "slow",
+          "passed": true,
+          "chart": "table",
+          "rows": 10,
+          "elapsed_ms": 2310.6,
+          "model_ms": 1923.551,
+          "query_ms": 61.392,
+          "request_id": "8f161cab6c5148d28c9d36ed07848d20",
+          "inference_cost_usd": 0.000670161
+        },
+        {
+          "id": "activity",
+          "passed": true,
+          "chart": "heatmap",
+          "rows": 360,
+          "elapsed_ms": 2345.8,
+          "model_ms": 1789.679,
+          "query_ms": 156.711,
+          "request_id": "3561fd71f5514ec0a189742a5c9fe1d8",
+          "inference_cost_usd": 0.000501491
+        },
+        {
+          "id": "surface",
+          "passed": true,
+          "chart": "surface",
+          "rows": 360,
+          "local_ms": 227.8
+        }
+      ],
+      "model_calls": 4,
+      "inference_cost_usd": 0.002048166
+    },
+    {
+      "id": "elsa-and-milton",
+      "title": "A cargo ship goes the other way",
+      "rehearsal": "story-rehearsal-06",
+      "original_build": "20261007-stories1",
+      "steps": [
+        {
+          "id": "replay",
+          "passed": true,
+          "chart": "tracks",
+          "rows": 1,
+          "elapsed_ms": 12809.8,
+          "model_ms": 12062.765,
+          "query_ms": 62.761,
+          "request_id": "fa8b4079054c48758556b7c4dabdf41a",
+          "inference_cost_usd": 0.000410357
+        },
+        {
+          "id": "longitude",
+          "passed": true,
+          "chart": "line",
+          "rows": 137,
+          "elapsed_ms": 5840.5,
+          "model_ms": 5380.865,
+          "query_ms": 28.082,
+          "request_id": "e9ec611cac5e451889ed8bcbff9a0309",
+          "inference_cost_usd": 0.000404634
+        },
+        {
+          "id": "scrub",
+          "passed": true
+        },
+        {
+          "id": "ports",
+          "passed": true,
+          "chart": "line",
+          "rows": 30,
+          "elapsed_ms": 10387.7,
+          "model_ms": 9673.572,
+          "query_ms": 376.195,
+          "request_id": "84713e8f99ae4418ac0ce6192f56e150",
+          "inference_cost_usd": 0.00056375
+        },
+        {
+          "id": "index",
+          "passed": true,
+          "chart": "line",
+          "rows": 30,
+          "elapsed_ms": 16618.6,
+          "model_ms": 15426.66,
+          "query_ms": 721.615,
+          "request_id": "2128174e44094a25b034cf727d5a2b16",
+          "inference_cost_usd": 0.000901716
+        },
+        {
+          "id": "activity",
+          "passed": true,
+          "chart": "heatmap",
+          "rows": 144,
+          "elapsed_ms": 5752,
+          "model_ms": 5394.243,
+          "query_ms": 117.64,
+          "request_id": "c2e1b6c5f59d4fec9e36be56744e88c5",
+          "inference_cost_usd": 0.000444721
+        },
+        {
+          "id": "surface",
+          "passed": true,
+          "chart": "surface",
+          "rows": 144,
+          "local_ms": 138.3
+        }
+      ],
+      "model_calls": 5,
+      "inference_cost_usd": 0.002725178
+    }
+  ],
+  "all_recorded_attempts": [
+    {
+      "rehearsal": "story-rehearsal-01",
+      "original_session_restored": true,
+      "interruption": null,
+      "stories": [
+        {
+          "id": "monarch-seasonal-footprint",
+          "complete": true,
+          "completed_steps": [
+            "map",
+            "wheel",
+            "latitude",
+            "surface",
+            "photos"
+          ],
+          "failure": null
+        },
+        {
+          "id": "fungi-opposite-seasons",
+          "complete": false,
+          "completed_steps": [
+            "map",
+            "months",
+            "wheel",
+            "australia"
+          ],
+          "failure": "AssertionError((773, 12))"
+        },
+        {
+          "id": "elsa-and-milton",
+          "complete": false,
+          "completed_steps": [
+            "replay"
+          ],
+          "failure": "AssertionError((113, 137))"
+        },
+        {
+          "id": "mississippi-motion-and-stillness",
+          "complete": false,
+          "completed_steps": [
+            "replay"
+          ],
+          "failure": "AssertionError([{'type': 'camera-start', 'at': 21819.300000190735, 'reason': 'new-view-pending', 'from': {'zoom': 2, 'x': -9, 'y': -208.5}, 'to': {'zoom': 1.0407801418439717, 'x': -11.549645390070964, 'y': 120.0328014184397}, 'duration_ms': 2200, 'motion': True}, {'type': 'pending-view', 'at': 21819.5, 'request_id': '3d3facae16684d4b806a13cb6f6df1ca', 'motion': True}, {'type': 'request-error', 'at': 23198.300000190735, 'request_id': '3d3facae16684d4b806a13cb6f6df1ca', 'error': 'Query execution failed: Received ClickHouse exception, code: 184, server response: Code: 184. DB::Exception: Aggregate function any(vessel_name) AS name_label is found in GROUP BY in query. (ILLEGAL_AGGREGATION) (version 26.8.19.9 (official build)) (for url http://clickhouse:8123)'}, {'type': 'camera-start', 'at': 23199.099999904633, 'reason': 'pending-cleared', 'from': {'x': -9.342944349729304, 'y': -164.31014191779144, 'zoom': 1.8709785165482962}, 'to': {'zoom': 2, 'x': -9, 'y': -208.5}, 'duration_ms': 2200, 'motion': True}, {'type': 'camera-settled', 'at': 28166.599999904633, 'reason': 'pending-cleared', 'zoom': 2, 'x': -9, 'y': -208.5, 'duration_ms': 2200}])"
+        }
+      ]
+    },
+    {
+      "rehearsal": "story-rehearsal-02",
+      "original_session_restored": true,
+      "interruption": null,
+      "stories": [
+        {
+          "id": "fungi-opposite-seasons",
+          "complete": true,
+          "completed_steps": [
+            "map",
+            "months",
+            "wheel",
+            "australia",
+            "photos"
+          ],
+          "failure": null
+        }
+      ]
+    },
+    {
+      "rehearsal": "story-rehearsal-03",
+      "original_session_restored": true,
+      "interruption": null,
+      "stories": [
+        {
+          "id": "elsa-and-milton",
+          "complete": false,
+          "completed_steps": [],
+          "failure": "AssertionError({'type': 'paint', 'at': 9845, 'request_id': '8ff2eda180f3469db0e687f9dade2019', 'prompt': \"Replay cargo ship ELSA, vessel ID 538006273, for the full six-day UTC interval: start 2024-10-07T00:00:00Z inclusive, end 2024-10-13T00:00:00Z exclusive. Keep her entire available Gulf journey and overlay Hurricane Milton's track during the same interval.\", 'elapsed_ms': 2624.5999999046326, 'model_ms': 1768.7910500026192, 'query_ms': 60.680336002405966, 'changes': [{'id': '7bab8874e34d4b2abe82a857fe8bc463', 'action': 'add', 'title': 'Cargo ELSA (538006273) track, Oct 7\u201313 2024 UTC', 'rows': 1, 'reused_data': False}, {'id': '27d865b3e9f7460b8e9897f17a389716', 'action': 'add', 'title': 'Hurricane MILTON track, Oct 7\u201313 2024 UTC', 'rows': 1, 'reused_data': False}]})"
+        },
+        {
+          "id": "mississippi-motion-and-stillness",
+          "complete": true,
+          "completed_steps": [
+            "replay",
+            "speeds",
+            "scrub",
+            "slow",
+            "activity",
+            "surface"
+          ],
+          "failure": null
+        }
+      ]
+    },
+    {
+      "rehearsal": "story-rehearsal-04",
+      "original_session_restored": true,
+      "interruption": "Browser recording process exited with SIGTERM (143), with no final cleanup record. The incomplete attempt is retained.",
+      "stories": [
+        {
+          "id": "elsa-and-milton",
+          "complete": false,
+          "completed_steps": [
+            "replay",
+            "longitude",
+            "scrub",
+            "ports"
+          ],
+          "failure": null
+        }
+      ]
+    },
+    {
+      "rehearsal": "story-rehearsal-05",
+      "original_session_restored": true,
+      "interruption": null,
+      "stories": [
+        {
+          "id": "elsa-and-milton",
+          "complete": false,
+          "completed_steps": [
+            "replay",
+            "longitude",
+            "scrub",
+            "ports"
+          ],
+          "failure": "AssertionError({'id': '2120342d700840e2bacb466ff2d4cabb', 'action': 'add', 'title': 'Tampa Bay vs Port Everglades activity index (Oct 1\u20135 2024 = 100), Oct 1\u201315 2024 UTC', 'rows': 30, 'reused_data': False})"
+        }
+      ]
+    },
+    {
+      "rehearsal": "story-rehearsal-06",
+      "original_session_restored": true,
+      "interruption": null,
+      "stories": [
+        {
+          "id": "elsa-and-milton",
+          "complete": true,
+          "completed_steps": [
+            "replay",
+            "longitude",
+            "scrub",
+            "ports",
+            "index",
+            "activity",
+            "surface"
+          ],
+          "failure": null
+        }
+      ]
+    }
+  ],
+  "model_calls": 17,
+  "local_changes": 4,
+  "inference_cost_usd": 0.008428159,
+  "data_ready_ms": {
+    "minimum": 1750.6,
+    "median": 2352.1,
+    "maximum": 16618.6
+  },
+  "model_ms": {
+    "minimum": 1277.844,
+    "maximum": 15426.66
+  },
+  "query_ms": {
+    "minimum": 28.082,
+    "maximum": 721.615
+  },
+  "local_ms": {
+    "minimum": 138.3,
+    "maximum": 256.5
+  },
+  "checked_call_records": 33,
+  "known_attempts_inference_cost_usd": 0.016058554,
+  "slowest_request": {
+    "story": "elsa-and-milton",
+    "step": "index",
+    "data_ready_ms": 16618.6,
+    "model_ms": 15426.660479,
+    "query_ms": 721.615443
+  },
+  "limitations": [
+    "The three early complete stories used unchanged frontend/model/schema on build worlds1; ELSA completed after the explicit-comparison-edit backend fix on stories1.",
+    "The final ELSA run had provider/model waits of roughly 5\u201315 seconds. Keep the waits visible; do not claim consistently instant inference.",
+    "Recorded calls are identified by request IDs captured in rehearsal reports; an interrupted step without a captured ID could be absent from the attempts cost subtotal."
+  ]
+}

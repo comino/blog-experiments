@@ -1,0 +1,898 @@
+{
+  "report": "demos/rehearsal-evidence.json.gz",
+  "references": {
+    "consolidated": "demos/reference-data.json.gz"
+  },
+  "method": "Offline comparison with independent read-only references; no app/model calls. Numeric keys ignore row/column order; explicit rounding tolerances; raw SQL scope/segmentation checks.",
+  "stories": [
+    {
+      "id": "monarch-seasonal-footprint",
+      "checks": [
+        {
+          "step": "map",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 90,
+            "actual_rows": 90,
+            "compared_values": 270,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "lon_bin": "lon_bin",
+              "lat_bin": "lat_bin",
+              "observations": "observations"
+            }
+          }
+        },
+        {
+          "step": "map",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "wheel",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 12,
+            "actual_rows": 12,
+            "compared_values": 24,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "month": "month",
+              "observations": "observations",
+              "scientific_name": "scientific_name"
+            }
+          }
+        },
+        {
+          "step": "wheel",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "latitude",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 119,
+            "actual_rows": 119,
+            "compared_values": 357,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "month": "month",
+              "latitude_band": "latitude_band",
+              "observations": "observations"
+            }
+          }
+        },
+        {
+          "step": "latitude",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "surface",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 119,
+            "actual_rows": 119,
+            "compared_values": 357,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "month": "month",
+              "latitude_band": "latitude_band",
+              "observations": "observations"
+            }
+          }
+        },
+        {
+          "step": "surface",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "surface",
+          "check": "local_change_reuses_exact_data_without_model",
+          "passed": true
+        },
+        {
+          "step": "photos",
+          "check": "gallery_observations_and_licenses",
+          "passed": true,
+          "details": {
+            "rows": 12,
+            "independent_cohort_rows": 919,
+            "reference_coverage": "complete independently queried photo-eligible cohort",
+            "licenses": {
+              "CC-BY": 10,
+              "CC0": 2
+            },
+            "examples": []
+          }
+        },
+        {
+          "step": "photos",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "*",
+          "check": "all_story_steps_present",
+          "passed": true,
+          "details": {
+            "missing": []
+          }
+        },
+        {
+          "step": "*",
+          "check": "live_rehearsal_passed",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "fungi-opposite-seasons",
+      "checks": [
+        {
+          "step": "map",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 142,
+            "actual_rows": 142,
+            "compared_values": 426,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "lon_bin": "lon_bin",
+              "lat_bin": "lat_bin",
+              "observations": "observations"
+            }
+          }
+        },
+        {
+          "step": "map",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 208,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "months",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 24,
+            "actual_rows": 24,
+            "compared_values": 96,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "month": "month",
+              "annual_share_pct": "annual_share_pct",
+              "region": "region",
+              "observations": "observations"
+            }
+          }
+        },
+        {
+          "step": "months",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 208,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "months",
+          "check": "per_region_annual_normalization",
+          "passed": true
+        },
+        {
+          "step": "wheel",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 24,
+            "actual_rows": 24,
+            "compared_values": 96,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "month": "month",
+              "region": "region",
+              "annual_share_pct": "annual_share_pct",
+              "observations": "observations"
+            }
+          }
+        },
+        {
+          "step": "wheel",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 208,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "wheel",
+          "check": "per_region_annual_normalization",
+          "passed": true
+        },
+        {
+          "step": "wheel",
+          "check": "local_change_reuses_exact_data_without_model",
+          "passed": true
+        },
+        {
+          "step": "australia",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 70,
+            "actual_rows": 70,
+            "compared_values": 210,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "lon_bin": "lon_bin",
+              "lat_bin": "lat_bin",
+              "observations": "observations"
+            }
+          }
+        },
+        {
+          "step": "australia",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "photos",
+          "check": "gallery_observations_and_licenses",
+          "passed": true,
+          "details": {
+            "rows": 12,
+            "independent_cohort_rows": 920,
+            "reference_coverage": "complete independently queried photo-eligible cohort",
+            "licenses": {
+              "CC0": 2,
+              "CC-BY": 10
+            },
+            "examples": []
+          }
+        },
+        {
+          "step": "photos",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "*",
+          "check": "all_story_steps_present",
+          "passed": true,
+          "details": {
+            "missing": []
+          }
+        },
+        {
+          "step": "*",
+          "check": "live_rehearsal_passed",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "mississippi-motion-and-stillness",
+      "checks": [
+        {
+          "step": "replay",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 6,
+            "actual_rows": 6,
+            "compared_values": 48,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "vessel_id": "vessel_id",
+              "name_label": "name_label",
+              "type_label": "type_label",
+              "lon_center": "lon_center",
+              "lat_center": "lat_center",
+              "start_time": "start_time",
+              "end_time": "end_time",
+              "mean_speed": "mean_speed"
+            }
+          }
+        },
+        {
+          "step": "replay",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "speeds",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 139,
+            "actual_rows": 139,
+            "compared_values": 556,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "hour": "hour",
+              "mean_speed": "mean_speed",
+              "name_label": "vessel_id",
+              "vessel_id": "vessel_id"
+            }
+          }
+        },
+        {
+          "step": "speeds",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "speeds",
+          "check": "mean_reported_speed",
+          "passed": true
+        },
+        {
+          "step": "speeds",
+          "check": "hour_and_vessel_id_group_keys",
+          "passed": true
+        },
+        {
+          "step": "scrub",
+          "check": "live_action_completed",
+          "passed": true
+        },
+        {
+          "step": "slow",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 10,
+            "actual_rows": 10,
+            "compared_values": 60,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "vessel_id": "vessel_id",
+              "name_label": "name_label",
+              "run_start": "started_at",
+              "run_end": "ended_at",
+              "duration_hours": "duration_hours",
+              "reports": "reports"
+            }
+          }
+        },
+        {
+          "step": "slow",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "slow",
+          "check": "lag_and_cumulative_segments",
+          "passed": true
+        },
+        {
+          "step": "slow",
+          "check": "chronological_partition_lag_1",
+          "passed": true
+        },
+        {
+          "step": "slow",
+          "check": "chronological_partition_cumulative_0",
+          "passed": true
+        },
+        {
+          "step": "slow",
+          "check": "breaks_fast_unknown_and_over_10_minute_gaps",
+          "passed": true,
+          "details": {
+            "trials": [
+              {
+                "scenario": "600-second gap",
+                "expected_split": false,
+                "actual_split": false
+              },
+              {
+                "scenario": "601-second gap",
+                "expected_split": true,
+                "actual_split": true
+              },
+              {
+                "scenario": "fast report between slow fixes",
+                "expected_split": true,
+                "actual_split": true
+              },
+              {
+                "scenario": "unknown speed between slow fixes",
+                "expected_split": true,
+                "actual_split": true
+              }
+            ]
+          }
+        },
+        {
+          "step": "slow",
+          "check": "six_hour_threshold_uses_unrounded_seconds",
+          "passed": true
+        },
+        {
+          "step": "slow",
+          "check": "ranking_uses_unrounded_duration",
+          "passed": true
+        },
+        {
+          "step": "activity",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 360,
+            "actual_rows": 360,
+            "compared_values": 1080,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "day": "day",
+              "hour_of_day": "hour_utc",
+              "vessels": "moving_vessel_ids"
+            }
+          }
+        },
+        {
+          "step": "activity",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "activity",
+          "check": "exact_distinct_vessel_measure",
+          "passed": true
+        },
+        {
+          "step": "surface",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 360,
+            "actual_rows": 360,
+            "compared_values": 1080,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "day": "day",
+              "hour_of_day": "hour_utc",
+              "vessels": "moving_vessel_ids"
+            }
+          }
+        },
+        {
+          "step": "surface",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "surface",
+          "check": "exact_distinct_vessel_measure",
+          "passed": true
+        },
+        {
+          "step": "surface",
+          "check": "local_change_reuses_exact_data_without_model",
+          "passed": true
+        },
+        {
+          "step": "replay",
+          "check": "captured_playback_0",
+          "passed": true,
+          "details": {
+            "source_positions": 3988,
+            "returned_positions": 2556,
+            "storm_positions": 10,
+            "compared_values": 23104,
+            "interval_seconds": 180,
+            "examples": []
+          }
+        },
+        {
+          "step": "*",
+          "check": "all_story_steps_present",
+          "passed": true,
+          "details": {
+            "missing": []
+          }
+        },
+        {
+          "step": "*",
+          "check": "live_rehearsal_passed",
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "elsa-and-milton",
+      "checks": [
+        {
+          "step": "replay",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 1,
+            "actual_rows": 1,
+            "compared_values": 8,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "vessel_id": "vessel_id",
+              "name_label": "name_label",
+              "type_label": "type_label",
+              "lon_center": "lon_center",
+              "lat_center": "lat_center",
+              "start_time": "start_time",
+              "end_time": "end_time",
+              "mean_speed": "mean_speed"
+            }
+          }
+        },
+        {
+          "step": "replay",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "longitude",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 137,
+            "actual_rows": 137,
+            "compared_values": 274,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "hour": "hour",
+              "last_longitude": "reported_longitude"
+            }
+          }
+        },
+        {
+          "step": "longitude",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "longitude",
+          "check": "last_reported_longitude_not_average",
+          "passed": true
+        },
+        {
+          "step": "scrub",
+          "check": "live_action_completed",
+          "passed": true
+        },
+        {
+          "step": "ports",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 30,
+            "actual_rows": 30,
+            "compared_values": 90,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "day": "day",
+              "area": "region",
+              "vessels": "vessel_ids"
+            }
+          }
+        },
+        {
+          "step": "ports",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 208,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "ports",
+          "check": "exact_distinct_vessel_measure",
+          "passed": true
+        },
+        {
+          "step": "index",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 30,
+            "actual_rows": 30,
+            "compared_values": 90,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "day": "day",
+              "area": "region",
+              "activity_index": "activity_index"
+            }
+          }
+        },
+        {
+          "step": "index",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 208,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "index",
+          "check": "exact_distinct_vessel_measure",
+          "passed": true
+        },
+        {
+          "step": "index",
+          "check": "explicit_update_preserves_card_id",
+          "passed": true
+        },
+        {
+          "step": "activity",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 144,
+            "actual_rows": 144,
+            "compared_values": 432,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "day": "day",
+              "hour": "hour_utc",
+              "vessels": "vessel_ids"
+            }
+          }
+        },
+        {
+          "step": "activity",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "activity",
+          "check": "exact_distinct_vessel_measure",
+          "passed": true
+        },
+        {
+          "step": "surface",
+          "check": "all_returned_values",
+          "passed": true,
+          "details": {
+            "expected_rows": 144,
+            "actual_rows": 144,
+            "compared_values": 432,
+            "missing_keys": 0,
+            "extra_keys": 0,
+            "unverified_columns": [],
+            "examples": [],
+            "column_roles": {
+              "day": "day",
+              "hour": "hour_utc",
+              "vessels": "vessel_ids"
+            }
+          }
+        },
+        {
+          "step": "surface",
+          "check": "source_cohort_scope",
+          "passed": true,
+          "details": {
+            "probes": 104,
+            "different_probes": 0,
+            "unknown_probes": 0,
+            "examples": []
+          }
+        },
+        {
+          "step": "surface",
+          "check": "exact_distinct_vessel_measure",
+          "passed": true
+        },
+        {
+          "step": "surface",
+          "check": "local_change_reuses_exact_data_without_model",
+          "passed": true
+        },
+        {
+          "step": "replay",
+          "check": "captured_playback_0",
+          "passed": true,
+          "details": {
+            "source_positions": 2691,
+            "returned_positions": 437,
+            "storm_positions": 37,
+            "compared_values": 4303,
+            "interval_seconds": 1080,
+            "examples": []
+          }
+        },
+        {
+          "step": "*",
+          "check": "all_story_steps_present",
+          "passed": true,
+          "details": {
+            "missing": []
+          }
+        },
+        {
+          "step": "*",
+          "check": "live_rehearsal_passed",
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Playback positions are checked only when responses were captured. Image pixels and visual motion remain separate live UI checks. SQL checks cover the prepared stories, not arbitrary query equivalence."
+  ],
+  "checks": 76,
+  "failed_checks": 0,
+  "passed": true
+}

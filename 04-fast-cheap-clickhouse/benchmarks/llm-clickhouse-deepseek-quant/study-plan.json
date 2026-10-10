@@ -1,0 +1,27 @@
+{
+  "requested_models": [
+    "deepseek/deepseek-v4-flash",
+    "deepseek/deepseek-v4.1-flash"
+  ],
+  "requested_formats": [
+    "fp4",
+    "fp8"
+  ],
+  "model_name_interpretation": "Flash 4 is interpreted as DeepSeek V4 Flash 0423; optional clarification was requested before execution.",
+  "release_window_exception": "V4 Flash was released 2026-04-24; included as the specifically requested older baseline. V4.1 Flash was released 2026-09-10.",
+  "release_sources": [
+    "https://openrouter.ai/deepseek/deepseek-v4-flash",
+    "https://openrouter.ai/deepseek/deepseek-v4.1-flash"
+  ],
+  "comparison_unit": "Pinned model, provider, reported precision, and inference settings",
+  "quantization_causality_limit": "No provider in this snapshot offers both FP4 and FP8 for the same version. Precision is confounded with provider, hardware, and serving implementation.",
+  "planned_main_configurations": 5,
+  "questions_per_configuration": 60,
+  "repetitions": 5,
+  "screening_requests": 60,
+  "pilot_requests": 60,
+  "main_requests": 1500,
+  "configuration_selection": "One viable FP4 route per version, one shared viable FP8 provider for both versions, plus the pinned previous InferenceNet FP8 winner.",
+  "sql_scores_used_for_provider_selection": false,
+  "inference_spend_cap_usd": 2.0
+}

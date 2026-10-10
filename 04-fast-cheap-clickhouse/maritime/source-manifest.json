@@ -1,0 +1,310 @@
+{
+  "captured_at": "2026-10-07T21:53:31.225583+00:00",
+  "timezone": "UTC",
+  "ais": {
+    "source": "https://github.com/ocm-marinecadastre/ais-vessel-traffic",
+    "documentation": "https://github.com/ocm-marinecadastre/ais-vessel-traffic/blob/main/data/ais-broadcast-points-2024-readme.md",
+    "license": "CC0-1.0",
+    "license_url": "https://github.com/ocm-marinecadastre/ais-vessel-traffic/blob/main/LICENSE.md",
+    "citation": "Martin, Daniel R., Jesse Brass, Matthew Dornback, and Jeremy Fontenault. 2025. Nationwide Automatic Identification System 2024. NOAA Office for Coastal Management. U.S. Coast Guard Navigation Center.",
+    "first_date": "2024-09-15",
+    "last_date": "2024-10-15",
+    "bbox": {
+      "west": -98,
+      "south": 18,
+      "east": -75,
+      "north": 33
+    },
+    "subset": "All valid-position AIS rows within bbox and date window. No vessel sampling and no additional temporal downsampling.",
+    "source_cadence": "NOAA product is downsampled to approximately one-minute broadcasts; timestamps retain original seconds. Transmission/receiver gaps remain.",
+    "files": [
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-15.parquet",
+        "bytes": 274993692,
+        "etag": "0x8DDB020DAB7E6AB",
+        "last_modified": "Fri, 20 Jun 2025 17:35:31 GMT",
+        "source_content_md5_base64": "ggnLjEmGqOt/1CeiB7hpyg==",
+        "date": "2024-09-15"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-16.parquet",
+        "bytes": 285884067,
+        "etag": "0x8DDB020F7331893",
+        "last_modified": "Fri, 20 Jun 2025 17:36:18 GMT",
+        "source_content_md5_base64": "GEuXyOXaLjOOz8n+Kg2lDQ==",
+        "date": "2024-09-16"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-17.parquet",
+        "bytes": 291058831,
+        "etag": "0x8DDB020FCD6F698",
+        "last_modified": "Fri, 20 Jun 2025 17:36:28 GMT",
+        "source_content_md5_base64": "ZpVtPuV6n2gJYjI1Bb3v9A==",
+        "date": "2024-09-17"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-18.parquet",
+        "bytes": 286940247,
+        "etag": "0x8DDB0210776ABE3",
+        "last_modified": "Fri, 20 Jun 2025 17:36:46 GMT",
+        "source_content_md5_base64": "ydAwumG7OHK13qSY/Q1TPQ==",
+        "date": "2024-09-18"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-19.parquet",
+        "bytes": 273481852,
+        "etag": "0x8DDB020D94C3321",
+        "last_modified": "Fri, 20 Jun 2025 17:35:28 GMT",
+        "source_content_md5_base64": "i36tJ3zggJR62doSa6ESXQ==",
+        "date": "2024-09-19"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-20.parquet",
+        "bytes": 263662411,
+        "etag": "0x8DDB020D6015611",
+        "last_modified": "Fri, 20 Jun 2025 17:35:23 GMT",
+        "source_content_md5_base64": "hGhQiaYk3CbqAGW3+xk77Q==",
+        "date": "2024-09-20"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-21.parquet",
+        "bytes": 279266323,
+        "etag": "0x8DDB020F567613E",
+        "last_modified": "Fri, 20 Jun 2025 17:36:15 GMT",
+        "source_content_md5_base64": "OArPsKLPdB22jN8Ngwr55Q==",
+        "date": "2024-09-21"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-22.parquet",
+        "bytes": 257922768,
+        "etag": "0x8DDB020AC25F80C",
+        "last_modified": "Fri, 20 Jun 2025 17:34:13 GMT",
+        "source_content_md5_base64": "MA8csEYJACPR8r55eD930w==",
+        "date": "2024-09-22"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-23.parquet",
+        "bytes": 270631389,
+        "etag": "0x8DDB020E1F7057A",
+        "last_modified": "Fri, 20 Jun 2025 17:35:43 GMT",
+        "source_content_md5_base64": "AMnNllJN+UQfkECbVUI8jQ==",
+        "date": "2024-09-23"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-24.parquet",
+        "bytes": 257245209,
+        "etag": "0x8DDB0208B6908EE",
+        "last_modified": "Fri, 20 Jun 2025 17:33:18 GMT",
+        "source_content_md5_base64": "jYjwPiw1DGN6L3onkuo+AA==",
+        "date": "2024-09-24"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-25.parquet",
+        "bytes": 267165003,
+        "etag": "0x8DDB020C2EB1127",
+        "last_modified": "Fri, 20 Jun 2025 17:34:51 GMT",
+        "source_content_md5_base64": "VQ8eiO7Ef++3F4OA36FHtg==",
+        "date": "2024-09-25"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-26.parquet",
+        "bytes": 276040440,
+        "etag": "0x8DDB020D7621961",
+        "last_modified": "Fri, 20 Jun 2025 17:35:25 GMT",
+        "source_content_md5_base64": "oHgz8UYfR8HD8AFr13rxfA==",
+        "date": "2024-09-26"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-27.parquet",
+        "bytes": 277714933,
+        "etag": "0x8DDB020F04C3E38",
+        "last_modified": "Fri, 20 Jun 2025 17:36:07 GMT",
+        "source_content_md5_base64": "heurgB6+S8Wzm5qrEBulwQ==",
+        "date": "2024-09-27"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-28.parquet",
+        "bytes": 249425611,
+        "etag": "0x8DDB0208C6A8AFD",
+        "last_modified": "Fri, 20 Jun 2025 17:33:19 GMT",
+        "source_content_md5_base64": "VDlwOzl6cbwdIeAbqPVUpg==",
+        "date": "2024-09-28"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-29.parquet",
+        "bytes": 250620140,
+        "etag": "0x8DDB0208E1BFA0A",
+        "last_modified": "Fri, 20 Jun 2025 17:33:22 GMT",
+        "source_content_md5_base64": "H/QF7fn/gp/lPQpVU6SDYg==",
+        "date": "2024-09-29"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-09-30.parquet",
+        "bytes": 248798555,
+        "etag": "0x8DDB0209FA6F20E",
+        "last_modified": "Fri, 20 Jun 2025 17:33:52 GMT",
+        "source_content_md5_base64": "QHL/dJ/KdKmb5lxGxq0EFQ==",
+        "date": "2024-09-30"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-01.parquet",
+        "bytes": 269424473,
+        "etag": "0x8DDB02801B1B3BA",
+        "last_modified": "Fri, 20 Jun 2025 18:26:43 GMT",
+        "source_content_md5_base64": "/tt0lbwJAa6W/+s6rLB62g==",
+        "date": "2024-10-01"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-02.parquet",
+        "bytes": 294408614,
+        "etag": "0x8DDB028166C3004",
+        "last_modified": "Fri, 20 Jun 2025 18:27:17 GMT",
+        "source_content_md5_base64": "9wBawjeoHP4wueuhkY4RJA==",
+        "date": "2024-10-02"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-03.parquet",
+        "bytes": 251742588,
+        "etag": "0x8DDB027C588C0EC",
+        "last_modified": "Fri, 20 Jun 2025 18:25:02 GMT",
+        "source_content_md5_base64": "k9Uo3n0h8f17HPWAwZ3oIg==",
+        "date": "2024-10-03"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-04.parquet",
+        "bytes": 270130921,
+        "etag": "0x8DDB0280D5669B1",
+        "last_modified": "Fri, 20 Jun 2025 18:27:02 GMT",
+        "source_content_md5_base64": "hVtxNyJocHsE7MYpO1XHVw==",
+        "date": "2024-10-04"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-05.parquet",
+        "bytes": 273951953,
+        "etag": "0x8DDB02801268A94",
+        "last_modified": "Fri, 20 Jun 2025 18:26:42 GMT",
+        "source_content_md5_base64": "ktanKMGBIaK9H7vARCXZ/Q==",
+        "date": "2024-10-05"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-06.parquet",
+        "bytes": 260075374,
+        "etag": "0x8DDB027D8DE601B",
+        "last_modified": "Fri, 20 Jun 2025 18:25:34 GMT",
+        "source_content_md5_base64": "8xHk/REAsybBeUE0sy8Q7A==",
+        "date": "2024-10-06"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-07.parquet",
+        "bytes": 259037441,
+        "etag": "0x8DDB027B7BABDD5",
+        "last_modified": "Fri, 20 Jun 2025 18:24:38 GMT",
+        "source_content_md5_base64": "xvcFVxMGRwKCvbcYyap9LQ==",
+        "date": "2024-10-07"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-08.parquet",
+        "bytes": 282443268,
+        "etag": "0x8DDB0280CC79B1E",
+        "last_modified": "Fri, 20 Jun 2025 18:27:01 GMT",
+        "source_content_md5_base64": "Xyfq6dc9sqAwfv0tww8U0w==",
+        "date": "2024-10-08"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-09.parquet",
+        "bytes": 266313207,
+        "etag": "0x8DDB027F28D6935",
+        "last_modified": "Fri, 20 Jun 2025 18:26:17 GMT",
+        "source_content_md5_base64": "R3MvyB16gQk8EYiuCzWkfg==",
+        "date": "2024-10-09"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-10.parquet",
+        "bytes": 275342302,
+        "etag": "0x8DDB02812EA2D1F",
+        "last_modified": "Fri, 20 Jun 2025 18:27:11 GMT",
+        "source_content_md5_base64": "SMd7zX41stIy24YYmnoCww==",
+        "date": "2024-10-10"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-11.parquet",
+        "bytes": 270306282,
+        "etag": "0x8DDB02804EEBD98",
+        "last_modified": "Fri, 20 Jun 2025 18:26:48 GMT",
+        "source_content_md5_base64": "PCxJPtFqRfhU//AAE0oB7Q==",
+        "date": "2024-10-11"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-12.parquet",
+        "bytes": 273176574,
+        "etag": "0x8DDB0280244279F",
+        "last_modified": "Fri, 20 Jun 2025 18:26:43 GMT",
+        "source_content_md5_base64": "1l3yrMy85cGeXyElvqNFTQ==",
+        "date": "2024-10-12"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-13.parquet",
+        "bytes": 286574851,
+        "etag": "0x8DDB02815F4EDBD",
+        "last_modified": "Fri, 20 Jun 2025 18:27:17 GMT",
+        "source_content_md5_base64": "fpOcoqlwBdcs9P/olUcUcA==",
+        "date": "2024-10-13"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-14.parquet",
+        "bytes": 286304914,
+        "etag": "0x8DDB0281458EA7C",
+        "last_modified": "Fri, 20 Jun 2025 18:27:14 GMT",
+        "source_content_md5_base64": "EQv5V71LcRQAp8g0RzqaZg==",
+        "date": "2024-10-14"
+      },
+      {
+        "url": "https://ocmgeodatastor1.blob.core.windows.net/marinecadastre/ais2024/ais-2024-10-15.parquet",
+        "bytes": 259987269,
+        "etag": "0x8DDB027EB0B71CA",
+        "last_modified": "Fri, 20 Jun 2025 18:26:05 GMT",
+        "source_content_md5_base64": "lSNn9KurIcfrr4aJh2Y34Q==",
+        "date": "2024-10-15"
+      }
+    ]
+  },
+  "storms": {
+    "source": "https://www.ncei.noaa.gov/products/international-best-track-archive",
+    "documentation": "https://www.ncei.noaa.gov/sites/default/files/2025-09/IBTrACS_v04r01_column_documentation.pdf",
+    "doi": "https://doi.org/10.25921/82ty-9e16",
+    "citation": "Gahtan, J., et al., 2024. International Best Track Archive for Climate Stewardship (IBTrACS) Project, Version 4r01. North Atlantic 2024 MAIN tracks. NOAA NCEI. doi:10.25921/82ty-9e16. Accessed 2026-10-07",
+    "paper": "Knapp, K. R., et al., 2010. The International Best Track Archive for Climate Stewardship (IBTrACS): Unifying tropical cyclone best track data. BAMS, 91, 363-376. doi:10.1175/2009BAMS2755.1.",
+    "access": "Public NOAA archive; retain NOAA/IBTrACS attribution and dataset citation.",
+    "subset": "SEASON=2024 AND BASIN=NA AND TRACK_TYPE=MAIN; all source times and full tracks retained, including locations outside the AIS bbox.",
+    "wind": "USA_WIND, knots, 1-minute mean; pressure USA_PRES in hPa; no mixing with other agency averaging periods.",
+    "radius": "USA_R34_NE/SE/SW/NW converted from nautical miles to km (x1.852); quadrant maximum 34-knot wind extents, not a forecast cone.",
+    "interpolation": "No new interpolated points; source IBTrACS may interpolate values. First IFLAG character retained as usa_interpolation.",
+    "file": {
+      "url": "https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/ibtracs.NA.list.v04r01.csv",
+      "bytes": 57552255,
+      "etag": "\"36e2d7f-65cd1baf22287\"",
+      "last_modified": "Fri, 02 Oct 2026 01:48:34 GMT",
+      "source_content_md5_base64": null
+    }
+  },
+  "imagery": {
+    "source": "NASA Global Imagery Browse Services",
+    "layer": "MODIS_Aqua_CorrectedReflectance_TrueColor",
+    "documentation": "https://nasa-gibs.github.io/gibs-api-docs/access-basics/",
+    "usage_policy": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "attribution": "NASA GIBS / Aqua MODIS",
+    "usage": "NASA permits factual educational/informational use under its media guidelines; acknowledge NASA and do not imply endorsement.",
+    "tile_template": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Aqua_CorrectedReflectance_TrueColor/default/{date}/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg",
+    "time_resolution": "Daily imagery for the selected UTC date; not an hourly satellite frame and not a live feed.",
+    "storage": "Optional browser-requested public WMTS tiles; imagery is not ingested into ClickHouse.",
+    "validation": {
+      "checked_by": "visualizations integration agent",
+      "date": "2026-10-07",
+      "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Aqua_CorrectedReflectance_TrueColor/default/2024-10-09/GoogleMapsCompatible_Level9/4/6/4.jpg",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "bytes": 16326,
+      "access_control_allow_origin": "*"
+    }
+  }
+}

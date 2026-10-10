@@ -1,0 +1,13 @@
+services:
+  canvas:
+    build: ./canvas
+    restart: unless-stopped
+    env_file: [runtime/canvas.env]
+    volumes:
+      - canvas-data:/data
+      - ./runtime/public-traces:/evidence
+      - ./wildlife:/dataset:ro
+      - ./maritime:/maritime:ro
+    depends_on: [mcp, gateway, librechat]
+volumes:
+  canvas-data:

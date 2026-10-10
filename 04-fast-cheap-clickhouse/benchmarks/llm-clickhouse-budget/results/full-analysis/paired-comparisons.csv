@@ -1,0 +1,9 @@
+recommended_model,other_model,metric,difference_percentage_points,ci95_low_percentage_points,ci95_high_percentage_points
+deepseek/deepseek-v4.1-flash,ibm-granite/granite-4.2-8b,accuracy,29.333333333333332,17.0,41.674999999999876
+deepseek/deepseek-v4.1-flash,inception/mercury-2.5,accuracy,29.000000000000004,20.33333333333333,37.99999999999999
+deepseek/deepseek-v4.1-flash,openai/gpt-6-luna,accuracy,9.000000000000002,0.9999999999999997,17.333333333333336
+deepseek/deepseek-v4.1-flash,upstage/solar-mini4,accuracy,23.666666666666668,12.333333333333334,35.666666666666664
+deepseek/deepseek-v4.1-flash,ibm-granite/granite-4.2-8b,correct_within_5s,28.999999999999996,16.666666666666664,41.333333333333336
+deepseek/deepseek-v4.1-flash,inception/mercury-2.5,correct_within_5s,28.666666666666668,19.666666666666668,37.666666666666664
+deepseek/deepseek-v4.1-flash,openai/gpt-6-luna,correct_within_5s,8.666666666666668,0.6666666666666665,17.0
+deepseek/deepseek-v4.1-flash,upstage/solar-mini4,correct_within_5s,34.66666666666667,23.999999999999993,46.0

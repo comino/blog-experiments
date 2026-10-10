@@ -1,0 +1,203 @@
+model_id,question_id,repetition,kind,sql,error,task_id
+ibm-granite/granite-4.2-8b,t6_07,1,sql_error,"SELECT
+    arrayResample(
+        toHOUR(timestamp),
+        4,
+        0,
+        6,
+        6,
+        12,
+        12,
+        18,
+        18,
+        23
+    )
+FROM events
+GROUP BY 1","Code: 46. DB::Exception: Function with name `toHOUR` does not exist. In scope SELECT arrayResample(toHOUR(timestamp), 4, 0, 6, 6, 12, 12, 18, 18, 23) FROM events GROUP BY 1. Maybe you meant: ['toHour','HOUR']. (UNKNOWN_FUNCTION) (version 26.8.19.9 (official build))
+",pilot:1:t6_07:ibm-granite/granite-4.2-8b@coreweave/bf16
+upstage/solar-mini4,t6_07,1,sql_error,"SELECT arrayReduce('countResample', [0, 6, 12, 18], toHour(timestamp)) FROM events","Code: 43. DB::Exception: Argument 2 for function arrayReduce must be an array but it has type UInt8: In scope SELECT arrayReduce('countResample', [0, 6, 12, 18], toHour(timestamp)) FROM events. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",pilot:1:t6_07:upstage/solar-mini4@upstage/zdr
+deepseek/deepseek-v4.1-flash,t6_07,1,sql_error,"SELECT countResample(0, 6, 12, 18)(toHour(timestamp)) AS counts
+FROM events","Code: 133. DB::Exception: Aggregate function count cannot have parameters. (AGGREGATE_FUNCTION_DOESNT_ALLOW_PARAMETERS) (version 26.8.19.9 (official build))
+",pilot:1:t6_07:deepseek/deepseek-v4.1-flash@inference-net/fp8
+openai/gpt-6-luna,t6_07,1,sql_error,"SELECT countResample(toHour(timestamp), 6)(event_id, 0, 24) AS counts
+FROM events
+WHERE toHour(timestamp) < 24","Code: 36. DB::Exception: Parameter for function 'countResample' expected to have constant value. Actual: toHour(timestamp). In scope SELECT countResample(toHour(timestamp), 6)(event_id, 0, 24) AS counts FROM events WHERE toHour(timestamp) < 24. (BAD_ARGUMENTS) (version 26.8.19.9 (official build))
+",pilot:1:t6_07:openai/gpt-6-luna@openai/fast
+inception/mercury-2.5,t6_07,1,sql_error,"SELECT groupArray(countResample(toHour(timestamp)))
+FROM events
+WHERE toHour(timestamp) BETWEEN 0 AND 23
+GROUP BY CASE
+    WHEN toHour(timestamp) < 6 THEN 0
+    WHEN toHour(timestamp) < 12 THEN 1
+    WHEN toHour(timestamp) < 18 THEN 2
+    ELSE 3
+END
+ORDER BY 1
+LIMIT 1","Code: 42. DB::Exception: Incorrect number of parameters for aggregate function with Resample suffix. (NUMBER_OF_ARGUMENTS_DOESNT_MATCH) (version 26.8.19.9 (official build))
+",pilot:1:t6_07:inception/mercury-2.5@inception
+deepseek/deepseek-v4.1-flash,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",pilot:1:t6_01:deepseek/deepseek-v4.1-flash@inference-net/fp8
+inception/mercury-2.5,t6_01,1,api_error,,"HTTP 429: {""error"":{""message"":""Provider returned error"",""code"":429,""metadata"":{""raw"":""inception/mercury-2.5 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations"",""provider_name"":""Inception"",""is_byok"":false,""provider_error_code"":""rate_limit_exceeded"",""limit_source"":""upstream_provider_shared_pool"",""remedy_hint"":""Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing""}},""user_id"":""user_39vxjsdSCeOVGXlR8I6hQcz3a6c""}",pilot:1:t6_01:inception/mercury-2.5@inception
+upstage/solar-mini4,t6_01,1,sql_error,"SELECT
+    count() AS users_l1,
+    countIf(hasStage2) AS users_l2,
+    countIf(hasStage2 AND hasStage3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(
+            24,
+            event_time,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS funnel_result
+    FROM
+    (
+        SELECT
+            user_id,
+            timestamp AS event_time,
+            event_type
+        FROM events
+        WHERE event_type IN ('pageview', 'click', 'purchase')
+    )
+    GROUP BY user_id, funnel_result
+)","Code: 42. DB::Exception: Aggregate function windowFunnel requires at least one parameter: <window>, [option, [option, ...]]. (NUMBER_OF_ARGUMENTS_DOESNT_MATCH) (version 26.8.19.9 (official build))
+",pilot:1:t6_01:upstage/solar-mini4@upstage/zdr
+ibm-granite/granite-4.2-8b,t6_01,1,sql_error,"SELECT
+    COUNT(DISTINCT IF(stage = 1, user_id, 0)) AS users_l1,
+    COUNT(DISTINCT IF(stage >= 2, user_id, 0)) AS users_l2,
+    COUNT(DISTINCT IF(stage = 3, user_id, 0)) AS users_l3
+FROM (
+    SELECT
+        user_id,
+        stage,
+        MAX(CASE WHEN event_type = 'pageview' THEN 1 END) OVER (PARTITION BY user_id ORDER BY timestamp RANGE BETWEEN INTERVAL 0 SECOND AND INTERVAL 24 HOUR) AS stage1,
+        MAX(CASE WHEN event_type = 'click' THEN 1 END) OVER (PARTITION BY user_id ORDER BY timestamp RANGE BETWEEN INTERVAL 0 SECOND AND INTERVAL 24 HOUR) AS stage2,
+        MAX(CASE WHEN event_type = 'purchase' THEN 1 END) OVER (PARTITION BY user_id ORDER BY timestamp RANGE BETWEEN INTERVAL 0 SECOND AND INTERVAL 24 HOUR) AS stage3
+    FROM events
+    WHERE event_type IN ('pageview', 'click', 'purchase')
+) sub
+WHERE stage1 = 1
+   OR stage2 = 1
+   OR stage3 = 1
+QUALIFY ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY timestamp) <= 1","Code: 62. DB::Exception: Syntax error: failed at position 391 ()) (line 9, col 157): ) AS stage1,
+        MAX(CASE WHEN event_type = 'click' THEN 1 END) OVER (PARTITION BY user_id ORDER BY timestamp RANGE BETWEEN INTERVAL 0 SECOND AND INTERVAL 24... Expected one of: OR, AND, IS NOT DISTINCT FROM, IS DISTINCT FROM, IS NOT UNKNOWN, IS UNKNOWN, IS NOT FALSE, IS FALSE, IS NOT TRUE, IS TRUE, IS NULL, IS NOT NULL, BETWEEN, NOT BETWEEN, LIKE, ILIKE, NOT LIKE, NOT ILIKE, REGEXP, IN, NOT IN, GLOBAL IN, GLOBAL NOT IN, AT TIME ZONE, MOD, DIV, PRECEDING, FOLLOWING, identifier. (SYNTAX_ERROR) (version 26.8.19.9 (official build))
+",pilot:1:t6_01:ibm-granite/granite-4.2-8b@coreweave/bf16
+openai/gpt-6-luna,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",pilot:1:t6_01:openai/gpt-6-luna@openai/fast
+ibm-granite/granite-4.2-8b,t5_07,1,sql_error,"SELECT user_id,
+       arraySort(distinct event_type) AS event_types
+FROM events
+GROUP BY user_id
+ORDER BY user_id
+LIMIT 50","Code: 46. DB::Exception: Function with name `arraySortDistinct` does not exist. In scope SELECT user_id, arraySortDistinct(event_type) AS event_types FROM events GROUP BY user_id ORDER BY user_id ASC LIMIT 50. Maybe you meant: ['arrayDistinct']. (UNKNOWN_FUNCTION) (version 26.8.19.9 (official build))
+",pilot:1:t5_07:ibm-granite/granite-4.2-8b@coreweave/bf16
+upstage/solar-mini4,t5_07,1,sql_error,"SELECT
+    u.user_id,
+    arraySort(distinct e.event_type) AS sorted_event_types
+FROM users u
+LEFT JOIN events e ON u.user_id = e.user_id
+GROUP BY u.user_id
+ORDER BY u.user_id
+LIMIT 50","Code: 46. DB::Exception: Function with name `arraySortDistinct` does not exist. In scope SELECT u.user_id, arraySortDistinct(e.event_type) AS sorted_event_types FROM users AS u LEFT JOIN events AS e ON u.user_id = e.user_id GROUP BY u.user_id ORDER BY u.user_id ASC LIMIT 50. Maybe you meant: ['arrayDistinct']. (UNKNOWN_FUNCTION) (version 26.8.19.9 (official build))
+",pilot:1:t5_07:upstage/solar-mini4@upstage/zdr
+inception/mercury-2.5,t5_07,1,row_0_values_or_order,"SELECT
+    user_id,
+    arrayDistinct(groupArray(event_type)) AS sorted_event_types
+FROM events
+GROUP BY user_id
+ORDER BY user_id
+LIMIT 50",,pilot:1:t5_07:inception/mercury-2.5@inception
+inception/mercury-2.5,t2_07,1,sql_error,"SELECT toYYYYMMDD(timestamp) AS month, count() AS event_count
+FROM events
+WHERE toYYYY(timestamp) = 2024
+GROUP BY month
+ORDER BY month","Code: 46. DB::Exception: Function with name `toYYYY` does not exist. In scope SELECT toYYYYMMDD(timestamp) AS month, count() AS event_count FROM events WHERE toYYYY(timestamp) = 2024 GROUP BY month ORDER BY month ASC. Maybe you meant: ['toYYYYMM']. (UNKNOWN_FUNCTION) (version 26.8.19.9 (official build))
+",pilot:1:t2_07:inception/mercury-2.5@inception
+upstage/solar-mini4,t2_07,1,row_count,"SELECT toDate(timestamp) AS month, count() AS event_count
+FROM events
+WHERE timestamp >= '2024-01-01' AND timestamp < '2025-01-01'
+GROUP BY month
+ORDER BY month ASC",,pilot:1:t2_07:upstage/solar-mini4@upstage/zdr
+openai/gpt-6-luna,t2_07,1,sql_error,"SELECT
+    toStartOfMonth(timestamp) AS month,
+    count() AS event_count
+FROM events
+WHERE timestamp >= '2024-01-01 00:00:00'
+  AND timestamp < '2025-01-01 00:00:00'
+GROUP BY month
+ORDER BY month ASC
+ેણ","Code: 62. DB::Exception: Unrecognized token: Syntax error: failed at position 202 (ે) (line 9, col 1): ેણ
+FORMAT JSONCompact. . (SYNTAX_ERROR) (version 26.8.19.9 (official build))
+",pilot:1:t2_07:openai/gpt-6-luna@openai/fast
+openai/gpt-6-luna,t4_07,1,sql_error,"SELECT
+    u.plan,
+    avg(event_count) AS `average events per active user`
+FROM
+(
+    SELECT
+        user_id,
+        count() AS event_count
+    FROM events
+    GROUP BY user_id
+) AS e
+INNER JOIN users AS u USING (user_id)
+GROUP BY u.plan
+ORDER BY `average events per active user` DESC, u.plan ASC
+ેણ","Code: 62. DB::Exception: Unrecognized token: Syntax error: failed at position 300 (ે) (line 15, col 1): ેણ
+FORMAT JSONCompact. . (SYNTAX_ERROR) (version 26.8.19.9 (official build))
+",pilot:1:t4_07:openai/gpt-6-luna@openai/fast
+upstage/solar-mini4,t4_07,1,row_count,"SELECT
+    u.plan,
+    avg_event_count.avg_events_per_active_user
+FROM users u
+JOIN (
+    SELECT
+        user_id,
+        count() AS avg_events_per_active_user
+    FROM events
+    GROUP BY user_id
+) avg_event_count ON u.user_id = avg_event_count.user_id
+GROUP BY u.plan, avg_event_count.avg_events_per_active_user
+ORDER BY avg_event_count.avg_events_per_active_user DESC, u.plan ASC",,pilot:1:t4_07:upstage/solar-mini4@upstage/zdr
+inception/mercury-2.5,t1_01,1,api_error,,"HTTP 429: {""error"":{""message"":""Provider returned error"",""code"":429,""metadata"":{""raw"":""inception/mercury-2.5 is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your rate limits: https://openrouter.ai/settings/integrations"",""provider_name"":""Inception"",""is_byok"":false,""provider_error_code"":""rate_limit_exceeded"",""limit_source"":""upstream_provider_shared_pool"",""remedy_hint"":""Retry shortly, add your own provider key (https://openrouter.ai/settings/integrations), or route to another provider with provider routing: https://openrouter.ai/docs/features/provider-routing""}},""user_id"":""user_39vxjsdSCeOVGXlR8I6hQcz3a6c""}",pilot:1:t1_01:inception/mercury-2.5@inception
+upstage/solar-mini4,t3_01,1,sql_error,SELECT quantileExact(duration_ms)(0.5) AS median_duration_ms FROM events,"Code: 36. DB::Exception: Parameter for function 'quantileExact' expected to have constant value. Actual: duration_ms. In scope SELECT quantileExact(duration_ms)(0.5) AS median_duration_ms FROM events. (BAD_ARGUMENTS) (version 26.8.19.9 (official build))
+",pilot:1:t3_01:upstage/solar-mini4@upstage/zdr
+ibm-granite/granite-4.2-8b,t3_01,1,sql_error,"SELECT quantileExact(duration_ms, 0.5) AS median_duration
+FROM events","Code: 42. DB::Exception: Aggregate function quantileExact requires single argument. (NUMBER_OF_ARGUMENTS_DOESNT_MATCH) (version 26.8.19.9 (official build))
+",pilot:1:t3_01:ibm-granite/granite-4.2-8b@coreweave/bf16

@@ -1,0 +1,5 @@
+{
+  "version": "26.8.19.9",
+  "source": "https://github.com/ClickHouse/ClickHouse/releases/download/v26.8.19.9-lts/clickhouse-common-static-26.8.19.9-amd64.tgz",
+  "archive_sha512": "4a9e4eeea738956f53c6392038b59fa9720c347e10e837de1596f9597f6af57687e815634fed5cadab47f391980d44df66051797c6bcbb756fd504d859fb9ebd"
+}

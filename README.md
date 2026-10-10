@@ -9,10 +9,11 @@ Experiment data, scripts, and results for the ClickHouse benchmark series on [sv
 | [01](./01/) | ClickHouse Compression Codecs for Time-Series Data: A Benchmark | [article](https://sveneliasson.de/clickhouse-compression-codecs-timeseries-benchmark/) |
 | [02](./02/) | ClickHouse Projections vs Materialized Views: A Practical Benchmark | [article](https://sveneliasson.de/clickhouse-projections-vs-materialized-views-benchmark/) |
 | [03](./03/) | Can LLMs Write ClickHouse SQL? 22 Models, Two Generations, One Benchmark | [article](https://sveneliasson.de/can-llms-write-clickhouse-sql-zero-shot-evaluation/) |
+| [04](./04-fast-cheap-clickhouse/) | How fast can cheap LLMs query ClickHouse? | [article](https://sveneliasson.de/clickhouse-fast-cheap-exploration/) |
 
 ## Structure
 
-Each experiment folder contains:
+Each experiment README explains its layout. Common contents include:
 - `README.md` — experiment overview and findings
 - `scripts/` — data generation, LLM calls, evaluation, plotting
 - `data/` — raw results, CSVs, JSON responses

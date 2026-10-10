@@ -1,0 +1,91 @@
+route_id,question_id,repetition,kind,sql,error,task_id
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_07,1,sql_error,"SELECT countResample(6, 0, 24)(timestamp) AS counts FROM events","Code: 48. DB::Exception: Method getUInt is not supported for DateTime64: While executing AggregatingTransform. (NOT_IMPLEMENTED) (version 26.8.19.9 (official build))
+",pilot:1:t6_07:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_07,1,sql_error,"SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",pilot:1:t6_07:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_07,1,sql_error,"SELECT countResample(0, 6, 12, 18)(timestamp) AS counts FROM events","Code: 133. DB::Exception: Aggregate function count cannot have parameters. (AGGREGATE_FUNCTION_DOESNT_ALLOW_PARAMETERS) (version 26.8.19.9 (official build))
+",pilot:1:t6_07:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_07,1,sql_error,"SELECT countResample(6, 0, 24)(timestamp) AS counts FROM events","Code: 48. DB::Exception: Method getUInt is not supported for DateTime64: While executing AggregatingTransform. (NOT_IMPLEMENTED) (version 26.8.19.9 (official build))
+",pilot:1:t6_07:deepseek/deepseek-v4.1-flash@inference-net/fp8
+deepseek/deepseek-v4-flash@parasail/fp8,t6_07,1,sql_error,"SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts","Code: 47. DB::Exception: Unknown expression or function identifier `timestamp` in scope SELECT countResample(toHour(timestamp), 0, 24, 4) AS counts: Note: the query does not have the FROM clause. Did you forget to add it?. (UNKNOWN_IDENTIFIER) (version 26.8.19.9 (official build))
+",pilot:1:t6_07:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@sail-research/fp4,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",pilot:1:t6_01:deepseek/deepseek-v4.1-flash@sail-research/fp4
+deepseek/deepseek-v4-flash@parasail/fp8,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",pilot:1:t6_01:deepseek/deepseek-v4-flash@parasail/fp8
+deepseek/deepseek-v4-flash@relace/fp4,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(timestamp, event_type = 'pageview', event_type = 'click', event_type = 'purchase') AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",pilot:1:t6_01:deepseek/deepseek-v4-flash@relace/fp4
+deepseek/deepseek-v4.1-flash@parasail/fp8,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",pilot:1:t6_01:deepseek/deepseek-v4.1-flash@parasail/fp8
+deepseek/deepseek-v4.1-flash@inference-net/fp8,t6_01,1,sql_error,"SELECT
+    countIf(level >= 1) AS users_l1,
+    countIf(level >= 2) AS users_l2,
+    countIf(level >= 3) AS users_l3
+FROM
+(
+    SELECT
+        user_id,
+        windowFunnel(86400)(
+            timestamp,
+            event_type = 'pageview',
+            event_type = 'click',
+            event_type = 'purchase'
+        ) AS level
+    FROM events
+    GROUP BY user_id
+)","Code: 43. DB::Exception: Illegal type DateTime64(3, 'UTC') of first argument of aggregate function windowFunnel, must be Unsigned Number, Date, DateTime. (ILLEGAL_TYPE_OF_ARGUMENT) (version 26.8.19.9 (official build))
+",pilot:1:t6_01:deepseek/deepseek-v4.1-flash@inference-net/fp8

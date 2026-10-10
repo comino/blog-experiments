@@ -1,0 +1,6 @@
+<clickhouse>
+    <max_server_memory_usage_to_ram_ratio>0.65</max_server_memory_usage_to_ram_ratio>
+    <background_pool_size>16</background_pool_size>
+    <background_schedule_pool_size>8</background_schedule_pool_size>
+    <logger><level>warning</level><console>true</console></logger>
+</clickhouse>

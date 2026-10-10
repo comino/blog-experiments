@@ -1,0 +1,35 @@
+[
+  {
+    "role": "assistant",
+    "content": "",
+    "tool_calls": [
+      {
+        "id": "chatcmpl-tool-a6d38a6df9ecea96",
+        "type": "function",
+        "function": {
+          "name": "explore_mcp_clickhouse",
+          "arguments": "{\"query\":\"SELECT source_month, count() AS trips FROM trips GROUP BY source_month ORDER BY source_month\",\"title\":\"Monthly Trip Volume by Source-File Month (2023\u20132025)\",\"chart\":\"line\",\"x\":\"source_month\",\"y\":\"trips\"}"
+        }
+      }
+    ]
+  },
+  {
+    "role": "tool",
+    "content": "{\"row_count\": 36, \"columns\": [\"source_month\", \"trips\"], \"preview\": [[\"2023-01-01\", 3066766], [\"2023-02-01\", 2913955], [\"2023-03-01\", 3403766]], \"statistics_over_all_returned_rows\": {\"trips\": {\"min\": 2824209, \"max\": 4591845, \"sum\": 128202548}}, \"title\": \"Monthly Trip Volume by Source-File Month (2023\\u20132025)\", \"instruction\": \"Emit the UI Resource Marker first. Do not infer a range or trend from the three-row preview. State only facts supported by the complete-result statistics, or simply identify the chart.\"}\n\nUI Resource ID: e0dec59060\nUI Resource Marker: \\ui{e0dec59060}\nResource URI: ui://taxi-explorer/03bf5e47250f44f38427b810c50f919b\nResource MIME Type: text/html\n\nUI Resource Markers Available:\n- Each resource above includes a stable ID and a marker hint like `\\ui{abc123}`\n- You should usually introduce what you're showing before placing the marker\n- For a single resource: \\ui{resource-id}\n- For multiple resources shown separately: \\ui{resource-id-a} \\ui{resource-id-b}\n- For multiple resources in a carousel: \\ui{resource-id-a,resource-id-b,resource-id-c}\n- The UI will be rendered inline where you place the marker\n- Format: \\ui{resource-id} or \\ui{id1,id2,id3} using the IDs provided above",
+    "name": "explore_mcp_clickhouse",
+    "tool_call_id": "chatcmpl-tool-a6d38a6df9ecea96"
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "System notice: this turn has about 2 more tool-calling rounds left before it is cut off. Stop broadening the search and start converging: use what you already have, make only calls you cannot finish without, and leave room to write the final answer.",
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson",
+  "sha256_original": "6866c877d39cba9c357620878839b336d569f8c662d3cfab4cb1dbe2d39c977f",
+  "license": "Public domain",
+  "scale": "1:110m",
+  "retrieved": "2026-10-07",
+  "transformation": "Drop unrelated properties; coordinates unchanged"
+}

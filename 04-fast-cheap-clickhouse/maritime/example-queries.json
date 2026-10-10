@@ -1,0 +1,56 @@
+[
+  {
+    "id": "daily_activity",
+    "purpose": "Distinct vessel activity versus broadcast volume; daily per-type counts are not additive unique totals.",
+    "min_rows": 31,
+    "sql": "SELECT source_date AS day, vessel_type, uniqExact(vessel_id) AS active_vessels, count() AS broadcasts FROM exploration.ais_positions GROUP BY day, vessel_type ORDER BY day, vessel_type LIMIT 1000"
+  },
+  {
+    "id": "milton_intensity",
+    "purpose": "Full Milton best-track lifecycle with source intensity, radii and interpolation flags.",
+    "min_rows": 50,
+    "sql": "SELECT observed_at, longitude, latitude, wind_knots, pressure_hpa, category, radius_34_ne_km, radius_34_se_km, radius_34_sw_km, radius_34_nw_km, usa_interpolation, usa_record FROM exploration.storm_tracks WHERE storm_name='MILTON' ORDER BY observed_at LIMIT 200"
+  },
+  {
+    "id": "traffic_heatmap",
+    "purpose": "Hour by date active-vessel heatmap, suitable for linked storm-time exploration.",
+    "min_rows": 744,
+    "sql": "SELECT source_date AS day, toHour(observed_at) AS hour_utc, uniqExact(vessel_id) AS active_vessels FROM exploration.ais_positions GROUP BY day, hour_utc ORDER BY day, hour_utc LIMIT 1000"
+  },
+  {
+    "id": "cargo_density",
+    "purpose": "One-degree grid centers of distinct cargo vessels, Oct9; the full selected regional grid fits below1000 rows. Counts are not individual locations.",
+    "min_rows": 10,
+    "sql": "SELECT floor(longitude)+0.5 AS longitude, floor(latitude)+0.5 AS latitude, uniqExact(vessel_id) AS vessels, count() AS broadcasts FROM exploration.ais_positions WHERE source_date='2024-10-09' AND vessel_type='Cargo' GROUP BY longitude, latitude ORDER BY longitude,latitude LIMIT 1000"
+  },
+  {
+    "id": "vessel_replay",
+    "purpose": "Last observed position per 10-minute bin for five cargo vessels on Oct9; no interpolated points.",
+    "min_rows": 100,
+    "sql": "WITH chosen AS (SELECT vessel_id FROM exploration.ais_positions WHERE source_date='2024-10-09' AND vessel_type='Cargo' GROUP BY vessel_id ORDER BY count() DESC, vessel_id LIMIT 5) SELECT a.vessel_id, toStartOfInterval(a.observed_at, INTERVAL 10 MINUTE) AS frame_at, argMax(tuple(a.observed_at,a.longitude,a.latitude,a.speed_knots,a.vessel_name,a.vessel_type),a.observed_at) AS point, point.1 AS observed_at,point.2 AS longitude,point.3 AS latitude,point.4 AS speed_knots,point.5 AS vessel_name,point.6 AS vessel_type FROM exploration.ais_positions AS a WHERE a.source_date='2024-10-09' AND a.vessel_id IN (SELECT vessel_id FROM chosen) GROUP BY a.vessel_id, frame_at ORDER BY a.vessel_id, frame_at LIMIT 1000"
+  },
+  {
+    "id": "storm_proximity",
+    "purpose": "Vessel-hour observations within300km of the most recent Milton best-track position, at most3h old. This is proximity, not evidence of impact.",
+    "min_rows": 1,
+    "sql": "WITH vessel_hours AS (SELECT 1 AS match_key, a.vessel_id, toStartOfHour(a.observed_at) AS hour, max(a.observed_at) AS observed_at, any(a.vessel_type) AS vessel_type, argMax(a.longitude,a.observed_at) AS longitude, argMax(a.latitude,a.observed_at) AS latitude FROM exploration.ais_positions AS a WHERE a.source_date='2024-10-09' GROUP BY a.vessel_id,hour) SELECT v.hour, v.vessel_type, uniqExact(v.vessel_id) AS vessels, round(min(geoDistance(v.longitude,v.latitude,s.longitude,s.latitude))/1000,1) AS nearest_km FROM (SELECT * FROM vessel_hours ORDER BY observed_at) AS v ASOF INNER JOIN (SELECT 1 AS match_key,observed_at,longitude,latitude FROM exploration.storm_tracks WHERE storm_name='MILTON' ORDER BY observed_at) AS s ON v.match_key=s.match_key AND v.observed_at>=s.observed_at WHERE dateDiff('second',s.observed_at,v.observed_at)<=10800 AND geoDistance(v.longitude,v.latitude,s.longitude,s.latitude)<=300000 GROUP BY v.hour,v.vessel_type ORDER BY v.hour,v.vessel_type LIMIT 500"
+  },
+  {
+    "id": "continuous_low_speed",
+    "purpose": "Find at least6h of sub1kn reports for Cargo/Tanker on Oct9, splitting at report gaps over10min; not a claim of anchoring or waiting.",
+    "min_rows": 1,
+    "sql": "WITH ordered AS (SELECT vessel_id,vessel_name,vessel_type,observed_at,ifNull(speed_knots<1,0) AS is_slow,lagInFrame(ifNull(speed_knots<1,0),1,0) OVER w AS previous_slow,lagInFrame(observed_at,1,observed_at) OVER w AS previous_time FROM exploration.ais_positions WHERE source_date='2024-10-09' AND vessel_type IN ('Cargo','Tanker') WINDOW w AS (PARTITION BY vessel_id ORDER BY observed_at ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)), segmented AS (SELECT *,sum(if(is_slow!=previous_slow OR dateDiff('second',previous_time,observed_at)>600,1,0)) OVER (PARTITION BY vessel_id ORDER BY observed_at ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS segment FROM ordered) SELECT vessel_id,any(vessel_name) AS vessel_name,any(vessel_type) AS vessel_type,min(observed_at) AS started_at,max(observed_at) AS ended_at,round(dateDiff('second',started_at,ended_at)/3600,2) AS duration_hours,count() AS reports FROM segmented WHERE is_slow=1 GROUP BY vessel_id,segment HAVING dateDiff('second',started_at,ended_at)>=21600 ORDER BY dateDiff('second',started_at,ended_at) DESC,vessel_id LIMIT 30"
+  },
+  {
+    "id": "ais_report_gaps",
+    "purpose": "Measured within-day gaps between reports on Oct9; first report for each vessel is excluded. Supports honest replay gap policy.",
+    "min_rows": 1,
+    "sql": "SELECT quantilesExact(0.5,0.9,0.99)(gap_seconds) AS gap_quantiles_seconds,countIf(gap_seconds>600) AS gaps_over_10m,max(gap_seconds) AS max_gap_seconds FROM (SELECT dateDiff('second',lagInFrame(observed_at,1,toDateTime(0)) OVER (PARTITION BY vessel_id ORDER BY observed_at ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW),observed_at) AS gap_seconds FROM exploration.ais_positions WHERE source_date='2024-10-09') WHERE gap_seconds<86400"
+  },
+  {
+    "id": "ais_duplicate_timestamps",
+    "purpose": "Source can contain multiple positions at one vessel/timestamp; these are reported, preserved by the loader and must be reconciled coherently for playback.",
+    "min_rows": 1,
+    "sql": "SELECT count() AS duplicate_vessel_time_groups,sum(n-1) AS excess_rows,countIf(locations>1) AS conflicting_location_groups FROM (SELECT vessel_id,observed_at,count() AS n,uniqExact(tuple(longitude,latitude)) AS locations FROM exploration.ais_positions WHERE source_date='2024-10-09' GROUP BY vessel_id,observed_at HAVING n>1)"
+  }
+]

@@ -1,0 +1,78 @@
+# Credentials, authentication state, and mutable application data.
+.env
+.env.*
+*.env
+!.env.example
+!*.env.example
+private/
+runtime/
+*.pem
+*.key
+*.p12
+*.sqlite*
+*.db
+*.duckdb
+*.parquet
+
+# Local tools and downloaded reference material. The browser's licensed assets
+# in canvas/static/vendor are part of the application and MUST be tracked.
+.venv/
+.venv-canvas/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+node_modules/
+/vendor/
+*.pid
+*.sock
+*.log
+.DS_Store
+
+# Machine/account records remain beside the checkout for existing deploy tools.
+infrastructure.json
+infrastructure-pricing.json
+server-type-pricing.json
+account-*.json
+spending.json
+cleanup.json
+/*.png
+
+# Keep compact, reviewed evidence; raw application traces and recordings stay
+# local. New recordings are ignored automatically.
+/evidence/*
+!/evidence/analysis.json
+!/evidence/dataset.json
+!/evidence/source-manifest.json
+!/evidence/plotly-source.json
+!/evidence/runtime-versions.json
+!/evidence/references.json
+!/evidence/remote-sha256.json
+!/evidence/setup-and-rehearsal.json
+!/evidence/subsecond-analysis/
+/performance/*
+!/performance/*/
+/performance/*/*
+!/performance/*/analysis.json
+!/performance/*/validation.json
+!/performance/*/checks.json
+!/performance/*/summary.json
+!/performance/*/media-validation.json
+!/performance/*/verification.json
+!/performance/*/sha256.json
+!/performance/*/gif-validation.json
+!/performance/*/review.json
+!/performance/*/http.json
+!/performance/*/evidence-integrity.json
+!/performance/*/final-layout.json
+!/performance/*/unit-tests.txt
+!/performance/canvas-navigation-03/browser.json
+!/performance/canvas-navigation-03/live-arrival.json
+!/performance/chart-asset.json
+!/performance/chart-before.html
+!/performance/gateway-before.py
+!/performance/librechat-before.yaml
+
+# Full benchmark attempts are tracked as lossless gzip archives. Expand locally
+# before running the original audit/analysis scripts.
+/benchmarks/*/results/full.jsonl

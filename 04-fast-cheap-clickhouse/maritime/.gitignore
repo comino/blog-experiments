@@ -1,0 +1,7 @@
+cache/
+.import.lock
+load.jsonl
+*.parquet
+*.csv
+*.jsonl.tmp
+*.json.tmp

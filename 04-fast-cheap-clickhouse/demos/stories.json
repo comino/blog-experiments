@@ -1,0 +1,490 @@
+{
+  "version": 3,
+  "method": "Prepared live demos, not a blind model benchmark. Fresh QA sessions; real OpenRouter and ClickHouse calls. Local visualization edits explicitly marked.",
+  "stories": [
+    {
+      "id": "monarch-seasonal-footprint",
+      "title": "A monarch year, rising northward",
+      "dataset_id": "wildlife",
+      "narrative": "The geography of reported monarch observations shifts through the year. Keep the map and seasonal wheel, turn a separate month-by-latitude heatmap into a 3D landscape, then reveal the licensed photos inside one marked cell.",
+      "expected_final_cards": 4,
+      "verified_facts": {
+        "annual_observations": 66712,
+        "density_cells": 90,
+        "season_rows": 12,
+        "month_latitude_cells": 119,
+        "january_median_latitude": 28.42,
+        "july_median_latitude": 41.94,
+        "december_median_latitude": 30.25,
+        "january_pct_at_or_north_of_40": 0.6,
+        "july_pct_at_or_north_of_40": 69.1,
+        "august_40_to_45N_observations": 10225,
+        "august_40_to_45N_photo_eligible_observations": 919,
+        "verified_gallery_rows": 12
+      },
+      "caveats": [
+        "These are observations from different reports, not tracked individual butterflies or population estimates.",
+        "Observer effort, reporting and identification affect the pattern; the display alone does not establish a migration route.",
+        "Latitude bins are aggregate public coordinates and may include obscured locations.",
+        "The final gallery is an illustrative CC0/CC-BY subset, not a random sample of all observations; images can show multiple life stages."
+      ],
+      "steps": [
+        {
+          "id": "map",
+          "prompt": "Create a 5-degree density map of monarch observations in 2025: Danaus plexippus, taxon_id 48662, longitude -130 to -60 and latitude 0 inclusive to 60 exclusive. Use bin centers and the full wildlife table, count reported observations, and include cell_size_deg=5.",
+          "expect": {
+            "chart": "density",
+            "exact_rows": 90
+          },
+          "reference": "monarch_density_5deg"
+        },
+        {
+          "id": "wheel",
+          "prompt": "Add a seasonal wheel of monthly reported observations for exactly the same 2025 monarch cohort and region. Keep the map.",
+          "expect": {
+            "chart": "seasons",
+            "exact_rows": 12
+          },
+          "reference": "monarch_seasonal_wheel"
+        },
+        {
+          "id": "latitude",
+          "prompt": "Add a heatmap for the same 2025 monarch cohort and region: month on the horizontal axis, 5-degree latitude-bin centers on the vertical axis, and reported observation count as color. Name the columns month, latitude_band and observations.",
+          "expect": {
+            "chart": "heatmap",
+            "exact_rows": 119
+          },
+          "reference": "monarch_month_latitude"
+        },
+        {
+          "id": "surface",
+          "prompt": "make it 3d",
+          "expect": {
+            "chart": "surface",
+            "exact_rows": 119
+          },
+          "target": "latitude",
+          "local": true,
+          "mark_peak": {
+            "where": {
+              "month": 8,
+              "latitude_band": 42.5
+            }
+          },
+          "actions": [
+            {
+              "action": "orbit",
+              "ms": 3000
+            }
+          ],
+          "reference": "monarch_month_latitude"
+        },
+        {
+          "id": "photos",
+          "prompt": "Add 12 licensed photos from this marked cell, ordered by observation date then observation ID. Keep the existing views.",
+          "expect": {
+            "chart": "gallery",
+            "exact_rows": 12
+          },
+          "target": "surface",
+          "actions": [
+            {
+              "action": "photo",
+              "ms": 2600
+            }
+          ],
+          "reference": "monarch_august_cell_gallery"
+        }
+      ]
+    },
+    {
+      "id": "fungi-opposite-seasons",
+      "title": "Two hemispheres, two fungal calendars",
+      "dataset_id": "wildlife",
+      "narrative": "Europe has far more raw reports, so normalize each region to its own annual total. The peaks separate: October in the European box and May in the Australian box. A local map and unusual real fungi photographs make the abstract comparison tangible.",
+      "expected_final_cards": 4,
+      "verified_facts": {
+        "northern_europe_annual_observations": 568859,
+        "southeastern_australia_annual_observations": 103810,
+        "normalized_rows": 24,
+        "europe_peak_month": 10,
+        "europe_peak_observations": 144599,
+        "europe_peak_annual_share_pct": 25.42,
+        "australia_peak_month": 5,
+        "australia_peak_observations": 22354,
+        "australia_peak_annual_share_pct": 21.53,
+        "two_box_density_cells": 142,
+        "australia_may_density_cells": 70,
+        "sydney_may_cell_observations": 6202,
+        "sydney_may_cell_photo_eligible_observations": 920,
+        "gallery_rows": 12
+      },
+      "caveats": [
+        "Regions are explicit rectangular map boxes, not exact political borders or all of either hemisphere.",
+        "Monthly percentages sum to about 100 within each box; they are not shares of global fungi observations and are not estimates of fungal abundance.",
+        "Normalization removes total-volume differences, not observer effort or reporting bias; no weather or causal data is being inferred.",
+        "The chart cannot show when fungi actually fruited or how many organisms existed.",
+        "The gallery is an illustrative licensed subset. scientific_name can be a higher-level taxon, so say varied names/taxa rather than twelve distinct species.",
+        "The normalized query uses a nested aggregation/window. Mark the simple final map before requesting photos; do not try to drill through the normalized chart."
+      ],
+      "steps": [
+        {
+          "id": "map",
+          "prompt": "Map 2025 fungi observations in two temperate boxes: Northern Europe box, latitude 48 to 60 and longitude -10 to 30; Southeastern Australia box, latitude -40 to -30 and longitude 140 to 154. Use a 2-degree density grid with bin centers, count reported observations from the full wildlife table, and include cell_size_deg=2.",
+          "expect": {
+            "chart": "density",
+            "exact_rows": 142
+          },
+          "reference": "fungi_two_boxes_density_2deg"
+        },
+        {
+          "id": "months",
+          "prompt": "Add a two-series monthly line chart comparing those same two fungi boxes in 2025. For each box separately, divide each month's observation count by that box's total for the year and multiply by 100. Return month, region, observations and annual_share_pct; x=month, y=annual_share_pct, z=region. Label it as each region's share of annual reported observations. Use region labels Northern Europe box and Southeastern Australia box.",
+          "expect": {
+            "chart": "line",
+            "exact_rows": 24
+          },
+          "reference": "fungi_normalized_seasons"
+        },
+        {
+          "id": "wheel",
+          "prompt": "make it a seasonal wheel",
+          "expect": {
+            "chart": "seasons",
+            "exact_rows": 24
+          },
+          "target": "months",
+          "local": true,
+          "focus": true,
+          "actions": [
+            {
+              "action": "season_group",
+              "label": "Northern Europe box"
+            },
+            {
+              "action": "season_group",
+              "label": "Southeastern Australia box"
+            }
+          ],
+          "reference": "fungi_normalized_seasons"
+        },
+        {
+          "id": "australia",
+          "prompt": "Add a close-up density map of fungi observations in the Southeastern Australia box during May 2025, latitude -40 to -30 and longitude 140 to 154. Use 1-degree bin centers, count reported observations and include cell_size_deg=1.",
+          "expect": {
+            "chart": "density",
+            "exact_rows": 70
+          },
+          "reference": "fungi_australia_may_density_1deg"
+        },
+        {
+          "id": "photos",
+          "prompt": "Add exactly 12 licensed photos in total from this marked cell. Within each scientific name, rank observations by date then observation ID and keep its first two; from those, take the first 12 overall in the same order. Keep the existing views.",
+          "expect": {
+            "chart": "gallery",
+            "exact_rows": 12
+          },
+          "target": "australia",
+          "mark_peak": {
+            "x": 151.5,
+            "y": -33.5
+          },
+          "actions": [
+            {
+              "action": "photo",
+              "ms": 2600
+            }
+          ],
+          "reference": "fungi_sydney_may_gallery_diverse"
+        }
+      ]
+    },
+    {
+      "id": "mississippi-motion-and-stillness",
+      "title": "The busy map that barely moves",
+      "dataset_id": "maritime",
+      "reveal": "Three commercial vessels trace the river while three ships report almost no motion for nearly24hours. Dense reporting and actual movement are different measures.",
+      "expected_final_cards": 4,
+      "verified_reveals": {
+        "african_teal_continuous_low_speed_hours": 23.95,
+        "cssc_tai_yuan_continuous_low_speed_hours": 23.95,
+        "genco_mary_continuous_low_speed_hours": 23.95,
+        "slow_spell_sql_seconds": 0.075313252,
+        "hourly_mean_speed_ranges": [
+          {
+            "vessel_id": "311001216",
+            "vessel_name": "AFRICAN TEAL",
+            "observed_hours": 24,
+            "min_hourly_mean_knots": 0,
+            "max_hourly_mean_knots": 0.05,
+            "min_hour_utc": "2024-10-09 04:00:00",
+            "max_hour_utc": "2024-10-09 20:00:00"
+          },
+          {
+            "vessel_id": "477615900",
+            "vessel_name": "CSSC TAI YUAN",
+            "observed_hours": 24,
+            "min_hourly_mean_knots": 0.01,
+            "max_hourly_mean_knots": 0.1,
+            "min_hour_utc": "2024-10-09 22:00:00",
+            "max_hour_utc": "2024-10-09 12:00:00"
+          },
+          {
+            "vessel_id": "538004628",
+            "vessel_name": "CHEM RANGER",
+            "observed_hours": 24,
+            "min_hourly_mean_knots": 6.9,
+            "max_hourly_mean_knots": 12.74,
+            "min_hour_utc": "2024-10-09 23:00:00",
+            "max_hour_utc": "2024-10-09 12:00:00"
+          },
+          {
+            "vessel_id": "538009752",
+            "vessel_name": "GENCO MARY",
+            "observed_hours": 24,
+            "min_hourly_mean_knots": 0,
+            "max_hourly_mean_knots": 0.01,
+            "min_hour_utc": "2024-10-09 00:00:00",
+            "max_hour_utc": "2024-10-09 16:00:00"
+          },
+          {
+            "vessel_id": "538090649",
+            "vessel_name": "AQUAVITA TRADER",
+            "observed_hours": 24,
+            "min_hourly_mean_knots": 7.97,
+            "max_hourly_mean_knots": 12.33,
+            "min_hour_utc": "2024-10-09 23:00:00",
+            "max_hour_utc": "2024-10-09 11:00:00"
+          },
+          {
+            "vessel_id": "563105500",
+            "vessel_name": "FAIRCHEM FORTITUDE",
+            "observed_hours": 19,
+            "min_hourly_mean_knots": 11.18,
+            "max_hourly_mean_knots": 13.68,
+            "min_hour_utc": "2024-10-09 04:00:00",
+            "max_hour_utc": "2024-10-09 14:00:00"
+          }
+        ]
+      },
+      "cautions": [
+        "Speed bin averages are averages of reported speeds, not time-weighted travel averages.",
+        "A low-speed run alone does not establish anchoring, berth waiting, congestion or a closed port.",
+        "Do not calculate a run as max(time)-min(time) after merely filtering speed<1: that bridges gaps and faster travel.",
+        "For the complex query avoid aggregate aliases that shadow original columns in WHERE (e.g.any(vessel_type) AS vessel_type). Use type_label/name_label.",
+        "Six hourly speed series return139 rows, including five missing vessel/hour cells. Do not fill those missing cells with zero.",
+        "The replay uses whole-day vessel journeys, whereas the regional analyses use the explicit box; label that distinction."
+      ],
+      "steps": [
+        {
+          "id": "replay",
+          "prompt": "Replay these six vessels around the lower Mississippi: AQUAVITA TRADER (538090649), CHEM RANGER (538004628), FAIRCHEM FORTITUDE (563105500), AFRICAN TEAL (311001216), CSSC TAI YUAN (477615900), and GENCO MARY (538009752). Use the full UTC day from 2024-10-09T00:00:00Z inclusive to 2024-10-10T00:00:00Z exclusive. Keep each vessel's entire available journey for that day.",
+          "expect": {
+            "chart": "tracks",
+            "exact_rows": 6
+          },
+          "actions": [
+            {
+              "action": "play",
+              "position": 3000,
+              "ms": 3500
+            }
+          ],
+          "reference": "river_replay"
+        },
+        {
+          "id": "speeds",
+          "prompt": "Add a line chart of the same six vessels' mean reported speed in knots, from 2024-10-09T00:00:00Z inclusive to 2024-10-10T00:00:00Z exclusive. Return one row per hour and vessel_id: group only by hour and vessel_id, and use any(vessel_name) only as a display label. Show a separate named series for each vessel. Name the time column hour, keep missing hours missing, and keep the replay.",
+          "expect": {
+            "chart": "line",
+            "exact_rows": 139
+          },
+          "reference": "river_speeds"
+        },
+        {
+          "id": "scrub",
+          "target": "replay",
+          "actions": [
+            {
+              "action": "scrub",
+              "position": 5500,
+              "ms": 1800
+            }
+          ]
+        },
+        {
+          "id": "slow",
+          "prompt": "Now look across all cargo ships and tankers in the lower Mississippi box, latitude 28.5 to 30.2 and longitude -90.5 to -88.6, from 2024-10-09T00:00:00Z inclusive to 2024-10-10T00:00:00Z exclusive. Add a table of the 10 longest runs of below-1-knot reports lasting at least six hours. Within each vessel's chronological reports in this box, break a run when speed reaches 1 knot, speed is unknown, or the gap exceeds 10 minutes. Use elapsed seconds for the six-hour test and ranking; round hours only for display. Include vessel name, start, end, duration, and report count. Label these low-speed runs.",
+          "expect": {
+            "chart": "table",
+            "exact_rows": 10
+          },
+          "clear_mark": true,
+          "reference": "river_slow_spells"
+        },
+        {
+          "id": "activity",
+          "prompt": "Add a heatmap of the lower Mississippi area's moving cargo ships and tankers, from 2024-10-01T00:00:00Z inclusive to 2024-10-16T00:00:00Z exclusive. Use latitude 28.5 to 30.2 and longitude -90.5 to -88.6, independently of the six replay vessels or the low-speed table. Count distinct vessel IDs with a reported speed of at least 3 knots in each cell. Use calendar day on x and UTC hour on y.",
+          "expect": {
+            "chart": "heatmap",
+            "exact_rows": 360
+          },
+          "reference": "river_moving_matrix"
+        },
+        {
+          "id": "surface",
+          "prompt": "make it 3d",
+          "expect": {
+            "chart": "surface",
+            "exact_rows": 360
+          },
+          "target": "activity",
+          "local": true,
+          "focus": true,
+          "actions": [
+            {
+              "action": "orbit",
+              "ms": 3000
+            }
+          ],
+          "reference": "river_moving_matrix"
+        }
+      ],
+      "short_spoken_reveal": "Three vessels move along the river; three report almost zero speed for nearly a day."
+    },
+    {
+      "id": "elsa-and-milton",
+      "title": "A cargo ship goes the other way",
+      "dataset_id": "maritime",
+      "reveal": "ELSA travels west across the Gulf and returns while Milton travels toward Florida; Tampa reported vessel activity falls much more than the east-coast comparison. Observations do not establish why ELSA chose the route.",
+      "expected_final_cards": 4,
+      "verified_reveals": {
+        "tampa_baseline_oct1_5": 233.4,
+        "everglades_baseline_oct1_5": 677,
+        "tampa_oct9_ids": 127,
+        "tampa_oct9_index": 54.4,
+        "everglades_oct9_index": 91.4,
+        "tampa_oct15_index": 96.8,
+        "elsa_westernmost_longitude": -89.92249,
+        "elsa_max_report_gap_hours": 3.83,
+        "elsa_gaps_over_10_minutes": 90,
+        "elsa_westernmost_hour_utc": "2024-10-10 04:00:00",
+        "elsa_westernmost_hourly_reported_longitude": -89.92249,
+        "elsa_raw_westernmost": {
+          "observed_at": "2024-10-10 04:53:42",
+          "hour": "2024-10-10 04:00:00",
+          "longitude": -89.92249,
+          "latitude": 27.18541,
+          "speed_knots": 2.7
+        },
+        "elsa_hourly_rows": 137,
+        "elsa_missing_hour_bins": 7
+      },
+      "cautions": [
+        "Keep ELSA replay free of a Tampa bounding box; otherwise the interesting offshore journey is cut away.",
+        "Use the same exact date bounds in replay and linked line. UTC Oct7 through12 means >=2024-10-07 and <2024-10-13.",
+        "The comparison boxes are analyst-selected geographic areas, not official port boundaries. Counts are reports of IDs, not arrivals.",
+        "The baseline is a normalization reference, not a causal control; reception outages and reporting behavior can change counts.",
+        "Preserve trajectory gaps; 137 of144 possible hourly bins have reports. Clear any marked selection before port-wide analyses.",
+        "Playback uses sampled positions and may interpolate short intervals; long reporting gaps remain unknown. The raw ELSA reports include a 3.83-hour gap."
+      ],
+      "steps": [
+        {
+          "id": "replay",
+          "prompt": "Create one replay view for cargo ship ELSA, vessel ID 538006273, for the full six-day UTC interval: start 2024-10-07T00:00:00Z inclusive, end 2024-10-13T00:00:00Z exclusive. Keep her entire available Gulf journey.",
+          "expect": {
+            "chart": "tracks",
+            "exact_rows": 1
+          },
+          "actions": [
+            {
+              "action": "play",
+              "position": 2800,
+              "ms": 3500
+            },
+            {
+              "action": "satellite",
+              "ms": 2000
+            }
+          ],
+          "reference": "elsa_replay"
+        },
+        {
+          "id": "longitude",
+          "prompt": "Add ELSA's reported longitude over UTC time for exactly the same six days: start 2024-10-07T00:00:00Z inclusive, end 2024-10-13T00:00:00Z exclusive. Use the last observed longitude in each hourly bin and name the time column hour. Keep missing hours missing and keep the replay.",
+          "expect": {
+            "chart": "line",
+            "exact_rows": 137
+          },
+          "reference": "elsa_longitude"
+        },
+        {
+          "id": "scrub",
+          "target": "replay",
+          "actions": [
+            {
+              "action": "scrub",
+              "position": 5200,
+              "ms": 1800
+            }
+          ]
+        },
+        {
+          "id": "ports",
+          "prompt": "Add a two-series line chart of daily distinct vessel IDs, from 2024-10-01T00:00:00Z inclusive to 2024-10-16T00:00:00Z exclusive. Compare Tampa Bay (latitude 27.5 to 28.1, longitude -82.9 to -82.35) with the Port Everglades area (latitude 25.95 to 26.25, longitude -80.2 to -79.8). These are IDs reported in geographic boxes; label them that way. Include all vessels in the boxes, independently of ELSA.",
+          "expect": {
+            "chart": "line",
+            "exact_rows": 30
+          },
+          "clear_mark": true,
+          "reference": "raw_ports"
+        },
+        {
+          "id": "index",
+          "prompt": "Change this comparison chart to an activity index. For each area separately, set its mean daily distinct-vessel count from 2024-10-01T00:00:00Z inclusive to 2024-10-06T00:00:00Z exclusive equal to 100. Plot each daily count divided by its own baseline, times 100. Keep the same boxes and all 15 days, from 2024-10-01T00:00:00Z inclusive to 2024-10-16T00:00:00Z exclusive. Keep the other views.",
+          "expect": {
+            "chart": "line",
+            "exact_rows": 30
+          },
+          "target": "ports",
+          "intent": "update",
+          "reference": "normalized_ports"
+        },
+        {
+          "id": "activity",
+          "prompt": "Add a heatmap of distinct vessel IDs reported in Tampa Bay, latitude 27.5 to 28.1 and longitude -82.9 to -82.35. Use the full six-day UTC interval from 2024-10-07T00:00:00Z inclusive to 2024-10-13T00:00:00Z exclusive. Put calendar day on x, UTC hour on y, and distinct vessel count in the color. Include all vessels in the box and keep the other views.",
+          "expect": {
+            "chart": "heatmap",
+            "exact_rows": 144
+          },
+          "reference": "tampa_matrix"
+        },
+        {
+          "id": "surface",
+          "prompt": "make it 3d",
+          "expect": {
+            "chart": "surface",
+            "exact_rows": 144
+          },
+          "target": "activity",
+          "local": true,
+          "focus": true,
+          "actions": [
+            {
+              "action": "orbit",
+              "ms": 3000
+            }
+          ],
+          "reference": "tampa_matrix"
+        }
+      ],
+      "short_spoken_reveal": "ELSA heads west as Milton approaches Florida. Tampa's reported vessel count falls to 54 percent of its early-October baseline."
+    }
+  ],
+  "recommended_recording_order": [
+    "monarch-seasonal-footprint",
+    "fungi-opposite-seasons",
+    "mississippi-motion-and-stillness",
+    "elsa-and-milton"
+  ]
+}
